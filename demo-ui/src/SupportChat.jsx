@@ -49,6 +49,8 @@ function Reply({ data, active, onAction }) {
 
 export default function SupportChat() {
   const [open, setOpen] = useState(false);
+  const [sizing, setSizing] = useState(false);
+  const [size, setSize] = useState({ width: 480, height: 730 });
   const [messages, setMessages] = useState([]);
   const [navigation, setNavigation] = useState([]);
   const [input, setInput] = useState('');
@@ -98,11 +100,7 @@ export default function SupportChat() {
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = messages.length <= 1 ? 0 : scrollRef.current.scrollHeight; }, [open, messages, busy, error]);
   function keyboard(event) {
     if (event.key === 'Escape') { event.preventDefault(); close(); }
-    if (event.key !== 'Tab') return;
-    const controls = [...panel.current.querySelectorAll('button:not(:disabled), input:not(:disabled), a[href]')];
-    const first = controls[0], last = controls[controls.length - 1];
-    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
-    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+
   }
   const allOptions = navigation.flatMap(menu => (menu.options || []).map(option => ({ option, menu })));
   const back = allOptions.find(({ option }) => label(option).trim().toLowerCase() === 'back to topics');
@@ -110,8 +108,9 @@ export default function SupportChat() {
   const disabled = busy || !ready;
   return <aside className="support-widget">
     <button ref={launcher} className="support-launcher" aria-label="Open SU-support" aria-expanded={open} onClick={show}><span className="launcher-symbol"><Icon name="message" size={27} /><i /></span><span>Ask SU-support</span></button>
-    {open && <><div className="support-backdrop" onClick={close} /><section ref={panel} className="support-panel" role="dialog" aria-modal="true" aria-label="SU-support chat" onKeyDown={keyboard}>
-      <header className="support-header"><div className="support-brand"><span className="support-avatar"><Icon name="message" size={23} /></span><div><strong>SU-support</strong><span>Your disability allowance guide</span></div></div><div className="support-tools"><button autoFocus type="button" className="support-tool" aria-label="Start a new chat" onClick={initialize} disabled={busy}><Icon name="restart" size={20} /></button><button type="button" className="support-tool" aria-label="Close SU-support" onClick={close}><Icon name="close" size={22} /></button></div></header>
+    {open && <><section ref={panel} className="support-panel" style={{ "--panel-width": `${size.width}px`, "--panel-height": `${size.height}px` }} role="dialog" aria-modal="false" aria-label="SU-support chat" onKeyDown={keyboard}>
+      <header className="support-header"><div className="support-brand"><span className="support-avatar"><Icon name="message" size={23} /></span><div><strong>SU-support</strong><span>Your disability allowance guide</span></div></div><div className="support-tools"><button type="button" className="support-tool size-toggle" aria-label="Adjust chat size" aria-expanded={sizing} onClick={() => setSizing(value => !value)}>↔</button><button autoFocus type="button" className="support-tool" aria-label="Start a new chat" onClick={initialize} disabled={busy}><Icon name="restart" size={20} /></button><button type="button" className="support-tool" aria-label="Close SU-support" onClick={close}><Icon name="close" size={22} /></button></div></header>
+      {sizing && <div className="support-size-controls"><label>Width <input aria-label="Chat width" type="range" min="360" max="760" step="10" value={size.width} onChange={event => setSize(current => ({ ...current, width: Number(event.target.value) }))} /></label><label>Height <input aria-label="Chat height" type="range" min="440" max="900" step="10" value={size.height} onChange={event => setSize(current => ({ ...current, height: Number(event.target.value) }))} /></label><button onClick={() => setSize({ width: 480, height: 730 })}>Reset size</button></div>}
       <div className="support-messages" ref={scrollRef} role="log" aria-live="polite" aria-relevant="additions">
         <div className="chat-intro"><span className="intro-eyebrow">A LITTLE HELP, WHEN YOU NEED IT</span><h2>Let’s find your answer.</h2><p>Choose a topic or ask a question about disability allowance.</p></div>
         {messages.map((message, index) => message.data ? <Reply key={message.id} data={message.data} active={!disabled && index === messages.length - 1} onAction={submit} /> : <div key={message.id} className="chat-row user"><div className="chat-bubble">{message.text}</div></div>)}

@@ -116,8 +116,8 @@ footer a { display: flex; align-items: center; gap: 2px; margin: 9px 0; font-siz
 /* The showcase shares the live FAQ flow; color is presentation only. */
 .support-launcher { display: flex; gap: 12px; width: auto; height: 60px; padding: 0 22px 0 16px; border-radius: 22px; background: linear-gradient(125deg, #2455a0, #17777e); font-weight: 700; font-size: 14px; }
 .launcher-symbol { position: relative; }.launcher-symbol i { position: absolute; right: -3px; top: -3px; width: 9px; height: 9px; border: 2px solid #fff; background: #f6c86c; border-radius: 50%; }
-.support-backdrop { position: fixed; inset: 0; background: rgba(24, 43, 64, .13); backdrop-filter: blur(2px); }
-.support-panel { width: min(480px, calc(100vw - 32px)); height: min(730px, calc(100dvh - 120px)); border: 0; box-shadow: 0 24px 80px #152f4f40; }
+
+.support-panel { width: min(var(--panel-width, 480px), calc(100vw - 48px)); height: min(var(--panel-height, 730px), calc(100dvh - 120px)); border: 0; box-shadow: 0 24px 80px #152f4f40; }
 .support-header { flex-shrink: 0; background: linear-gradient(120deg, #244e91, #16767a); padding: 19px 18px; border: 0; }
 .support-brand, .support-brand span, .support-tool { color: #fff; }.support-brand div > span { color: #e0f2f3; font-size: 12px; margin-top: 3px; }
 .support-brand .support-avatar { display: grid; width: 43px; height: 43px; background: #ffffff24; border: 1px solid #ffffff45; color: white; }
@@ -134,3 +134,7 @@ footer a { display: flex; align-items: center; gap: 2px; margin: 9px 0; font-siz
 .support-panel button:focus-visible, .support-panel a:focus-visible { outline: 3px solid #d9a442; outline-offset: 2px; }
 @media (max-width: 680px) { .support-panel { width: 100vw; height: 100dvh; border-radius: 0; }.support-note { padding-bottom: max(12px, env(safe-area-inset-bottom)); }.support-launcher { height: 56px; }.support-messages { padding: 20px 14px; } }
 @media (prefers-reduced-motion: reduce) { .support-widget *, .support-widget *::before { animation: none !important; transition: none !important; } }
+
+.support-size-controls { display: flex; flex-wrap: wrap; gap: 8px 14px; padding: 10px 16px; background: #edf5f7; flex-shrink: 0; font-size: 12px; }
+.support-size-controls label { display: flex; align-items: center; gap: 6px; flex: 1; }.support-size-controls input { width: 90px; min-width: 0; accent-color: #217c83; }.support-size-controls button { border: 0; background: none; color: #245b74; text-decoration: underline; }.size-toggle { font-size: 24px; }
+@media (max-width: 680px) { .support-panel { width: min(var(--panel-width, 480px), 100vw); height: min(var(--panel-height, 730px), 100dvh); border-radius: 18px 18px 0 0; }.support-brand div > span { max-width: 150px; }.support-header { gap: 4px; padding-inline: 12px; }.support-tools { gap: 0; } }
