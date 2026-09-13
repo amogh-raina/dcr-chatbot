@@ -68,13 +68,43 @@ def active(event):
     return event.get('enabled') is True and event.get('pending') is True
 
 
+def topic_tags(event):
+    return {tag for tag in groups(event) if tag.startswith('FAQTopic:')}
+
+
+def menu_choices(event, payload):
+    options = choices(event)
+    if 'FAQHideRead' not in groups(event):
+        return options
+    topic = topic_tags(event)
+    if len(topic) != 1:
+        raise StateError('History-aware menu needs one API topic marker')
+    completed = [e for e in payload['events'] if 'FAQTopicExplored' in groups(e)
+                 and topic_tags(e) == topic]
+    # Review is a graph-issued choice, not a browser/session flag. The menu
+    # becomes pending only after that choice executes through DCR.
+    if len(completed) == 1 and completed[0].get('executed'):
+        review = [c for c in choices(completed[0]) if c['question'] == 'Review questions']
+        if len(review) == 1 and str(completed[0].get('value')) == str(review[0]['value']):
+            return options
+    answers = [e for e in payload['events'] if 'FAQAnswer' in groups(e) and topic_tags(e) == topic]
+    visible = []
+    for option in options:
+        matches = [e for e in answers if e.get('label') == option['question']]
+        if len(matches) > 1:
+            raise StateError('Duplicate answer labels within an API topic')
+        if not matches or not matches[0].get('executed'):
+            visible.append(option)
+    return visible
+
+
 def navigation(payload, home_only=False):
     menus = [e for e in payload['events'] if e.get('enabled') is True and
              ('FAQHome' in groups(e) or (not home_only and active(e) and 'FAQTopicMenu' in groups(e)))]
     # The pending topic goes first; Home remains available for explicit browsing.
     menus.sort(key=lambda e: 'FAQHome' in groups(e))
     return [{'event_id': e['id'], 'question': e['label'],
-             'is_home': 'FAQHome' in groups(e), 'options': choices(e)} for e in menus]
+             'is_home': 'FAQHome' in groups(e), 'options': menu_choices(e, payload)} for e in menus]
 
 
 def view(state, payload):
@@ -86,7 +116,8 @@ def view(state, payload):
     state['event_id'] = pending[0]['id']
     log.info('FAQ navigation pending=%s', pending[0]['id'])
     return {'faq': True, 'status': 'navigation', 'response': pending[0]['label'],
-            'event_id': pending[0]['id'], 'navigation': nav}
+            'event_id': pending[0]['id'], 'navigation': nav,
+            'topic_explored': 'FAQTopicExplored' in groups(pending[0])}
 
 
 def fallback(state, payload, message=None, error=None):
@@ -170,6 +201,9 @@ def execute(state, candidate, payload):
         nav = view(state, after)
         response['navigation'] = nav['navigation']
         response['event_id'] = nav['event_id']
+        if nav['topic_explored']:
+            response['topic_explored'] = True
+            response['follow_up'] = nav['response']
     except StateError:
         log.error('FAQ navigation failed marking=%s', state.get('simulation_state'))
         response['error_code'] = 'navigation_error'

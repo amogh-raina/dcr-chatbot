@@ -51,3 +51,12 @@ See [README.md](README.md) for installation. Python packages are in `requirement
 Logs go to the terminal. `INFO:openchat:` includes message/context, model, rankings, decision, latency, and usage. `INFO:faq_runtime:` shows confirmation and DCR transitions. SDK HTTP debug logs are disabled. Logs may include user-entered questions and should not be shared indiscriminately.
 
 Developer checks: `python -m unittest discover -s tests`. Tests use mocked services; real DCR access and an OpenAI key are needed for a live chatbot session. Keep XML changes separate from application presentation changes; preserve canonical answers and validate changed graphs before importing.
+
+
+## Topic exploration (local graph update)
+
+The current XML adds `FAQ_Explored_1` through `FAQ_Explored_5`. DCR guards direct answer acknowledgement and Home re-entry to either the existing menu or the explored-topic choice. Conditions prevent executing that choice before every answer in its topic has executed. It offers Review questions and Back to topics; Review preserves history and responds to the original menu. Global questions cancel stale explored-topic obligations. Reading a repeated answer returns to the explored-topic prompt.
+
+`FAQTopic:N` API tags associate menus, answers and explored events. `FAQHideRead` menus omit suggestions whose uniquely matching API answer label has executed; the original menu is shown in full after the graph-issued Review choice. This is presentation over API history, not an application completion counter. Only a pending `FAQTopicExplored` event produces the completion message. Existing untagged graphs keep their previous behavior.
+
+The updated XML must be imported as a new graph before testing this behavior; graph 2012636 is the previously imported version. See `TOPIC_EXPLORATION.md` for the event/state table and relation effects.
