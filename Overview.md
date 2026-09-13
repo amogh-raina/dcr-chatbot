@@ -57,6 +57,9 @@ Developer checks: `python -m unittest discover -s tests`. Tests use mocked servi
 
 Branch `fix/mvp-conversation-flow` restores API-based unread suggestion filtering for the working MVP. `FAQHideRead` menus match choices to uniquely labeled `FAQAnswer` events within the same `FAQTopic:N` tag; executed answers are omitted. The complete global catalogue stays available for typed questions. The graph-issued Review choice exposes the complete topic list without resetting execution history. Only a pending `FAQTopicExplored` event produces the completion message.
 
-Topic names for the follow-up come from the API's Home choices. The follow-up invites further questions without suggesting a Yes/No control that the MVP does not provide. Text questions still require confirmation. The user bubble recording a click stays unchanged; the following bot message introduces the topic questions.
+Topic names for the small heading above remaining questions come from the API's Home choices. Ordinary answers have no additional guidance message. Completion still displays its concise DCR-provided message, and error guidance remains visible. Text questions still require confirmation. The user bubble recording a click stays unchanged; the following bot message introduces the topic questions.
 
 The repository XML is synchronized with the project's `outputs/dcr_conversation/SU_handicaptillaeg_FAQ_MVP.xml`; only navigation wording changes relative to that project source. Graph 2012661 is the current live MVP before this wording update. Upload the updated XML and start a fresh simulation to receive the new labels; restarting Python alone does not update DCR graph content.
+
+
+The FAQ modules (`openchat.py`, `faq_runtime.py`) do not read XML or cached graph maps. `app.py` still fetches graph XML from the DCR API at initialization for title/language and optional review parsing. FAQ decision-making uses raw simulation API events; the presence of an API-delivered XML review copy should not be confused with XML-driven runtime routing.

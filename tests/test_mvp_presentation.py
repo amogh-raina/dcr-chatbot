@@ -40,7 +40,7 @@ class MVPPresentationTests(unittest.TestCase):
   with patch.object(faq.repo,'get_raw_events',return_value=p),patch.object(faq.repo,'execute_event') as write:
    with self.assertRaises(faq.StateError):faq.handle({},dict(event_id='medical_menu',value='1'))
    write.assert_not_called()
- def test_answer_followup_uses_topic_without_yes_no_question(self):
+ def test_answer_has_topic_heading_metadata_without_repetitive_followup(self):
   p=payload();pending=copy.deepcopy(p);after=copy.deepcopy(p)
   pending['events'][2]['pending']=False;pending['events'][3]['pending']=True
   pending['events'][3]['description']='<p>Verbatim answer.</p>'
@@ -49,6 +49,7 @@ class MVPPresentationTests(unittest.TestCase):
   with patch.object(faq.repo,'execute_event',return_value=True),patch.object(faq.repo,'get_raw_events',side_effect=[pending,after]):
    result=faq.execute({},candidate,p)
   self.assertEqual(result['answer'],'<p>Verbatim answer.</p>')
-  self.assertIn('documentation',result['follow_up'])
-  self.assertNotIn('Did that answer',result['follow_up'])
+  self.assertNotIn('follow_up',result)
+  self.assertEqual(result['topic_name'],'Documentation')
+  self.assertFalse(result['topic_explored'])
   self.assertEqual([c['value'] for c in result['navigation'][0]['options']],['2','0'])

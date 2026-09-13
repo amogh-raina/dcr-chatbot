@@ -201,8 +201,7 @@ def execute(state, candidate, payload):
     log.info('FAQ pending answer=%s', answer['id'])
     # Capture verbatim before acknowledgement. No inferred next-event routing.
     response = {'faq': True, 'status': 'answer', 'response': text, 'answer': text,
-                'answer_event_id': answer['id'], 'navigation': [],
-                'follow_up': 'You can ask another question, choose another topic, or explore the questions below.'}
+                'answer_event_id': answer['id'], 'navigation': []}
     if not repo.execute_event(state, answer['id'], '', ''):
         response['error_code'] = 'answer_acknowledgement_failed'
         response['follow_up'] = 'The answer was retrieved, but navigation could not advance. Please restart the conversation.'
@@ -215,11 +214,10 @@ def execute(state, candidate, payload):
         nav = view(state, after)
         response['navigation'] = nav['navigation']
         response['event_id'] = nav['event_id']
+        response['topic_name'] = nav['topic_name']
+        response['topic_explored'] = nav['topic_explored']
         if nav['topic_explored']:
             response['follow_up'] = nav['response']
-        elif nav['topic_name']:
-            response['follow_up'] = ('You can type a question at any time, or explore more about '
-                                     + nav['topic_name'].lower() + ' below.')
     except StateError:
         log.error('FAQ navigation failed marking=%s', state.get('simulation_state'))
         response['error_code'] = 'navigation_error'
@@ -297,6 +295,6 @@ def handle(state, data):
     state['faq_match'] = {'id': match_id, 'candidates': selected,
                           'created': time.monotonic(), 'marking': marking(payload)}
     return {'faq': True, 'status': 'confirm_match' if decision == 'single_match' else 'clarify_match',
-            'response': 'Did you mean:' if decision == 'single_match' else 'I’m not entirely sure. Did you mean one of these?',
+            'response': 'Is this the question you mean?' if decision == 'single_match' else 'I’m not entirely sure. Did you mean one of these?',
             'match_id': match_id,
             'candidates': [{'candidate_key': c['candidate_key'], 'question': c['question']} for c in selected]}

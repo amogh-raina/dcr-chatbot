@@ -655,7 +655,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. You can review them, choose another topic, or type a question.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -695,7 +695,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. You can review them, choose another topic, or type a question.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -735,7 +735,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. You can review them, choose another topic, or type a question.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -775,7 +775,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. You can review them, choose another topic, or type a question.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -815,7 +815,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. You can review them, choose another topic, or type a question.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -860,7 +860,7 @@
         <label id="Here are some questions about impairment and ability to work." />
         <label id="Here are some questions about medical documentation." />
         <label id="Here are some questions about payment, work and changes after approval." />
-        <label id="You’ve explored all questions in this topic. You can review them, choose another topic, or type a question." />
+        <label id="You’ve explored all questions in this topic." />
       </labels>
       <labelMappings>
         <labelMapping eventId="FAQ_Home" labelId="Choose a topic below, or type your question at any time." />
@@ -888,11 +888,11 @@
         <labelMapping eventId="FAQ_Answer_16" labelId="How can I appeal?" />
         <labelMapping eventId="FAQ_Answer_17" labelId="How can I follow my case or contact the authority?" />
         <labelMapping eventId="Form0" labelId="Application form" />
-        <labelMapping eventId="FAQ_Explored_1" labelId="You’ve explored all questions in this topic. You can review them, choose another topic, or type a question." />
-        <labelMapping eventId="FAQ_Explored_2" labelId="You’ve explored all questions in this topic. You can review them, choose another topic, or type a question." />
-        <labelMapping eventId="FAQ_Explored_3" labelId="You’ve explored all questions in this topic. You can review them, choose another topic, or type a question." />
-        <labelMapping eventId="FAQ_Explored_4" labelId="You’ve explored all questions in this topic. You can review them, choose another topic, or type a question." />
-        <labelMapping eventId="FAQ_Explored_5" labelId="You’ve explored all questions in this topic. You can review them, choose another topic, or type a question." />
+        <labelMapping eventId="FAQ_Explored_1" labelId="You’ve explored all questions in this topic." />
+        <labelMapping eventId="FAQ_Explored_2" labelId="You’ve explored all questions in this topic." />
+        <labelMapping eventId="FAQ_Explored_3" labelId="You’ve explored all questions in this topic." />
+        <labelMapping eventId="FAQ_Explored_4" labelId="You’ve explored all questions in this topic." />
+        <labelMapping eventId="FAQ_Explored_5" labelId="You’ve explored all questions in this topic." />
       </labelMappings>
       <expressions>
         <expression id="home-1" value="FAQ_Home = 1" />
