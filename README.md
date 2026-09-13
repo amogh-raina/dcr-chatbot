@@ -20,8 +20,8 @@ A chatbot for exploring SU disability supplement FAQs. DCR supplies the answers 
    .venv\Scripts\activate.bat
    python -m pip install -r requirements.txt
    ```
-3. Make a copy of `.env.faq.example` named **`.env`**. Ask the maintainer privately for the DCR credentials (`API_KEY`, `TOKEN`) and an OpenAI key (`OPENAI_API_KEY`). Keep the repository URL and FAQ settings from the example. Your DCR account must have access to graph **2012636**, or the maintainer must supply another graph ID. Never upload your filled-in `.env` to GitHub.
-4. Run `python app.py`. Leave the terminal open and visit **http://localhost:8080/?graphid=2012636** in your browser.
+3. Make a copy of `.env.faq.example` named **`.env`**. Ask the maintainer privately for the DCR credentials (`API_KEY`, `TOKEN`) and an OpenAI key (`OPENAI_API_KEY`). Keep the repository URL and FAQ settings from the example. Your DCR account must have access to graph **2012661**, or the maintainer must supply another graph ID. Never upload your filled-in `.env` to GitHub.
+4. Run `python app.py`. Leave the terminal open and visit **http://localhost:8080/?graphid=2012661** in your browser.
 
 Next time, activate the environment using the command above and run `python app.py`. Stop with **Ctrl+C**. After code updates, reinstall `requirements.txt` and restart. Internet access is required. If authentication fails, ask the maintainer to check your keys and graph access. `INFO:openchat:` lines in the terminal show matching diagnostics.
 

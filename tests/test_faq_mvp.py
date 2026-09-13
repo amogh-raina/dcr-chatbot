@@ -54,7 +54,7 @@ class FAQGraphStructureTests(unittest.TestCase):
         }
 
     def test_flat_graph_has_five_topics_and_global_catalogue(self):
-        self.assertEqual(len(self.events), 25)
+        self.assertEqual(len(self.events), 30)
         self.assertFalse(any(e.get('type') for e in self.events))
         self.assertEqual(len([e for e in self.events if e.get('id').startswith('FAQ_Menu_')]), 5)
         self.assertEqual(len(self.by_id['FAQ_GlobalQuestion'].findall('./custom/eventData/dictionary/item')), 17)
@@ -76,7 +76,7 @@ class FAQGraphStructureTests(unittest.TestCase):
             back = next(r for r in responses if r.get('sourceId') == answer)
             self.assertTrue(back.get('targetId').startswith('FAQ_Menu_'))
         self.assertEqual({r.get('targetId') for r in cancellations if r.get('sourceId') == 'FAQ_GlobalQuestion'},
-                         {'FAQ_Home'} | {f'FAQ_Menu_{i}' for i in range(1,6)})
+                         {'FAQ_Home'} | {f'FAQ_Menu_{i}' for i in range(1,6)} | {f'FAQ_Explored_{i}' for i in range(1,6)})
 
     def test_answer_text_and_sources_live_in_the_dcr_event(self):
         for number in range(1, 18):
