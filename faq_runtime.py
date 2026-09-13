@@ -56,6 +56,30 @@ def catalogue(payload):
     return choices(selectors[0])
 
 
+def answer_matching(payload):
+    return any('GlobalInterpreter' in groups(e) and 'FAQAnswerMatching' in groups(e)
+               for e in payload['events'])
+
+
+def linked_answer(candidate, payload):
+    # This is an explicit authored API tag, not an inferred event-ID convention.
+    link = 'FAQChoice:' + candidate['candidate_key']
+    matches = [e for e in payload['events'] if link in groups(e)]
+    if len(matches) != 1:
+        raise StateError('Each FAQ choice needs exactly one API-linked answer')
+    answer = matches[0]
+    if ('FAQAnswer' not in groups(answer) or answer.get('enabled') is not True or
+            not isinstance(answer.get('description'), str) or not answer['description'].strip()):
+        raise StateError('The linked FAQ answer is unavailable or empty')
+    return answer
+
+
+def matching_catalogue(payload, candidates):
+    if not answer_matching(payload):
+        return candidates
+    return [dict(c, answer=linked_answer(c, payload)['description']) for c in candidates]
+
+
 def refresh(state):
     payload = repo.get_raw_events(state)
     if not isinstance(payload, dict) or not isinstance(payload.get('events'), list):
@@ -87,6 +111,12 @@ def menu_choices(event, payload):
         review = [c for c in choices(completed[0]) if c['question'] == 'Review questions']
         if len(review) == 1 and str(completed[0].get('value')) == str(review[0]['value']):
             return options
+    feedback = [e for e in payload['events'] if 'FAQFeedback' in groups(e)
+                and topic_tags(e) == topic and e.get('executed')]
+    if len(feedback) == 1:
+        no = [c for c in choices(feedback[0]) if c['question'].lower() == 'no']
+        if len(no) == 1 and str(feedback[0].get('value')) == no[0]['value']:
+            return options
     answers = [e for e in payload['events'] if 'FAQAnswer' in groups(e) and topic_tags(e) == topic]
     visible = []
     for option in options:
@@ -104,7 +134,8 @@ def navigation(payload, home_only=False):
     # The pending topic goes first; Home remains available for explicit browsing.
     menus.sort(key=lambda e: 'FAQHome' in groups(e))
     return [{'event_id': e['id'], 'question': e['label'],
-             'is_home': 'FAQHome' in groups(e), 'options': menu_choices(e, payload)} for e in menus]
+             'is_home': 'FAQHome' in groups(e), 'is_feedback': 'FAQFeedback' in groups(e),
+             'options': menu_choices(e, payload)} for e in menus]
 
 
 def view(state, payload):
@@ -115,9 +146,23 @@ def view(state, payload):
         raise StateError('Expected one pending navigation event')
     state['event_id'] = pending[0]['id']
     log.info('FAQ navigation pending=%s', pending[0]['id'])
-    return {'faq': True, 'status': 'navigation', 'response': pending[0]['label'],
-            'event_id': pending[0]['id'], 'navigation': nav,
-            'topic_explored': 'FAQTopicExplored' in groups(pending[0])}
+    result = {'faq': True, 'status': 'navigation', 'response': pending[0]['label'],
+              'event_id': pending[0]['id'], 'navigation': nav,
+              'topic_explored': 'FAQTopicExplored' in groups(pending[0])}
+    tags = groups(pending[0])
+    if tags & {'FAQFeedback', 'FAQReady'}:
+        result['suppress_suggestions'] = True
+    if 'FAQFeedback' in tags:
+        options = choices(pending[0])
+        if len(options) != 2 or {c['question'].lower() for c in options} != {'yes', 'no'}:
+            raise StateError('Feedback needs explicit Yes and No API choices')
+        token = secrets.token_urlsafe(24)
+        state['faq_feedback'] = {'id': token, 'event_id': pending[0]['id'],
+                                 'options': options, 'marking': marking(payload),
+                                 'created': time.monotonic()}
+        result['feedback_id'] = token
+        result['feedback'] = [{'label': c['question'], 'value': c['value']} for c in options]
+    return result
 
 
 def fallback(state, payload, message=None, error=None):
@@ -157,6 +202,11 @@ def execute(state, candidate, payload):
     if not event or event.get('enabled') is not True or candidate not in choices(event):
         raise StateError('This choice is no longer available. Please choose again.')
     state['faq_match'] = None
+    state.pop('faq_feedback', None)
+    expected_answer = None
+    if answer_matching(payload) and ('GlobalInterpreter' in groups(event) or
+            any('FAQChoice:' + candidate['candidate_key'] in groups(e) for e in payload['events'])):
+        expected_answer = linked_answer(candidate, payload)['id']
     if not repo.execute_event(state, event['id'], candidate['value'], ''):
         raise StateError('DCR could not execute this choice')
     log.info('FAQ executed event=%s value=%r', event['id'], candidate['value'])
@@ -181,6 +231,10 @@ def execute(state, candidate, payload):
         log.error('FAQ invalid answer marking=%s', latest)
         raise StateError('DCR did not produce exactly one pending answer')
     answer = answers[0]
+    if answer_matching(payload) and expected_answer is None:
+        expected_answer = linked_answer(candidate, payload)['id']
+    if expected_answer is not None and answer['id'] != expected_answer:
+        raise StateError('DCR routing disagrees with the question–answer link')
     text = answer.get('description')
     if not isinstance(text, str) or not text:
         raise StateError('DCR answer description is missing')
@@ -201,7 +255,12 @@ def execute(state, candidate, payload):
         nav = view(state, after)
         response['navigation'] = nav['navigation']
         response['event_id'] = nav['event_id']
-        if nav['topic_explored']:
+        if answer_matching(after) and topic_tags(answer) and not nav.get('feedback_id'):
+            raise StateError('DCR did not produce the expected answer feedback')
+        if nav.get('feedback_id'):
+            response.update({k: nav[k] for k in ('feedback_id', 'feedback', 'suppress_suggestions')})
+            response['follow_up'] = nav['response']
+        elif nav['topic_explored']:
             response['topic_explored'] = True
             response['follow_up'] = nav['response']
     except StateError:
@@ -213,13 +272,31 @@ def execute(state, candidate, payload):
 
 def marking(payload):
     # Exclude clock/diagnostic fields that change on read without a state change.
-    fields = ('id', 'enabled', 'included', 'pending', 'executed', 'value', 'choiceValues', 'label', 'groups', 'tags')
+    fields = ('id', 'enabled', 'included', 'pending', 'executed', 'value', 'choiceValues', 'label', 'description', 'groups', 'tags')
     return sorted([{k: e.get(k) for k in fields} for e in payload['events']], key=lambda e: e['id'])
 
 
 def handle(state, data):
     payload = refresh(state)
     action = data.get('action')
+    # Typed Yes/No is only feedback when an issued feedback prompt is current.
+    issued_feedback = state.get('faq_feedback')
+    message = data.get('message')
+    if not action and issued_feedback and isinstance(message, str) and message.strip().lower() in ('yes', 'no'):
+        selected = [c for c in issued_feedback['options'] if c['question'].lower() == message.strip().lower()]
+        if len(selected) == 1:
+            data = dict(action='feedback', feedback_id=issued_feedback['id'], value=selected[0]['value'])
+            action = 'feedback'
+    if action == 'feedback':
+        if (not issued_feedback or data.get('feedback_id') != issued_feedback['id'] or
+                time.monotonic() - issued_feedback['created'] > 600 or
+                marking(payload) != issued_feedback['marking']):
+            raise StateError('This feedback is no longer current. Please ask another question.')
+        selected = [c for c in issued_feedback['options'] if str(data.get('value')) == c['value']]
+        if len(selected) != 1:
+            raise StateError('Please choose Yes or No')
+        return execute(state, selected[0], payload)
+    state.pop('faq_feedback', None)
     if action == 'confirm':
         issued = state.get('faq_match')
         if (not issued or data.get('match_id') != issued['id'] or
@@ -252,7 +329,7 @@ def handle(state, data):
         return execute(state, matches[0], payload)
     if data.get('value') is not None:
         # Direct controls can only execute a currently presented navigation choice.
-        available = [c for n in navigation(payload) for c in n['options']]
+        available = [c for n in navigation(payload) if not n.get('is_feedback') for c in n['options']]
         candidates = [c for c in available if c['event_id'] == data.get('event_id') and
                       type(data['value']) in (str, int, float, bool) and str(c['value']) == str(data['value'])]
         if len(candidates) != 1:
@@ -265,11 +342,12 @@ def handle(state, data):
         raise StateError('Please enter a question of 1–8000 characters')
     try:
         candidates = catalogue(payload)
+        rank_candidates = matching_catalogue(payload, candidates)
     except StateError as error:
         log.error('FAQ configuration error: %s', error)
         return fallback(state, payload, 'FAQ matching is not configured correctly. Please use the topic buttons.', 'configuration_error')
     try:
-        decision, rows = openchat.rank(message, state.get('last_confirmed_question'), candidates)
+        decision, rows = openchat.rank(message, state.get('last_confirmed_question'), rank_candidates)
     except (openchat.MatchError, ValueError) as error:
         log.warning('FAQ matching failure type=%s', type(error).__name__)
         return fallback(state, payload, 'Question matching is temporarily unavailable. You can still browse topics or view the authority contact information.', 'matcher_unavailable')
@@ -277,6 +355,11 @@ def handle(state, data):
         return fallback(state, payload)
     by_key = {c['candidate_key']: c for c in candidates}
     selected = [by_key[r['candidate_key']] for r in rows]
+    if decision == 'single_match' and answer_matching(payload):
+        latest = refresh(state)
+        if marking(latest) != marking(payload):
+            raise StateError('The conversation changed while matching. Please ask again.')
+        return execute(state, selected[0], latest)
     match_id = secrets.token_urlsafe(24)
     state['faq_match'] = {'id': match_id, 'candidates': selected,
                           'created': time.monotonic(), 'marking': marking(payload)}

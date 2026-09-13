@@ -10,8 +10,8 @@ GRAPH = Path(__file__).resolve().parents[1] / 'xml graphs/SU_handicaptillaeg_FAQ
 TOPICS = {1: [1,2,3], 2: [4,5,6], 3: [7,8,9], 4: [10,11,15,16,17], 5: [12,13,14]}
 
 class Marking:
-    def __init__(self):
-        root = ET.parse(GRAPH).getroot()
+    def __init__(self, graph=GRAPH):
+        root = ET.parse(graph).getroot()
         resources = root.find('./specification/resources')
         self.nodes = {e.get('id'): e for e in resources.findall('./events/event')}
         self.labels = {e.get('eventId'): e.get('labelId') for e in resources.findall('./labelMappings/labelMapping')}

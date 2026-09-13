@@ -1,4 +1,4 @@
-// API-marked FAQ graphs use explicit confirmation and API-provided navigation.
+// API-marked FAQ graphs use API-provided answers, feedback and navigation.
 let faqMode = false;
 let faqBusy = false;
 let faqRevision = 0;
@@ -66,6 +66,9 @@ function renderFAQ(data) {
     });
     controls.appendChild(control);
   }
+  for (const choice of data.feedback || []) {
+    button(choice.label, {action: 'feedback', feedback_id: data.feedback_id, value: choice.value});
+  }
   for (const candidate of data.candidates || []) {
     button(data.status === 'confirm_match' ? `Yes — ${candidate.question}` : candidate.question,
       {action: 'confirm', match_id: data.match_id, candidate_key: candidate.candidate_key});
@@ -79,7 +82,7 @@ function renderFAQ(data) {
     const current = data.navigation.find(menu => menu.event_id === data.event_id)
       || data.navigation.find(menu => !menu.is_home)
       || data.navigation.find(menu => menu.is_home);
-    for (const choice of current?.options || []) {
+    for (const choice of data.suppress_suggestions ? [] : (current?.options || [])) {
       if (!isFAQUtility(choice)) {
         button(choice.question, {event_id: choice.event_id, value: choice.value});
       }

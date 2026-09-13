@@ -1,6 +1,12 @@
 # DCR FAQ chatbot
 
-A chatbot for exploring SU disability supplement FAQs. DCR supplies the answers and controls the flow; OpenAI matches typed questions and asks you to confirm them.
+A chatbot for exploring SU disability supplement FAQs. DCR supplies the answers and controls the flow; OpenAI matches typed questions to modeled FAQ content.
+
+## Answer-first experiment
+
+This branch, `experiment/faq-answer-matching`, adds matching against both questions and answers. Import **`xml graphs/SU_handicaptillaeg_FAQ_AnswerMatching.xml`** into DCR as a new graph, then use `http://localhost:8080/?graphid=YOUR_NEW_GRAPH_ID`. Restart the Python app after switching branches. The existing graph ID does not activate this experiment.
+
+Strong matches display the verbatim answer immediately, followed by Yes/No. No opens that topic's full question list; Yes says “Feel free to ask me anything else.” Uncertain matches still offer clarification. See [ANSWER_MATCHING.md](ANSWER_MATCHING.md) for the brief implementation map.
 
 ## Run it on your computer
 
@@ -35,7 +41,7 @@ Only developers changing the demo need **Node.js 22.12 or newer**. From `demo-ui
 
 - `app.py`: server and browser-session endpoints.
 - `faq_runtime.py`: FAQ confirmation and presentation using live DCR state.
-- `openchat.py`: OpenAI question ranking; never generates FAQ answers.
+- `openchat.py`: OpenAI question/answer ranking; never generates FAQ answers.
 - `dcr_repository.py`: DCR API calls; `chatnlp.py`: legacy non-FAQ interpretation.
 - `templates/` and `static/script.js`: main UI; `demo-ui/`: showcase source; `static/demo/`: built showcase.
 - `xml graphs/SU_handicaptillaeg_FAQ_MVP.xml`: current graph source. Runtime uses DCR's API, not this file.
