@@ -2,7 +2,7 @@
 
 ## Current application
 
-`app.py` runs a Flask application through Waitress on port 8080. The main UI at `/` uses `templates/index.html` and `static/script.js`. The React/Vite showcase at `/demo` is served from `static/demo`; source and npm dependencies are in `demo-ui`. That showcase still targets an older graph and needs future integration work.
+`app.py` runs a Flask application through Waitress on port 8080. The main UI at `/` uses `templates/index.html` and `static/script.js`. The React/Vite showcase at `/demo` is served from `static/demo`; source and npm dependencies are in `demo-ui`. The showcase uses the same `/init` and `/chat` FAQ contract as the main UI. `demo-ui/src/SupportChat.jsx` renders API choices, confirmations, verbatim answers and navigation; `Icon.jsx` shares presentation icons. It starts a separate simulation when opened, keeps it when closed/reopened, and starts fresh on restart. The default demo graph is 2012661, overridable with `?graphid=...`. No XML is read by the demo.
 
 The current FAQ graph is **2012661**. Its source is `xml graphs/SU_handicaptillaeg_FAQ_MVP.xml`. DCR is authoritative for enabled/pending events, choice catalogues, execution, navigation, and answer descriptions. The application does not read XML or cached JSON to decide FAQ routing.
 

@@ -27,7 +27,7 @@ Next time, activate the environment using the command above and run `python app.
 
 ## The second UI
 
-The included demo build is at **http://localhost:8080/demo** while the same server runs. No extra installation is needed to view it. This is an unfinished showcase: it still targets an older graph and has not been adapted to the current FAQ interaction contract. Use the main UI for testing.
+The included demo build is at **http://localhost:8080/demo** while the same server runs. No extra installation is needed to view it. It uses the current FAQ flow, including topic browsing, typed-question confirmation, verbatim answers and persistent navigation. It defaults to graph **2012661**; use **http://localhost:8080/demo?graphid=2012661** to select a graph explicitly. After uploading a newer XML, substitute its graph ID and start a new chat.
 
 Only developers changing the demo need **Node.js 22.12 or newer**. From `demo-ui`, run `npm ci`, then `npm run build`; refresh `/demo`. Its React/Vite dependencies are in `demo-ui/package.json` and `package-lock.json`, not Python's `requirements.txt`.
 
