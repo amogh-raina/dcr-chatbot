@@ -1,0 +1,1176 @@
+<dcrgraph title="SU_chatbot_FAQ_part_with_static_chatbot" dataTypesStatus="hide" filterLevel="-1" insightFilter="false" zoomLevel="-3" formGroupStyle="Normal" formLayoutStyle="Horizontal" formShowPendingCount="true" graphBG="#f1f6fe" graphType="0" exercise="false" version="1.1">
+    <meta>
+        <graph id="2012526" hash="5a554a0521601a5380c868ad59bc048a112349a1bcf278386f2e7b5f833ef2d4" guid="A9FD939A-BDEE-4969-BAC8-D0ABB1952337" OwnerName="Marieke Heyl" OwnerId="176015" categoryId="12621" categoryTitle="Eksempler" Keywords=""/>
+        <revision id="5746031" type="minor" date="2026-09-10T10:12:38.0000000+02:00" title="" comment=""/>
+        <organization id="1157" name="DCR Hackathon"/>
+    </meta>
+    <specification>
+        <resources>
+            <events>
+                <event id="Welcome">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="250" yLoc="70"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role description="" specification="">Chatbot</role>
+                        </roles>
+                        <readRoles/>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>0</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="0" width="small" placeholder="" hinttext="" dataSetList="" radio="" multiple="false" format="int">choice</dataType>
+                            <dictionary>
+                                <item label="Learn about minimum requirement for the type of documents" value="1"/>
+                                <item label="Learn about the minimum requirements for the content of the medical documentation" value="2"/>
+                                <item label="Learn about documentation that may be relevant but outside the scope of the minimum requirement" value="3"/>
+                                <item label="Learn about the specificities for documentation in case of congenital impairments" value="4"/>
+                                <item label="Learn about the specificities for documentation in case of acquired impairment due to illness or accident" value="5"/>
+                                <item label="Proceed to application" value="6"/>
+                            </dictionary>
+                            <validationRules/>
+                            <styles/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="Form0" type="form" cancelText="" sendText="" hideCancel="false" formShowInitialPhase="1">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="1100" yLoc="20"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles/>
+                        <readRoles/>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>9</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <styles/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="A32">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="600" yLoc="170"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles/>
+                        <readRoles/>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>31</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <styles/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="A29" type="nesting">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="140" yLoc="470"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles/>
+                        <readRoles/>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>32</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <styles/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                    <event id="A16" type="nesting">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="180" yLoc="1170"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles/>
+                            <readRoles/>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>100</level>
+                            <sequence>11</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <styles/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                        <event id="Addtional_documents">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="210" yLoc="1220"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>7</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A11">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="400" yLoc="1220"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;Documentation which may be relevant to submit, but which is not a minimum requirement, as&lt;br /&gt;not all applicants are in possession of this type of documentation are the following: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Other existing medical documentation, such as medical certificates, specialist medical reports (e.g. from an&lt;br /&gt;occupational injury case) or neuropsychological assessments regarding your functional impairment,&lt;br /&gt;which you may possess.&lt;/li&gt;
+&lt;li&gt;If you have been involved in a &lt;strong&gt;programme run by the local authority&lt;/strong&gt;, there may be relevant medical information from this, e.g. programme descriptions from other providers, work trials and/or medical certificates.&lt;/li&gt;
+&lt;li&gt;If, for example, you have been in c&lt;strong&gt;ontact with the local authority in connection with sick leave&lt;/strong&gt; from your job or have been on a programme, including educational support, income support or a resource programme, descriptions of your functional level will likely have been drawn up, to which you have access. These may also include m&lt;strong&gt;edical certificates obtained in connection with your  programm&lt;/strong&gt;e, or if you have been on a work trial.&lt;/li&gt;
+&lt;li&gt;If you have been on sick leave from their previous or current workplace, a medical certificate will likely have been issued to your employer, which you may also enclose with your application.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>8</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                    </event>
+                    <event id="A15" type="nesting">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="170" yLoc="670"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles/>
+                            <readRoles/>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>100</level>
+                            <sequence>10</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <styles/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                        <event id="General_requirements">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="200" yLoc="820"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>1</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A3">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="350" yLoc="820"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;The supporting documentation to be submitted at the time of application must, as a minimum, include medical records&lt;br /&gt;from either the your general practitioner, a specialist, a hospital or an outpatient clinic. &lt;/p&gt;
+&lt;p&gt;  &lt;/p&gt;
+&lt;p&gt;The documentation must describe the your permanent disability.&lt;/p&gt;
+&lt;p&gt;Documentation specified as a minimum requirement is documentation which you&lt;br /&gt;can obtain themselves free of charge. This comprises:&lt;br /&gt;1) &lt;strong&gt;Medical records&lt;/strong&gt;, including discharge summaries and referrals from you GP, if you&lt;br /&gt;have been or are currently receiving treatment at a public hospital. You can&lt;br /&gt;obtain this documentation from sundhed.dk.&lt;br /&gt;2) Medical records from consultations &lt;strong&gt;with your own GP&lt;/strong&gt;. As a general rule, you&lt;br /&gt;are entitled to access this documentation.&lt;br /&gt;3) Medical records from&lt;strong&gt; private hospitals and specialist doctors&lt;/strong&gt;, if you have been or are currently&lt;br /&gt;receiving treatment at a private hospital or from a specialist doctor. As a general rule, you have the right of access to this documentation.&lt;/p&gt;
+&lt;p&gt;The required documentation also depends on whether you are in ongoing treatment. &lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>2</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A4">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="510" yLoc="820"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>3</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="3" width="small" placeholder="" hinttext="" dataSetList="" radio="horizontal" multiple="false" format="bool">choice</dataType>
+                                    <dictionary>
+                                        <item label="Yes" value="true"/>
+                                        <item label="No" value="false"/>
+                                    </dictionary>
+                                    <validationRules/>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A5">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="710" yLoc="720"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;As your treatment is finished, your documentation should also include an a discharge summary or letter of completion. &lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>4</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="4" width="small" placeholder="" hinttext="" dataSetList="" radio="" multiple="false" format="int">choice</dataType>
+                                    <dictionary>
+                                        <item label="Understood" value="1"/>
+                                    </dictionary>
+                                    <validationRules/>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A6">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="710" yLoc="920"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;In this case, you may not have letters of discharge or letters of completion of treatment, which is too be expected and not a problem. &lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>5</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="5" width="small" placeholder="" hinttext="" default="">label</dataType>
+                                    <validationRules/>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                    </event>
+                    <event id="A16Copy" type="nesting">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="1400" yLoc="520"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles/>
+                            <readRoles/>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>100</level>
+                            <sequence>14</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <styles/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                        <event id="Content_med_doc">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1430" yLoc="570"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>15</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A20">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1620" yLoc="570"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;When applying for a disability allowance, you must, at the time of application, enclose&lt;br /&gt;documentation in the form of medical information showing that you have a permanent&lt;br /&gt;disability that may entitle you to a disability allowance, together with a description of this&lt;br /&gt;&lt;br /&gt;In addition, you must enclose medical information describing your&lt;br /&gt;diagnostic and treatment history. It is important that you submit all&lt;br /&gt;relevant and up-to-date documentation that describes in detail and comprehensively your&lt;br /&gt;disability.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;‘Up-to-date and comprehensive documentation’ means:&lt;br /&gt;1) Tyour diagnosis (if one has been made)&lt;br /&gt;2) A description of the course of the illness and treatment&lt;br /&gt;3) How the illness or disability manifests itself/affects your&lt;br /&gt;day-to-day functioning&lt;br /&gt;4) What treatment you are receiving&lt;br /&gt;5) What treatment is planned (if any)&lt;br /&gt;6) How your illness or disability affects your ability to work (if&lt;br /&gt;possible)&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;The above information must be submitted if you have it available via your medical records&lt;br /&gt;or other existing medical documentation.&lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>16</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A27">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1820" yLoc="570"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>26</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="26" width="small" placeholder="Jooooo was geht" hinttext="bla bla" dataSetList="" radio="horizontal" multiple="false" format="bool">choice</dataType>
+                                    <dictionary>
+                                        <item label="Yes" value="true"/>
+                                        <item label="No" value="false"/>
+                                    </dictionary>
+                                    <validationRules/>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A28">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1970" yLoc="770"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;Medical documentation is not, for example, regarded as detailed and comprehensive if you merely&lt;br /&gt;submit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a statement from your own GP, psychiatrist, etc., which merely confirms a diagnosis&lt;/li&gt;
+&lt;li&gt;a medication card showing that you are receiving medication for an illness; or&lt;/li&gt;
+&lt;li&gt;a record from the jobcentre without medical information.&lt;/li&gt;
+&lt;li&gt;a decision, e.g. from the Labour Market Insurance Scheme, SPS, etc., without medical information.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Applications where the above applies will be rejected by the agency without substantive consideration, as&lt;br /&gt;the minimum documentation requirements have not been met. &lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;A suspected diagnosis will not, in itself, be sufficient as medical documentation,&lt;br /&gt;unless descriptions of symptoms that impair functional capacity are submitted, even if a diagnosis has not yet been made.&lt;br /&gt;As a general rule, a statement from a psychologist cannot stand alone, but it may form part of the assessment.&lt;br /&gt;of the application if, for example, it is supported by a statement from a specialist in psychiatry or other&lt;br /&gt;medical documentation.&lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>27</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="27" width="small" placeholder="" hinttext="" default="">label</dataType>
+                                    <validationRules/>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                    </event>
+                    <event id="A16Copy_1Copy" type="nesting">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="1530" yLoc="1120"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles/>
+                            <readRoles/>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>100</level>
+                            <sequence>19</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <styles/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                        <event id="Doc_illness">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1560" yLoc="1170"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>21</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A20CopyCopy">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1760" yLoc="1170"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;If your disability stems from a (previous) accident or similar event,&lt;br /&gt;you must ascertain whether the disability is permanent.&lt;br /&gt;As a general rule, an applicant is not entitled to a disability allowance if an illness, injury&lt;br /&gt;or disability is not already permanent or chronic at the time of its onset.&lt;/p&gt;
+&lt;p&gt;A disability which, by definition, is not permanent may be assessed as permanent if it lasts for approximately one year.&lt;/p&gt;
+&lt;p&gt;At the time of application, you must submit the most recent medical information,&lt;br /&gt;which describes your diagnostic and treatment history as well as current symptoms and challenges.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;If you are undergoing treatment following an accident or trauma, and the Agency cannot definitively determine the impact at the time of the decision, the Agency may award a time-limited disability&lt;br /&gt;allowance.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;It should be noted that, in the event of a refusal on the grounds that the functional impairment is not deemed to be permanent, you may be referred to the option of applying for additional credits as a supplement to the framework&lt;br /&gt;and the support period on grounds of illness. &lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>23</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                    </event>
+                    <event computation="A30-computation" id="A30">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="1030" yLoc="920"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role description="" specification="">Robot</role>
+                            </roles>
+                            <readRoles/>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>100</level>
+                            <sequence>29</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <styles/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="A31">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="980" yLoc="620"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role description="" specification="">Chatbot</role>
+                            </roles>
+                            <readRoles/>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>100</level>
+                            <sequence>30</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="30" width="small" placeholder="" hinttext="" default="">label</dataType>
+                                <validationRules/>
+                                <styles/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="HearNextMinDoc">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="1180" yLoc="620"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role description="" specification="">Chatbot</role>
+                            </roles>
+                            <readRoles/>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>100</level>
+                            <sequence>13</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <styles/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="A16Copy_1" type="nesting">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="920" yLoc="1220"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles/>
+                            <readRoles/>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>100</level>
+                            <sequence>18</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <styles/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                        <event id="Doc_congenital">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="950" yLoc="1270"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles/>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>20</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="A20Copy">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1150" yLoc="1270"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role description="" specification="">Chatbot</role>
+                                </roles>
+                                <readRoles/>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase/>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;If you consider applying for a disability allowance on the basis of a congenital disability, you are probably diagnosed and treated during childhood or early adolescence, and you might not have recent medical documentation describing your current level of functioning.&lt;/p&gt;
+&lt;p&gt;In such cases, it is particularly&lt;br /&gt;important for you&lt;strong&gt; to submit medical information regarding your medical history,&lt;/strong&gt; as well as the &lt;strong&gt;most recent&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;medical records relating to the disability.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In your personal statement, you may describe your situation so that the agency can gain a better understanding of the impact&lt;br /&gt;the disability has.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;Congenital disabilities include, for example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cerebral palsy&lt;/li&gt;
+&lt;li&gt;Muscular dystrophy&lt;/li&gt;
+&lt;li&gt;Intellectual disability&lt;/li&gt;
+&lt;li&gt;Autism spectrum disorder&lt;/li&gt;
+&lt;li&gt;Congenital blindness or visual impairment&lt;/li&gt;
+&lt;li&gt;Severe hearing impairment or deafness&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The above list is not exhaustive.&lt;br /&gt;If you have a congenital disability, it is important that you&lt;br /&gt;submit, at the time of application, the most recent medical information describing your diagnostic and treatment history, as well as any current symptoms.&lt;/p&gt;
+&lt;p&gt;This may include, for example, &lt;strong&gt;discharge summaries,&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;medical records detailing the medical history,&lt;/strong&gt; including the challenges faced by you&lt;br /&gt;as well as any recent decisions regarding, for example, the granting of housing support, a contact person, a mentor or assistive devices, or&lt;br /&gt;descriptions of any support measures that have been implemented during previous courses of study or at previous workplaces. &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;If there is no supporting documentation for this, you can include it in your personal statement.&lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>100</level>
+                                <sequence>22</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <styles/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                    </event>
+                </event>
+            </events>
+            <subProcesses/>
+            <labels>
+                <label id="How can I help you?"/>
+                <label id="Form"/>
+                <label id="Do you want to proceed to the actual application?"/>
+                <label id="Documentation requirements"/>
+                <label id="Additional documentation"/>
+                <label id="Kind of documentation that can be submitted but is outside the scope of minimum requirement"/>
+                <label id="Info dump: Additional documentation"/>
+                <label id="Documentation minimum requirement information"/>
+                <label id="Kind of documentation that is mininum requirement"/>
+                <label id="Info dump: General requirements"/>
+                <label id="Is your treatment finished?"/>
+                <label id="Finished treatment"/>
+                <label id="Not finished treatment"/>
+                <label id="Content of medical documents"/>
+                <label id="Content of the medical documentation"/>
+                <label id="Info dump: content of the medical documentation"/>
+                <label id="Do you want to learn more about when the content of the medical documentation is NOT sufficient?"/>
+                <label id="Info dump: NOT sufficient documentation"/>
+                <label id="Documentation in the case of functional impairment acquired through accident or illness"/>
+                <label id="Documentation in the case of impairment due to an accident or illness"/>
+                <label id="Info dump: content of the medical documentationCopCopy"/>
+                <label id="Check for what has already been answered"/>
+                <label id="A31"/>
+                <label id="What do you want to hear more about next?"/>
+                <label id="Documentation in the case of congenital impairment"/>
+                <label id="Documentation in the case of congenital impairments"/>
+                <label id="Info dump: Documentation in the case of congenital impairment"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Welcome" labelId="How can I help you?"/>
+                <labelMapping eventId="Form0" labelId="Form"/>
+                <labelMapping eventId="A32" labelId="Do you want to proceed to the actual application?"/>
+                <labelMapping eventId="A29" labelId="Documentation requirements"/>
+                <labelMapping eventId="A16" labelId="Additional documentation"/>
+                <labelMapping eventId="Addtional_documents" labelId="Kind of documentation that can be submitted but is outside the scope of minimum requirement"/>
+                <labelMapping eventId="A11" labelId="Info dump: Additional documentation"/>
+                <labelMapping eventId="A15" labelId="Documentation minimum requirement information"/>
+                <labelMapping eventId="General_requirements" labelId="Kind of documentation that is mininum requirement"/>
+                <labelMapping eventId="A3" labelId="Info dump: General requirements"/>
+                <labelMapping eventId="A4" labelId="Is your treatment finished?"/>
+                <labelMapping eventId="A5" labelId="Finished treatment"/>
+                <labelMapping eventId="A6" labelId="Not finished treatment"/>
+                <labelMapping eventId="A16Copy" labelId="Content of medical documents"/>
+                <labelMapping eventId="Content_med_doc" labelId="Content of the medical documentation"/>
+                <labelMapping eventId="A20" labelId="Info dump: content of the medical documentation"/>
+                <labelMapping eventId="A27" labelId="Do you want to learn more about when the content of the medical documentation is NOT sufficient?"/>
+                <labelMapping eventId="A28" labelId="Info dump: NOT sufficient documentation"/>
+                <labelMapping eventId="A16Copy_1Copy" labelId="Documentation in the case of functional impairment acquired through accident or illness"/>
+                <labelMapping eventId="Doc_illness" labelId="Documentation in the case of impairment due to an accident or illness"/>
+                <labelMapping eventId="A20CopyCopy" labelId="Info dump: content of the medical documentationCopCopy"/>
+                <labelMapping eventId="A30" labelId="Check for what has already been answered"/>
+                <labelMapping eventId="A31" labelId="A31"/>
+                <labelMapping eventId="HearNextMinDoc" labelId="What do you want to hear more about next?"/>
+                <labelMapping eventId="A16Copy_1" labelId="Documentation in the case of congenital impairment"/>
+                <labelMapping eventId="Doc_congenital" labelId="Documentation in the case of congenital impairments"/>
+                <labelMapping eventId="A20Copy" labelId="Info dump: Documentation in the case of congenital impairment"/>
+            </labelMappings>
+            <expressions>
+                <expression id="A27-path-A28--response" value="A27 = true"/>
+                <expression id="A27-path-A30--response" value="A27 = false"/>
+                <expression id="Welcome-path-A3--response" value="Welcome = 1"/>
+                <expression id="Welcome-path-A20--response" value="Welcome = 2"/>
+                <expression id="Welcome-path-A11--response" value="Welcome = 3"/>
+                <expression id="Welcome-path-A20Copy--response" value="Welcome = 4"/>
+                <expression id="Welcome-path-A20CopyCopy--response" value="Welcome = 5"/>
+                <expression id="Welcome-path-Form0--response" value="Welcome = 6"/>
+                <expression id="A4-path-A5--include" value="A4 = true"/>
+                <expression id="A4-path-A6--include" value="A4 = false"/>
+                <expression id="Welcome-path-A3--include" value="Welcome = 1"/>
+                <expression id="Welcome-path-A20--include" value="Welcome = 2"/>
+                <expression id="Welcome-path-A11--include" value="Welcome = 3"/>
+                <expression id="Welcome-path-A20Copy--include" value="Welcome = 4"/>
+                <expression id="Welcome-path-A20CopyCopy--include" value="Welcome = 5"/>
+                <expression id="A30-path-A31--update--value" value="A30"/>
+                <expression id="A30-computation" value="(if General_requirements@included then &quot;Minimum requirement for the type of documentation&lt;br&gt;&quot; else &quot;&quot;) ++  (if Content_med_doc@included then &quot;A2 topic&lt;br&gt;&quot; else &quot;&quot;)  ++ (if Doc_congenital@included then &quot;Specificities regarding documentation in the case of impairment since birth&lt;br&gt;&quot; else &quot;&quot;) ++ (if Doc_illness@included then &quot;Specificities regarding documentation in the case of impairment acquired later in life by illness or accident&lt;br&gt;&quot; else &quot;&quot;)"/>
+            </expressions>
+            <variables/>
+            <variableAccesses>
+                <writeAccesses/>
+            </variableAccesses>
+            <custom>
+                <keywords/>
+                <roles>
+                    <role description="" specification="">Chatbot</role>
+                    <role description="" specification="">Robot</role>
+                </roles>
+                <groups/>
+                <phases/>
+                <eventTypes/>
+                <eventParameters/>
+                <graphDetails>DCR Process</graphDetails>
+                <graphDocumentation/>
+                <graphLanguage>en-US</graphLanguage>
+                <graphDomain>process</graphDomain>
+                <graphFilters>
+                    <filteredGroups/>
+                    <filteredRoles/>
+                    <filteredPhases/>
+                </graphFilters>
+                <highlighterMarkup>
+                    <highlightLayers>
+                        <highlightLayer default="true" name="description">DCR Process</highlightLayer>
+                    </highlightLayers>
+                    <highlights/>
+                </highlighterMarkup>
+            </custom>
+        </resources>
+        <constraints>
+            <conditions/>
+            <responses>
+                <response sourceId="General_requirements" targetId="A3" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A3" targetId="A4" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="Addtional_documents" targetId="A11" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="Content_med_doc" targetId="A20" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A20" targetId="A27" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A27" targetId="A28" filterLevel="100" description="" time="" groups="" expressionId="A27-path-A28--response"/>
+                <response sourceId="Doc_congenital" targetId="A20Copy" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="Doc_illness" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A4" targetId="A5" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A4" targetId="A6" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A5" targetId="A30" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A6" targetId="A30" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A20CopyCopy" targetId="A30" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A11" targetId="A30" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A20Copy" targetId="A30" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A28" targetId="A30" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="A27" targetId="A30" filterLevel="100" description="" time="" groups="" expressionId="A27-path-A30--response"/>
+                <response sourceId="A30" targetId="HearNextMinDoc" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="HearNextMinDoc" targetId="A31" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="Welcome" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A3--response"/>
+                <response sourceId="Welcome" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20--response"/>
+                <response sourceId="Welcome" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A11--response"/>
+                <response sourceId="Welcome" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20Copy--response"/>
+                <response sourceId="Welcome" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20CopyCopy--response"/>
+                <response sourceId="A32" targetId="Form0" filterLevel="100" description="" time="" groups=""/>
+                <response sourceId="Welcome" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-Form0--response"/>
+            </responses>
+            <coresponses/>
+            <includes>
+                <include sourceId="General_requirements" targetId="A3" filterLevel="100" description="" time="" groups=""/>
+                <include sourceId="A3" targetId="A4" filterLevel="100" description="" time="" groups=""/>
+                <include sourceId="A4" targetId="A5" filterLevel="100" description="" time="" groups="" expressionId="A4-path-A5--include"/>
+                <include sourceId="A4" targetId="A6" filterLevel="100" description="" time="" groups="" expressionId="A4-path-A6--include"/>
+                <include sourceId="Addtional_documents" targetId="A11" filterLevel="100" description="" time="" groups=""/>
+                <include sourceId="Content_med_doc" targetId="A20" filterLevel="100" description="" time="" groups=""/>
+                <include sourceId="Doc_congenital" targetId="A20Copy" filterLevel="100" description="" time="" groups=""/>
+                <include sourceId="Welcome" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A3--include"/>
+                <include sourceId="Welcome" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20--include"/>
+                <include sourceId="Welcome" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A11--include"/>
+                <include sourceId="Welcome" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20Copy--include"/>
+                <include sourceId="Welcome" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20CopyCopy--include"/>
+                <include sourceId="A30" targetId="HearNextMinDoc" filterLevel="100" description="" time="" groups=""/>
+                <include sourceId="HearNextMinDoc" targetId="A31" filterLevel="100" description="" time="" groups=""/>
+                <include sourceId="A20" targetId="A27" filterLevel="100" description="" time="" groups=""/>
+                <include sourceId="A27" targetId="A28" filterLevel="100" description="" time="" groups=""/>
+            </includes>
+            <excludes>
+                <exclude sourceId="Addtional_documents" targetId="Addtional_documents" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="General_requirements" targetId="General_requirements" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A3" targetId="A3" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A4" targetId="A4" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A11" targetId="A11" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Doc_congenital" targetId="Doc_congenital" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A20Copy" targetId="A20Copy" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Doc_illness" targetId="Doc_illness" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A20CopyCopy" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Content_med_doc" targetId="Content_med_doc" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A20" targetId="A20" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A27" targetId="A27" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A28" targetId="A28" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A3" targetId="General_requirements" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A11" targetId="Addtional_documents" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A20Copy" targetId="Doc_congenital" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A20CopyCopy" targetId="Doc_illness" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="A20" targetId="Content_med_doc" filterLevel="100" description="" time="" groups=""/>
+            </excludes>
+            <milestones/>
+            <spawns/>
+            <templateSpawns/>
+            <updates>
+                <update sourceId="A30" targetId="A31" filterLevel="100" description="" time="" groups="" valueExpressionId="A30-path-A31--update--value"/>
+            </updates>
+        </constraints>
+    </specification>
+    <runtime accepting="false">
+        <custom>
+            <globalMarking>
+                <enabled/>
+                <enabledSubprocesses/>
+                <executed/>
+                <pending/>
+                <included/>
+            </globalMarking>
+        </custom>
+        <marking>
+            <globalStore/>
+            <executed/>
+            <included>
+                <event id="Welcome"/>
+                <event id="A29"/>
+                <event id="A16"/>
+                <event id="Addtional_documents"/>
+                <event id="A15"/>
+                <event id="General_requirements"/>
+                <event id="A16Copy"/>
+                <event id="Content_med_doc"/>
+                <event id="A16Copy_1Copy"/>
+                <event id="Doc_illness"/>
+                <event id="A30"/>
+                <event id="A16Copy_1"/>
+                <event id="Doc_congenital"/>
+            </included>
+            <pendingResponses>
+                <event id="Welcome"/>
+            </pendingResponses>
+        </marking>
+    </runtime>
+</dcrgraph>

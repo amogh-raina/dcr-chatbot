@@ -1,0 +1,1426 @@
+<dcrgraph title="Corona - ChatBot SOP" dataTypesStatus="hide" filterLevel="-1" insightFilter="false" zoomLevel="-1" formGroupStyle="Normal" formLayoutStyle="Horizontal" formShowPendingCount="true" graphBG="#ffffff" graphType="0" exercise="false" version="1.1">
+    <meta>
+        <graph id="2005521" hash="CA6C9283A78650370B31D4E52BBF0883" guid="C3CC8622-391E-47FF-A143-01B8F487731D" OwnerName="Benjamin Wiese" OwnerId="175421" categoryId="13935" categoryTitle="Chatbot" Keywords="Corona,Delete"/>
+        <revision id="5249773" type="medium" date="2026-01-14T13:47:59.713"/>
+        <organization id="1156" name="XHAILe"/>
+        <environment environment="Test"/>
+    </meta>
+    <specification>
+        <resources>
+            <events>
+                <event id="CloseContact" computation="CloseContact-computation" type="subprocess">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="0" yLoc="20"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role/>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>0</sequence>
+                        <costs>0</costs>
+                        <eventData/>
+                        <interfaces/>
+                    </custom>
+                    <event id="OneMeter">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="280" yLoc="70"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role>User</role>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Start</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>3</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="3" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                                <dictionary>
+                                    <item label="Yes" value="1"/>
+                                    <item label="No" value="0"/>
+                                </dictionary>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="PhysicalContactWith">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="155" yLoc="70"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role>User</role>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Start</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>2</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="2" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                                <dictionary>
+                                    <item label="Yes" value="1"/>
+                                    <item label="No" value="0"/>
+                                </dictionary>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="LiveWith">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="30" yLoc="70"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role>User</role>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Start</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>1</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="1" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                                <dictionary>
+                                    <item label="Yes" value="1"/>
+                                    <item label="No" value="0"/>
+                                </dictionary>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                </event>
+                <event id="PeriodFit" computation="PeriodFit-computation" type="subprocess">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="0" yLoc="420"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role/>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase>Contact with infected</phase>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>4</sequence>
+                        <costs>0</costs>
+                        <eventData/>
+                        <interfaces/>
+                    </custom>
+                    <event id="InfectedTestDate">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="330" yLoc="765"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role>User</role>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Contact with infected</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>7</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="7" width="small" min="0" max="255" placeholder="" hinttext="">date</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="Symptoms">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="180" yLoc="470"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role>User</role>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Contact with infected</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>6</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="6" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                                <dictionary>
+                                    <item label="Yes" value="1"/>
+                                    <item label="Used to have, but no longer have" value="2"/>
+                                    <item label="No" value="3"/>
+                                    <item label="Don&amp;#39;t know" value="4"/>
+                                </dictionary>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="LastContact">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="30" yLoc="470"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role>User</role>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Contact with infected</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>5</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="5" width="small" min="0" max="255" placeholder="" hinttext="">date</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="LastSymptoms">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="180" yLoc="765"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role>User</role>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Contact with infected</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>9</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="9" width="small" min="0" max="255" placeholder="" hinttext="">date</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="WhenSymptoms">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="30" yLoc="765"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role>User</role>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Contact with infected</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>8</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="8" width="small" min="0" max="255" placeholder="" hinttext="">date</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                </event>
+                <event id="Activity20" type="subprocess">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="915" yLoc="70"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role/>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>11</sequence>
+                        <costs>0</costs>
+                        <eventData/>
+                        <interfaces/>
+                    </custom>
+                    <event id="Activity27" type="subprocess">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="945" yLoc="125"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role/>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Conclusion</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>15</sequence>
+                            <costs>0</costs>
+                            <eventData/>
+                            <interfaces/>
+                        </custom>
+                        <event id="WhenInfected">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="975" yLoc="525"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role>User</role>
+                                </roles>
+                                <readRoles>
+                                    <readRole/>
+                                </readRoles>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase>Conclusion</phase>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>1</level>
+                                <sequence>18</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="18" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                                    <dictionary>
+                                        <item label="More than 12 months ago" value="1"/>
+                                        <item label="Less than 12 months ago" value="0"/>
+                                    </dictionary>
+                                    <validationRules/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="VaccinationStatus">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="975" yLoc="175"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role>User</role>
+                                </roles>
+                                <readRoles>
+                                    <readRole/>
+                                </readRoles>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase>Conclusion</phase>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>1</level>
+                                <sequence>16</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="16" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                                    <dictionary>
+                                        <item label="Yes" value="1"/>
+                                        <item label="No" value="0"/>
+                                    </dictionary>
+                                    <validationRules/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="PreviousInfected">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="975" yLoc="350"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role>User</role>
+                                </roles>
+                                <readRoles>
+                                    <readRole/>
+                                </readRoles>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase>Conclusion</phase>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>1</level>
+                                <sequence>17</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="17" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                                    <dictionary>
+                                        <item label="Yes" value="1"/>
+                                        <item label="No" value="0"/>
+                                    </dictionary>
+                                    <validationRules/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                    </event>
+                    <event id="Activity27_1">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="1250" yLoc="420"/>
+                                <colors bg="#fff2cc" textStroke="#bf9000" stroke="#f1c232"/>
+                            </visualization>
+                            <roles>
+                                <role/>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Conclusion</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription>&lt;p&gt;&lt;strong&gt;You must go into self-isolation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get the PCR test on day 4 and day 6 after you were last in contact with the infected person. If you cannot get a PCR test on day 6, you can take a rapid test.&lt;/li&gt;
+&lt;li&gt;You can lift your self-isolation if your PCR test on day 4 is negative.&lt;/li&gt;
+&lt;li&gt;If you test positive on one of your tests, you must remain in self-isolation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Read more on  &lt;a href="https://www.sst.dk/da/corona/Hvis-du-har-symptomer_-er-syg-eller-smittet/Naere-kontakter" target="_blank" rel="noopener noreferrer"&gt;Sundhedsstyrelsens home page&lt;/a&gt;.&lt;/p&gt;</eventDescription>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>14</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="14" width="small" default="" placeholder="" hinttext="">label</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="Activity26_1">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="1250" yLoc="270"/>
+                                <colors bg="#fff2cc" textStroke="#bf9000" stroke="#f1c232"/>
+                            </visualization>
+                            <roles>
+                                <role/>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Conclusion</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription>&lt;p&gt;&lt;strong&gt;No need for self-isolation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You don't need to go into self-isolation. Always remember to follow the Danish Health Authority's good advice to prevent infection and pay particular attention to the development of symptoms.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get tested with a quick test as soon as possible. Then get the PCR test on day 4 and day 6 after you were last in contact with the infected person. If you cannot get a PCR test on day 6, you can take a rapid test.&lt;/li&gt;
+&lt;li&gt;If you develop symptoms of covid-19, you must immediately go into self-isolation and be PCR tested immediately.&lt;/li&gt;
+&lt;li&gt;If you test positive on one of your tests, you must immediately go into self-isolation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Read more on  &lt;a href="https://www.sst.dk/da/corona/Hvis-du-har-symptomer_-er-syg-eller-smittet/Naere-kontakter" target="_blank" rel="noopener noreferrer"&gt;Sundhedsstyrelsens home page&lt;/a&gt;.&lt;/p&gt;</eventDescription>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>13</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="13" width="small" default="" placeholder="" hinttext="">label</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="Activity27_2">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="1250" yLoc="120"/>
+                                <colors bg="#fff2cc" textStroke="#bf9000" stroke="#ffd966"/>
+                            </visualization>
+                            <roles>
+                                <role/>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Start</phase>
+                                <phase>Conclusion</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription>&lt;p&gt;You are in close contact with someone infected with Covid-19&lt;/p&gt;</eventDescription>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>12</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="12" width="small" default="" placeholder="" hinttext="">label</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="Activity34" type="subprocess">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="970" yLoc="720"/>
+                                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                            </visualization>
+                            <roles>
+                                <role/>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase/>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription/>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>21</sequence>
+                            <costs>0</costs>
+                            <eventData/>
+                            <interfaces/>
+                        </custom>
+                        <event id="Activity30_3">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1000" yLoc="770"/>
+                                    <colors bg="#fff2cc" textStroke="#bf9000" stroke="#f1c232"/>
+                                </visualization>
+                                <roles>
+                                    <role/>
+                                </roles>
+                                <readRoles>
+                                    <readRole/>
+                                </readRoles>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase>Conclusion</phase>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription>&lt;p&gt;&lt;strong&gt;Here you can see when you should have a PCR test&lt;/strong&gt;&lt;/p&gt;</eventDescription>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>1</level>
+                                <sequence>22</sequence>
+                                <costs>0</costs>
+                                <eventData>
+                                    <dataType sequence="22" width="small" default="" placeholder="" hinttext="">label</dataType>
+                                    <validationRules/>
+                                </eventData>
+                                <interfaces/>
+                            </custom>
+                        </event>
+                        <event id="Activity31" type="nesting">
+                            <precondition message=""/>
+                            <custom>
+                                <visualization>
+                                    <location xLoc="1000" yLoc="920"/>
+                                    <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                                </visualization>
+                                <roles>
+                                    <role/>
+                                </roles>
+                                <readRoles>
+                                    <readRole/>
+                                </readRoles>
+                                <groups>
+                                    <group/>
+                                </groups>
+                                <phases>
+                                    <phase>Conclusion</phase>
+                                </phases>
+                                <eventType/>
+                                <eventScope>private</eventScope>
+                                <eventTypeData/>
+                                <eventDescription/>
+                                <purpose/>
+                                <guide/>
+                                <insight use="false"/>
+                                <level>1</level>
+                                <sequence>23</sequence>
+                                <costs>0</costs>
+                                <eventData/>
+                                <interfaces/>
+                            </custom>
+                            <event id="FirstPCRTest" computation="FirstPCRTest-computation">
+                                <precondition message=""/>
+                                <custom>
+                                    <visualization>
+                                        <location xLoc="1030" yLoc="970"/>
+                                        <colors bg="#666666" textStroke="#ffffff" stroke="#434343"/>
+                                    </visualization>
+                                    <roles>
+                                        <role>Robot</role>
+                                    </roles>
+                                    <readRoles>
+                                        <readRole/>
+                                    </readRoles>
+                                    <groups>
+                                        <group>ShowInChatSOP</group>
+                                    </groups>
+                                    <phases>
+                                        <phase>Conclusion</phase>
+                                    </phases>
+                                    <eventType/>
+                                    <eventScope>private</eventScope>
+                                    <eventTypeData/>
+                                    <eventDescription/>
+                                    <purpose/>
+                                    <guide/>
+                                    <insight use="false"/>
+                                    <level>1</level>
+                                    <sequence>24</sequence>
+                                    <costs>0</costs>
+                                    <eventData>
+                                        <dataType sequence="24" width="small" min="0" max="255" placeholder="" hinttext="">date</dataType>
+                                        <validationRules/>
+                                    </eventData>
+                                    <interfaces/>
+                                </custom>
+                            </event>
+                            <event id="SecondPCRTest" computation="SecondPCRTest-computation">
+                                <precondition message=""/>
+                                <custom>
+                                    <visualization>
+                                        <location xLoc="1155" yLoc="970"/>
+                                        <colors bg="#666666" textStroke="#ffffff" stroke="#434343"/>
+                                    </visualization>
+                                    <roles>
+                                        <role>Robot</role>
+                                    </roles>
+                                    <readRoles>
+                                        <readRole/>
+                                    </readRoles>
+                                    <groups>
+                                        <group>ShowInChatSOP</group>
+                                    </groups>
+                                    <phases>
+                                        <phase>Conclusion</phase>
+                                    </phases>
+                                    <eventType/>
+                                    <eventScope>private</eventScope>
+                                    <eventTypeData/>
+                                    <eventDescription/>
+                                    <purpose/>
+                                    <guide/>
+                                    <insight use="false"/>
+                                    <level>1</level>
+                                    <sequence>25</sequence>
+                                    <costs>0</costs>
+                                    <eventData>
+                                        <dataType sequence="25" width="small" min="0" max="255" placeholder="" hinttext="">date</dataType>
+                                        <validationRules/>
+                                    </eventData>
+                                    <interfaces/>
+                                </custom>
+                            </event>
+                        </event>
+                    </event>
+                </event>
+                <event id="Activity32" type="nesting">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="600" yLoc="70"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role/>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>20</sequence>
+                        <costs>0</costs>
+                        <eventData/>
+                        <interfaces/>
+                    </custom>
+                    <event id="Activity17_1">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="630" yLoc="120"/>
+                                <colors bg="#fff2cc" textStroke="#bf9000" stroke="#f1c232"/>
+                            </visualization>
+                            <roles>
+                                <role/>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Conclusion</phase>
+                                <phase>Start</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription>&lt;p&gt;You are not close contact&lt;/p&gt;</eventDescription>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>10</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="10" width="small" default="" placeholder="" hinttext="">label</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                    <event id="Activity30">
+                        <precondition message=""/>
+                        <custom>
+                            <visualization>
+                                <location xLoc="755" yLoc="120"/>
+                                <colors bg="#fff2cc" textStroke="#bf9000" stroke="#f1c232"/>
+                            </visualization>
+                            <roles>
+                                <role/>
+                            </roles>
+                            <readRoles>
+                                <readRole/>
+                            </readRoles>
+                            <groups>
+                                <group/>
+                            </groups>
+                            <phases>
+                                <phase>Conclusion</phase>
+                            </phases>
+                            <eventType/>
+                            <eventScope>private</eventScope>
+                            <eventTypeData/>
+                            <eventDescription>&lt;ul&gt;
+&lt;li&gt;There is no critical overlap in the period when it was contagious and you were in close contact.&lt;/li&gt;
+&lt;/ul&gt;</eventDescription>
+                            <purpose/>
+                            <guide/>
+                            <insight use="false"/>
+                            <level>1</level>
+                            <sequence>19</sequence>
+                            <costs>0</costs>
+                            <eventData>
+                                <dataType sequence="19" width="small" default="" placeholder="" hinttext="">label</dataType>
+                                <validationRules/>
+                            </eventData>
+                            <interfaces/>
+                        </custom>
+                    </event>
+                </event>
+            </events>
+            <subProcesses/>
+            <distribution/>
+            <labels>
+                <label id="Am I close contact?"/>
+                <label id="Have you been closer than 1 meter to the infected person for more than 15 minutes?"/>
+                <label id="Have you had direct physical contact with the infected person?"/>
+                <label id="Do you live with the infected?"/>
+                <label id="Contact with the infected person"/>
+                <label id="On what day did the infected person test positive?"/>
+                <label id="Does the infected person have symptoms?"/>
+                <label id="When was the last time you were with the infected person?"/>
+                <label id="When did the symptoms go away?"/>
+                <label id="When did the infected person develop symptoms?"/>
+                <label id="You are close contact"/>
+                <label id="Are you going into self-isolation?"/>
+                <label id="When did you become infected?"/>
+                <label id="Have you had the 3rd vaccine shot?"/>
+                <label id="Have you previously been infected?"/>
+                <label id="High risc"/>
+                <label id="Low risc"/>
+                <label id="You are a close contact"/>
+                <label id="PCR Test"/>
+                <label id="Datoer for test"/>
+                <label id="Hvornår du skal testes"/>
+                <label id="First PCR test"/>
+                <label id="Second PCR test"/>
+                <label id="You are not close to contact"/>
+                <label id="You are not close contact"/>
+                <label id="Periode passer ikke"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="CloseContact" labelId="Am I close contact?"/>
+                <labelMapping eventId="OneMeter" labelId="Have you been closer than 1 meter to the infected person for more than 15 minutes?"/>
+                <labelMapping eventId="PhysicalContactWith" labelId="Have you had direct physical contact with the infected person?"/>
+                <labelMapping eventId="LiveWith" labelId="Do you live with the infected?"/>
+                <labelMapping eventId="PeriodFit" labelId="Contact with the infected person"/>
+                <labelMapping eventId="InfectedTestDate" labelId="On what day did the infected person test positive?"/>
+                <labelMapping eventId="Symptoms" labelId="Does the infected person have symptoms?"/>
+                <labelMapping eventId="LastContact" labelId="When was the last time you were with the infected person?"/>
+                <labelMapping eventId="LastSymptoms" labelId="When did the symptoms go away?"/>
+                <labelMapping eventId="WhenSymptoms" labelId="When did the infected person develop symptoms?"/>
+                <labelMapping eventId="Activity20" labelId="You are close contact"/>
+                <labelMapping eventId="Activity27" labelId="Are you going into self-isolation?"/>
+                <labelMapping eventId="WhenInfected" labelId="When did you become infected?"/>
+                <labelMapping eventId="VaccinationStatus" labelId="Have you had the 3rd vaccine shot?"/>
+                <labelMapping eventId="PreviousInfected" labelId="Have you previously been infected?"/>
+                <labelMapping eventId="Activity27_1" labelId="High risc"/>
+                <labelMapping eventId="Activity26_1" labelId="Low risc"/>
+                <labelMapping eventId="Activity27_2" labelId="You are a close contact"/>
+                <labelMapping eventId="Activity34" labelId="PCR Test"/>
+                <labelMapping eventId="Activity30_3" labelId="Datoer for test"/>
+                <labelMapping eventId="Activity31" labelId="Hvornår du skal testes"/>
+                <labelMapping eventId="FirstPCRTest" labelId="First PCR test"/>
+                <labelMapping eventId="SecondPCRTest" labelId="Second PCR test"/>
+                <labelMapping eventId="Activity32" labelId="You are not close to contact"/>
+                <labelMapping eventId="Activity17_1" labelId="You are not close contact"/>
+                <labelMapping eventId="Activity30" labelId="Periode passer ikke"/>
+            </labelMappings>
+            <expressions>
+                <expression id="Symptoms-path-WhenSymptoms--response" value="Symptoms = 1 or Symptoms = 2"/>
+                <expression id="Symptoms-path-LastSymptoms--response" value="Symptoms = 2"/>
+                <expression id="Symptoms-path-InfectedTestDate--response" value="Symptoms= 3"/>
+                <expression id="VaccinationStatus-path-PreviousInfected--response" value="VaccinationStatus = 0"/>
+                <expression id="PreviousInfected-path-WhenInfected--response" value="PreviousInfected = 1"/>
+                <expression id="CloseContact-path-CloseContact--response" value="CloseContact = &quot;retry&quot;"/>
+                <expression id="CloseContact-path-PeriodFit--response" value="CloseContact = &quot;yes&quot;"/>
+                <expression id="PeriodFit-path-Activity20--response" value="PeriodFit=&quot;yes&quot;"/>
+                <expression id="CloseContact-path-PeriodFit--coresponse" value="CloseContact!=&quot;yes&quot;"/>
+                <expression id="PeriodFit-path-Activity20--coresponse" value="PeriodFit!=&quot;yes&quot;"/>
+                <expression id="Symptoms-path-InfectedTestDate--include" value="Symptoms=3"/>
+                <expression id="Symptoms-path-InfectedTestDate--exclude" value="not(Symptoms=3)"/>
+                <expression id="Symptoms-path-LastSymptoms--include" value="Symptoms=2"/>
+                <expression id="Symptoms-path-LastSymptoms--exclude" value="not(Symptoms=2)"/>
+                <expression id="Symptoms-path-WhenSymptoms--include" value="Symptoms=1 or Symptoms=2"/>
+                <expression id="Symptoms-path-WhenSymptoms--exclude" value="not(Symptoms=1 or Symptoms=2)"/>
+                <expression id="CloseContact-path-Activity17_1--include" value="CloseContact=&quot;no&quot;"/>
+                <expression id="CloseContact-path-Activity17_1--exclude" value="not(CloseContact=&quot;no&quot;)"/>
+                <expression id="PeriodFit-path-Activity32--include" value="PeriodFit=&quot;no&quot;"/>
+                <expression id="PeriodFit-path-Activity32--exclude" value="not(PeriodFit=&quot;no&quot;)"/>
+                <expression id="VaccinationStatus-path-PreviousInfected--include" value="VaccinationStatus=0"/>
+                <expression id="VaccinationStatus-path-PreviousInfected--exclude" value="not(VaccinationStatus=0)"/>
+                <expression id="PreviousInfected-path-WhenInfected--include" value="PreviousInfected = 1"/>
+                <expression id="PreviousInfected-path-WhenInfected--exclude" value="not(PreviousInfected = 1)"/>
+                <expression id="VaccinationStatus-path-Activity26_1--include" value="VaccinationStatus=1"/>
+                <expression id="VaccinationStatus-path-Activity26_1--exclude" value="not(VaccinationStatus=1)"/>
+                <expression id="PreviousInfected-path-Activity27_1--include" value="PreviousInfected=0"/>
+                <expression id="PreviousInfected-path-Activity27_1--exclude" value="not(PreviousInfected=0)"/>
+                <expression id="WhenInfected-path-Activity26_1--include" value="WhenInfected = 0"/>
+                <expression id="WhenInfected-path-Activity26_1--exclude" value="not(WhenInfected = 0)"/>
+                <expression id="WhenInfected-path-Activity27_1--include" value="WhenInfected != 0"/>
+                <expression id="WhenInfected-path-Activity27_1--exclude" value="not(WhenInfected != 0)"/>
+                <expression id="VaccinationStatus-path-WhenInfected--exclude" value="VaccinationStatus != 0"/>
+                <expression id="CloseContact-computation" value="( If( ((LiveWith = 1) AND (true AND true)) ) THEN ( &quot;yes&quot; ) ELSE ( ( If( (true AND ((PhysicalContactWith = 1) AND true)) ) THEN ( &quot;yes&quot; ) ELSE ( ( If( (true AND (true AND (OneMeter = 1))) ) THEN ( &quot;yes&quot; ) ELSE ( ( If( ((LiveWith = 0) AND ((PhysicalContactWith = 0) AND (OneMeter = 0))) ) THEN ( &quot;no&quot; ) ELSE ( ( If( (true AND (true AND true)) ) THEN ( &quot;retry&quot; ) ELSE ( null ) ) ) ) ) ) ) ) ) )" type="DMN">
+                    <definitions
+                        xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions_15idq6g" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" exporter="dmn-js (https://demo.bpmn.io/dmn)" exporterVersion="11.0.1">
+                        <decision id="decision_0w5qbd2" name="">
+                            <decisionTable id="decisionTable_0lpmax3">
+                                <input id="input1" label="LiveWith">
+                                    <inputExpression id="inputExpression1" typeRef="integer">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <input id="InputClause_1u5vw58" label="PhysicalContactWith">
+                                    <inputExpression id="LiteralExpression_1ctb1jn" typeRef="integer">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <input id="InputClause_1h5e1z1" label="OneMeter">
+                                    <inputExpression id="LiteralExpression_0twfukz" typeRef="integer">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <output id="output1" label="CloseContact" name="" typeRef="string"/>
+                                <rule id="DecisionRule_08je6th">
+                                    <inputEntry id="UnaryTests_1tqsis3">
+                                        <text>1</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1iziclg">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0kir0jh">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_15q3orc">
+                                        <text>"yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_13crdob">
+                                    <inputEntry id="UnaryTests_04agr30">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_17yfjge">
+                                        <text>1</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0qoy5qg">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_1xobox0">
+                                        <text>"yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_0a69wvx">
+                                    <inputEntry id="UnaryTests_1m2eece">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1ivt4q9">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0x0hra4">
+                                        <text>1</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_11vu2nt">
+                                        <text>"yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_0ds9479">
+                                    <inputEntry id="UnaryTests_12ufwz1">
+                                        <text>0</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0bgsnwc">
+                                        <text>0</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1adzo67">
+                                        <text>0</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_18ocgcu">
+                                        <text>"no"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_18944ez">
+                                    <inputEntry id="UnaryTests_1puysva">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1q9jxlm">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0mpai0u">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_02cskia">
+                                        <text>"retry"</text>
+                                    </outputEntry>
+                                </rule>
+                            </decisionTable>
+                        </decision>
+                    </definitions>
+                </expression>
+                <expression id="PeriodFit-computation" value="( If( ((Symptoms = 2) AND (((LastContact &gt; (WhenSymptoms - PT48H)) AND (LastContact &lt; (LastSymptoms + PT48H))) AND (true AND (true AND true)))) ) THEN ( &quot;yes&quot; ) ELSE ( ( If( ((Symptoms = 3) AND (((LastContact &gt; (InfectedTestDate - PT48H)) AND (LastContact &lt; (InfectedTestDate + P7D))) AND (true AND (true AND true)))) ) THEN ( &quot;yes&quot; ) ELSE ( ( If( ((Symptoms = 1) AND (((LastContact &gt; (WhenSymptoms - PT48H)) AND (LastContact &lt; (now + PT48H))) AND (true AND (true AND true)))) ) THEN ( &quot;yes&quot; ) ELSE ( ( If( (true AND (true AND (true AND (true AND true)))) ) THEN ( &quot;no&quot; ) ELSE ( null ) ) ) ) ) ) ) )" type="DMN">
+                    <definitions
+                        xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions_15idq6g" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" exporter="dmn-js (https://demo.bpmn.io/dmn)" exporterVersion="11.0.1">
+                        <decision id="decision_0w5qbd2" name="">
+                            <decisionTable id="decisionTable_0lpmax3">
+                                <input id="InputClause_0xeacrw" label="Symptoms">
+                                    <inputExpression id="LiteralExpression_0ozi4e1" typeRef="integer">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <input id="input1" label="LastContact">
+                                    <inputExpression id="inputExpression1" typeRef="date">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <input id="InputClause_02qixxk" label="WhenSymptoms">
+                                    <inputExpression id="LiteralExpression_1tqz5zy" typeRef="date">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <input id="InputClause_04912mz" label="LastSymptoms">
+                                    <inputExpression id="LiteralExpression_0m9bnr2" typeRef="date">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <input id="InputClause_069cndr" label="InfectedTestDate">
+                                    <inputExpression id="LiteralExpression_1j1vzda" typeRef="date">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <output id="output1" label="PeriodFit" name="" typeRef="string"/>
+                                <rule id="DecisionRule_1gow60x">
+                                    <inputEntry id="UnaryTests_0if11h3">
+                                        <text>2</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_11sj8p3">
+                                        <text>[WhenSymptoms-PT48H;LastSymptoms+PT48H]</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0hah4sk">
+                                        <text/>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0ejc7zc">
+                                        <text/>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_06eaq6z">
+                                        <text/>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_15gkuc1">
+                                        <text>"yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_02c5ofm">
+                                    <inputEntry id="UnaryTests_0vk6n2t">
+                                        <text>3</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_02p2kgy">
+                                        <text>[InfectedTestDate-PT48H;InfectedTestDate+P7D]</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1c7itlu">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1bhguu9">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_10yk65w">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_1pfsnto">
+                                        <text>"yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_0j7cejc">
+                                    <inputEntry id="UnaryTests_1bn3ik8">
+                                        <text>1</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1vfqu1f">
+                                        <text>[WhenSymptoms-PT48H;now+PT48H]</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1i8jxzg">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1x0vv3n">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0d1t87c">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_0tuaeh2">
+                                        <text>"yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_0q7hw7i">
+                                    <inputEntry id="UnaryTests_1i3o0vy">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_16u86ks">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1rojz70">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0xm1yxq">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_11comwz">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_07knf90">
+                                        <text>"no"</text>
+                                    </outputEntry>
+                                </rule>
+                            </decisionTable>
+                        </decision>
+                    </definitions>
+                </expression>
+                <expression id="FirstPCRTest-computation" value="LastContact + P4D"/>
+                <expression id="SecondPCRTest-computation" value="LastContact + P6D"/>
+            </expressions>
+            <variables/>
+            <variableAccesses>
+                <writeAccesses/>
+            </variableAccesses>
+            <custom>
+                <keywords>Corona,Delete</keywords>
+                <roles>
+                    <role description="" specification="">Robot</role>
+                    <role description="" specification="">User</role>
+                </roles>
+                <kpis/>
+                <groups>
+                    <group sequence="25" description="">ShowInChatSOP</group>
+                </groups>
+                <phases>
+                    <phase sequence="1" description="">Start</phase>
+                    <phase sequence="2" description="">Contact with infected</phase>
+                    <phase sequence="3" description="">Conclusion</phase>
+                </phases>
+                <eventTypes/>
+                <eventParameters/>
+                <graphDetails>Get answers to whether you are close contact and what you need to do.
+By answering questions, you can find out if you are in close contact, if you should go into self-isolation and when you should take a PCR test.</graphDetails>
+                <graphLaw/>
+                <graphGuidelines/>
+                <graphDocumentation/>
+                <graphLanguage>en-US</graphLanguage>
+                <graphDomain>process</graphDomain>
+                <graphFilters>
+                    <filteredGroups/>
+                    <filteredRoles/>
+                    <filteredPhases/>
+                </graphFilters>
+                <hightlighterMarkup id="HLM"/>
+                <highlighterMarkup>
+                    <highlightLayers>
+                        <highlightLayer default="true" name="description">
+                            <![CDATA[DCR ProcessaSd&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;
+G&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;ASG
+ASfgA*SFø
+ASF]]>
+                        </highlightLayer>
+                    </highlightLayers>
+                    <highlights>
+                        <highlight type="activity">
+                            <layers>
+                                <layer name="description">
+                                    <ranges>
+                                        <range start="22" end="29">SfgA*SF</range>
+                                    </ranges>
+                                </layer>
+                            </layers>
+                            <items>
+                                <item id="OneMeter"/>
+                            </items>
+                        </highlight>
+                    </highlights>
+                </highlighterMarkup>
+            </custom>
+        </resources>
+        <constraints>
+            <conditions/>
+            <responses>
+                <response sourceId="Symptoms" targetId="WhenSymptoms" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-WhenSymptoms--response"/>
+                <response sourceId="Symptoms" targetId="LastSymptoms" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-LastSymptoms--response"/>
+                <response sourceId="Symptoms" targetId="InfectedTestDate" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-InfectedTestDate--response"/>
+                <response sourceId="VaccinationStatus" targetId="PreviousInfected" filterLevel="1" description="" time="" groups="" expressionId="VaccinationStatus-path-PreviousInfected--response"/>
+                <response sourceId="PreviousInfected" targetId="WhenInfected" filterLevel="1" description="" time="" groups="" expressionId="PreviousInfected-path-WhenInfected--response"/>
+                <response sourceId="CloseContact" targetId="CloseContact" filterLevel="1" description="" time="" groups="" expressionId="CloseContact-path-CloseContact--response"/>
+                <response sourceId="CloseContact" targetId="PeriodFit" filterLevel="1" description="" time="" groups="" expressionId="CloseContact-path-PeriodFit--response"/>
+                <response sourceId="PeriodFit" targetId="Activity20" filterLevel="1" description="" time="" groups="" expressionId="PeriodFit-path-Activity20--response"/>
+            </responses>
+            <coresponses>
+                <coresponse sourceId="CloseContact" targetId="PeriodFit" filterLevel="1" description="" time="" groups="" expressionId="CloseContact-path-PeriodFit--coresponse"/>
+                <coresponse sourceId="PeriodFit" targetId="Activity20" filterLevel="1" description="" time="" groups="" expressionId="PeriodFit-path-Activity20--coresponse"/>
+            </coresponses>
+            <excludes>
+                <exclude sourceId="Symptoms" targetId="InfectedTestDate" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-InfectedTestDate--exclude" link="PeriodFit.Symptoms--include--PeriodFit.InfectedTestDate"/>
+                <exclude sourceId="Symptoms" targetId="LastSymptoms" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-LastSymptoms--exclude" link="PeriodFit.Symptoms--include--PeriodFit.LastSymptoms"/>
+                <exclude sourceId="Symptoms" targetId="WhenSymptoms" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-WhenSymptoms--exclude" link="PeriodFit.Symptoms--include--PeriodFit.WhenSymptoms"/>
+                <exclude sourceId="CloseContact" targetId="Activity17_1" filterLevel="1" description="" time="" groups="" expressionId="CloseContact-path-Activity17_1--exclude" link="CloseContact--include--Activity32.Activity17_1"/>
+                <exclude sourceId="PeriodFit" targetId="Activity32" filterLevel="1" description="" time="" groups="" expressionId="PeriodFit-path-Activity32--exclude" link="PeriodFit--include--Activity32"/>
+                <exclude sourceId="VaccinationStatus" targetId="PreviousInfected" filterLevel="1" description="" time="" groups="" expressionId="VaccinationStatus-path-PreviousInfected--exclude" link="Activity20.Activity27.VaccinationStatus--include--Activity20.Activity27.PreviousInfected"/>
+                <exclude sourceId="PreviousInfected" targetId="WhenInfected" filterLevel="1" description="" time="" groups="" expressionId="PreviousInfected-path-WhenInfected--exclude" link="Activity20.Activity27.PreviousInfected--include--Activity20.Activity27.WhenInfected"/>
+                <exclude sourceId="VaccinationStatus" targetId="Activity26_1" filterLevel="1" description="" time="" groups="" expressionId="VaccinationStatus-path-Activity26_1--exclude" link="Activity20.Activity27.VaccinationStatus--include--Activity20.Activity26_1"/>
+                <exclude sourceId="PreviousInfected" targetId="Activity27_1" filterLevel="1" description="" time="" groups="" expressionId="PreviousInfected-path-Activity27_1--exclude" link="Activity20.Activity27.PreviousInfected--include--Activity20.Activity27_1"/>
+                <exclude sourceId="WhenInfected" targetId="Activity26_1" filterLevel="1" description="" time="" groups="" expressionId="WhenInfected-path-Activity26_1--exclude" link="Activity20.Activity27.WhenInfected--include--Activity20.Activity26_1"/>
+                <exclude sourceId="WhenInfected" targetId="Activity27_1" filterLevel="1" description="" time="" groups="" expressionId="WhenInfected-path-Activity27_1--exclude" link="Activity20.Activity27.WhenInfected--include--Activity20.Activity27_1"/>
+                <exclude sourceId="VaccinationStatus" targetId="WhenInfected" filterLevel="1" description="" time="" groups="" expressionId="VaccinationStatus-path-WhenInfected--exclude"/>
+            </excludes>
+            <includes>
+                <include sourceId="Activity27" targetId="Activity34" filterLevel="1" description="" time="" groups=""/>
+                <include sourceId="Symptoms" targetId="InfectedTestDate" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-InfectedTestDate--include" link="PeriodFit.Symptoms--include--PeriodFit.InfectedTestDate"/>
+                <include sourceId="Symptoms" targetId="LastSymptoms" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-LastSymptoms--include" link="PeriodFit.Symptoms--include--PeriodFit.LastSymptoms"/>
+                <include sourceId="Symptoms" targetId="WhenSymptoms" filterLevel="1" description="" time="" groups="" expressionId="Symptoms-path-WhenSymptoms--include" link="PeriodFit.Symptoms--include--PeriodFit.WhenSymptoms"/>
+                <include sourceId="CloseContact" targetId="Activity17_1" filterLevel="1" description="" time="" groups="" expressionId="CloseContact-path-Activity17_1--include" link="CloseContact--include--Activity32.Activity17_1"/>
+                <include sourceId="PeriodFit" targetId="Activity32" filterLevel="1" description="" time="" groups="" expressionId="PeriodFit-path-Activity32--include" link="PeriodFit--include--Activity32"/>
+                <include sourceId="VaccinationStatus" targetId="PreviousInfected" filterLevel="1" description="" time="" groups="" expressionId="VaccinationStatus-path-PreviousInfected--include" link="Activity20.Activity27.VaccinationStatus--include--Activity20.Activity27.PreviousInfected"/>
+                <include sourceId="PreviousInfected" targetId="WhenInfected" filterLevel="1" description="" time="" groups="" expressionId="PreviousInfected-path-WhenInfected--include" link="Activity20.Activity27.PreviousInfected--include--Activity20.Activity27.WhenInfected"/>
+                <include sourceId="VaccinationStatus" targetId="Activity26_1" filterLevel="1" description="" time="" groups="" expressionId="VaccinationStatus-path-Activity26_1--include" link="Activity20.Activity27.VaccinationStatus--include--Activity20.Activity26_1"/>
+                <include sourceId="PreviousInfected" targetId="Activity27_1" filterLevel="1" description="" time="" groups="" expressionId="PreviousInfected-path-Activity27_1--include" link="Activity20.Activity27.PreviousInfected--include--Activity20.Activity27_1"/>
+                <include sourceId="WhenInfected" targetId="Activity26_1" filterLevel="1" description="" time="" groups="" expressionId="WhenInfected-path-Activity26_1--include" link="Activity20.Activity27.WhenInfected--include--Activity20.Activity26_1"/>
+                <include sourceId="WhenInfected" targetId="Activity27_1" filterLevel="1" description="" time="" groups="" expressionId="WhenInfected-path-Activity27_1--include" link="Activity20.Activity27.WhenInfected--include--Activity20.Activity27_1"/>
+            </includes>
+            <milestones/>
+            <updates/>
+            <spawns/>
+            <templateSpawns/>
+        </constraints>
+    </specification>
+    <runtime>
+        <custom>
+            <globalMarking/>
+        </custom>
+        <marking>
+            <globalStore/>
+            <executed/>
+            <included>
+                <event id="CloseContact"/>
+                <event id="OneMeter"/>
+                <event id="PhysicalContactWith"/>
+                <event id="LiveWith"/>
+                <event id="PeriodFit"/>
+                <event id="Symptoms"/>
+                <event id="LastContact"/>
+                <event id="Activity20"/>
+                <event id="Activity27"/>
+                <event id="VaccinationStatus"/>
+                <event id="Activity27_2"/>
+                <event id="Activity30_3"/>
+                <event id="FirstPCRTest"/>
+                <event id="SecondPCRTest"/>
+                <event id="Activity32"/>
+            </included>
+            <pendingResponses>
+                <event id="CloseContact"/>
+                <event id="Symptoms"/>
+                <event id="LastContact"/>
+                <event id="Activity27"/>
+                <event id="VaccinationStatus"/>
+                <event id="Activity34"/>
+                <event id="Activity31"/>
+                <event id="FirstPCRTest"/>
+                <event id="SecondPCRTest"/>
+            </pendingResponses>
+        </marking>
+    </runtime>
+</dcrgraph>

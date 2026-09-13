@@ -1,0 +1,359 @@
+<dcrgraph title="Pension Toy Example" dataTypesStatus="hide" filterLevel="-1" insightFilter="false" zoomLevel="3" formGroupStyle="Normal" formLayoutStyle="Horizontal" formShowPendingCount="true" graphBG="#ffffff" graphType="1" exercise="false" version="1.1" sendText="" cancelText="" hideCancel="false" formShowInitialPhase="1">
+    <meta>
+        <graph id="2006992" hash="A95383CCBF9FCFD97BBA1BC128ED9B7A" guid="F228CA66-CA68-4568-97A3-E55F2FBA18A1" OwnerName="Amogh Raina" OwnerId="175727" categoryId="13934" categoryTitle="Default" Keywords=""/>
+        <revision id="5384214" type="medium" date="2026-02-25T14:35:32.380"/>
+        <organization id="1156" name="XHAILe"/>
+        <environment environment="Test"/>
+    </meta>
+    <specification>
+        <resources>
+            <events>
+                <event id="Event_18xy8vi">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="100" yLoc="20"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>User</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>0</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="0" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                            <dictionary>
+                                <item label="Yes" value="yes"/>
+                                <item label="No" value="no"/>
+                            </dictionary>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="Event_0tc3bqe">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="350" yLoc="20"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>Robot</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="1" width="small" default="yes" placeholder="" hinttext="">label</dataType>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="Event_0cbmdxj">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="550" yLoc="20"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>User</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>2</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="2" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                            <dictionary>
+                                <item label="Yes" value="yes"/>
+                                <item label="No" value="no"/>
+                            </dictionary>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="Event_13yrxob">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="150" yLoc="220"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>User</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>3</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="3" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                            <dictionary>
+                                <item label="Yes" value="yes"/>
+                                <item label="No" value="no"/>
+                            </dictionary>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="Event_1omcj5d">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="350" yLoc="220"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>User</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>4</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="4" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                            <dictionary>
+                                <item label="Yes" value="yes"/>
+                                <item label="No" value="no"/>
+                            </dictionary>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="Event_05ru0on">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="550" yLoc="220"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>User</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>100</level>
+                        <sequence>5</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="5" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="int">choice</dataType>
+                            <dictionary>
+                                <item label="Yes" value="yes"/>
+                                <item label="No" value="no"/>
+                            </dictionary>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+            </events>
+            <subProcesses/>
+            <distribution/>
+            <labels>
+                <label id="Q1: Have you reached state pension age?"/>
+                <label id="Robot: Provide eligibility conclusion"/>
+                <label id="Q5: Have you lived in Denmark for the last 8 years?"/>
+                <label id="Q2: Are you a Danish citizen?"/>
+                <label id="Q3: Do you currently live in Denmark?"/>
+                <label id="Q4: Have you lived in Denmark for at least 3 years between age 15 and pension age?"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Event_18xy8vi" labelId="Q1: Have you reached state pension age?"/>
+                <labelMapping eventId="Event_0tc3bqe" labelId="Robot: Provide eligibility conclusion"/>
+                <labelMapping eventId="Event_0cbmdxj" labelId="Q5: Have you lived in Denmark for the last 8 years?"/>
+                <labelMapping eventId="Event_13yrxob" labelId="Q2: Are you a Danish citizen?"/>
+                <labelMapping eventId="Event_1omcj5d" labelId="Q3: Do you currently live in Denmark?"/>
+                <labelMapping eventId="Event_05ru0on" labelId="Q4: Have you lived in Denmark for at least 3 years between age 15 and pension age?"/>
+            </labelMappings>
+            <expressions/>
+            <variables/>
+            <variableAccesses>
+                <writeAccesses/>
+            </variableAccesses>
+            <custom>
+                <keywords/>
+                <roles>
+                    <role description="" specification="">User</role>
+                    <role description="" specification="">Robot</role>
+                </roles>
+                <kpis/>
+                <groups/>
+                <phases/>
+                <eventTypes/>
+                <eventParameters/>
+                <graphDetails>DCR Process</graphDetails>
+                <graphLaw/>
+                <graphGuidelines/>
+                <graphDocumentation/>
+                <graphLanguage>en-US</graphLanguage>
+                <graphDomain>process</graphDomain>
+                <graphFilters>
+                    <filteredGroups/>
+                    <filteredRoles/>
+                    <filteredPhases/>
+                </graphFilters>
+                <hightlighterMarkup id="HLM"/>
+                <highlighterMarkup>
+                    <highlightLayers>
+                        <highlightLayer default="true" name="description">
+                            <![CDATA[DCR Process]]>
+                        </highlightLayer>
+                    </highlightLayers>
+                    <highlights/>
+                </highlighterMarkup>
+            </custom>
+        </resources>
+        <constraints>
+            <conditions>
+                <condition sourceId="Event_18xy8vi" targetId="Event_0tc3bqe" filterLevel="100" description="" time="" groups=""/>
+                <condition sourceId="Event_0cbmdxj" targetId="Event_0tc3bqe" filterLevel="100" description="" time="" groups=""/>
+                <condition sourceId="Event_13yrxob" targetId="Event_0tc3bqe" filterLevel="100" description="" time="" groups=""/>
+                <condition sourceId="Event_1omcj5d" targetId="Event_0tc3bqe" filterLevel="100" description="" time="" groups=""/>
+                <condition sourceId="Event_05ru0on" targetId="Event_0tc3bqe" filterLevel="100" description="" time="" groups=""/>
+            </conditions>
+            <responses>
+                <response sourceId="Event_18xy8vi" targetId="Event_0tc3bqe" filterLevel="100" description="" time="" groups=""/>
+            </responses>
+            <coresponses/>
+            <excludes>
+                <exclude sourceId="Event_05ru0on" targetId="Event_0cbmdxj" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Event_0cbmdxj" targetId="Event_05ru0on" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Event_18xy8vi" targetId="Event_18xy8vi" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Event_13yrxob" targetId="Event_13yrxob" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Event_1omcj5d" targetId="Event_1omcj5d" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Event_05ru0on" targetId="Event_05ru0on" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Event_0cbmdxj" targetId="Event_0cbmdxj" filterLevel="100" description="" time="" groups=""/>
+                <exclude sourceId="Event_0tc3bqe" targetId="Event_0tc3bqe" filterLevel="100" description="" time="" groups=""/>
+            </excludes>
+            <includes>
+                <include sourceId="Event_1omcj5d" targetId="Event_0cbmdxj" filterLevel="100" description="" time="" groups=""/>
+            </includes>
+            <milestones/>
+            <updates/>
+            <spawns/>
+            <templateSpawns/>
+        </constraints>
+    </specification>
+    <runtime>
+        <custom>
+            <globalMarking/>
+        </custom>
+        <marking>
+            <globalStore/>
+            <executed/>
+            <included>
+                <event id="Event_18xy8vi"/>
+                <event id="Event_0tc3bqe"/>
+                <event id="Event_0cbmdxj"/>
+                <event id="Event_13yrxob"/>
+                <event id="Event_1omcj5d"/>
+                <event id="Event_05ru0on"/>
+            </included>
+            <pendingResponses>
+                <event id="Event_18xy8vi"/>
+                <event id="Event_0cbmdxj"/>
+                <event id="Event_13yrxob"/>
+                <event id="Event_1omcj5d"/>
+                <event id="Event_05ru0on"/>
+            </pendingResponses>
+        </marking>
+    </runtime>
+</dcrgraph>

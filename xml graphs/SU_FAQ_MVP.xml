@@ -1,0 +1,787 @@
+<?xml version='1.0' encoding='utf-8'?>
+<dcrgraph title="SU FAQ MVP - two topics" dataTypesStatus="hide" filterLevel="-1" insightFilter="false" zoomLevel="-3" formGroupStyle="Normal" formLayoutStyle="Horizontal" formShowPendingCount="true" graphBG="#f1f6fe" graphType="0" exercise="false" version="1.1">
+  <specification>
+    <resources>
+      <events>
+        <event id="FAQ_SelectQuestion">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="450" yLoc="100" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Chatbot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>0</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+              <dataType format="int" sequence="0" width="large">choice</dataType>
+              <dictionary>
+                <item value="1" label="Which medical documents do I need?" />
+                <item value="2" label="Where can I obtain my medical records?" />
+                <item value="3" label="Can I use older medical records?" />
+                <item value="4" label="What should I provide if treatment is ongoing or finished?" />
+                <item value="5" label="What should my medical records describe?" />
+                <item value="6" label="Is a diagnosis or medication list enough?" />
+                <item value="7" label="Can my personal statement replace medical records?" />
+                <item value="8" label="Does meeting the minimum documentation requirement mean I qualify?" />
+              </dictionary>
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+        <event id="FAQ_SelectTopic">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="100" yLoc="100" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Chatbot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>1</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+              <dataType format="int" sequence="0" width="large">choice</dataType>
+              <dictionary>
+                <item value="1" label="Minimum documents" />
+                <item value="2" label="Medical document content" />
+              </dictionary>
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+        <event id="FAQ_CurrentTopic">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="100" yLoc="280" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Chatbot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>2</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+        <event id="FAQ_Route" computation="FAQ_Route-computation">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="450" yLoc="280" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Robot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>3</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+        <event id="FAQ_Suggest" computation="FAQ_Suggest-computation">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="750" yLoc="280" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Robot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>4</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+        <event id="FAQ_Topic1" type="nesting">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="100" yLoc="500" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Chatbot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>5</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+          <event id="FAQ_Answer_1">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="150" yLoc="560" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription>&lt;p&gt;Include existing medical records describing each impairment you want assessed. Relevant records may come from a hospital, outpatient clinic, specialist or your GP. The minimum requirement is intended to use existing records you can access free of charge; you are not expected to buy a new medical statement just to apply.&lt;/p&gt;</eventDescription>
+              <purpose>Sources: SU-Handicap-report.md, documentation requirements and pitfalls; www.su.dk_handicaptillaeg_om-dokumentation.md; www.su.dk_handicaptillaeg_spoergsmaal-og-svar-om-handicaptillaeg.md. Guideline-based answer enriched with FAQ information.</purpose>
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>6</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+                <dataType format="int" sequence="0" width="large">label</dataType>
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="FAQ_Answer_2">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="150" yLoc="730" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription>&lt;p&gt;Public hospital records are usually available through sundhed.dk. Ask your GP, private hospital or specialist for access to relevant records they hold. Include records concerning each impairment you list, rather than unrelated parts of your medical history.&lt;/p&gt;</eventDescription>
+              <purpose>Sources: SU-Handicap-report.md, documentation requirements and pitfalls; www.su.dk_handicaptillaeg_om-dokumentation.md; www.su.dk_handicaptillaeg_spoergsmaal-og-svar-om-handicaptillaeg.md. Guideline-based answer enriched with FAQ information.</purpose>
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>7</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+                <dataType format="int" sequence="0" width="large">label</dataType>
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="FAQ_Answer_3">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="150" yLoc="900" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription>&lt;p&gt;Yes. Include relevant records even if they are more than three years old. Add newer records if you have them, especially if your symptoms, treatment or everyday functioning have changed. Older records can still help explain your medical history.&lt;/p&gt;</eventDescription>
+              <purpose>Sources: SU-Handicap-report.md, documentation requirements and pitfalls; www.su.dk_handicaptillaeg_om-dokumentation.md; www.su.dk_handicaptillaeg_spoergsmaal-og-svar-om-handicaptillaeg.md. Guideline-based answer enriched with FAQ information.</purpose>
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>8</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+                <dataType format="int" sequence="0" width="large">label</dataType>
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="FAQ_Answer_4">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="150" yLoc="1070" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription>&lt;p&gt;If treatment has finished, include the discharge summary or concluding letter, where available, and relevant GP follow-up records. If treatment is ongoing, you may not have a discharge summary yet: include the latest relevant notes and information about current or planned treatment.&lt;/p&gt;</eventDescription>
+              <purpose>Sources: SU-Handicap-report.md, documentation requirements and pitfalls; www.su.dk_handicaptillaeg_om-dokumentation.md; www.su.dk_handicaptillaeg_spoergsmaal-og-svar-om-handicaptillaeg.md. Guideline-based answer enriched with FAQ information.</purpose>
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>9</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+                <dataType format="int" sequence="0" width="large">label</dataType>
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+        </event>
+        <event id="FAQ_Topic2" type="nesting">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="1050" yLoc="500" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Chatbot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>10</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+          <event id="FAQ_Answer_5">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1100" yLoc="560" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription>&lt;p&gt;Your records should describe your diagnosis, if made; illness and treatment history; current symptoms and everyday functioning; and current or planned treatment. Include information about how the impairment affects your ability to work, where available. Submit the relevant information already contained in your records.&lt;/p&gt;</eventDescription>
+              <purpose>Sources: SU-Handicap-report.md, documentation requirements and pitfalls; www.su.dk_handicaptillaeg_om-dokumentation.md; www.su.dk_handicaptillaeg_spoergsmaal-og-svar-om-handicaptillaeg.md. Guideline-based answer enriched with FAQ information.</purpose>
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>11</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+                <dataType format="int" sequence="0" width="large">label</dataType>
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="FAQ_Answer_6">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1100" yLoc="730" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription>&lt;p&gt;A note that only confirms a diagnosis, or a medication list on its own, is not enough. Include medical records explaining the symptoms, treatment history and effects on your functioning. For applications submitted from 1 July 2025, missing the minimum documentation can lead to rejection without assessment of entitlement.&lt;/p&gt;</eventDescription>
+              <purpose>Sources: SU-Handicap-report.md, documentation requirements and pitfalls; www.su.dk_handicaptillaeg_om-dokumentation.md; www.su.dk_handicaptillaeg_spoergsmaal-og-svar-om-handicaptillaeg.md. Guideline-based answer enriched with FAQ information.</purpose>
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>12</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+                <dataType format="int" sequence="0" width="large">label</dataType>
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="FAQ_Answer_7">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1100" yLoc="900" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription>&lt;p&gt;No. Your personal statement supplements the medical records. It can explain your everyday difficulties, ability to have a student job, previous work, adjustments and support. It helps put the medical evidence in context but does not replace it.&lt;/p&gt;</eventDescription>
+              <purpose>Sources: SU-Handicap-report.md, documentation requirements and pitfalls; www.su.dk_handicaptillaeg_om-dokumentation.md; www.su.dk_handicaptillaeg_spoergsmaal-og-svar-om-handicaptillaeg.md. Guideline-based answer enriched with FAQ information.</purpose>
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>13</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+                <dataType format="int" sequence="0" width="large">label</dataType>
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="FAQ_Answer_8">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1100" yLoc="1070" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription>&lt;p&gt;No. Meeting the minimum documentation requirement allows the agency to assess the application; it does not establish entitlement. The agency assesses the relevant eligibility requirements and your individual circumstances, and may request more evidence.&lt;/p&gt;</eventDescription>
+              <purpose>Sources: SU-Handicap-report.md, documentation requirements and pitfalls; www.su.dk_handicaptillaeg_om-dokumentation.md; www.su.dk_handicaptillaeg_spoergsmaal-og-svar-om-handicaptillaeg.md. Guideline-based answer enriched with FAQ information.</purpose>
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>14</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+                <dataType format="int" sequence="0" width="large">label</dataType>
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+        </event>
+        <event id="FAQ_Apply">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="950" yLoc="100" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Chatbot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>15</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+        <event id="Form0" type="form" cancelText="" sendText="" hideCancel="false" formShowInitialPhase="1">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="1100" yLoc="20" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles />
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>9</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+      </events>
+      <subProcesses />
+      <labels>
+        <label id="What would you like to ask?" />
+        <label id="Choose a topic" />
+        <label id="Current topic" />
+        <label id="Route the confirmed question" />
+        <label id="Suggest unread questions" />
+        <label id="Minimum documents" />
+        <label id="Which medical documents do I need?" />
+        <label id="Where can I obtain my medical records?" />
+        <label id="Can I use older medical records?" />
+        <label id="What should I provide if treatment is ongoing or finished?" />
+        <label id="Medical document content" />
+        <label id="What should my medical records describe?" />
+        <label id="Is a diagnosis or medication list enough?" />
+        <label id="Can my personal statement replace medical records?" />
+        <label id="Does meeting the minimum documentation requirement mean I qualify?" />
+        <label id="Proceed to application" />
+        <label id="SU handicap application" />
+      </labels>
+      <labelMappings>
+        <labelMapping eventId="FAQ_SelectQuestion" labelId="What would you like to ask?" />
+        <labelMapping eventId="FAQ_SelectTopic" labelId="Choose a topic" />
+        <labelMapping eventId="FAQ_CurrentTopic" labelId="Current topic" />
+        <labelMapping eventId="FAQ_Route" labelId="Route the confirmed question" />
+        <labelMapping eventId="FAQ_Suggest" labelId="Suggest unread questions" />
+        <labelMapping eventId="FAQ_Topic1" labelId="Minimum documents" />
+        <labelMapping eventId="FAQ_Answer_1" labelId="Which medical documents do I need?" />
+        <labelMapping eventId="FAQ_Answer_2" labelId="Where can I obtain my medical records?" />
+        <labelMapping eventId="FAQ_Answer_3" labelId="Can I use older medical records?" />
+        <labelMapping eventId="FAQ_Answer_4" labelId="What should I provide if treatment is ongoing or finished?" />
+        <labelMapping eventId="FAQ_Topic2" labelId="Medical document content" />
+        <labelMapping eventId="FAQ_Answer_5" labelId="What should my medical records describe?" />
+        <labelMapping eventId="FAQ_Answer_6" labelId="Is a diagnosis or medication list enough?" />
+        <labelMapping eventId="FAQ_Answer_7" labelId="Can my personal statement replace medical records?" />
+        <labelMapping eventId="FAQ_Answer_8" labelId="Does meeting the minimum documentation requirement mean I qualify?" />
+        <labelMapping eventId="FAQ_Apply" labelId="Proceed to application" />
+        <labelMapping eventId="Form0" labelId="SU handicap application" />
+      </labelMappings>
+      <expressions>
+        <expression id="FAQ_SelectTopic-FAQ_CurrentTopic-value" value="FAQ_SelectTopic" />
+        <expression id="FAQ_Route-FAQ_CurrentTopic-value" value="FAQ_Route" />
+        <expression id="FAQ_Route-computation" value="if FAQ_SelectQuestion &lt;= 4 then 1 else 2" />
+        <expression id="FAQ_Route-FAQ_Answer_1-include" value="FAQ_SelectQuestion = 1" />
+        <expression id="FAQ_Route-FAQ_Answer_1-response" value="FAQ_SelectQuestion = 1" />
+        <expression id="FAQ_Route-FAQ_Answer_2-include" value="FAQ_SelectQuestion = 2" />
+        <expression id="FAQ_Route-FAQ_Answer_2-response" value="FAQ_SelectQuestion = 2" />
+        <expression id="FAQ_Route-FAQ_Answer_3-include" value="FAQ_SelectQuestion = 3" />
+        <expression id="FAQ_Route-FAQ_Answer_3-response" value="FAQ_SelectQuestion = 3" />
+        <expression id="FAQ_Route-FAQ_Answer_4-include" value="FAQ_SelectQuestion = 4" />
+        <expression id="FAQ_Route-FAQ_Answer_4-response" value="FAQ_SelectQuestion = 4" />
+        <expression id="FAQ_Route-FAQ_Answer_5-include" value="FAQ_SelectQuestion = 5" />
+        <expression id="FAQ_Route-FAQ_Answer_5-response" value="FAQ_SelectQuestion = 5" />
+        <expression id="FAQ_Route-FAQ_Answer_6-include" value="FAQ_SelectQuestion = 6" />
+        <expression id="FAQ_Route-FAQ_Answer_6-response" value="FAQ_SelectQuestion = 6" />
+        <expression id="FAQ_Route-FAQ_Answer_7-include" value="FAQ_SelectQuestion = 7" />
+        <expression id="FAQ_Route-FAQ_Answer_7-response" value="FAQ_SelectQuestion = 7" />
+        <expression id="FAQ_Route-FAQ_Answer_8-include" value="FAQ_SelectQuestion = 8" />
+        <expression id="FAQ_Route-FAQ_Answer_8-response" value="FAQ_SelectQuestion = 8" />
+        <expression id="FAQ_Suggest-computation" value="if FAQ_CurrentTopic = 1 then (if FAQ_Answer_1@executed then (if FAQ_Answer_2@executed then (if FAQ_Answer_3@executed then (if FAQ_Answer_4@executed then [] else [[4, &quot;What should I provide if treatment is ongoing or finished?&quot;]]) else (if FAQ_Answer_4@executed then [[3, &quot;Can I use older medical records?&quot;]] else [[3, &quot;Can I use older medical records?&quot;], [4, &quot;What should I provide if treatment is ongoing or finished?&quot;]])) else (if FAQ_Answer_3@executed then (if FAQ_Answer_4@executed then [[2, &quot;Where can I obtain my medical records?&quot;]] else [[2, &quot;Where can I obtain my medical records?&quot;], [4, &quot;What should I provide if treatment is ongoing or finished?&quot;]]) else (if FAQ_Answer_4@executed then [[2, &quot;Where can I obtain my medical records?&quot;], [3, &quot;Can I use older medical records?&quot;]] else [[2, &quot;Where can I obtain my medical records?&quot;], [3, &quot;Can I use older medical records?&quot;], [4, &quot;What should I provide if treatment is ongoing or finished?&quot;]]))) else (if FAQ_Answer_2@executed then (if FAQ_Answer_3@executed then (if FAQ_Answer_4@executed then [[1, &quot;Which medical documents do I need?&quot;]] else [[1, &quot;Which medical documents do I need?&quot;], [4, &quot;What should I provide if treatment is ongoing or finished?&quot;]]) else (if FAQ_Answer_4@executed then [[1, &quot;Which medical documents do I need?&quot;], [3, &quot;Can I use older medical records?&quot;]] else [[1, &quot;Which medical documents do I need?&quot;], [3, &quot;Can I use older medical records?&quot;], [4, &quot;What should I provide if treatment is ongoing or finished?&quot;]])) else (if FAQ_Answer_3@executed then (if FAQ_Answer_4@executed then [[1, &quot;Which medical documents do I need?&quot;], [2, &quot;Where can I obtain my medical records?&quot;]] else [[1, &quot;Which medical documents do I need?&quot;], [2, &quot;Where can I obtain my medical records?&quot;], [4, &quot;What should I provide if treatment is ongoing or finished?&quot;]]) else (if FAQ_Answer_4@executed then [[1, &quot;Which medical documents do I need?&quot;], [2, &quot;Where can I obtain my medical records?&quot;], [3, &quot;Can I use older medical records?&quot;]] else [[1, &quot;Which medical documents do I need?&quot;], [2, &quot;Where can I obtain my medical records?&quot;], [3, &quot;Can I use older medical records?&quot;], [4, &quot;What should I provide if treatment is ongoing or finished?&quot;]])))) else (if FAQ_Answer_5@executed then (if FAQ_Answer_6@executed then (if FAQ_Answer_7@executed then (if FAQ_Answer_8@executed then [] else [[8, &quot;Does meeting the minimum documentation requirement mean I qualify?&quot;]]) else (if FAQ_Answer_8@executed then [[7, &quot;Can my personal statement replace medical records?&quot;]] else [[7, &quot;Can my personal statement replace medical records?&quot;], [8, &quot;Does meeting the minimum documentation requirement mean I qualify?&quot;]])) else (if FAQ_Answer_7@executed then (if FAQ_Answer_8@executed then [[6, &quot;Is a diagnosis or medication list enough?&quot;]] else [[6, &quot;Is a diagnosis or medication list enough?&quot;], [8, &quot;Does meeting the minimum documentation requirement mean I qualify?&quot;]]) else (if FAQ_Answer_8@executed then [[6, &quot;Is a diagnosis or medication list enough?&quot;], [7, &quot;Can my personal statement replace medical records?&quot;]] else [[6, &quot;Is a diagnosis or medication list enough?&quot;], [7, &quot;Can my personal statement replace medical records?&quot;], [8, &quot;Does meeting the minimum documentation requirement mean I qualify?&quot;]]))) else (if FAQ_Answer_6@executed then (if FAQ_Answer_7@executed then (if FAQ_Answer_8@executed then [[5, &quot;What should my medical records describe?&quot;]] else [[5, &quot;What should my medical records describe?&quot;], [8, &quot;Does meeting the minimum documentation requirement mean I qualify?&quot;]]) else (if FAQ_Answer_8@executed then [[5, &quot;What should my medical records describe?&quot;], [7, &quot;Can my personal statement replace medical records?&quot;]] else [[5, &quot;What should my medical records describe?&quot;], [7, &quot;Can my personal statement replace medical records?&quot;], [8, &quot;Does meeting the minimum documentation requirement mean I qualify?&quot;]])) else (if FAQ_Answer_7@executed then (if FAQ_Answer_8@executed then [[5, &quot;What should my medical records describe?&quot;], [6, &quot;Is a diagnosis or medication list enough?&quot;]] else [[5, &quot;What should my medical records describe?&quot;], [6, &quot;Is a diagnosis or medication list enough?&quot;], [8, &quot;Does meeting the minimum documentation requirement mean I qualify?&quot;]]) else (if FAQ_Answer_8@executed then [[5, &quot;What should my medical records describe?&quot;], [6, &quot;Is a diagnosis or medication list enough?&quot;], [7, &quot;Can my personal statement replace medical records?&quot;]] else [[5, &quot;What should my medical records describe?&quot;], [6, &quot;Is a diagnosis or medication list enough?&quot;], [7, &quot;Can my personal statement replace medical records?&quot;], [8, &quot;Does meeting the minimum documentation requirement mean I qualify?&quot;]]))))" />
+      </expressions>
+      <variables />
+      <variableAccesses>
+        <writeAccesses />
+      </variableAccesses>
+      <custom>
+        <keywords />
+        <roles>
+          <role description="" specification="">Chatbot</role>
+          <role description="" specification="">Robot</role>
+        </roles>
+        <groups />
+        <phases />
+        <eventTypes />
+        <eventParameters />
+        <graphDetails>DCR Process</graphDetails>
+        <graphDocumentation>Two-topic conversational FAQ MVP. Robot routes confirmed question values and computes unread suggestions. Answer execution records presentation, not eligibility or understanding. Application form reserved for later.</graphDocumentation>
+        <graphLanguage>en-US</graphLanguage>
+        <graphDomain>process</graphDomain>
+        <graphFilters>
+          <filteredGroups />
+          <filteredRoles />
+          <filteredPhases />
+        </graphFilters>
+        <highlighterMarkup>
+          <highlightLayers>
+            <highlightLayer default="true" name="description">DCR Process</highlightLayer>
+          </highlightLayers>
+          <highlights />
+        </highlighterMarkup>
+      </custom>
+    </resources>
+    <constraints>
+      <conditions />
+      <responses>
+        <response sourceId="FAQ_SelectTopic" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_SelectQuestion" targetId="FAQ_Route" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Route" targetId="FAQ_Answer_1" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_1-response" />
+        <response sourceId="FAQ_Answer_1" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Route" targetId="FAQ_Answer_2" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_2-response" />
+        <response sourceId="FAQ_Answer_2" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Route" targetId="FAQ_Answer_3" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_3-response" />
+        <response sourceId="FAQ_Answer_3" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Route" targetId="FAQ_Answer_4" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_4-response" />
+        <response sourceId="FAQ_Answer_4" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Route" targetId="FAQ_Answer_5" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_5-response" />
+        <response sourceId="FAQ_Answer_5" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Route" targetId="FAQ_Answer_6" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_6-response" />
+        <response sourceId="FAQ_Answer_6" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Route" targetId="FAQ_Answer_7" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_7-response" />
+        <response sourceId="FAQ_Answer_7" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Route" targetId="FAQ_Answer_8" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_8-response" />
+        <response sourceId="FAQ_Answer_8" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Suggest" targetId="FAQ_SelectQuestion" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="FAQ_Apply" targetId="Form0" filterLevel="100" description="" time="" groups="" />
+      </responses>
+      <coresponses />
+      <includes>
+        <include sourceId="FAQ_SelectTopic" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_SelectQuestion" targetId="FAQ_Route" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Route" targetId="FAQ_Answer_1" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_1-include" />
+        <include sourceId="FAQ_Answer_1" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Route" targetId="FAQ_Answer_2" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_2-include" />
+        <include sourceId="FAQ_Answer_2" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Route" targetId="FAQ_Answer_3" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_3-include" />
+        <include sourceId="FAQ_Answer_3" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Route" targetId="FAQ_Answer_4" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_4-include" />
+        <include sourceId="FAQ_Answer_4" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Route" targetId="FAQ_Answer_5" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_5-include" />
+        <include sourceId="FAQ_Answer_5" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Route" targetId="FAQ_Answer_6" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_6-include" />
+        <include sourceId="FAQ_Answer_6" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Route" targetId="FAQ_Answer_7" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_7-include" />
+        <include sourceId="FAQ_Answer_7" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Route" targetId="FAQ_Answer_8" filterLevel="100" description="" time="" groups="" expressionId="FAQ_Route-FAQ_Answer_8-include" />
+        <include sourceId="FAQ_Answer_8" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Suggest" targetId="FAQ_SelectTopic" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Suggest" targetId="FAQ_SelectQuestion" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Suggest" targetId="FAQ_Apply" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="FAQ_Apply" targetId="Form0" filterLevel="100" description="" time="" groups="" />
+      </includes>
+      <excludes>
+        <exclude sourceId="FAQ_Answer_1" targetId="FAQ_Answer_1" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Answer_2" targetId="FAQ_Answer_2" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Answer_3" targetId="FAQ_Answer_3" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Answer_4" targetId="FAQ_Answer_4" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Answer_5" targetId="FAQ_Answer_5" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Answer_6" targetId="FAQ_Answer_6" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Answer_7" targetId="FAQ_Answer_7" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Answer_8" targetId="FAQ_Answer_8" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_SelectTopic" targetId="FAQ_SelectTopic" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_SelectTopic" targetId="FAQ_SelectQuestion" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_SelectTopic" targetId="FAQ_Apply" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_SelectQuestion" targetId="FAQ_SelectTopic" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_SelectQuestion" targetId="FAQ_SelectQuestion" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_SelectQuestion" targetId="FAQ_Apply" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Route" targetId="FAQ_Route" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Suggest" targetId="FAQ_Suggest" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Apply" targetId="FAQ_Apply" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Apply" targetId="FAQ_SelectTopic" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="FAQ_Apply" targetId="FAQ_SelectQuestion" filterLevel="100" description="" time="" groups="" />
+      </excludes>
+      <milestones />
+      <spawns />
+      <templateSpawns />
+      <updates>
+        <update sourceId="FAQ_SelectTopic" targetId="FAQ_CurrentTopic" filterLevel="100" description="" time="" groups="" valueExpressionId="FAQ_SelectTopic-FAQ_CurrentTopic-value" />
+        <update sourceId="FAQ_Route" targetId="FAQ_CurrentTopic" filterLevel="100" description="" time="" groups="" valueExpressionId="FAQ_Route-FAQ_CurrentTopic-value" />
+      </updates>
+    </constraints>
+  </specification>
+  <runtime accepting="false">
+    <custom>
+      <globalMarking>
+        <enabled />
+        <enabledSubprocesses />
+        <executed />
+        <pending />
+        <included />
+      </globalMarking>
+    </custom>
+    <marking>
+      <globalStore />
+      <executed />
+      <included>
+        <event id="FAQ_SelectTopic" />
+        <event id="FAQ_SelectQuestion" />
+        <event id="FAQ_Apply" />
+        <event id="FAQ_CurrentTopic" />
+        <event id="FAQ_Topic1" />
+        <event id="FAQ_Topic2" />
+      </included>
+      <pendingResponses>
+        <event id="FAQ_SelectQuestion" />
+      </pendingResponses>
+    </marking>
+  </runtime>
+</dcrgraph>

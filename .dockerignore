@@ -1,0 +1,16 @@
+.git
+.env
+.env.*
+.venv
+**/__pycache__
+**/node_modules
+parsed_graphs
+runtime_traces
+external_scripts/*
+!external_scripts/graph_parser.py
+!external_scripts/__init__.py
+external_Scripts
+FAQ_GRAPH_REVIEW.md
+faq_inventory_v1.md
+FAQ_SMOKE_RESULT.md
+.DS_Store

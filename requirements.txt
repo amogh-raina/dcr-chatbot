@@ -1,0 +1,21 @@
+blinker==1.8.2
+certifi==2024.8.30
+charset-normalizer==3.4.0
+click==8.1.7
+Flask==3.0.3
+idna==3.10
+itsdangerous==2.2.0
+Jinja2==3.1.4
+MarkupSafe==3.0.2
+python-dotenv==1.0.1
+requests==2.32.3
+urllib3==2.2.3
+waitress==3.0.1
+Werkzeug==3.1.1
+
+# Structured FAQ matching via Responses API
+openai>=2.32.0,<3
+
+# Both browser UIs are served by Flask; the built demo needs no Node.js install.
+# To edit/rebuild demo-ui only: Node.js 22.12+ and `npm ci` in demo-ui/.
+# React/Vite dependencies and exact npm resolutions are in package.json/package-lock.json.

@@ -1,0 +1,361 @@
+<dcrgraph title="DMN chatbot - english" dataTypesStatus="hide" filterLevel="-1" insightFilter="false" zoomLevel="3" formGroupStyle="Normal" formLayoutStyle="Horizontal" formShowPendingCount="false" graphBG="#ffffff" graphType="1" exercise="false" version="1.0" sendText="" cancelText="" hideCancel="false" formShowInitialPhase="1">
+    <meta>
+        <graph id="2005522" hash="632E082E57B42D0B7B63CCEF38C09773" guid="BA4E9447-F4ED-4D11-8239-F0E31F2FEBDA" OwnerName="Benjamin Wiese" OwnerId="175421" categoryId="13935" categoryTitle="Chatbot" Keywords="DMN"/>
+        <revision id="5228620" type="minor" date="2026-01-05T18:09:46.703"/>
+        <organization id="1156" name="XHAILe"/>
+        <environment environment="Test"/>
+    </meta>
+    <specification>
+        <resources>
+            <events>
+                <event id="Age">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="50" yLoc="170"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>User</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>0</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="0" width="small" min="NaN" max="NaN" placeholder="" hinttext="">int</dataType>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="Country">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="50" yLoc="20"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>User</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="1" width="small" placeholder="" hinttext="" dataSetList="" dataSetActivity="" multiple="false" radio="" format="string">choice</dataType>
+                            <dictionary>
+                                <item label="Denmark" value="Denmark"/>
+                                <item label="USA" value="USA"/>
+                                <item label="Slovakia" value="Slovakia"/>
+                                <item label="United Kingdom" value="UK"/>
+                                <item label="Sweden" value="Sweden"/>
+                            </dictionary>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="DMN" computation="DMN-computation">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="300" yLoc="120"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>Robot</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>2</sequence>
+                        <costs>0</costs>
+                        <eventData/>
+                        <interfaces/>
+                    </custom>
+                </event>
+                <event id="A4">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="500" yLoc="20"/>
+                            <colors bg="#fff2cc" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role>User</role>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>3</sequence>
+                        <costs>0</costs>
+                        <eventData>
+                            <dataType sequence="3" width="small" default="" placeholder="" hinttext="">label</dataType>
+                            <validationRules/>
+                        </eventData>
+                        <interfaces/>
+                    </custom>
+                </event>
+            </events>
+            <subProcesses/>
+            <distribution/>
+            <labels>
+                <label id="How old are you?"/>
+                <label id="Which country are   you in?"/>
+                <label id="DMN"/>
+                <label id="Conclusion"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Age" labelId="How old are you?"/>
+                <labelMapping eventId="Country" labelId="Which country are   you in?"/>
+                <labelMapping eventId="DMN" labelId="DMN"/>
+                <labelMapping eventId="A4" labelId="Conclusion"/>
+            </labelMappings>
+            <expressions>
+                <expression id="DMN-path-A4--update--value" value="&quot;Can you purchase alcohol? &quot; + DMN"/>
+                <expression id="DMN-computation" value="( If( ((Country = &quot;Denmark&quot;) AND ((Age = 18) OR (Age &gt; 18))) ) THEN ( &quot;Yes&quot; ) ELSE ( ( If( ((Country = &quot;USA&quot;) AND ((Age = 21) OR (Age &gt; 21))) ) THEN ( &quot;Yes&quot; ) ELSE ( ( If( ((Country = &quot;Slovakia&quot;) AND ((Age = 18) OR (Age &gt; 18))) ) THEN ( &quot;Yes&quot; ) ELSE ( ( If( ((Country = &quot;UK&quot;) AND ((Age = 18) OR (Age &gt; 18))) ) THEN ( &quot;Yes&quot; ) ELSE ( ( If( ((Country = &quot;Denmark&quot;) AND ((Age = 16) OR (Age &gt; 16))) ) THEN ( &quot;No. But you can purchase wine and beer&quot; ) ELSE ( ( If( ((Country = &quot;Sweden&quot;) AND ((Age = 18) OR (Age &gt; 18))) ) THEN ( &quot;Yes&quot; ) ELSE ( ( If( (true AND true) ) THEN ( &quot;No&quot; ) ELSE ( null ) ) ) ) ) ) ) ) ) ) ) ) ) )" type="DMN">
+                    <definitions
+                        xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+                        xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="definitions_15idq6g" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" exporter="dmn-js (https://demo.bpmn.io/dmn)" exporterVersion="11.0.1">
+                        <decision id="decision_0w5qbd2" name="">
+                            <decisionTable id="decisionTable_0lpmax3" hitPolicy="FIRST">
+                                <input id="input1" label="Country" biodi:width="150">
+                                    <inputExpression id="inputExpression1" typeRef="string">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <input id="InputClause_1lpjwnn" label="Age" biodi:width="150">
+                                    <inputExpression id="LiteralExpression_0ueuhev" typeRef="integer">
+                                        <text/>
+                                    </inputExpression>
+                                </input>
+                                <output id="output1" label="DMN" name="" typeRef="string" biodi:width="150"/>
+                                <rule id="DecisionRule_0r87noq">
+                                    <description>Her skriver jeg mine kommentarer til denne regel</description>
+                                    <inputEntry id="UnaryTests_1rl85gd">
+                                        <text>"Denmark"</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_19430yh">
+                                        <text>&gt;=18</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_1xjp35k">
+                                        <text>"Yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_0u3dkz5">
+                                    <description/>
+                                    <inputEntry id="UnaryTests_19z0nu9">
+                                        <text>"USA"</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0ij84x0">
+                                        <text>&gt;=21</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_0njlb9y">
+                                        <text>"Yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_1mownj3">
+                                    <description/>
+                                    <inputEntry id="UnaryTests_0cdk8y9">
+                                        <text>"Slovakia"</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_008kfp4">
+                                        <text>&gt;=18</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_06y5s8o">
+                                        <text>"Yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_1ce0bu5">
+                                    <inputEntry id="UnaryTests_0awm747">
+                                        <text>"UK"</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_18qgqze">
+                                        <text>&gt;=18</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_06664rb">
+                                        <text>"Yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_0yi011n">
+                                    <description/>
+                                    <inputEntry id="UnaryTests_0y80way">
+                                        <text>"Denmark"</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1mh8gyt">
+                                        <text>&gt;=16</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_0gch581">
+                                        <text>"No. But you can purchase wine and beer"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_0asoj19">
+                                    <inputEntry id="UnaryTests_1c80e5r">
+                                        <text>"Sweden"</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_1ou1nbz">
+                                        <text>&gt;=18</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_06qhwm8">
+                                        <text>"Yes"</text>
+                                    </outputEntry>
+                                </rule>
+                                <rule id="DecisionRule_0yoysa5">
+                                    <description/>
+                                    <inputEntry id="UnaryTests_1fw5soz">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <inputEntry id="UnaryTests_0hmvssc">
+                                        <text>-</text>
+                                    </inputEntry>
+                                    <outputEntry id="LiteralExpression_08c7hmi">
+                                        <text>"No"</text>
+                                    </outputEntry>
+                                </rule>
+                            </decisionTable>
+                        </decision>
+                    </definitions>
+                </expression>
+            </expressions>
+            <variables/>
+            <variableAccesses>
+                <writeAccesses/>
+            </variableAccesses>
+            <custom>
+                <keywords>DMN</keywords>
+                <roles>
+                    <role description="" specification="">Robot</role>
+                    <role description="" specification="">User</role>
+                </roles>
+                <kpis/>
+                <groups/>
+                <phases/>
+                <eventTypes/>
+                <eventParameters/>
+                <graphDetails>DMN example</graphDetails>
+                <graphLaw/>
+                <graphGuidelines/>
+                <graphDocumentation/>
+                <graphLanguage>en-US</graphLanguage>
+                <graphDomain>process</graphDomain>
+                <graphFilters>
+                    <filteredGroups/>
+                    <filteredRoles/>
+                    <filteredPhases/>
+                </graphFilters>
+                <hightlighterMarkup id="HLM"/>
+                <highlighterMarkup>
+                    <highlightLayers>
+                        <highlightLayer default="true" name="description">
+                            <![CDATA[DCR Process]]>
+                        </highlightLayer>
+                    </highlightLayers>
+                    <highlights/>
+                </highlighterMarkup>
+            </custom>
+        </resources>
+        <constraints>
+            <conditions>
+                <condition sourceId="Country" targetId="DMN" filterLevel="1" description="" time="" groups="" link="Country--condition--DMN"/>
+                <condition sourceId="Age" targetId="DMN" filterLevel="1" description="" time="" groups="" link="Age--condition--DMN"/>
+                <condition sourceId="DMN" targetId="A4" filterLevel="1" description="" time="" groups="" link="DMN--condition--A4"/>
+            </conditions>
+            <responses>
+                <response sourceId="Country" targetId="DMN" filterLevel="1" description="" time="" groups=""/>
+                <response sourceId="Age" targetId="DMN" filterLevel="1" description="" time="" groups=""/>
+            </responses>
+            <coresponses/>
+            <excludes/>
+            <includes/>
+            <milestones>
+                <milestone sourceId="Country" targetId="DMN" filterLevel="1" description="" time="" groups="" link="Country--condition--DMN"/>
+                <milestone sourceId="Age" targetId="DMN" filterLevel="1" description="" time="" groups="" link="Age--condition--DMN"/>
+                <milestone sourceId="DMN" targetId="A4" filterLevel="1" description="" time="" groups="" link="DMN--condition--A4"/>
+            </milestones>
+            <updates>
+                <update sourceId="DMN" targetId="A4" filterLevel="1" description="" time="" groups="" valueExpressionId="DMN-path-A4--update--value"/>
+            </updates>
+            <spawns/>
+            <templateSpawns/>
+        </constraints>
+    </specification>
+    <runtime>
+        <custom>
+            <globalMarking/>
+        </custom>
+        <marking>
+            <globalStore/>
+            <executed/>
+            <included>
+                <event id="Age"/>
+                <event id="Country"/>
+                <event id="DMN"/>
+                <event id="A4"/>
+            </included>
+            <pendingResponses>
+                <event id="Age"/>
+                <event id="Country"/>
+            </pendingResponses>
+        </marking>
+    </runtime>
+</dcrgraph>

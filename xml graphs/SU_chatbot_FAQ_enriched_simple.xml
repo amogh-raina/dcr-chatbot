@@ -1,0 +1,1168 @@
+<?xml version='1.0' encoding='utf-8'?>
+<dcrgraph title="SU chatbot FAQ - simple enriched conversation" dataTypesStatus="hide" filterLevel="-1" insightFilter="false" zoomLevel="-3" formGroupStyle="Normal" formLayoutStyle="Horizontal" formShowPendingCount="true" graphBG="#f1f6fe" graphType="0" exercise="false" version="1.1">
+  <specification>
+    <resources>
+      <events>
+        <event id="Welcome">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="250" yLoc="70" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles>
+              <role description="" specification="">Chatbot</role>
+            </roles>
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>0</sequence>
+            <costs>0</costs>
+            <eventData>
+              <dataType sequence="0" width="small" placeholder="" hinttext="" dataSetList="" radio="" multiple="false" format="int">choice</dataType>
+              <dictionary>
+                <item label="Which documents do I need?" value="1" />
+                <item label="What should the medical records say?" value="2" />
+                <item label="What other information can I add?" value="3" />
+                <item label="My impairment has been present since birth" value="4" />
+                <item label="My impairment followed illness or an accident" value="5" />
+                <item label="Proceed to application" value="6" />
+              </dictionary>
+              <validationRules />
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+        <event id="Form0" type="form" cancelText="" sendText="" hideCancel="false" formShowInitialPhase="1">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="1100" yLoc="20" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles />
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>9</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+        </event>
+        <event id="A29" type="nesting">
+          <precondition message="" />
+          <custom>
+            <visualization>
+              <location xLoc="140" yLoc="470" />
+              <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+            </visualization>
+            <roles />
+            <readRoles />
+            <groups>
+              <group />
+            </groups>
+            <phases>
+              <phase />
+            </phases>
+            <eventType />
+            <eventScope>private</eventScope>
+            <eventTypeData />
+            <eventDescription />
+            <purpose />
+            <guide />
+            <insight use="false" />
+            <level>100</level>
+            <sequence>32</sequence>
+            <costs>0</costs>
+            <eventData>
+              <styles />
+            </eventData>
+            <interfaces />
+          </custom>
+          <event id="A16" type="nesting">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="180" yLoc="1170" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles />
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>11</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+            <event id="A11">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="400" yLoc="1220" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription>&lt;p&gt;If you already have other relevant documents, you can include them too. Examples are specialist reports from an insurance case, neuropsychological assessments, medical certificates from sick leave, and jobcentre or work-trial records.&lt;/p&gt;&lt;p&gt;Descriptions of support, a mentor or workplace adjustments can also help explain how you function.&lt;/p&gt;&lt;p&gt;Your own statement can describe everyday difficulties, any work you have tried, your duties and hours, adjustments and sick leave. These documents add context; they do not replace the required medical records. You do not need to buy new reports just to supply these optional documents.&lt;/p&gt;</eventDescription>
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>8</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <styles />
+                  <dataType sequence="8" width="large" placeholder="" hinttext="">label</dataType>
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+          </event>
+          <event id="A15" type="nesting">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="170" yLoc="670" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles />
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>10</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+            <event id="A3">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="350" yLoc="820" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription>&lt;p&gt;Start with the medical records you already have about the impairment or impairments you want assessed. These can come from your GP, a specialist, a hospital or an outpatient clinic.&lt;/p&gt;&lt;p&gt;You can find public hospital records on sundhed.dk and ask your GP, specialist or private hospital for access to their records. The minimum requirement concerns existing documentation you can obtain free of charge.&lt;/p&gt;&lt;p&gt;Include relevant records even if they are more than three years old. Add newer information if you have it, and remember documentation for every impairment you list in the application.&lt;/p&gt;&lt;p&gt;Whether treatment has finished affects which records you can include.&lt;/p&gt;</eventDescription>
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>2</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <styles />
+                  <dataType sequence="2" width="large" placeholder="" hinttext="">label</dataType>
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+            <event id="A4">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="510" yLoc="820" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription />
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>3</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <dataType sequence="3" width="small" placeholder="" hinttext="" dataSetList="" radio="horizontal" multiple="false" format="bool">choice</dataType>
+                  <dictionary>
+                    <item label="Yes" value="true" />
+                    <item label="No" value="false" />
+                  </dictionary>
+                  <validationRules />
+                  <styles />
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+            <event id="A5">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="710" yLoc="720" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription>&lt;p&gt;Include the discharge summary or letter concluding your treatment, if available. If your GP continues to follow your condition, include relevant GP records too.&lt;/p&gt;&lt;p&gt;Use the records you already have access to; you do not need to arrange a new examination just because the treatment has ended.&lt;/p&gt;</eventDescription>
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>4</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <styles />
+                  <dataType sequence="4" width="large" placeholder="" hinttext="">label</dataType>
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+            <event id="A6">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="710" yLoc="920" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription>&lt;p&gt;You may not have a discharge summary yet, and that is expected while treatment is ongoing. Include the latest relevant medical notes and information about your current or planned treatment.&lt;/p&gt;</eventDescription>
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>5</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <styles />
+                  <dataType sequence="5" width="large" placeholder="" hinttext="">label</dataType>
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+          </event>
+          <event id="A16Copy" type="nesting">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1400" yLoc="520" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles />
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>14</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+            <event id="A20">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="1620" yLoc="570" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription>&lt;p&gt;Your medical records should help the agency understand your impairment and how it affects you. Include existing information about:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Your diagnosis, if one has been made.&lt;/li&gt;&lt;li&gt;Your illness and treatment history.&lt;/li&gt;&lt;li&gt;Your current symptoms and everyday functioning.&lt;/li&gt;&lt;li&gt;Current or planned treatment.&lt;/li&gt;&lt;li&gt;The effect on your ability to work, where this is described.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;A diagnosis alone does not explain the effect on your ability to work. You can add a personal statement about your everyday difficulties, but it supplements the medical evidence.&lt;/p&gt;&lt;p&gt;Meeting the minimum documentation requirement allows the application to be assessed; it does not in itself mean you qualify for the supplement.&lt;/p&gt;</eventDescription>
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>16</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <styles />
+                  <dataType sequence="16" width="large" placeholder="" hinttext="">label</dataType>
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+            <event id="A27">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="1820" yLoc="570" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription />
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>26</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <dataType sequence="26" width="small" placeholder="" hinttext="" dataSetList="" radio="horizontal" multiple="false" format="bool">choice</dataType>
+                  <dictionary>
+                    <item label="Yes" value="true" />
+                    <item label="No" value="false" />
+                  </dictionary>
+                  <validationRules />
+                  <styles />
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+            <event id="A28">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="1970" yLoc="770" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription>&lt;p&gt;A diagnosis-only note, a medication list, or a jobcentre or SPS decision without medical information is not enough on its own. Add the underlying medical records that explain your symptoms, treatment and functioning.&lt;/p&gt;&lt;p&gt;A personal statement or general psychologist statement can supplement the evidence, but normally cannot replace the medical documentation. Relevant specialist assessments should still be included.&lt;/p&gt;&lt;p&gt;For applications submitted from 1 July 2025, missing the minimum documentation can mean the application is rejected without assessing entitlement. This is different from a decision that you do not qualify.&lt;/p&gt;</eventDescription>
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>27</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <styles />
+                  <dataType sequence="27" width="large" placeholder="" hinttext="">label</dataType>
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+          </event>
+          <event id="A16Copy_1Copy" type="nesting">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1530" yLoc="1120" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles />
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>19</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+            <event id="A20CopyCopy">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="1760" yLoc="1170" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription>&lt;p&gt;Include the most recent records describing the illness or accident, treatment, current symptoms and remaining difficulties. The agency needs to assess whether the impairment is lasting and how it affects your ability to work.&lt;/p&gt;&lt;p&gt;Lasting for around a year may support an assessment of permanence, but it is not an automatic rule that gives entitlement.&lt;/p&gt;&lt;p&gt;If treatment is ongoing and the longer-term impact is still uncertain, a time-limited supplement may be possible where the evidence supports a likely lasting, sufficiently severe impairment. The agency makes an individual assessment.&lt;/p&gt;</eventDescription>
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>23</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <styles />
+                  <dataType sequence="23" width="large" placeholder="" hinttext="">label</dataType>
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+          </event>
+          <event computation="A30-computation" id="A30">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1030" yLoc="920" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Robot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>29</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="HearNextMinDoc">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1180" yLoc="620" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>13</sequence>
+              <costs>0</costs>
+              <eventData>
+                <dataType sequence="13" width="large" placeholder="" hinttext="" dataSetList="" dataSetActivity="A30" multiple="false" radio="" format="int">choice</dataType>
+                <dictionary />
+                <validationRules />
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="A16Copy_1" type="nesting">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="920" yLoc="1220" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles />
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>18</sequence>
+              <costs>0</costs>
+              <eventData>
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+            <event id="A20Copy">
+              <precondition message="" />
+              <custom>
+                <visualization>
+                  <location xLoc="1150" yLoc="1270" />
+                  <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+                </visualization>
+                <roles>
+                  <role description="" specification="">Chatbot</role>
+                </roles>
+                <readRoles />
+                <groups>
+                  <group />
+                </groups>
+                <phases>
+                  <phase />
+                </phases>
+                <eventType />
+                <eventScope>private</eventScope>
+                <eventTypeData />
+                <eventDescription>&lt;p&gt;If your impairment has been present since birth, your most useful medical records may be from childhood. Include the medical history and the most recent relevant records you have, even if they are old.&lt;/p&gt;&lt;p&gt;Add existing information about your current symptoms and functioning. Decisions about assistive devices, a mentor, housing support or support during education or work can give useful context.&lt;/p&gt;&lt;p&gt;You can also describe your present situation in your personal statement, especially where older records do not explain everyday life now. The agency assesses your individual circumstances; a diagnosis by itself does not decide entitlement.&lt;/p&gt;</eventDescription>
+                <purpose />
+                <guide />
+                <insight use="false" />
+                <level>100</level>
+                <sequence>22</sequence>
+                <costs>0</costs>
+                <eventData>
+                  <styles />
+                  <dataType sequence="22" width="large" placeholder="" hinttext="">label</dataType>
+                </eventData>
+                <interfaces />
+              </custom>
+            </event>
+          </event>
+          <event id="HearNextMinDoc2">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1410" yLoc="620" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>32</sequence>
+              <costs>0</costs>
+              <eventData>
+                <dataType sequence="32" width="large" placeholder="" hinttext="" dataSetList="" dataSetActivity="A30" multiple="false" radio="" format="int">choice</dataType>
+                <dictionary />
+                <validationRules />
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="HearNextMinDoc3">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1640" yLoc="620" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>33</sequence>
+              <costs>0</costs>
+              <eventData>
+                <dataType sequence="33" width="large" placeholder="" hinttext="" dataSetList="" dataSetActivity="A30" multiple="false" radio="" format="int">choice</dataType>
+                <dictionary />
+                <validationRules />
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="HearNextMinDoc4">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="1870" yLoc="620" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>34</sequence>
+              <costs>0</costs>
+              <eventData>
+                <dataType sequence="34" width="large" placeholder="" hinttext="" dataSetList="" dataSetActivity="A30" multiple="false" radio="" format="int">choice</dataType>
+                <dictionary />
+                <validationRules />
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+          <event id="HearNextMinDoc5">
+            <precondition message="" />
+            <custom>
+              <visualization>
+                <location xLoc="2100" yLoc="620" />
+                <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc" />
+              </visualization>
+              <roles>
+                <role description="" specification="">Chatbot</role>
+              </roles>
+              <readRoles />
+              <groups>
+                <group />
+              </groups>
+              <phases>
+                <phase />
+              </phases>
+              <eventType />
+              <eventScope>private</eventScope>
+              <eventTypeData />
+              <eventDescription />
+              <purpose />
+              <guide />
+              <insight use="false" />
+              <level>100</level>
+              <sequence>35</sequence>
+              <costs>0</costs>
+              <eventData>
+                <dataType sequence="35" width="large" placeholder="" hinttext="" dataSetList="" dataSetActivity="A30" multiple="false" radio="" format="int">choice</dataType>
+                <dictionary />
+                <validationRules />
+                <styles />
+              </eventData>
+              <interfaces />
+            </custom>
+          </event>
+        </event>
+      </events>
+      <subProcesses />
+      <labels>
+        <label id="What would you like help with?" />
+        <label id="SU handicap application" />
+        <label id="Documentation requirements" />
+        <label id="Additional documentation" />
+        <label id="What else can I add?" />
+        <label id="Documentation minimum requirement information" />
+        <label id="Which documents do I need?" />
+        <label id="Is your treatment finished?" />
+        <label id="When treatment has finished" />
+        <label id="When treatment is ongoing" />
+        <label id="Content of medical documents" />
+        <label id="What should my medical records explain?" />
+        <label id="Would you like examples of documents that are not enough on their own?" />
+        <label id="Documents that need more supporting information" />
+        <label id="Documentation in the case of functional impairment acquired through accident or illness" />
+        <label id="If your impairment followed illness or an accident" />
+        <label id="Prepare choices for topics not yet covered" />
+        <label id="What would you like to explore next? Choose another topic or proceed to the application." />
+        <label id="Documentation in the case of congenital impairment" />
+        <label id="If your impairment has been present since birth" />
+      </labels>
+      <labelMappings>
+        <labelMapping eventId="Welcome" labelId="What would you like help with?" />
+        <labelMapping eventId="Form0" labelId="SU handicap application" />
+        <labelMapping eventId="A29" labelId="Documentation requirements" />
+        <labelMapping eventId="A16" labelId="Additional documentation" />
+        <labelMapping eventId="A11" labelId="What else can I add?" />
+        <labelMapping eventId="A15" labelId="Documentation minimum requirement information" />
+        <labelMapping eventId="A3" labelId="Which documents do I need?" />
+        <labelMapping eventId="A4" labelId="Is your treatment finished?" />
+        <labelMapping eventId="A5" labelId="When treatment has finished" />
+        <labelMapping eventId="A6" labelId="When treatment is ongoing" />
+        <labelMapping eventId="A16Copy" labelId="Content of medical documents" />
+        <labelMapping eventId="A20" labelId="What should my medical records explain?" />
+        <labelMapping eventId="A27" labelId="Would you like examples of documents that are not enough on their own?" />
+        <labelMapping eventId="A28" labelId="Documents that need more supporting information" />
+        <labelMapping eventId="A16Copy_1Copy" labelId="Documentation in the case of functional impairment acquired through accident or illness" />
+        <labelMapping eventId="A20CopyCopy" labelId="If your impairment followed illness or an accident" />
+        <labelMapping eventId="A30" labelId="Prepare choices for topics not yet covered" />
+        <labelMapping eventId="HearNextMinDoc" labelId="What would you like to explore next? Choose another topic or proceed to the application." />
+        <labelMapping eventId="A16Copy_1" labelId="Documentation in the case of congenital impairment" />
+        <labelMapping eventId="A20Copy" labelId="If your impairment has been present since birth" />
+        <labelMapping eventId="HearNextMinDoc2" labelId="What would you like to explore next? Choose another topic or proceed to the application." />
+        <labelMapping eventId="HearNextMinDoc3" labelId="What would you like to explore next? Choose another topic or proceed to the application." />
+        <labelMapping eventId="HearNextMinDoc4" labelId="What would you like to explore next? Choose another topic or proceed to the application." />
+        <labelMapping eventId="HearNextMinDoc5" labelId="What would you like to explore next? Choose another topic or proceed to the application." />
+      </labelMappings>
+      <expressions>
+        <expression id="A30-computation" value="(if A3@executed then (if A20@executed then (if A11@executed then (if A20Copy@executed then (if A20CopyCopy@executed then [[6, &quot;Proceed to application&quot;]] else [[5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]) else (if A20CopyCopy@executed then [[4, &quot;My impairment has been present since birth&quot;], [6, &quot;Proceed to application&quot;]] else [[4, &quot;My impairment has been present since birth&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]])) else (if A20Copy@executed then (if A20CopyCopy@executed then [[3, &quot;What other information can I add?&quot;], [6, &quot;Proceed to application&quot;]] else [[3, &quot;What other information can I add?&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]) else (if A20CopyCopy@executed then [[3, &quot;What other information can I add?&quot;], [4, &quot;My impairment has been present since birth&quot;], [6, &quot;Proceed to application&quot;]] else [[3, &quot;What other information can I add?&quot;], [4, &quot;My impairment has been present since birth&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]))) else (if A11@executed then (if A20Copy@executed then (if A20CopyCopy@executed then [[2, &quot;What should the medical records say?&quot;], [6, &quot;Proceed to application&quot;]] else [[2, &quot;What should the medical records say?&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]) else (if A20CopyCopy@executed then [[2, &quot;What should the medical records say?&quot;], [4, &quot;My impairment has been present since birth&quot;], [6, &quot;Proceed to application&quot;]] else [[2, &quot;What should the medical records say?&quot;], [4, &quot;My impairment has been present since birth&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]])) else (if A20Copy@executed then (if A20CopyCopy@executed then [[2, &quot;What should the medical records say?&quot;], [3, &quot;What other information can I add?&quot;], [6, &quot;Proceed to application&quot;]] else [[2, &quot;What should the medical records say?&quot;], [3, &quot;What other information can I add?&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]) else (if A20CopyCopy@executed then [[2, &quot;What should the medical records say?&quot;], [3, &quot;What other information can I add?&quot;], [4, &quot;My impairment has been present since birth&quot;], [6, &quot;Proceed to application&quot;]] else [[2, &quot;What should the medical records say?&quot;], [3, &quot;What other information can I add?&quot;], [4, &quot;My impairment has been present since birth&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]])))) else (if A20@executed then (if A11@executed then (if A20Copy@executed then (if A20CopyCopy@executed then [[1, &quot;Which documents do I need?&quot;], [6, &quot;Proceed to application&quot;]] else [[1, &quot;Which documents do I need?&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]) else (if A20CopyCopy@executed then [[1, &quot;Which documents do I need?&quot;], [4, &quot;My impairment has been present since birth&quot;], [6, &quot;Proceed to application&quot;]] else [[1, &quot;Which documents do I need?&quot;], [4, &quot;My impairment has been present since birth&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]])) else (if A20Copy@executed then (if A20CopyCopy@executed then [[1, &quot;Which documents do I need?&quot;], [3, &quot;What other information can I add?&quot;], [6, &quot;Proceed to application&quot;]] else [[1, &quot;Which documents do I need?&quot;], [3, &quot;What other information can I add?&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]) else (if A20CopyCopy@executed then [[1, &quot;Which documents do I need?&quot;], [3, &quot;What other information can I add?&quot;], [4, &quot;My impairment has been present since birth&quot;], [6, &quot;Proceed to application&quot;]] else [[1, &quot;Which documents do I need?&quot;], [3, &quot;What other information can I add?&quot;], [4, &quot;My impairment has been present since birth&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]))) else (if A11@executed then (if A20Copy@executed then (if A20CopyCopy@executed then [[1, &quot;Which documents do I need?&quot;], [2, &quot;What should the medical records say?&quot;], [6, &quot;Proceed to application&quot;]] else [[1, &quot;Which documents do I need?&quot;], [2, &quot;What should the medical records say?&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]) else (if A20CopyCopy@executed then [[1, &quot;Which documents do I need?&quot;], [2, &quot;What should the medical records say?&quot;], [4, &quot;My impairment has been present since birth&quot;], [6, &quot;Proceed to application&quot;]] else [[1, &quot;Which documents do I need?&quot;], [2, &quot;What should the medical records say?&quot;], [4, &quot;My impairment has been present since birth&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]])) else (if A20Copy@executed then (if A20CopyCopy@executed then [[1, &quot;Which documents do I need?&quot;], [2, &quot;What should the medical records say?&quot;], [3, &quot;What other information can I add?&quot;], [6, &quot;Proceed to application&quot;]] else [[1, &quot;Which documents do I need?&quot;], [2, &quot;What should the medical records say?&quot;], [3, &quot;What other information can I add?&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]]) else (if A20CopyCopy@executed then [[1, &quot;Which documents do I need?&quot;], [2, &quot;What should the medical records say?&quot;], [3, &quot;What other information can I add?&quot;], [4, &quot;My impairment has been present since birth&quot;], [6, &quot;Proceed to application&quot;]] else [[1, &quot;Which documents do I need?&quot;], [2, &quot;What should the medical records say?&quot;], [3, &quot;What other information can I add?&quot;], [4, &quot;My impairment has been present since birth&quot;], [5, &quot;My impairment followed illness or an accident&quot;], [6, &quot;Proceed to application&quot;]])))))" />
+        <expression id="Welcome-path-A3--include" value="Welcome = 1 and not A3@executed" />
+        <expression id="Welcome-path-A3--response" value="Welcome = 1 and not A3@executed" />
+        <expression id="Welcome-path-A20--include" value="Welcome = 2 and not A20@executed" />
+        <expression id="Welcome-path-A20--response" value="Welcome = 2 and not A20@executed" />
+        <expression id="Welcome-path-A11--include" value="Welcome = 3 and not A11@executed" />
+        <expression id="Welcome-path-A11--response" value="Welcome = 3 and not A11@executed" />
+        <expression id="Welcome-path-A20Copy--include" value="Welcome = 4 and not A20Copy@executed" />
+        <expression id="Welcome-path-A20Copy--response" value="Welcome = 4 and not A20Copy@executed" />
+        <expression id="Welcome-path-A20CopyCopy--include" value="Welcome = 5 and not A20CopyCopy@executed" />
+        <expression id="Welcome-path-A20CopyCopy--response" value="Welcome = 5 and not A20CopyCopy@executed" />
+        <expression id="Welcome-path-Form0--include" value="Welcome = 6" />
+        <expression id="Welcome-path-Form0--response" value="Welcome = 6" />
+        <expression id="HearNextMinDoc-path-A3--include" value="HearNextMinDoc = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc-path-A3--response" value="HearNextMinDoc = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc-path-A20--include" value="HearNextMinDoc = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc-path-A20--response" value="HearNextMinDoc = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc-path-A11--include" value="HearNextMinDoc = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc-path-A11--response" value="HearNextMinDoc = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc-path-A20Copy--include" value="HearNextMinDoc = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc-path-A20Copy--response" value="HearNextMinDoc = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc-path-A20CopyCopy--include" value="HearNextMinDoc = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc-path-A20CopyCopy--response" value="HearNextMinDoc = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc-path-Form0--include" value="HearNextMinDoc = 6" />
+        <expression id="HearNextMinDoc-path-Form0--response" value="HearNextMinDoc = 6" />
+        <expression id="A4-path-A5--include" value="A4 = true" />
+        <expression id="A4-path-A5--response" value="A4 = true" />
+        <expression id="A4-path-A6--include" value="A4 = false" />
+        <expression id="A4-path-A6--response" value="A4 = false" />
+        <expression id="A27-path-A28--include" value="A27 = true" />
+        <expression id="A27-path-A28--response" value="A27 = true" />
+        <expression id="A27-path-A30--include" value="A27 = false" />
+        <expression id="A27-path-A30--response" value="A27 = false" />
+        <expression id="A30-path-HearNextMinDoc--include" value="not HearNextMinDoc@executed" />
+        <expression id="A30-path-HearNextMinDoc--response" value="not HearNextMinDoc@executed" />
+        <expression id="A30-path-HearNextMinDoc2--include" value="HearNextMinDoc@executed and not HearNextMinDoc2@executed" />
+        <expression id="A30-path-HearNextMinDoc2--response" value="HearNextMinDoc@executed and not HearNextMinDoc2@executed" />
+        <expression id="HearNextMinDoc2-path-A3--include" value="HearNextMinDoc2 = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc2-path-A3--response" value="HearNextMinDoc2 = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc2-path-A20--include" value="HearNextMinDoc2 = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc2-path-A20--response" value="HearNextMinDoc2 = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc2-path-A11--include" value="HearNextMinDoc2 = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc2-path-A11--response" value="HearNextMinDoc2 = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc2-path-A20Copy--include" value="HearNextMinDoc2 = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc2-path-A20Copy--response" value="HearNextMinDoc2 = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc2-path-A20CopyCopy--include" value="HearNextMinDoc2 = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc2-path-A20CopyCopy--response" value="HearNextMinDoc2 = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc2-path-Form0--include" value="HearNextMinDoc2 = 6" />
+        <expression id="HearNextMinDoc2-path-Form0--response" value="HearNextMinDoc2 = 6" />
+        <expression id="A30-path-HearNextMinDoc3--include" value="HearNextMinDoc2@executed and not HearNextMinDoc3@executed" />
+        <expression id="A30-path-HearNextMinDoc3--response" value="HearNextMinDoc2@executed and not HearNextMinDoc3@executed" />
+        <expression id="HearNextMinDoc3-path-A3--include" value="HearNextMinDoc3 = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc3-path-A3--response" value="HearNextMinDoc3 = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc3-path-A20--include" value="HearNextMinDoc3 = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc3-path-A20--response" value="HearNextMinDoc3 = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc3-path-A11--include" value="HearNextMinDoc3 = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc3-path-A11--response" value="HearNextMinDoc3 = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc3-path-A20Copy--include" value="HearNextMinDoc3 = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc3-path-A20Copy--response" value="HearNextMinDoc3 = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc3-path-A20CopyCopy--include" value="HearNextMinDoc3 = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc3-path-A20CopyCopy--response" value="HearNextMinDoc3 = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc3-path-Form0--include" value="HearNextMinDoc3 = 6" />
+        <expression id="HearNextMinDoc3-path-Form0--response" value="HearNextMinDoc3 = 6" />
+        <expression id="A30-path-HearNextMinDoc4--include" value="HearNextMinDoc3@executed and not HearNextMinDoc4@executed" />
+        <expression id="A30-path-HearNextMinDoc4--response" value="HearNextMinDoc3@executed and not HearNextMinDoc4@executed" />
+        <expression id="HearNextMinDoc4-path-A3--include" value="HearNextMinDoc4 = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc4-path-A3--response" value="HearNextMinDoc4 = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc4-path-A20--include" value="HearNextMinDoc4 = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc4-path-A20--response" value="HearNextMinDoc4 = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc4-path-A11--include" value="HearNextMinDoc4 = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc4-path-A11--response" value="HearNextMinDoc4 = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc4-path-A20Copy--include" value="HearNextMinDoc4 = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc4-path-A20Copy--response" value="HearNextMinDoc4 = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc4-path-A20CopyCopy--include" value="HearNextMinDoc4 = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc4-path-A20CopyCopy--response" value="HearNextMinDoc4 = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc4-path-Form0--include" value="HearNextMinDoc4 = 6" />
+        <expression id="HearNextMinDoc4-path-Form0--response" value="HearNextMinDoc4 = 6" />
+        <expression id="A30-path-HearNextMinDoc5--include" value="HearNextMinDoc4@executed and not HearNextMinDoc5@executed" />
+        <expression id="A30-path-HearNextMinDoc5--response" value="HearNextMinDoc4@executed and not HearNextMinDoc5@executed" />
+        <expression id="HearNextMinDoc5-path-A3--include" value="HearNextMinDoc5 = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc5-path-A3--response" value="HearNextMinDoc5 = 1 and not A3@executed" />
+        <expression id="HearNextMinDoc5-path-A20--include" value="HearNextMinDoc5 = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc5-path-A20--response" value="HearNextMinDoc5 = 2 and not A20@executed" />
+        <expression id="HearNextMinDoc5-path-A11--include" value="HearNextMinDoc5 = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc5-path-A11--response" value="HearNextMinDoc5 = 3 and not A11@executed" />
+        <expression id="HearNextMinDoc5-path-A20Copy--include" value="HearNextMinDoc5 = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc5-path-A20Copy--response" value="HearNextMinDoc5 = 4 and not A20Copy@executed" />
+        <expression id="HearNextMinDoc5-path-A20CopyCopy--include" value="HearNextMinDoc5 = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc5-path-A20CopyCopy--response" value="HearNextMinDoc5 = 5 and not A20CopyCopy@executed" />
+        <expression id="HearNextMinDoc5-path-Form0--include" value="HearNextMinDoc5 = 6" />
+        <expression id="HearNextMinDoc5-path-Form0--response" value="HearNextMinDoc5 = 6" />
+      </expressions>
+      <variables />
+      <variableAccesses>
+        <writeAccesses />
+      </variableAccesses>
+      <custom>
+        <keywords />
+        <roles>
+          <role description="" specification="">Chatbot</role>
+          <role description="" specification="">Robot</role>
+        </roles>
+        <groups />
+        <phases />
+        <eventTypes />
+        <eventParameters />
+        <graphDetails>DCR Process</graphDetails>
+        <graphDocumentation>&lt;p&gt;Simple enrichment of the original five documentation blocks using SU-Handicap-report.md and the project FAQ markdown files. The Robot computes a FEEL list of unread topics. Five successive choice events each use that list once, keeping the current question eligible for the existing interpretation layer, which filters out previously executed events. Labels and live choiceValues supply the interpretation context. Information cards use the label data type and Continue. Both opening and next-topic menus connect to the existing empty Form0; the application form is reserved for later work.&lt;/p&gt;</graphDocumentation>
+        <graphLanguage>en-US</graphLanguage>
+        <graphDomain>process</graphDomain>
+        <graphFilters>
+          <filteredGroups />
+          <filteredRoles />
+          <filteredPhases />
+        </graphFilters>
+        <highlighterMarkup>
+          <highlightLayers>
+            <highlightLayer default="true" name="description">DCR Process</highlightLayer>
+          </highlightLayers>
+          <highlights />
+        </highlighterMarkup>
+      </custom>
+    </resources>
+    <constraints>
+      <conditions />
+      <responses>
+        <response sourceId="Welcome" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A3--response" />
+        <response sourceId="Welcome" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20--response" />
+        <response sourceId="Welcome" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A11--response" />
+        <response sourceId="Welcome" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20Copy--response" />
+        <response sourceId="Welcome" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20CopyCopy--response" />
+        <response sourceId="Welcome" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-Form0--response" />
+        <response sourceId="HearNextMinDoc" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A3--response" />
+        <response sourceId="HearNextMinDoc" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A20--response" />
+        <response sourceId="HearNextMinDoc" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A11--response" />
+        <response sourceId="HearNextMinDoc" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A20Copy--response" />
+        <response sourceId="HearNextMinDoc" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A20CopyCopy--response" />
+        <response sourceId="HearNextMinDoc" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-Form0--response" />
+        <response sourceId="A3" targetId="A4" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="A4" targetId="A5" filterLevel="100" description="" time="" groups="" expressionId="A4-path-A5--response" />
+        <response sourceId="A4" targetId="A6" filterLevel="100" description="" time="" groups="" expressionId="A4-path-A6--response" />
+        <response sourceId="A20" targetId="A27" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="A27" targetId="A28" filterLevel="100" description="" time="" groups="" expressionId="A27-path-A28--response" />
+        <response sourceId="A27" targetId="A30" filterLevel="100" description="" time="" groups="" expressionId="A27-path-A30--response" />
+        <response sourceId="A5" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="A6" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="A11" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="A28" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="A20Copy" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="A20CopyCopy" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <response sourceId="A30" targetId="HearNextMinDoc" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc--response" />
+        <response sourceId="A30" targetId="HearNextMinDoc2" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc2--response" />
+        <response sourceId="HearNextMinDoc2" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A3--response" />
+        <response sourceId="HearNextMinDoc2" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A20--response" />
+        <response sourceId="HearNextMinDoc2" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A11--response" />
+        <response sourceId="HearNextMinDoc2" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A20Copy--response" />
+        <response sourceId="HearNextMinDoc2" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A20CopyCopy--response" />
+        <response sourceId="HearNextMinDoc2" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-Form0--response" />
+        <response sourceId="A30" targetId="HearNextMinDoc3" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc3--response" />
+        <response sourceId="HearNextMinDoc3" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A3--response" />
+        <response sourceId="HearNextMinDoc3" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A20--response" />
+        <response sourceId="HearNextMinDoc3" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A11--response" />
+        <response sourceId="HearNextMinDoc3" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A20Copy--response" />
+        <response sourceId="HearNextMinDoc3" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A20CopyCopy--response" />
+        <response sourceId="HearNextMinDoc3" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-Form0--response" />
+        <response sourceId="A30" targetId="HearNextMinDoc4" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc4--response" />
+        <response sourceId="HearNextMinDoc4" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A3--response" />
+        <response sourceId="HearNextMinDoc4" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A20--response" />
+        <response sourceId="HearNextMinDoc4" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A11--response" />
+        <response sourceId="HearNextMinDoc4" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A20Copy--response" />
+        <response sourceId="HearNextMinDoc4" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A20CopyCopy--response" />
+        <response sourceId="HearNextMinDoc4" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-Form0--response" />
+        <response sourceId="A30" targetId="HearNextMinDoc5" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc5--response" />
+        <response sourceId="HearNextMinDoc5" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A3--response" />
+        <response sourceId="HearNextMinDoc5" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A20--response" />
+        <response sourceId="HearNextMinDoc5" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A11--response" />
+        <response sourceId="HearNextMinDoc5" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A20Copy--response" />
+        <response sourceId="HearNextMinDoc5" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A20CopyCopy--response" />
+        <response sourceId="HearNextMinDoc5" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-Form0--response" />
+      </responses>
+      <coresponses />
+      <includes>
+        <include sourceId="Welcome" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A3--include" />
+        <include sourceId="Welcome" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20--include" />
+        <include sourceId="Welcome" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A11--include" />
+        <include sourceId="Welcome" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20Copy--include" />
+        <include sourceId="Welcome" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-A20CopyCopy--include" />
+        <include sourceId="Welcome" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="Welcome-path-Form0--include" />
+        <include sourceId="HearNextMinDoc" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A3--include" />
+        <include sourceId="HearNextMinDoc" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A20--include" />
+        <include sourceId="HearNextMinDoc" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A11--include" />
+        <include sourceId="HearNextMinDoc" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A20Copy--include" />
+        <include sourceId="HearNextMinDoc" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-A20CopyCopy--include" />
+        <include sourceId="HearNextMinDoc" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc-path-Form0--include" />
+        <include sourceId="A3" targetId="A4" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="A4" targetId="A5" filterLevel="100" description="" time="" groups="" expressionId="A4-path-A5--include" />
+        <include sourceId="A4" targetId="A6" filterLevel="100" description="" time="" groups="" expressionId="A4-path-A6--include" />
+        <include sourceId="A20" targetId="A27" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="A27" targetId="A28" filterLevel="100" description="" time="" groups="" expressionId="A27-path-A28--include" />
+        <include sourceId="A27" targetId="A30" filterLevel="100" description="" time="" groups="" expressionId="A27-path-A30--include" />
+        <include sourceId="A5" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="A6" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="A11" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="A28" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="A20Copy" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="A20CopyCopy" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <include sourceId="A30" targetId="HearNextMinDoc" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc--include" />
+        <include sourceId="A30" targetId="HearNextMinDoc2" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc2--include" />
+        <include sourceId="HearNextMinDoc2" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A3--include" />
+        <include sourceId="HearNextMinDoc2" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A20--include" />
+        <include sourceId="HearNextMinDoc2" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A11--include" />
+        <include sourceId="HearNextMinDoc2" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A20Copy--include" />
+        <include sourceId="HearNextMinDoc2" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-A20CopyCopy--include" />
+        <include sourceId="HearNextMinDoc2" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc2-path-Form0--include" />
+        <include sourceId="A30" targetId="HearNextMinDoc3" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc3--include" />
+        <include sourceId="HearNextMinDoc3" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A3--include" />
+        <include sourceId="HearNextMinDoc3" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A20--include" />
+        <include sourceId="HearNextMinDoc3" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A11--include" />
+        <include sourceId="HearNextMinDoc3" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A20Copy--include" />
+        <include sourceId="HearNextMinDoc3" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-A20CopyCopy--include" />
+        <include sourceId="HearNextMinDoc3" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc3-path-Form0--include" />
+        <include sourceId="A30" targetId="HearNextMinDoc4" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc4--include" />
+        <include sourceId="HearNextMinDoc4" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A3--include" />
+        <include sourceId="HearNextMinDoc4" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A20--include" />
+        <include sourceId="HearNextMinDoc4" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A11--include" />
+        <include sourceId="HearNextMinDoc4" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A20Copy--include" />
+        <include sourceId="HearNextMinDoc4" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-A20CopyCopy--include" />
+        <include sourceId="HearNextMinDoc4" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc4-path-Form0--include" />
+        <include sourceId="A30" targetId="HearNextMinDoc5" filterLevel="100" description="" time="" groups="" expressionId="A30-path-HearNextMinDoc5--include" />
+        <include sourceId="HearNextMinDoc5" targetId="A3" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A3--include" />
+        <include sourceId="HearNextMinDoc5" targetId="A20" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A20--include" />
+        <include sourceId="HearNextMinDoc5" targetId="A11" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A11--include" />
+        <include sourceId="HearNextMinDoc5" targetId="A20Copy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A20Copy--include" />
+        <include sourceId="HearNextMinDoc5" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-A20CopyCopy--include" />
+        <include sourceId="HearNextMinDoc5" targetId="Form0" filterLevel="100" description="" time="" groups="" expressionId="HearNextMinDoc5-path-Form0--include" />
+      </includes>
+      <excludes>
+        <exclude sourceId="Welcome" targetId="Welcome" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A11" targetId="A11" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A3" targetId="A3" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A4" targetId="A4" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A5" targetId="A5" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A6" targetId="A6" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A20" targetId="A20" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A27" targetId="A27" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A28" targetId="A28" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A20CopyCopy" targetId="A20CopyCopy" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A30" targetId="A30" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="HearNextMinDoc" targetId="HearNextMinDoc" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="A20Copy" targetId="A20Copy" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="HearNextMinDoc2" targetId="HearNextMinDoc2" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="HearNextMinDoc3" targetId="HearNextMinDoc3" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="HearNextMinDoc4" targetId="HearNextMinDoc4" filterLevel="100" description="" time="" groups="" />
+        <exclude sourceId="HearNextMinDoc5" targetId="HearNextMinDoc5" filterLevel="100" description="" time="" groups="" />
+      </excludes>
+      <milestones />
+      <spawns />
+      <templateSpawns />
+      <updates />
+    </constraints>
+  </specification>
+  <runtime accepting="false">
+    <custom>
+      <globalMarking>
+        <enabled />
+        <enabledSubprocesses />
+        <executed />
+        <pending />
+        <included />
+      </globalMarking>
+    </custom>
+    <marking>
+      <globalStore />
+      <executed />
+      <included>
+        <event id="Welcome" />
+        <event id="A29" />
+        <event id="A16" />
+        <event id="A15" />
+        <event id="A16Copy" />
+        <event id="A16Copy_1Copy" />
+        <event id="A16Copy_1" />
+      </included>
+      <pendingResponses>
+        <event id="Welcome" />
+      </pendingResponses>
+    </marking>
+  </runtime>
+</dcrgraph>

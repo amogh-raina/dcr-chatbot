@@ -1,0 +1,24 @@
+# Secrets and local environments
+.env
+.env.*
+!.env.faq.example
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Local reference material and generated data
+/FAQ_GRAPH_REVIEW.md
+/faq_inventory_v1.md
+/FAQ_SMOKE_RESULT.md
+/parsed_graphs/
+/runtime_traces/
+/[eE]xternal_[sS]cripts/*
+!/external_scripts/graph_parser.py
+!/external_scripts/__init__.py
+
+# Frontend dependencies (built demo is intentionally shared)
+node_modules/
+*.log

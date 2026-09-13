@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DCRGraph-Chatbot</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      body {
+        font-family: "Inter", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+      body {
+        @apply flex flex-col items-center bg-slate-100 py-10;
+      }
+      .graph-search-bar {
+        @apply mb-4 flex justify-center;
+      }
+      .chat-container {
+        @apply overflow-hidden rounded-b rounded-t-xl shadow-xl max-w-[80ch]
+        flex flex-col w-full h-[83vh] bg-white;
+      }
+      .chat-header {
+        @apply bg-sky-600 py-2 text-center text-xl font-semibold tracking-wide text-white;
+      }
+      .chat-box {
+        @apply flex items-start space-y-4 bg-white p-3
+        flex-grow overflow-y-auto flex-col-reverse; /*min-h-96 */
+      }
+      .chat-input-container {
+        @apply border-t bg-white;
+      }
+      .chat-input {
+        @apply flex-grow bg-transparent p-3 focus:outline-none;
+      }
+      .send-button {
+        @apply px-3 text-slate-300 transition hover:!text-slate-500
+         group-focus-within:text-slate-400 group-hover:text-slate-400;
+      }
+      .edit-button {
+        @apply cursor-pointer text-slate-300 transition hover:text-slate-400;
+      }
+      .message-container-bot {
+        @apply flex flex-col items-start mt-3 mr-16;
+      }
+      .message-bot {
+        @apply rounded-xl rounded-tl-none border bg-white p-2;
+      }
+      .message-bot-error {
+        @apply bg-red-200;
+      }
+      .message-user {
+        @apply ml-16 rounded-xl rounded-br-none border bg-slate-200 p-2;
+      }
+      .message-container-user {
+        @apply flex flex-col items-end space-y-1 self-end mt-3 ml-16;
+      }
+      .message-wrapper {
+        @apply flex items-center space-x-2;
+      }
+      .comment-text {
+        @apply text-sky-500;
+      }
+      .instruction-container {
+        @apply flex w-full flex-col items-center space-y-2 mt-3;
+      }
+      .instruction-text {
+        @apply text-sm;
+      }
+      .instruction-button-wrapper {
+        @apply flex space-x-4;
+      }
+      .instruction-button {
+        @apply rounded-lg bg-blue-600 px-2 py-1 text-white transition hover:bg-blue-700;
+      }
+      .instruction-text-bot {
+        @apply italic tracking-wide text-slate-600;
+      }
+      .confirm-button-positive {
+        @apply grid aspect-square w-8 cursor-pointer place-items-center rounded-full bg-green-100 text-green-600 transition hover:scale-110 hover:text-green-700;
+      }
+      .confirm-button-negative {
+        @apply grid aspect-square w-8 cursor-pointer place-items-center rounded-full bg-red-100 text-red-600 transition hover:scale-110 hover:text-red-700;
+      }
+      .confirm-message {
+        @apply bg-slate-100;
+      }
+      .disabled-message {
+        @apply text-slate-300;
+      }
+      .chat-input-disabled {
+        @apply bg-slate-100 text-slate-400 cursor-not-allowed;
+      }
+      .chat-input-container-disabled {
+        @apply bg-slate-50;
+      }
+      .datepicker {
+        @apply border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+      }
+
+      .dot-loader {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin: 0 3px;
+        background-color: #666;
+        border-radius: 50%;
+        opacity: 0;
+        animation: dot-flash 1.2s infinite ease-in-out;
+      }
+
+      .dot:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes dot-flash {
+        0%,
+        80%,
+        100% {
+          opacity: 0;
+        }
+        40% {
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <style>
+      #faq-navigation:not([hidden]) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 16px;
+        border-top: 1px solid #e2e8f0;
+        background: #f8fafc;
+      }
+      .option-button {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        max-width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #0284c7;
+        border-radius: 10px;
+        background: #f0f9ff;
+        color: #075985;
+        font: inherit;
+        font-weight: 500;
+        line-height: 1.4;
+        text-align: left;
+        white-space: normal;
+        cursor: pointer;
+        transition: background-color 150ms, border-color 150ms;
+      }
+      .option-button:hover:not(:disabled) {
+        background: #e0f2fe;
+        border-color: #0369a1;
+      }
+      .option-button:focus-visible {
+        outline: 3px solid #38bdf8;
+        outline-offset: 2px;
+      }
+      .option-button:disabled {
+        opacity: 0.45;
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- GRAPH ID SEARCH BAR -->
+    <div class="w-full flex flex-col items-center mb-6 gap-3">
+      <div class="graph-search-bar flex justify-center" id="graph-search-bar">
+        <div
+          class="graph-input-container flex items-center bg-white shadow-md rounded-lg px-4 py-3 gap-2"
+        >
+          <label
+            for="graph-id-input"
+            id="graph-id-label"
+            class="text-sky-700 font-semibold mr-2"
+            >Graph ID:</label
+          >
+          <input
+            type="number"
+            id="graph-id-input"
+            placeholder=""
+            class="bg-sky-100 text-sky-900 border border-sky-300 rounded-md px-3 py-2 text-base w-36 focus:outline-none focus:ring-2 focus:ring-sky-400 transition"
+          />
+          <button
+            id="load-graph-btn"
+            class="bg-gradient-to-r from-sky-600 to-sky-800 hover:from-sky-700 hover:to-sky-900 text-white font-semibold rounded-md px-4 py-2 text-base shadow transition duration-150 ease-in-out ml-2"
+          >
+            <i class="fas fa-sync-alt mr-1"></i><span id="load-btn-label"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="chat-container shadow-2xl rounded-2xl border border-sky-100 bg-white max-w-2xl w-full flex flex-col h-[80vh]"
+    >
+      <header
+        id="chat-header"
+        class="chat-header rounded-t-2xl bg-gradient-to-r from-sky-600 to-sky-800 py-4 px-6 flex flex-col gap-1"
+      >
+        <div class="flex items-center justify-center w-full">
+          <span
+            id="welcome-text"
+            class="text-2xl font-bold tracking-wide text-white drop-shadow text-center w-full"
+            >Velkommen!</span
+          >
+          <span
+            id="graph-info"
+            class="text-sm font-light text-sky-100 opacity-80"
+          ></span>
+        </div>
+      </header>
+      <div
+        class="chat-box flex-grow overflow-y-auto flex flex-col-reverse gap-4 p-4 bg-sky-50"
+        id="chat-box"
+      >
+        <!-- Messages will appear here -->
+      </div>
+      <nav id="faq-navigation" aria-label="FAQ navigation" hidden></nav>
+      <div
+        class="chat-input-container chat-input-container-disabled border-t bg-white px-4 py-3"
+        id="chat-input-container"
+      >
+        <div class="group flex items-center gap-2">
+          <input
+            id="chat-input"
+            class="chat-input bg-sky-100 rounded-md px-3 py-2 text-base w-full focus:outline-none focus:ring-2 focus:ring-sky-400 transition"
+            placeholder="Indlæs en graf først for at starte med at chatte..."
+            rows="1"
+            aria-label="Chat input field"
+            disabled
+          />
+          <button
+            class="send-button bg-sky-600 hover:bg-sky-700 text-white rounded-md px-4 py-2 transition"
+            id="send-button"
+            aria-label="Send message"
+            disabled
+          >
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="fixed bottom-2 left-2 text-slate-500 font-extralight text-xs opacity-80 select-none"
+      id="chat-info"
+    ></div>
+
+    <!-- Ensure script runs after DOM is loaded -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Pass graph_id from Flask to JavaScript
+          window.graphId = null; // No default value
+
+          // Wait for script.js to load and provide t()
+      function waitForTranslation(fn) {
+        if (typeof t === "function") {
+          fn();
+        } else {
+          setTimeout(() => waitForTranslation(fn), 50);
+        }
+      }
+
+      waitForTranslation(() => {
+          // Function to validate and load a graph
+          async function validateAndLoadGraph(graphId) {
+            console.log(
+              "🔍 DEBUG: validateAndLoadGraph called with graphId:",
+              graphId
+            );
+
+            // Disable chat input during loading
+            const chatInput = document.getElementById("chat-input");
+            const chatInputContainer = document.getElementById(
+              "chat-input-container"
+            );
+            const sendButton = document.getElementById("send-button");
+            if (chatInput && chatInputContainer && sendButton) {
+              chatInput.disabled = true;
+              sendButton.disabled = true;
+              chatInput.placeholder = t("loadingGraph");
+              chatInput.classList.add("chat-input-disabled");
+              chatInputContainer.classList.add("chat-input-container-disabled");
+            }
+
+            if (!graphId || graphId <= 0) {
+              console.log("❌ DEBUG: Invalid graphId:", graphId);
+              graphInfo.textContent = t("invalidGraphId");
+              graphInfo.className = "text-sm font-normal mt-1 text-red-300";
+              return false;
+            }
+
+            loadGraphBtn.textContent = t("loadingGraph");
+
+            console.log(
+              "📡 DEBUG: Making fetch request to:",
+              `/api/validate-graph/${graphId}`
+            );
+
+            try {
+              const response = await fetch(`/api/validate-graph/${graphId}`);
+              console.log("📡 DEBUG: Response status:", response.status);
+              console.log("📡 DEBUG: Response headers:", response.headers);
+
+              if (!response.ok) {
+                console.log(
+                  "❌ DEBUG: Response not OK. Status:",
+                  response.status,
+                  "StatusText:",
+                  response.statusText
+                );
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+
+              const data = await response.json();
+              console.log("📊 DEBUG: Response data:", data);
+
+              if (data.valid) {
+                console.log("✅ DEBUG: Graph validation successful");
+                graphInfo.textContent = `Graph: ${data.title} (ID: ${data.graph_id})`;
+                graphInfo.className = "text-sm font-normal mt-1 opacity-75";
+                welcomeText.textContent = `Velkommen til ${data.title}!`;
+                window.graphId = data.graph_id;
+                currentGraphId = data.graph_id;
+
+                // Enable chat input
+                const chatInput = document.getElementById("chat-input");
+                const chatInputContainer = document.getElementById(
+                  "chat-input-container"
+                );
+                const sendButton = document.getElementById("send-button");
+                if (chatInput && chatInputContainer && sendButton) {
+                  chatInput.disabled = false;
+                  sendButton.disabled = false;
+                  chatInput.placeholder = t("sendMessage");
+                  chatInput.classList.remove("chat-input-disabled");
+                  chatInputContainer.classList.remove(
+                    "chat-input-container-disabled"
+                  );
+                }
+                return true;
+              } else {
+                console.log("❌ DEBUG: Graph validation failed");
+                console.log("❌ DEBUG: Error data:", data);
+                graphInfo.textContent = data.error || "Graph not found";
+                graphInfo.className = "text-sm font-normal mt-1 text-red-300";
+
+                // Re-disable chat input on error
+                const chatInput = document.getElementById("chat-input");
+                const chatInputContainer = document.getElementById(
+                  "chat-input-container"
+                );
+                const sendButton = document.getElementById("send-button");
+                if (chatInput && chatInputContainer && sendButton) {
+                  chatInput.disabled = true;
+                  sendButton.disabled = true;
+                  chatInput.placeholder = t("loadGraphFirst");
+                  chatInput.classList.add("chat-input-disabled");
+                  chatInputContainer.classList.add(
+                    "chat-input-container-disabled"
+                  );
+                }
+
+                return false;
+              }
+            } catch (error) {
+              console.error("💥 DEBUG: Exception caught:", error);
+              console.error("💥 DEBUG: Error stack:", error.stack);
+            }
+          }
+
+          document.getElementById("load-btn-label").textContent = t("LoadButton");
+
+          // Handle Enter key in input — delegates to the single click handler in script.js
+          graphIdInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              loadGraphBtn.click();
+            }
+          });
+        });
+    </script>
+
+    <script src="static/script.js"></script>
+  </body>
+</html>
