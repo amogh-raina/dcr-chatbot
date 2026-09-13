@@ -128,6 +128,20 @@ def menu_choices(event, payload):
     return visible
 
 
+def topic_name(event, payload):
+    tags = topic_tags(event)
+    if len(tags) != 1:
+        return None
+    value = next(iter(tags)).split(':', 1)[1]
+    homes = [choices(e) for e in payload['events'] if 'FAQHome' in groups(e)]
+    # The full topic directory takes precedence over a one-choice welcome screen.
+    for options in sorted(homes, key=len, reverse=True):
+        names = [c['question'] for c in options if c['value'] == value]
+        if len(names) == 1:
+            return names[0]
+    return None
+
+
 def navigation(payload, home_only=False):
     menus = [e for e in payload['events'] if e.get('enabled') is True and
              ('FAQHome' in groups(e) or (not home_only and active(e) and 'FAQTopicMenu' in groups(e)))]
@@ -148,6 +162,7 @@ def view(state, payload):
     log.info('FAQ navigation pending=%s', pending[0]['id'])
     result = {'faq': True, 'status': 'navigation', 'response': pending[0]['label'],
               'event_id': pending[0]['id'], 'navigation': nav,
+              'topic_name': topic_name(pending[0], payload),
               'topic_explored': 'FAQTopicExplored' in groups(pending[0])}
     tags = groups(pending[0])
     if tags & {'FAQFeedback', 'FAQReady'}:
@@ -241,8 +256,7 @@ def execute(state, candidate, payload):
     log.info('FAQ pending answer=%s', answer['id'])
     # Capture verbatim before acknowledgement. No inferred next-event routing.
     response = {'faq': True, 'status': 'answer', 'response': text, 'answer': text,
-                'answer_event_id': answer['id'], 'navigation': [],
-                'follow_up': 'Did that answer your question? You can ask another question or choose one below.'}
+                'answer_event_id': answer['id'], 'navigation': []}
     if not repo.execute_event(state, answer['id'], '', ''):
         response['error_code'] = 'answer_acknowledgement_failed'
         response['follow_up'] = 'The answer was retrieved, but navigation could not advance. Please restart the conversation.'
@@ -255,6 +269,8 @@ def execute(state, candidate, payload):
         nav = view(state, after)
         response['navigation'] = nav['navigation']
         response['event_id'] = nav['event_id']
+        response['topic_name'] = nav['topic_name']
+        response['topic_explored'] = nav['topic_explored']
         if answer_matching(after) and topic_tags(answer) and not nav.get('feedback_id'):
             raise StateError('DCR did not produce the expected answer feedback')
         if nav.get('feedback_id'):

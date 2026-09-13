@@ -20,7 +20,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>&lt;p&gt;Choose a topic. You can return here after every answer.&lt;/p&gt;</eventDescription>
+            <eventDescription>Choose a topic below, or type your question at any time.</eventDescription>
             <purpose>Guideline-derived top-level FAQ navigation.</purpose>
             <guide />
             <insight use="false" />
@@ -109,7 +109,7 @@
             <roles>
               <role description="" specification="">Chatbot</role>
             </roles>
-            <eventDescription>&lt;p&gt;Choose a question about eligibility and qualifying education.&lt;/p&gt;</eventDescription>
+            <eventDescription>Here are some questions about eligibility and qualifying education.</eventDescription>
             <purpose>Local menu for topic 1.</purpose>
             <eventData>
               <dataType format="int">choice</dataType>
@@ -200,7 +200,7 @@
             <roles>
               <role description="" specification="">Chatbot</role>
             </roles>
-            <eventDescription>&lt;p&gt;Choose a question about impairment and ability to work.&lt;/p&gt;</eventDescription>
+            <eventDescription>Here are some questions about impairment and ability to work.</eventDescription>
             <purpose>Local menu for topic 2.</purpose>
             <eventData>
               <dataType format="int">choice</dataType>
@@ -291,7 +291,7 @@
             <roles>
               <role description="" specification="">Chatbot</role>
             </roles>
-            <eventDescription>&lt;p&gt;Choose a question about medical documentation.&lt;/p&gt;</eventDescription>
+            <eventDescription>Here are some questions about medical documentation.</eventDescription>
             <purpose>Local menu for topic 3.</purpose>
             <eventData>
               <dataType format="int">choice</dataType>
@@ -382,7 +382,7 @@
             <roles>
               <role description="" specification="">Chatbot</role>
             </roles>
-            <eventDescription>&lt;p&gt;Choose a question about applying, decisions or getting help.&lt;/p&gt;</eventDescription>
+            <eventDescription>Here are some questions about applying, decisions and help.</eventDescription>
             <purpose>Local menu for topic 4.</purpose>
             <eventData>
               <dataType format="int">choice</dataType>
@@ -518,7 +518,7 @@
             <roles>
               <role description="" specification="">Chatbot</role>
             </roles>
-            <eventDescription>&lt;p&gt;Choose a question about payment, work or changes after approval.&lt;/p&gt;</eventDescription>
+            <eventDescription>Here are some questions about payment, work and changes after approval.</eventDescription>
             <purpose>Local menu for topic 5.</purpose>
             <eventData>
               <dataType format="int">choice</dataType>
@@ -655,7 +655,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. Ask another question or return to topics.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -695,7 +695,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. Ask another question or return to topics.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -735,7 +735,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. Ask another question or return to topics.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -775,7 +775,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. Ask another question or return to topics.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -815,7 +815,7 @@
             <eventType />
             <eventScope>private</eventScope>
             <eventTypeData />
-            <eventDescription>You’ve explored all questions in this topic. Ask another question or return to topics.</eventDescription>
+            <eventDescription>You’ve explored all questions in this topic.</eventDescription>
             <purpose>Topic exploration completion; review preserves answer execution history.</purpose>
             <guide />
             <insight use="false" />
@@ -835,13 +835,7 @@
         </event>
       </events>
       <labels>
-        <label id="What would you like help with?" />
         <label id="Ask any SU disability supplement question" />
-        <label id="Choose an eligibility question" />
-        <label id="Choose an impairment and work question" />
-        <label id="Choose a documentation question" />
-        <label id="Choose an application or decision question" />
-        <label id="Choose a payment or change question" />
         <label id="What is the supplement and who can receive it?" />
         <label id="Which education programmes qualify?" />
         <label id="Is having a diagnosis enough?" />
@@ -860,16 +854,22 @@
         <label id="How can I appeal?" />
         <label id="How can I follow my case or contact the authority?" />
         <label id="Application form" />
-        <label id="You’ve explored all questions in this topic. Ask another question or return to topics." />
+        <label id="Choose a topic below, or type your question at any time." />
+        <label id="Here are some questions about applying, decisions and help." />
+        <label id="Here are some questions about eligibility and qualifying education." />
+        <label id="Here are some questions about impairment and ability to work." />
+        <label id="Here are some questions about medical documentation." />
+        <label id="Here are some questions about payment, work and changes after approval." />
+        <label id="You’ve explored all questions in this topic." />
       </labels>
       <labelMappings>
-        <labelMapping eventId="FAQ_Home" labelId="What would you like help with?" />
+        <labelMapping eventId="FAQ_Home" labelId="Choose a topic below, or type your question at any time." />
         <labelMapping eventId="FAQ_GlobalQuestion" labelId="Ask any SU disability supplement question" />
-        <labelMapping eventId="FAQ_Menu_1" labelId="Choose an eligibility question" />
-        <labelMapping eventId="FAQ_Menu_2" labelId="Choose an impairment and work question" />
-        <labelMapping eventId="FAQ_Menu_3" labelId="Choose a documentation question" />
-        <labelMapping eventId="FAQ_Menu_4" labelId="Choose an application or decision question" />
-        <labelMapping eventId="FAQ_Menu_5" labelId="Choose a payment or change question" />
+        <labelMapping eventId="FAQ_Menu_1" labelId="Here are some questions about eligibility and qualifying education." />
+        <labelMapping eventId="FAQ_Menu_2" labelId="Here are some questions about impairment and ability to work." />
+        <labelMapping eventId="FAQ_Menu_3" labelId="Here are some questions about medical documentation." />
+        <labelMapping eventId="FAQ_Menu_4" labelId="Here are some questions about applying, decisions and help." />
+        <labelMapping eventId="FAQ_Menu_5" labelId="Here are some questions about payment, work and changes after approval." />
         <labelMapping eventId="FAQ_Answer_1" labelId="What is the supplement and who can receive it?" />
         <labelMapping eventId="FAQ_Answer_2" labelId="Which education programmes qualify?" />
         <labelMapping eventId="FAQ_Answer_3" labelId="Is having a diagnosis enough?" />
@@ -888,11 +888,11 @@
         <labelMapping eventId="FAQ_Answer_16" labelId="How can I appeal?" />
         <labelMapping eventId="FAQ_Answer_17" labelId="How can I follow my case or contact the authority?" />
         <labelMapping eventId="Form0" labelId="Application form" />
-        <labelMapping eventId="FAQ_Explored_1" labelId="You’ve explored all questions in this topic. Ask another question or return to topics." />
-        <labelMapping eventId="FAQ_Explored_2" labelId="You’ve explored all questions in this topic. Ask another question or return to topics." />
-        <labelMapping eventId="FAQ_Explored_3" labelId="You’ve explored all questions in this topic. Ask another question or return to topics." />
-        <labelMapping eventId="FAQ_Explored_4" labelId="You’ve explored all questions in this topic. Ask another question or return to topics." />
-        <labelMapping eventId="FAQ_Explored_5" labelId="You’ve explored all questions in this topic. Ask another question or return to topics." />
+        <labelMapping eventId="FAQ_Explored_1" labelId="You’ve explored all questions in this topic." />
+        <labelMapping eventId="FAQ_Explored_2" labelId="You’ve explored all questions in this topic." />
+        <labelMapping eventId="FAQ_Explored_3" labelId="You’ve explored all questions in this topic." />
+        <labelMapping eventId="FAQ_Explored_4" labelId="You’ve explored all questions in this topic." />
+        <labelMapping eventId="FAQ_Explored_5" labelId="You’ve explored all questions in this topic." />
       </labelMappings>
       <expressions>
         <expression id="home-1" value="FAQ_Home = 1" />

@@ -1,4 +1,4 @@
-// API-marked FAQ graphs use API-provided answers, feedback and navigation.
+// API-marked FAQ graphs use explicit confirmation and API-provided navigation.
 let faqMode = false;
 let faqBusy = false;
 let faqRevision = 0;
@@ -70,7 +70,13 @@ function renderFAQ(data) {
     button(choice.label, {action: 'feedback', feedback_id: data.feedback_id, value: choice.value});
   }
   for (const candidate of data.candidates || []) {
-    button(data.status === 'confirm_match' ? `Yes — ${candidate.question}` : candidate.question,
+    if (data.status === 'confirm_match') {
+      const question = document.createElement('strong');
+      question.textContent = candidate.question;
+      question.style.flexBasis = '100%';
+      controls.appendChild(question);
+    }
+    button(data.status === 'confirm_match' ? 'Yes, show the answer' : candidate.question,
       {action: 'confirm', match_id: data.match_id, candidate_key: candidate.candidate_key});
   }
   if (data.match_id) button('No — let me rephrase', {action: 'reject', match_id: data.match_id});
@@ -82,10 +88,18 @@ function renderFAQ(data) {
     const current = data.navigation.find(menu => menu.event_id === data.event_id)
       || data.navigation.find(menu => !menu.is_home)
       || data.navigation.find(menu => menu.is_home);
-    for (const choice of data.suppress_suggestions ? [] : (current?.options || [])) {
-      if (!isFAQUtility(choice)) {
-        button(choice.question, {event_id: choice.event_id, value: choice.value});
-      }
+    const suggestions = (data.suppress_suggestions ? [] : (current?.options || [])).filter(choice => !isFAQUtility(choice));
+    if (data.status === 'answer' && !data.topic_explored && !current?.is_home && suggestions.length) {
+      const heading = document.createElement('span');
+      heading.className = 'faq-suggestion-heading';
+      heading.textContent = data.topic_name
+        ? `More questions about ${data.topic_name.toLowerCase()}`
+        : 'More questions about this topic';
+      heading.style.cssText = 'flex-basis:100%;font-size:0.85em;color:#526072;';
+      controls.appendChild(heading);
+    }
+    for (const choice of suggestions) {
+      button(choice.question, {event_id: choice.event_id, value: choice.value});
     }
   }
   if (!controls.childNodes.length) controls.parentElement.remove();

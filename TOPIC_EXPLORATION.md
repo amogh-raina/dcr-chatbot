@@ -1,4 +1,6 @@
-# Topic exploration graph change
+# MVP topic exploration graph
+
+This describes `SU_handicaptillaeg_FAQ_MVP.xml`. The answer-matching variant replaces direct answer-to-menu/explored transitions with Yes/No feedback; see `ANSWER_MATCHING.md`.
 
 | Events | Initial inclusion/pending | Repeatability | Purpose |
 |---|---|---|---|
