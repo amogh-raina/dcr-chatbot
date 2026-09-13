@@ -2,9 +2,9 @@
 
 ## Current application
 
-`app.py` runs a Flask application through Waitress on port 8080. The main UI at `/` uses `templates/index.html` and `static/script.js`. The React/Vite showcase at `/demo` is served from `static/demo`; source and npm dependencies are in `demo-ui`. That showcase still targets an older graph and needs future integration work.
+`app.py` runs a Flask application through Waitress on port 8080. The main UI at `/` uses `templates/index.html` and `static/script.js`. The React/Vite showcase at `/demo` is served from `static/demo`; source and npm dependencies are in `demo-ui`. The showcase uses the same `/init` and `/chat` FAQ contract as the main UI. `demo-ui/src/SupportChat.jsx` renders API choices, confirmations, verbatim answers and navigation; `Icon.jsx` shares presentation icons. It starts a separate simulation when opened, keeps it when closed/reopened, and starts fresh on restart. The default demo graph is 2012661, overridable with `?graphid=...`. No XML is read by the demo.
 
-The current FAQ graph is **2012636**. Its source is `xml graphs/SU_handicaptillaeg_FAQ_MVP.xml`. DCR is authoritative for enabled/pending events, choice catalogues, execution, navigation, and answer descriptions. The application does not read XML or cached JSON to decide FAQ routing.
+The current FAQ graph is **2012661**. Its source is `xml graphs/SU_handicaptillaeg_FAQ_MVP.xml`. DCR is authoritative for enabled/pending events, choice catalogues, execution, navigation, and answer descriptions. The application does not read XML or cached JSON to decide FAQ routing.
 
 ## Modules and boundaries
 
@@ -51,3 +51,15 @@ See [README.md](README.md) for installation. Python packages are in `requirement
 Logs go to the terminal. `INFO:openchat:` includes message/context, model, rankings, decision, latency, and usage. `INFO:faq_runtime:` shows confirmation and DCR transitions. SDK HTTP debug logs are disabled. Logs may include user-entered questions and should not be shared indiscriminately.
 
 Developer checks: `python -m unittest discover -s tests`. Tests use mocked services; real DCR access and an OpenAI key are needed for a live chatbot session. Keep XML changes separate from application presentation changes; preserve canonical answers and validate changed graphs before importing.
+
+
+## MVP conversation presentation
+
+Branch `fix/mvp-conversation-flow` restores API-based unread suggestion filtering for the working MVP. `FAQHideRead` menus match choices to uniquely labeled `FAQAnswer` events within the same `FAQTopic:N` tag; executed answers are omitted. The complete global catalogue stays available for typed questions. The graph-issued Review choice exposes the complete topic list without resetting execution history. Only a pending `FAQTopicExplored` event produces the completion message.
+
+Topic names for the small heading above remaining questions come from the API's Home choices. Ordinary answers have no additional guidance message. Completion still displays its concise DCR-provided message, and error guidance remains visible. Text questions still require confirmation. The user bubble recording a click stays unchanged; the following bot message introduces the topic questions.
+
+The repository XML is synchronized with the project's `outputs/dcr_conversation/SU_handicaptillaeg_FAQ_MVP.xml`; only navigation wording changes relative to that project source. Graph 2012661 is the current live MVP before this wording update. Upload the updated XML and start a fresh simulation to receive the new labels; restarting Python alone does not update DCR graph content.
+
+
+The FAQ modules (`openchat.py`, `faq_runtime.py`) do not read XML or cached graph maps. `app.py` still fetches graph XML from the DCR API at initialization for title/language and optional review parsing. FAQ decision-making uses raw simulation API events; the presence of an API-delivered XML review copy should not be confused with XML-driven runtime routing.

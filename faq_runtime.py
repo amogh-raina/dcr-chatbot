@@ -68,13 +68,56 @@ def active(event):
     return event.get('enabled') is True and event.get('pending') is True
 
 
+def topic_tags(event):
+    return {tag for tag in groups(event) if tag.startswith('FAQTopic:')}
+
+
+def menu_choices(event, payload):
+    options = choices(event)
+    if 'FAQHideRead' not in groups(event):
+        return options
+    topic = topic_tags(event)
+    if len(topic) != 1:
+        raise StateError('History-aware menu needs one API topic marker')
+    explored = [e for e in payload['events'] if 'FAQTopicExplored' in groups(e)
+                and topic_tags(e) == topic]
+    # Review is issued by DCR. Presentation preserves the execution history.
+    if len(explored) == 1 and explored[0].get('executed'):
+        review = [c for c in choices(explored[0]) if c['question'] == 'Review questions']
+        if len(review) == 1 and str(explored[0].get('value')) == review[0]['value']:
+            return options
+    answers = [e for e in payload['events'] if 'FAQAnswer' in groups(e) and topic_tags(e) == topic]
+    visible = []
+    for option in options:
+        matches = [e for e in answers if e.get('label') == option['question']]
+        if len(matches) > 1:
+            raise StateError('Duplicate answer labels within an API topic')
+        if not matches or not matches[0].get('executed'):
+            visible.append(option)
+    return visible
+
+
+def topic_name(event, payload):
+    tags = topic_tags(event)
+    if len(tags) != 1:
+        return None
+    value = next(iter(tags)).split(':', 1)[1]
+    homes = [choices(e) for e in payload['events'] if 'FAQHome' in groups(e)]
+    # The full topic directory takes precedence over a one-choice welcome screen.
+    for options in sorted(homes, key=len, reverse=True):
+        names = [c['question'] for c in options if c['value'] == value]
+        if len(names) == 1:
+            return names[0]
+    return None
+
+
 def navigation(payload, home_only=False):
     menus = [e for e in payload['events'] if e.get('enabled') is True and
              ('FAQHome' in groups(e) or (not home_only and active(e) and 'FAQTopicMenu' in groups(e)))]
     # The pending topic goes first; Home remains available for explicit browsing.
     menus.sort(key=lambda e: 'FAQHome' in groups(e))
     return [{'event_id': e['id'], 'question': e['label'],
-             'is_home': 'FAQHome' in groups(e), 'options': choices(e)} for e in menus]
+             'is_home': 'FAQHome' in groups(e), 'options': menu_choices(e, payload)} for e in menus]
 
 
 def view(state, payload):
@@ -86,7 +129,9 @@ def view(state, payload):
     state['event_id'] = pending[0]['id']
     log.info('FAQ navigation pending=%s', pending[0]['id'])
     return {'faq': True, 'status': 'navigation', 'response': pending[0]['label'],
-            'event_id': pending[0]['id'], 'navigation': nav}
+            'event_id': pending[0]['id'], 'navigation': nav,
+            'topic_name': topic_name(pending[0], payload),
+            'topic_explored': 'FAQTopicExplored' in groups(pending[0])}
 
 
 def fallback(state, payload, message=None, error=None):
@@ -156,8 +201,7 @@ def execute(state, candidate, payload):
     log.info('FAQ pending answer=%s', answer['id'])
     # Capture verbatim before acknowledgement. No inferred next-event routing.
     response = {'faq': True, 'status': 'answer', 'response': text, 'answer': text,
-                'answer_event_id': answer['id'], 'navigation': [],
-                'follow_up': 'Did that answer your question? You can ask another question or choose one below.'}
+                'answer_event_id': answer['id'], 'navigation': []}
     if not repo.execute_event(state, answer['id'], '', ''):
         response['error_code'] = 'answer_acknowledgement_failed'
         response['follow_up'] = 'The answer was retrieved, but navigation could not advance. Please restart the conversation.'
@@ -170,6 +214,10 @@ def execute(state, candidate, payload):
         nav = view(state, after)
         response['navigation'] = nav['navigation']
         response['event_id'] = nav['event_id']
+        response['topic_name'] = nav['topic_name']
+        response['topic_explored'] = nav['topic_explored']
+        if nav['topic_explored']:
+            response['follow_up'] = nav['response']
     except StateError:
         log.error('FAQ navigation failed marking=%s', state.get('simulation_state'))
         response['error_code'] = 'navigation_error'
@@ -247,6 +295,6 @@ def handle(state, data):
     state['faq_match'] = {'id': match_id, 'candidates': selected,
                           'created': time.monotonic(), 'marking': marking(payload)}
     return {'faq': True, 'status': 'confirm_match' if decision == 'single_match' else 'clarify_match',
-            'response': 'Did you mean:' if decision == 'single_match' else 'I’m not entirely sure. Did you mean one of these?',
+            'response': 'Is this the question you mean?' if decision == 'single_match' else 'I’m not entirely sure. Did you mean one of these?',
             'match_id': match_id,
             'candidates': [{'candidate_key': c['candidate_key'], 'question': c['question']} for c in selected]}
