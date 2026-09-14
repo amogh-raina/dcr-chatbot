@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Icon from './Icon';
 import SupportChat from './SupportChat';
+import { MitIdDemo, ApplicationDemo } from './ApplicationDemo';
 
 
 const navItems = ['SU', 'SU loan', 'SU abroad', 'Disability allowance', 'Foreign citizen', 'Support for parents', 'Other grants', 'Rates', 'Contact'];
@@ -50,4 +51,8 @@ function App() {
   </main>;
 }
 
-export default App;
+export default function Page() {
+  if (window.location.pathname === '/mitid') return <MitIdDemo />;
+  if (window.location.pathname === '/application') return <ApplicationDemo />;
+  return <App />;
+}
