@@ -136,7 +136,7 @@ def view(state, payload):
 
 def fallback(state, payload, message=None, error=None):
     result = {'faq': True, 'status': 'no_match',
-              'response': message or "I couldn’t find a matching FAQ. Try rephrasing your question, browse the topics below, or choose the authority contact information.",
+              'response': message or "I couldn’t find an answer to that in this chatbot’s SU disability supplement FAQs. You can ask about eligibility, documentation, applying, or payments, or browse the topics below.",
               'actions': [{'action': 'rephrase', 'label': 'Rephrase my question'},
                           {'action': 'topics', 'label': 'Browse topics'}],
               'navigation': navigation(payload, home_only=True)}

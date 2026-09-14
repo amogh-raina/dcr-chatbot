@@ -60,19 +60,19 @@ class MatcherTests(unittest.TestCase):
             self.assertEqual(openchat.decide(rows,openchat.Settings())[0],expected)
 
     def test_invalid_rankings(self):
-        bad=[{}, {'ranked_matches':[]}, {'ranked_matches':[row('unknown')]},
+        bad=[{}, {'ranked_matches':[row('unknown')]},
              {'ranked_matches':[row(),row()]}, {'ranked_matches':[row(score=float('nan'))]},
              {'ranked_matches':[row(score=float('inf'))]}, {'ranked_matches':[row(score=-.1)]},
              {'ranked_matches':[row(score=1.1)]}, {'ranked_matches':[row(score=True)]},
              {'ranked_matches':[row(score='0.9')]}]
         for raw in bad:
             with self.subTest(raw=raw),self.assertRaises(openchat.MatchError):
-                openchat.validate_ranking(raw,{'global:7'})
+                openchat.validate_ranking(dict(in_scope=True, scope_reason='Relevant', **raw),{'global:7'})
 
     def test_sdk_payload_context_schema_and_retry(self):
         client=Mock();client.responses.create.side_effect=[
             SimpleNamespace(status='completed',output_text='bad'),
-            SimpleNamespace(status='completed',output_text=json.dumps({'ranked_matches':[row()]}),usage=None)]
+            SimpleNamespace(status='completed',output_text=json.dumps({'in_scope':True, 'scope_reason':'Relevant follow-up', 'ranked_matches':[row()]}),usage=None)]
         candidates=faq.catalogue(initial());candidates[0]['description']='FORBIDDEN ANSWER'
         self.assertEqual(openchat.rank('What about that?', 'Diagnosis enough?', candidates,client)[0], 'single_match')
         self.assertEqual(client.responses.create.call_count,2)

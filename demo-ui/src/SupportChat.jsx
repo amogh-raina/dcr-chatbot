@@ -89,7 +89,7 @@ export default function SupportChat() {
   function initialize() {
     if (busyRef.current) return;
     initialized.current = true; session.current = newId(); setReady(false); setMessages([]); setNavigation([]); setInput('');
-    const graph = new URLSearchParams(window.location.search).get('graphid') || '2012661';
+    const graph = new URLSearchParams(window.location.search).get('graphid') || '2012701';
     request('/init', { graph_id: graph });
   }
   function show() { setOpen(true); if (!initialized.current) initialize(); }
