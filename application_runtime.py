@@ -3,11 +3,14 @@ No LLM, local XML, real authentication, file contents, or external submission.
 """
 from datetime import date
 import math
+import logging
 import re
 import secrets
 import threading
 import dcr_repository as repo
 from faq_runtime import groups, choices, marking
+
+log = logging.getLogger(__name__)
 
 class ApplicationError(ValueError):
     pass
@@ -34,15 +37,32 @@ def describe(e):
 def view(state,payload):
     if state.get('application_result'):
         return state['application_result']
-    terminal=[e for e in payload['events'] if active(e) and groups(e)&{'ApplicationComplete','ApplicationDeclined'}]
-    if len(terminal)==1:
+    application_tags={'ApplicationField','ApplicationComplete','ApplicationDeclined'}
+    available=[e for e in payload['events'] if e.get('included') is True
+               and e.get('enabled') is True and groups(e)&application_tags]
+    pending=[e for e in available if e.get('pending') is True]
+    candidates=pending or available
+    if len(candidates)!=1:
+        # Omit field labels, entered values, descriptions and credentials.
+        diagnostic=[dict(id=e.get('id'), type=e.get('type'), data_type=e.get('dataType'),
+                         included=e.get('included'), enabled=e.get('enabled'),
+                         pending=e.get('pending'), tags=sorted(groups(e)))
+                    for e in payload['events']]
+        log.error('Application marking mismatch graph=%s simulation=%s available=%s pending=%s events=%s',
+                  state.get('graph_id'), state.get('simulation_id'), len(available), len(pending), diagnostic)
+        raise ApplicationError(f'DCR returned {len(candidates)} selectable application steps; expected one. See the Application marking mismatch diagnostic in the terminal.')
+    selected=candidates[0]
+    log.info('Application selected event=%s mode=%s', selected['id'],
+             'pending' if pending else 'sole_enabled')
+    # This fallback is specific to the one-pass form: completed fields self-exclude.
+    # Use DCR availability directly; do not invent pending flags or question order.
+    if groups(selected)&{'ApplicationComplete','ApplicationDeclined'}:
         state.pop('application_prompt',None)
-        if not repo.execute_raw_event(state,terminal[0]['id'],''):
+        if not repo.execute_raw_event(state,selected['id'],''):
             raise ApplicationError('DCR could not acknowledge the final demo message.')
-        state['application_result'] = dict(application=True,status='complete' if 'ApplicationComplete' in groups(terminal[0]) else 'declined',response=terminal[0]['label'],demo_notice='Demonstration only. Nothing was submitted and no e-Boks message will be sent.')
+        state['application_result'] = dict(application=True,status='complete' if 'ApplicationComplete' in groups(selected) else 'declined',response=selected['label'],demo_notice='Demonstration only. Nothing was submitted and no e-Boks message will be sent.')
         return state['application_result']
-    fields=[e for e in payload['events'] if active(e) and 'ApplicationField' in groups(e)]
-    if len(fields)!=1:raise ApplicationError('DCR must provide exactly one next application field. Please check the imported demo graph.')
+    fields=[selected]
     field=describe(fields[0]);ticket=secrets.token_urlsafe(24)
     state['application_prompt']=dict(ticket=ticket,marking=marking(payload),field=field)
     return dict(application=True,status='review' if field['type']=='submit' else 'question',field=field,prompt_id=ticket,answers=state.get('application_answers',[]))
@@ -58,6 +78,8 @@ def start(state):
     if not home or home.get('enabled') is not True or not any(c['value']==value for c in choices(home)):
         raise ApplicationError('The application entry is not available.')
     if not repo.execute_raw_event(state,eid,value):raise ApplicationError('DCR could not start the application.')
+    log.info('Application entry executed graph=%s simulation=%s event=%s',
+             state.get('graph_id'), state.get('simulation_id'), eid)
     state['application_answers']=[]
     return view(state,fetch(state))
 

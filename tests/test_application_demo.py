@@ -75,3 +75,33 @@ class ApplicationTests(unittest.TestCase):
   with self.assertRaises(runtime.ApplicationError):runtime.validated(dict(type='float',hours=True),'169')
   with self.assertRaises(runtime.ApplicationError):runtime.validated(dict(type='demo_file'),'/secret/file.pdf')
   self.assertEqual(runtime.validated(dict(type='demo_file'),'fictional.pdf')[0],'fictional.pdf')
+
+ def test_form_api_without_pending_flags_can_complete(self):
+  def payload_without_pending(state):
+   payload=self.model.payload(state)
+   for event in payload['events']:
+    if event['id'].startswith('Form0:'):event['pending']=False
+   return payload
+  self.read.side_effect=payload_without_pending
+  result,seen=self.run_path({})
+  self.assertEqual(result['status'],'complete')
+  self.assertEqual(seen[0],'A1_1')
+  self.assertIn('A10',seen)
+ def test_nonpending_fallback_rejects_multiple_available_fields(self):
+  runtime.start(self.state)
+  payload=self.model.payload()
+  for event in payload['events']:
+   event['pending']=False
+   if event['id']=='Form0:A2':event.update(included=True,enabled=True)
+  self.write.reset_mock()
+  with self.assertRaises(runtime.ApplicationError):runtime.view(self.state,payload)
+  self.write.assert_not_called()
+ def test_nonpending_fallback_does_not_select_excluded_or_disabled_field(self):
+  for flags in [dict(included=False),dict(enabled=False)]:
+   payload=self.model.payload()
+   for event in payload['events']:
+    event['pending']=False
+    if event['id']=='Form0:A1_1':
+     event.update(included=True,enabled=True)
+     event.update(flags)
+   with self.assertRaises(runtime.ApplicationError):runtime.view(self.state,payload)
