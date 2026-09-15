@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import './application.css';
+import { newSessionId } from './sessionId';
 const graph = () => new URLSearchParams(location.search).get('graphid') || '2012701';
 const demoUrl = (path) => `${path}?graphid=${encodeURIComponent(graph())}`;
 export function MitIdDemo() {
@@ -22,7 +23,7 @@ function Field({field,busy,onSubmit}){
 }
 export function ApplicationDemo(){
  const [state,setState]=useState(null);const [busy,setBusy]=useState(false);const [error,setError]=useState('');
- const sid=useRef(crypto.randomUUID());const inflight=useRef(false);
+ const sid=useRef(null);if(sid.current===null)sid.current=newSessionId();const inflight=useRef(false);
  async function request(path,payload){if(inflight.current)return;inflight.current=true;setBusy(true);setError('');try{const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json','X-Session-ID':sid.current},body:JSON.stringify(payload)});const data=await r.json();if(!r.ok)throw new Error(data.error||'Could not continue.');setState(data);}catch(e){setError(e.message);}finally{inflight.current=false;setBusy(false);}}
  function start(){if(sessionStorage.getItem('application-demo-continue')!=='yes'){location.assign(demoUrl('/mitid'));return;}request('/application/init',{graph_id:graph(),demo_continue:true});}
  function answer(value){if(state.field.type==='date')value+='-01';request('/application/answer',{prompt_id:state.prompt_id,value});}
@@ -31,5 +32,5 @@ export function ApplicationDemo(){
  {!state&&<div className="application-card"><h2>Ready to try the application?</h2><p>We’ll guide you through the questions and let you review your answers before sending the demo.</p><button disabled={busy} onClick={start}>Start demo application →</button></div>}
  {state&&!ended&&<>{state.answers?.length>0&&<details className="application-history" open={state.status==='review'}><summary>Your answers ({state.answers.length})</summary><dl>{state.answers.map((a,i)=><div key={i}><dt>{a.label}</dt><dd>{a.value}</dd></div>)}</dl></details>}<div className="application-card" key={state.prompt_id}><h2>{state.field.label}</h2>{state.status==='review'?<><p>Please review your answers above. To change them, start a new demo application.</p><button disabled={busy} onClick={()=>answer('send')}>Send demo application</button></>:<Field field={state.field} busy={busy} onSubmit={answer}/>}</div></>}
  {ended&&<div className="application-card application-success" role="status"><span className="application-tick">{state.status==='complete'?'✓':'—'}</span><h2>{state.status==='complete'?'Demo complete':'Application not sent'}</h2><p>{state.response}</p><strong>{state.demo_notice}</strong><p><a href={demoUrl('/demo')}>Return to the FAQ →</a></p></div>}
- {error&&<p className="application-error" role="alert">{error}</p>}{busy&&<p role="status">Checking the next step…</p>}{state&&<button className="application-reset" disabled={busy} onClick={()=>{if(window.confirm('Start a new demo and discard this screen’s answers?')){setState(null);setError('');sid.current=crypto.randomUUID();}}}>Start again</button>}</section></main>;
+ {error&&<p className="application-error" role="alert">{error}</p>}{busy&&<p role="status">Checking the next step…</p>}{state&&<button className="application-reset" disabled={busy} onClick={()=>{if(window.confirm('Start a new demo and discard this screen’s answers?')){setState(null);setError('');sid.current=newSessionId();}}}>Start again</button>}</section></main>;
 }
