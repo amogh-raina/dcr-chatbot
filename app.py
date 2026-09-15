@@ -11,6 +11,7 @@ import questions as quest
 import utility as utility
 import chatnlp as chatnlp
 import faq_runtime
+import application_runtime
 import threading
 from datetime import datetime
 import os
@@ -836,6 +837,10 @@ def index():
         "index.html"
     )
 
+application_runtime.install(app, tab_sessions, lambda: dict(api_key=api_key, token=token, root_url=root_url))
+
+@app.route('/mitid')
+@app.route('/application')
 @app.route('/demo')
 def demo():
     return send_from_directory(

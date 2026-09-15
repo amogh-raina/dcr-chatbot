@@ -94,7 +94,15 @@ export default function SupportChat() {
   }
   function show() { setOpen(true); if (!initialized.current) initialize(); }
   function close() { setOpen(false); launcher.current?.focus(); }
-  const submit = (payload, text) => { if (ready) request('/chat', payload, text); };
+  const submit = (payload, text) => {
+    if (!ready) return;
+    if (text?.trim().toLowerCase() === 'proceed to application') {
+      const graph = new URLSearchParams(window.location.search).get('graphid') || '2012701';
+      window.location.assign(`/mitid?graphid=${encodeURIComponent(graph)}`);
+      return;
+    }
+    request('/chat', payload, text);
+  };
   useEffect(() => () => controller.current?.abort(), []);
   useEffect(() => { if (open) { if (!busy && ready) inputRef.current?.focus(); else panel.current?.querySelector('button:not(:disabled)')?.focus(); } }, [open, busy, ready]);
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = messages.length <= 1 ? 0 : scrollRef.current.scrollHeight; }, [open, messages, busy, error]);
