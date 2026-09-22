@@ -166,6 +166,32 @@ def initialize(state, payload):
         return fallback(state, payload, 'FAQ matching is not configured correctly. Please use the topic buttons.', 'configuration_error')
 
 
+def is_application_event(e):
+    tags = groups(e)
+    if tags & {'ApplicationField', 'ApplicationComplete', 'ApplicationDeclined'}:
+        return True
+    eid = str(e.get('id', ''))
+    return eid.startswith(('Form0:', 'Application:')) and eid not in ('Form0', 'Application')
+
+
+def application_step(state, payload):
+    """Render the pending application field as a chat turn.
+
+    The application runs in this same simulation, so the questions continue in
+    the conversation rather than moving the person to a separate page. Imported
+    locally because application_runtime imports this module.
+    """
+    import application_runtime as appflow
+    state.setdefault('application_answers', [])
+    try:
+        result = appflow.view(state, payload)
+    except appflow.ApplicationError as error:
+        raise StateError(str(error))
+    result['faq'] = True
+    result.setdefault('navigation', [])
+    return result
+
+
 def execute(state, candidate, payload):
     event = next((e for e in payload['events'] if e['id'] == candidate['event_id']), None)
     if not event or event.get('enabled') is not True or candidate not in choices(event):
@@ -184,13 +210,24 @@ def execute(state, candidate, payload):
         except StateError:
             pass
     latest = refresh(state)
+    # An FAQ answer always wins. A pending application field only means the
+    # application is waiting its turn, not that this execution produced no
+    # answer, so hand over only when there is no answer to show.
+    answers = [e for e in latest['events'] if active(e) and 'FAQAnswer' in groups(e)]
+    handover = [e for e in latest['events'] if active(e) and is_application_event(e)]
+    if handover and not answers:
+        log.info('FAQ handover to application pending=%s', handover[0]['id'])
+        return application_step(state, latest)
     if 'FAQHome' in groups(event) or 'FAQTopicMenu' in groups(event):
         # Explicit back/topic buttons lead to a menu, not an answer. DCR decides.
         if any(active(e) and groups(e) & {'FAQHome', 'FAQTopicMenu'} for e in latest['events']):
             if not any(active(e) and 'FAQAnswer' in groups(e) for e in latest['events']):
                 return view(state, latest)
     answers = [e for e in latest['events'] if active(e) and 'FAQAnswer' in groups(e)]
-    other_pending = [e for e in latest['events'] if active(e) and e not in answers]
+    # A waiting application field is legitimate concurrent state, not a
+    # malformed answer marking.
+    other_pending = [e for e in latest['events'] if active(e) and e not in answers
+                     and not is_application_event(e)]
     if len(answers) != 1 or other_pending:
         log.error('FAQ invalid answer marking=%s', latest)
         raise StateError('DCR did not produce exactly one pending answer')
@@ -211,6 +248,18 @@ def execute(state, candidate, payload):
         after = refresh(state)
         if any(active(e) and 'FAQAnswer' in groups(e) for e in after['events']):
             raise StateError('Answer remains pending after acknowledgement')
+        # The application was mid-flow. Show the answer, then put the person
+        # back on the question they were being asked.
+        resuming = [e for e in after['events'] if active(e) and is_application_event(e)]
+        if resuming:
+            step = application_step(state, after)
+            response['application'] = True
+            response['field'] = step.get('field')
+            response['prompt_id'] = step.get('prompt_id')
+            response['answers'] = step.get('answers', [])
+            if step.get('field'):
+                response['follow_up'] = step['field'].get('label')
+            return response
         nav = view(state, after)
         response['navigation'] = nav['navigation']
         response['event_id'] = nav['event_id']
@@ -234,6 +283,17 @@ def marking(payload):
 def handle(state, data):
     payload = refresh(state)
     action = data.get('action')
+    # An answer to an application question. The application shares this
+    # simulation, so it is just another turn in the same conversation.
+    if data.get('prompt_id'):
+        import application_runtime as appflow
+        try:
+            result = appflow.answer(state, data)
+        except appflow.ApplicationError as error:
+            raise StateError(str(error))
+        result['faq'] = True
+        result.setdefault('navigation', [])
+        return result
     if action == 'confirm':
         issued = state.get('faq_match')
         if (not issued or data.get('match_id') != issued['id'] or

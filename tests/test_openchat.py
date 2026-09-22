@@ -190,7 +190,7 @@ class FlowTests(unittest.TestCase):
         self.assertEqual(self.write.call_count,1)
 
     def test_raw_execution_does_not_read_xml(self):
-        with patch.object(repo.ET,'fromstring',side_effect=AssertionError('XML')),patch.object(repo.requests,'post',return_value=Mock(status_code=204)) as post:
+        with patch.object(repo.ET,'fromstring',side_effect=AssertionError('XML')),patch.object(repo._session,'post',return_value=Mock(status_code=204)) as post:
             self.assertTrue(repo.execute_raw_event(dict(root_url='https://example/',graph_id=1,simulation_id=2,api_key='test'),'global','7'))
             self.assertEqual(post.call_args.kwargs['json']['eventValue'],'7')
 

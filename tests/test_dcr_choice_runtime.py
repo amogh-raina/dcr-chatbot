@@ -41,7 +41,7 @@ class RuntimeChoiceTests(unittest.TestCase):
         self.assertEqual(questions.get_information_text({'value':'undefined','displayValue':'undefined','description':'<p>Medical records</p>'}), 'Medical records')
         self.assertEqual(questions.get_information_text({'value':'Computed answer','description':'Fallback'}), 'Computed answer')
 
-    @patch.object(repo.requests, "post")
+    @patch.object(repo._session, "post")
     def test_dynamic_selection_uses_explicit_value_api(self, post):
         post.return_value.status_code = 204
         self.assertTrue(repo.execute_event(self.state, "menu", "2", ""))

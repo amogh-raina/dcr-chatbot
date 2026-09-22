@@ -13,6 +13,11 @@ from typing import Any, Dict, Optional
 
 logging.basicConfig(level=logging.DEBUG)
 
+# Reused across requests so repeated calls to the same DCR host (several per
+# user interaction: refresh, execute, refresh again, ...) keep the TCP/TLS
+# connection alive instead of renegotiating it every time.
+_session = requests.Session()
+
 
 def _auth_headers(state: Dict[str, Any], content_type: Optional[str] = None) -> Dict[str, str]:
     """Build auth headers used by repository requests."""
@@ -40,7 +45,7 @@ def get_graph(state) -> ET.Element:
     """
     headers = _auth_headers(state, content_type='application/xml')
     
-    response = requests.get(f"{state['root_url']}api/graphs/{state['graph_id']}", headers=headers)
+    response = _session.get(f"{state['root_url']}api/graphs/{state['graph_id']}", headers=headers)
     
     if response.status_code == 200:
         return ET.fromstring(response.content)
@@ -63,7 +68,7 @@ def create_simulation(state) -> int:
     """
     headers = _auth_headers(state, content_type='application/xml')
     
-    response = requests.post(f"{state['root_url']}api/graphs/{state['graph_id']}/sims", headers=headers)
+    response = _session.post(f"{state['root_url']}api/graphs/{state['graph_id']}/sims", headers=headers)
     
     if response.status_code == 201:
         simulation_id_str = response.headers.get('X-DCR-simulation-ID')
@@ -140,18 +145,41 @@ def _prepare_event_payload(state, payload):
     return payload
 
 
+def _enrich_events_from_xml(state, payload):
+    """Enrich live simulation events with XML-defined metadata if available."""
+    if not isinstance(payload, dict) or not isinstance(payload.get("events"), list):
+        return payload
+    raw_xml = state.get("graph_xml")
+    if not raw_xml:
+        return payload
+    try:
+        root = ET.fromstring(raw_xml)
+    except ET.ParseError:
+        return payload
+
+    xml_events = {e.get("id"): e for e in root.findall(".//events//event")}
+    for event in payload["events"]:
+        eid = event.get("id")
+        if eid in xml_events:
+            x_ev = xml_events[eid]
+            dtype = x_ev.find("./custom/eventData/dataType")
+            if dtype is not None and dtype.get("multiple") == "true":
+                event["multiple"] = "true"
+    return payload
+
+
 def get_raw_events(state):
     """FAQ boundary: raw simulation JSON, never XML choice hydration."""
-    response = requests.get(
+    response = _session.get(
         f"{state['root_url']}api/graphs/{state['graph_id']}/simulation/{state['simulation_id']}/event",
         headers=_auth_headers(state), timeout=30)
     response.raise_for_status()
-    return response.json()
+    return _enrich_events_from_xml(state, response.json())
 
 
 def execute_raw_event(state, event_id, value, comment=''):
     """Execute through the simulation API without consulting graph XML."""
-    response = requests.post(
+    response = _session.post(
         f"{state['root_url']}api/graphs/{state['graph_id']}/simulation/{state['simulation_id']}/event",
         headers=_auth_headers(state, content_type='application/json'),
         json={'eventId': event_id, 'eventValue': value, 'comment': comment, 'isNull': False},
@@ -174,12 +202,12 @@ def get_events(state) -> dict:
         dict: The JSON data of events if successful, None otherwise.
     """
     headers = _auth_headers(state)
-    
-    response = requests.get(
+
+    response = _session.get(
         f"{state['root_url']}api/graphs/{state['graph_id']}/simulation/{state['simulation_id']}/event",
         headers=headers
     )
-    
+
     if response.status_code == 200:
         return _prepare_event_payload(state, response.json())
 
@@ -191,7 +219,7 @@ def get_simulation_payload(state: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """Retrieve full simulation payload: GET /api/graphs/{id}/sims/{simid}."""
     headers = _auth_headers(state)
     # Prefer /sims endpoint, fallback to legacy /simulation endpoint.
-    response = requests.get(
+    response = _session.get(
         f"{state['root_url']}api/graphs/{state['graph_id']}/sims/{state['simulation_id']}",
         headers=headers
     )
@@ -201,7 +229,7 @@ def get_simulation_payload(state: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     logging.warning(
         f"/sims payload endpoint failed ({response.status_code}), trying /simulation fallback"
     )
-    fallback_response = requests.get(
+    fallback_response = _session.get(
         f"{state['root_url']}api/graphs/{state['graph_id']}/simulation/{state['simulation_id']}",
         headers=headers
     )
@@ -218,7 +246,7 @@ def get_simulation_payload(state: Dict[str, Any]) -> Optional[Dict[str, Any]]:
 def get_simulation_log(state: Dict[str, Any]) -> Optional[Any]:
     """Retrieve simulation log: GET /api/graphs/{id}/sims/{simid}/log."""
     headers = _auth_headers(state)
-    response = requests.get(
+    response = _session.get(
         f"{state['root_url']}api/graphs/{state['graph_id']}/sims/{state['simulation_id']}/log",
         headers=headers
     )
@@ -233,7 +261,7 @@ def get_simulation_log(state: Dict[str, Any]) -> Optional[Any]:
 def get_simulation_events(state: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """Retrieve all simulation events: GET /api/graphs/{id}/sims/{simid}/events."""
     headers = _auth_headers(state)
-    response = requests.get(
+    response = _session.get(
         f"{state['root_url']}api/graphs/{state['graph_id']}/sims/{state['simulation_id']}/events",
         headers=headers
     )
@@ -244,7 +272,7 @@ def get_simulation_events(state: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     logging.warning(
         f"/sims events endpoint failed ({response.status_code}), trying legacy /simulation endpoint"
     )
-    fallback_response = requests.get(
+    fallback_response = _session.get(
         f"{state['root_url']}api/graphs/{state['graph_id']}/simulation/{state['simulation_id']}/event",
         headers=headers
     )
@@ -300,7 +328,7 @@ def execute_event(state, event_id: str, value: str, comment: str) -> bool:
         ET.SubElement(store, "variable", id=event_id, type=value_type,
                       value=str(value), isNull="false")
         from urllib.parse import quote
-        response = requests.post(
+        response = _session.post(
             f"{state['root_url']}api/graphs/{state['graph_id']}/sims/"
             f"{state['simulation_id']}/events/{quote(event_id, safe='')}",
             headers=headers, json={"DataXML": ET.tostring(store, encoding="unicode")},
@@ -314,7 +342,7 @@ def execute_event(state, event_id: str, value: str, comment: str) -> bool:
         'comment':comment,
         'isNull':False
     }
-    response = requests.post(f"{state['root_url']}api/graphs/{state['graph_id']}/simulation/{state['simulation_id']}/event", headers=headers, json=body)
+    response = _session.post(f"{state['root_url']}api/graphs/{state['graph_id']}/simulation/{state['simulation_id']}/event", headers=headers, json=body)
     if response.status_code == 204:
         logging.info(f"******Event executed: {event_id}={value}")
         return True

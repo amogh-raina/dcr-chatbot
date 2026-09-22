@@ -105,6 +105,83 @@ def decide(rows, settings):
     return 'ambiguous', [r for r in rows if r['score'] >= settings.minimum][:settings.maximum]
 
 
+INTERPRET_PROMPT = """Convert a person's free-text reply into the single value a form field expects.
+Do the arithmetic when they describe it indirectly, for example "3 days a week, 8 hours a day" is 24.
+You are also given what they said earlier in this application. If an earlier answer already states
+what this question asks, use it, and say so in the explanation, for example "you mentioned earlier
+that this followed an accident". Do not stretch an earlier answer to cover something it does not say.
+Write the explanation as a short plain sentence describing how you reached the value.
+Set understood to false when neither the reply nor the earlier answers determine a value, or when the
+reply is a question rather than an answer. Never guess. Never invent a value that is not implied.
+For a choice field, value must be exactly one of the supplied option values.
+When field_kind is "choices" the person may fit several categories at once, so return every option
+their description supports, as an array. Include a category only when the description actually
+indicates it. Use "Other" only when something is described that no other category covers.
+When reply is empty, decide from earlier_answers alone. Return understood false unless an earlier
+answer clearly and directly states the answer to this question; a hint or a related topic is not
+enough. This path exists to save the person retyping something they already told you."""
+
+
+def interpret(message, question, kind, options=None, context=None, client=None, settings=None):
+    """Turn free text into a field value. Returns (understood, value, explanation).
+
+    Separate from rank() on purpose: this never sees the FAQ catalogue and
+    never returns answer content, only a value for the question being asked.
+    """
+    settings = settings or Settings.from_env()
+    if kind not in ('number', 'integer', 'choice', 'choices'):
+        raise MatchError('Unsupported field kind for interpretation')
+    values = [o['value'] for o in (options or [])]
+    if kind in ('choice', 'choices') and not values:
+        raise MatchError('Choice interpretation needs options')
+    payload = {'reply': message, 'question': question, 'field_kind': kind,
+               'earlier_answers': context or [],
+               'options': [{'value': o['value'], 'label': o['label']} for o in (options or [])]}
+    if client is None:
+        if not os.getenv('OPENAI_API_KEY'):
+            raise MatchError('OPENAI_API_KEY is not configured')
+        from openai import OpenAI
+        client = OpenAI(api_key=os.environ['OPENAI_API_KEY'], timeout=settings.timeout, max_retries=0)
+    value_schema = ({'type': ['string', 'null'], 'enum': values + [None]} if kind == 'choice'
+                    else {'type': ['array', 'null'], 'items': {'type': 'string', 'enum': values}}
+                    if kind == 'choices' else {'type': ['number', 'null']})
+    schema = {'type': 'object', 'additionalProperties': False,
+              'required': ['understood', 'value', 'explanation'],
+              'properties': {'understood': {'type': 'boolean'}, 'value': value_schema,
+                             'explanation': {'type': 'string'}}}
+    started = time.monotonic()
+    log.info('Interpret question=%r kind=%s reply=%r', question, kind, message)
+    try:
+        response = client.responses.create(
+            model=settings.model, instructions=INTERPRET_PROMPT,
+            input=json.dumps(payload, ensure_ascii=False), store=False,
+            timeout=settings.timeout,
+            text={'format': {'type': 'json_schema', 'name': 'field_interpretation',
+                             'strict': True, 'schema': schema}})
+        if response.status != 'completed':
+            raise MatchError('Incomplete provider output')
+        raw = json.loads(response.output_text)
+    except MatchError:
+        raise
+    except Exception as error:
+        log.warning('Interpret failure type=%s latency=%.3f', type(error).__name__, time.monotonic() - started)
+        raise MatchError('Interpretation is temporarily unavailable') from error
+    understood = bool(raw.get('understood')) and raw.get('value') is not None
+    if understood and kind == 'choice' and raw['value'] not in values:
+        understood = False
+    if understood and kind == 'choices':
+        picked = raw['value'] if isinstance(raw['value'], list) else []
+        if not picked or any(p not in values for p in picked):
+            understood = False
+    if understood and kind == 'integer':
+        number = raw['value']
+        if float(number) != int(number):
+            understood = False
+    log.info('Interpret understood=%s value=%r latency=%.3f',
+             understood, raw.get('value'), time.monotonic() - started)
+    return understood, raw.get('value'), str(raw.get('explanation') or '')
+
+
 def rank(message, last_question, candidates, client=None, settings=None):
     settings = settings or Settings.from_env()
     # Deliberately project data here too, so callers cannot leak event descriptions.

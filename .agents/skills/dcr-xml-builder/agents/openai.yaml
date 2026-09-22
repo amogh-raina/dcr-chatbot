@@ -1,0 +1,4 @@
+interface:
+  display_name: "DCR XML Builder"
+  short_description: "Build and validate importable DCR XML graphs"
+  default_prompt: "Use $dcr-xml-builder to design and generate an importable DCR XML graph from my process requirements."

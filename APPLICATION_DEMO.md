@@ -22,6 +22,40 @@ You can also open `/mitid?graphid=NEW_ID` directly. The default remains MVP `201
 - The demo graph changes its two `file` events to text with an `ApplicationDemoFile` tag. This is a deliberate simulator accommodation, not evidence that DCR lacks a file datatype. Real uploads need a separate upload/Form Server integration.
 - The final modeled completion event is acknowledged through DCR before displaying the confirmation. A declined demo consent follows a separate cancellation event.
 
+## Layout and UI Design
+
+The interface is built to public-sector design standards (reflecting the official *Det Fælles Designsystem* styling of NemLog-in and su.dk) while keeping interactions smooth, conversational, and non-robotic.
+
+### 1. Dual Layout & 50/50 Form Split
+- **Default View (Sidebar + Centered Application)**:
+  - When the form overview is closed, the screen presents a clean two-column view: guidance sidebar on the left (~320px) and the conversational application centered in a comfortable reading width.
+- **Open Form View (50/50 Half-and-Half Split)**:
+  - When the user opens the form overview, the left sidebar automatically collapses and the screen transitions into a balanced **50% application / 50% form overview** split (`1fr 1fr`).
+  - This eliminates cramping and allows the applicant to compare their conversational answers directly against the structured form overview.
+  - Closing the form (via `Hide form` in the top header or `✕` on the form panel) immediately restores the default sidebar layout.
+
+### 2. Single "View form" Toggle Control
+- Only **one** primary toggle for the form exists in the interface, positioned in the top-right header (`View form` / `Hide form`). Redundant duplicate toggles in the sidebar have been removed for visual clarity and predictable navigation.
+
+### 3. Left Sidebar Guidance (`ApplicationSidebar`)
+The left sidebar anchors applicant orientation with three core blocks:
+- **Faser i ansøgningen**: A 5-stage progress roadmap:
+  1. *Studieoplysninger* (Indskrivning & uddannelsessted) — marked with an active `I gang` badge when current.
+  2. *Funktionsnedsættelse* (Lidelsens art & varighed).
+  3. *Arbejdsevne & job* (Erhvervserfaring & timer).
+  4. *Lægelig dokumentation* (Speciallægeerklæring).
+  5. *Gennemse & bekræft* (Samlet oversigt & kvittering).
+  Stages update dynamically with completed checkmarks based on the current DCR step.
+- **Krav til dokumentation**: Highlights that documentation must substantiate concrete functional loss in relation to holding a student job, not merely state a diagnosis.
+- **Spørgsmål til SU?**: Official helpline reference (`Man–fre 9.00–15.00 · Tlf. 72 31 79 00`).
+- **Sidebar Actions**: Contains `Save session` (visual preview button for future persistence) and `Start again` (session reset with confirmation).
+
+### 4. Natural, Non-Robotic Conversational Interface
+- **Clean Speech Bubbles**: Repetitive robot avatar icons on every message turn have been removed. Turns are styled as clean, lightweight speech bubbles with high readability and subtle elevation.
+- **Language**: Interactive controls, buttons, placeholders, choice chips (`Yes`/`No`), and confirmation messages are in **English**, matching the DCR graph's language.
+- **In-place Editability**: Completed answer turns feature the dedicated rounded-square pen edit icon (`Icon name="edit"`). Clicking it allows re-interpreting answers or picking different choices without restarting the entire simulation.
+- **Support Chatbot Integration (`SupportChat.jsx`)**: The floating FAQ support launcher features an animated guide bot, while internal message bubbles remain clean, legible, and un-robotic.
+
 ## Form adjustments
 
 The 15 supplied fields are embedded in `Form0`. Responses and matching includes select each next step; completed fields self-exclude to prevent editing earlier branches in this initial version. A milestone protects the Send event against outstanding included field obligations.
@@ -44,3 +78,6 @@ XML structural validation passed with zero errors/warnings. Focused offline test
 No authentication or login data is collected. Fictional application answers and filenames are sent to the DCR simulation, where simulation data may remain. Do not use real personal or medical details for this demo.
 
 Project copy of the XML: `outputs/dcr_conversation/SU_handicaptillaeg_FAQ_Application_Demo.xml` in the ChatGPT project. Repository copy: `xml graphs/SU_handicaptillaeg_FAQ_Application_Demo.xml`. Neither original input XML is overwritten.
+
+## MISC.
+One trade-off worth naming: the tag and the attribute can drift. If someone flips multiple back to false in the Portal but leaves the tag, your UI will still offer a checklist while DCR expects one value. Keeping both in sync is a manual discipline, the same way the DMN value and <definitions> have to be kept in sync. If that becomes a real risk, the honest fix is to detect it at import time rather than trust it.

@@ -18,7 +18,14 @@ __pycache__/
 /[eE]xternal_[sS]cripts/*
 !/external_scripts/graph_parser.py
 !/external_scripts/__init__.py
-
+/interaction_logs
+.playwright-mcp
 # Frontend dependencies (built demo is intentionally shared)
 node_modules/
 *.log
+
+# Personal notes, debugging screenshots, packaged skill artifacts
+/idea.md
+/application-start.png
+/home-closed.png
+/dcr-xml-builder.skill
