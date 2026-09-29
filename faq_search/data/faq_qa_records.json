@@ -1,0 +1,850 @@
+{
+  "schema_version": 3,
+  "generated_at": "2026-09-29",
+  "notes": {
+    "description": "Reconciled authoritative FAQ knowledge base aligned with Vejledning nr 9577 af 25/06/2025 and Question_upmapping_chatbot.docx.",
+    "determinations": "Follow-up determination logic ('hvis' rules) is decoupled from plain text blocks and modeled in the DCR process graph.",
+    "embedding": "Computed by embed_faq_data.py and stored in companion faq_embeddings.npy."
+  },
+  "topics": [
+    {
+      "id": "eligibility_and_education",
+      "label": "Eligibility and qualifying education"
+    },
+    {
+      "id": "impairment_and_work_capacity",
+      "label": "Impairment and ability to work"
+    },
+    {
+      "id": "medical_documentation",
+      "label": "Medical documentation"
+    },
+    {
+      "id": "applying_decisions_and_help",
+      "label": "Applying, decisions and help"
+    },
+    {
+      "id": "payment_work_and_changes",
+      "label": "Payment, work and changes after approval"
+    }
+  ],
+  "records": [
+    {
+      "id": "FAQ_01",
+      "canonical_question": "What is handicaptillæg and who is it for?",
+      "question_variants": [
+        "What is the disability supplement?",
+        "Who can receive handicaptillæg?",
+        "Can I get extra SU for a disability?",
+        "What does the supplement cover?"
+      ],
+      "answer_text": "Handicaptillæg is a supplementary grant paid together with an ordinary SU stipend or a final loan (slutlån). It exists for students on a qualifying higher education programme or a Danish vocational education programme (EUD) who, because of a permanent physical or mental impairment, have very significant limitations in their ability to take paid work alongside their studies. The scheme has applied in its current form since 1 July 2025 and is administered by the Danish Agency for Higher Education and Science (the Agency).",
+      "topic": "eligibility_and_education",
+      "citation": "Vejledning nr 9577, Section 1",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_02",
+      "canonical_question": "Why does the disability supplement scheme exist?",
+      "question_variants": [
+        "Why does the handicap supplement exist?",
+        "What is the purpose of handicaptillæg?",
+        "Why do students get a disability grant?",
+        "What is the idea behind the supplement?"
+      ],
+      "answer_text": "The scheme equalises the financial situation of students with a permanent impairment — who often cannot supplement their SU with paid work — with that of other students. It was introduced in 2004 (extended to vocational education students in 2019) to replace an older system under which such students also had to apply to their municipality for financial support under the rehabilitation rules, on top of meeting ordinary study-eligibility requirements. Together with special educational support (SPS), the scheme supports the general education-policy goal that students should be able to complete an education regardless of impairment.\n\nSection 3",
+      "topic": "eligibility_and_education",
+      "citation": "Vejledning nr 9577, Section 2",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_03",
+      "canonical_question": "What conditions must I meet to get handicaptillæg?",
+      "question_variants": [
+        "What conditions must I meet to get the supplement?",
+        "What are the requirements for handicaptillæg?",
+        "How do I qualify for the disability supplement?",
+        "What are the 3 main eligibility criteria?"
+      ],
+      "answer_text": "You must meet three conditions at the same time: (1) meet the general conditions for receiving SU or a final loan; (2) be enrolled in and attending a qualifying higher education programme or a Danish vocational education programme (EUD); and (3) have a permanent physical or mental impairment that causes very significant limitations in your ability to take paid work. You must keep meeting all three conditions to keep receiving the supplement.",
+      "topic": "eligibility_and_education",
+      "citation": "Vejledning nr 9577, Section 3.1",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_04",
+      "canonical_question": "Do I need to get SU to be able to apply for the handicaptillæg?",
+      "question_variants": [
+        "Do I need to receive SU to get handicaptillæg?",
+        "Can I get the supplement without receiving SU?",
+        "Is the supplement tied to ordinary SU?",
+        "Can I apply for handicaptillæg if I haven't applied for SU?"
+      ],
+      "answer_text": "The handicapstipend is a stipend that is allocated as an addition to the general SU stipend. It is therefore always necessary in order to be granted the handicap stipend to be eligible for the general SU.",
+      "topic": "eligibility_and_education",
+      "citation": "Vejledning nr 9577, Section 3.2, 3.2.1",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_05",
+      "canonical_question": "When am I eligible for SU?",
+      "question_variants": [
+        "When am I eligible for ordinary SU?",
+        "What are the general SU requirements?",
+        "Can I get SU if I am under 18?",
+        "Do I need to be study-active for SU?"
+      ],
+      "answer_text": "In order to be eligible for SU, you must be enrolled in, and actively pursuing, a programme that gives a right to SU or a final loan; be study-active; not simultaneously receive other public support intended to cover your living costs; and be a Danish citizen or someone treated as equivalent.\n\nAs a starting point you must have turned 18 to receive SU as grants and loans, though students at higher education or private education can receive the SU stipend (and therefore handicaptillæg) regardless of age. Because the supplement always follows the ordinary right to SU, it is not paid for months in which you don't receive SU or a final loan — for example months with paid internships, opting out of SU, or leave.",
+      "topic": "eligibility_and_education",
+      "citation": "Vejledning nr 9577, Section 3.2, 3.2.1",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_05b",
+      "canonical_question": "Can I get handicaptillæg if I'm not a Danish citizen?",
+      "question_variants": [
+        "Can foreign citizens get handicaptillæg?",
+        "I am not a Danish citizen, can I get the supplement?",
+        "Can EU citizens receive handicaptillæg?",
+        "What are the rules for non-Danish applicants?"
+      ],
+      "answer_text": "Foreign citizens can receive SU, and therefore handicaptillæg, if they are treated as equivalent to Danish citizens under SU-lovens § 2 b. However, a special restriction applies to EU/EEA citizens who qualify for SU specifically as workers or self-employed persons under EU law.",
+      "topic": "eligibility_and_education",
+      "citation": "Vejledning nr 9577, Section 3.2.2",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_06",
+      "canonical_question": "Which education programmes qualify for handicaptillæg?",
+      "question_variants": [
+        "Which education programmes qualify for the supplement?",
+        "Can I get handicaptillæg at university or vocational school?",
+        "Does my study programme qualify?",
+        "Is EUD or higher education covered?"
+      ],
+      "answer_text": "The scheme covers qualifying higher education programmes and Danish vocational education programmes (EUD) under the Danish Vocational Education Act, including qualifying EUX programmes.\n\nIt does not cover general upper-secondary programmes (gymnasiale uddannelser), VUC, or vocational-type programmes offered outside Denmark that are not provided under Danish vocational-education legislation, because these programmes don't give the same immediate labour-market qualifications.",
+      "topic": "eligibility_and_education",
+      "citation": "Vejledning nr 9577, Section 3.3",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_07",
+      "canonical_question": "What does the Agency actually look at when assessing my functional impairment?",
+      "question_variants": [
+        "What does the Agency evaluate in my functional impairment?",
+        "How is my disability assessed?",
+        "What matters when assessing my impairment?",
+        "How does the Agency look at functional limitation?"
+      ],
+      "answer_text": "Based on the medical information you provide, the Agency weighs:\n\n(1) whether there is a permanent impairment;\n\n(2) the impairment and its severity — including whether there are recurring illness periods and a risk of relapse, whether relevant treatment has been started and what effect it has had, whether you reasonably cooperate with treatment, and whether there are described residual symptoms or significant side effects; and\n\n(3) the extent to which you have, or have had, paid work.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.1",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_08",
+      "canonical_question": "What counts as a \"permanent\" physical or mental impairment?",
+      "question_variants": [
+        "What counts as a permanent impairment?",
+        "How does SU define permanent for disability?",
+        "Must my condition be lifelong?",
+        "What is the legal definition of permanent impairment?"
+      ],
+      "answer_text": "As a starting point, an impairment is permanent when it is not expected to improve substantially, either on its own or through treatment, within a longer number of years. Some non-exhaustive examples are:\n\npermanent physical impairments include severe muscle or nerve conditions (e.g. muscular dystrophy, MS, severe spinal conditions, cerebral palsy),\n\nblindness or severe visual impairment, and\n\ndeafness or severe hearing impairment.\n\nPermanent mental impairments can include:\n\nsevere psychological difficulties due to personality disorder, eating disorder, OCD or anxiety,\n\nschizophrenia-spectrum disorders,\n\naffective disorders (including bipolar disorder and recurrent depression),\n\nand ADHD or autism spectrum disorder.\n\nHaving one of these conditions does not by itself guarantee approval, and conditions outside this list can also qualify — the list is not exhaustive.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.2",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_09",
+      "canonical_question": "How long does a condition need to have lasted before it counts as permanent?",
+      "question_variants": [
+        "How long must my condition have lasted to count as permanent?",
+        "Is there a one-year waiting period for handicaptillæg?",
+        "Can a non-permanent disease be treated as permanent?",
+        "Does the condition need to have lasted one year?"
+      ],
+      "answer_text": "As a starting point, you are not entitled to handicaptillæg if your illness, injury, or impairment was not already permanent or chronic in nature from its onset.\n\nHowever, a condition that is not permanent \"by definition\" can still be regarded as permanent once it has lasted around a year — meaning that, as a starting point, you should have experienced the symptoms or effects for roughly a year before applying.\n\nNote that \"around one year\" is an assessment guideline, not an automatic entitlement threshold — a shorter or longer period can still be relevant depending on the evidence.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.2, 4.4",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_11",
+      "canonical_question": "How does the Agency assess the severity of my impairment?",
+      "question_variants": [
+        "How does the Agency assess the severity of my condition?",
+        "What makes an impairment severe enough for the supplement?",
+        "How is severity evaluated?",
+        "What factors decide how severe my condition is?"
+      ],
+      "answer_text": "Your impairment must be well described and medically documented before handicaptillæg can be awarded. The Agency assesses applications individually, based on the medical information you upload and an overall view of your current symptoms as described in that documentation.\n\nAmong other things, it considers: what the diagnosis or condition is; how much the impairment affects your daily functioning; whether relevant treatment has been started, its effect, and any described residual symptoms or side effects; whether you reasonably cooperate with treatment; and how long you've been ill, including recurring illness periods and relapse risk. There is no fixed list of qualifying diagnoses — one person being awarded the supplement for a given permanent impairment does not mean everyone with the same diagnosis will be, since the extent of symptoms varies between people.\n\n**Follow-up question**\n\n>**Ask the applicant:** Do you want to learn about how this could look like in two examples?\n\n- **If yes:** If an applicant for example suffers from headaches or migraines, the Agency considers how often the applicant has headaches, how the condition of the applicant is when they have headaches, and how long the headache episodes last.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.3",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_12",
+      "canonical_question": "How does an ongoing treatment affect the assessment of the severity of my condition?",
+      "question_variants": [
+        "How does ongoing medical treatment affect my case?",
+        "Can I qualify if I am currently in treatment?",
+        "What if my recovery is still uncertain during treatment?",
+        "Does receiving treatment count against permanence?"
+      ],
+      "answer_text": "Even if a treatment has an effect on the impairment that you have, the residual symptoms can be severe enough to amount to a sufficient impairment. This can for example be the case that you have side effects from the medical treatment. This will be also considered in the assessment.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.3",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_13",
+      "canonical_question": "What if I have more than one impairment I want considered?",
+      "question_variants": [
+        "What if I have more than one impairment?",
+        "Can several conditions be combined in the assessment?",
+        "Does the Agency look at multiple diagnoses together?",
+        "Can multiple mild impairments qualify together?"
+      ],
+      "answer_text": "The Agency can make an overall assessment across several impairments together.\n\nYou must, in your application, submit documentation for every impairment and explicitly state that you are applying on the basis of more than one. For applications made from 1 July 2025 onward, you must identify each impairment you want considered — one that is merely mentioned somewhere in your medical records is not automatically included unless you named it as a basis for the application.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.3, 3.5",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_14",
+      "canonical_question": "Can I add another impairment while my case is already processed?",
+      "question_variants": [
+        "Can I add another impairment while my case is being processed?",
+        "Can I report a new diagnosis after submitting my application?",
+        "What if a new condition arises during case handling?",
+        "Can I supplement my application with another illness?"
+      ],
+      "answer_text": "You can still add another impairment while the case is being processed, provided you tell the Agency you want it included and submit documentation for it that meets the minimum requirements.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.3",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_15",
+      "canonical_question": "How is my ability to take paid work (\"erhvervsevne\") assessed?",
+      "question_variants": [
+        "How is my ability to take paid work assessed?",
+        "What is erhvervsevne in the disability supplement?",
+        "How does the Agency evaluate my work capacity?",
+        "What does limited ability to work mean?"
+      ],
+      "answer_text": "The assessment concerns your ability to work as a student — it is not the same as the work-capacity assessments used by municipalities, and it does not look at your ability to work after you finish your education. Your impairment is the decisive factor in this assessment. Having a specific difficulty is not automatically enough on its own — for example, being dyslexic alone does not qualify you, since there are many types of paid work a person with reading/writing difficulties can still do. The Agency also gets information on your working hours and income from the Danish Tax Agency, and takes into account what you state about your own past work history in your application.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.4",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_16",
+      "canonical_question": "How much work capacity typically counts against getting the supplement?",
+      "question_variants": [
+        "How much student work counts against the supplement?",
+        "Is there a weekly hours limit for working alongside study?",
+        "Does working 5-6 hours a week disqualify me?",
+        "How many hours can I work and still qualify?"
+      ],
+      "answer_text": "As a starting point, if you're able to work around 5–6 hours a week during term time (including weekends), or full-time for around 5–6 weeks during the annual holidays, you are not considered entitled to handicaptillæg. These figures are assessment indicators rather than automatic cut-offs — the Agency looks at your duties, symptoms, any accommodations, and sick-leave record as a whole.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.4",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_17",
+      "canonical_question": "Does my previous work history count against me?",
+      "question_variants": [
+        "Does my previous work history count against me?",
+        "If I worked before my studies, does that disqualify me?",
+        "How does past employment affect the assessment?",
+        "Will previous student jobs hurt my chances?"
+      ],
+      "answer_text": "Both work before and after your application can be part of the overall assessment. Work-testing, special workplace adjustments, and contacting current or former employers are not part of the assessment, nor is the study-relevance of the work, local labour-market conditions, or how easy it would generally be to find suitable work.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.4.4",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_18",
+      "canonical_question": "Will the Agency consider an impairment mentioned in my records that I didn't list in my application?",
+      "question_variants": [
+        "Will the Agency consider an impairment I forgot to list?",
+        "What if my medical records mention a condition I didn't list in the form?",
+        "Does the Agency assess unlisted medical diagnoses?",
+        "Will unmentioned conditions in my journal be evaluated?"
+      ],
+      "answer_text": "As a starting point, the Agency only assesses your entitlement based on the specific impairment(s) you say you're applying on the basis of, per SU-bekendtgørelsens § 37, stk. 2.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.5",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_19",
+      "canonical_question": "What factors do NOT matter in the assessment of my impairment?",
+      "question_variants": [
+        "What factors do not matter in the assessment?",
+        "Does my financial situation or study pace matter?",
+        "Do high grades or lack of jobs affect handicaptillæg?",
+        "What is excluded from the disability assessment?"
+      ],
+      "answer_text": "The following are not part of the assessment: any extra time your impairment causes you to spend on your studies (e.g. reading and preparation); your social and financial circumstances, such as support obligations or the cost of medicine and treatment; how long your commute to your studies is; and your choice of study or the number of teaching hours it involves.\n\n[FAQ: Is it considered in the assessment whether I need extra time for my studies?\n\nNo, this is generally not included in the assessment, as the handicaptillæg is only making up for your inability to work next to your studies.\n\nFAQ: Do my social or financial circumstances matter for the assessment?\n\nNo, the assessment relates only to your level of impairment and the subsequent inability to take on paid work besides your studies.\n\nFAQ: Does the choice of study or the number of teaching hours it involves matter in the assessment?\n\nNo, the assessment relates only to your level of impairment and the subsequent inability to take on paid work besides your studies.\n\n]",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.6",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_20",
+      "canonical_question": "Does receiving special educational support (SPS) affect my handicaptillæg case?",
+      "question_variants": [
+        "Does receiving SPS affect my handicaptillæg application?",
+        "Can I get handicaptillæg if I already receive SPS?",
+        "Is special educational support connected to the supplement?",
+        "Does having SPS prove I qualify for handicaptillæg?"
+      ],
+      "answer_text": "Not automatically. SPS and handicaptillæg are two different types of support granted under two different legal bases, and there is generally no overlap between who qualifies for each. The Agency can access information about SPS support you receive, and the underlying medical information behind an SPS award can be considered, but that award itself generally has no bearing on whether you're entitled to handicaptillæg.",
+      "topic": "impairment_and_work_capacity",
+      "citation": "Vejledning nr 9577, Section 3.7",
+      "availability": "suggested",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_21",
+      "canonical_question": "Which documentation do I need to attach with my application to meet the minimum requirements?",
+      "question_variants": [
+        "What medical documentation must I attach?",
+        "What is the minimum documentation requirement under § 37?",
+        "Which papers do I need to upload?",
+        "What doctor's statement is required?"
+      ],
+      "answer_text": "The documentation you attach at the time of application must, as a minimum, include records from either your GP, a specialist doctor, a hospital, or an outpatient clinic. It must describe your permanent impairment, and it must relate to and be current for the specific impairment(s) you're applying on the basis of (there is a separate rule for congenital impairments — see the FAQ on that topic).\n\nDocumentation that is set as a minimum requirement is documentation you can get yourself, free of charge:\n\n1. Records — including discharge letters (epikriser) and referrals — from your GP, if you have been or are being treated at a public hospital. You can retrieve this via sundhed.dk.\n\n2. Records from consultations with your own GP. You generally have a right of access to this documentation.\n\n3. Records from private hospitals and specialist doctors, if you have been or are being treated there. You generally have a right of access to this documentation too.\n\nIf you don't attach the minimum documentation, the Agency will refuse to process your application rather than assess it on the merits — see the FAQs under \"Refusal to process and denial.\n\nSome more specific requirements depend on information about your own situation.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 4.1; SU-bekendtgørelsens § 37, stk. 3, jf. § 37, stk. 1 and stk. 4",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_22",
+      "canonical_question": "What other, non-mandatory documentation is worth submitting?",
+      "question_variants": [
+        "What other non-mandatory documentation is worth submitting?",
+        "Can I submit SPS or municipal housing statements?",
+        "What extra documents support my application?",
+        "Should I submit documentation of earlier accommodations?"
+      ],
+      "answer_text": "Other existing medical documentation may be relevant even though it's not a strict minimum requirement — not every applicant will have this type of material. Examples include medical certificates, specialist statements (for example from an occupational-injury case), or neuropsychological assessments you already have.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 4.1",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_23",
+      "canonical_question": "What should the content of the medical documentation actually describe?",
+      "question_variants": [
+        "What should the medical documentation describe?",
+        "What specific details must the doctor's statement include?",
+        "What content must the medical records contain?",
+        "What clinical details does the Agency look for?"
+      ],
+      "answer_text": "You must submit medical information showing that you have a permanent impairment that can give a right to handicaptillæg, together with a description of it, plus information describing your diagnostic and treatment process. As far as this is available in your existing records, current and thorough documentation should ideally cover: your diagnosis (if one has been made); a description of the course of illness and treatment; how the condition affects, or shows up in, your daily functioning; what treatment you're currently receiving; any planned treatment (if any is planned); and, if possible, how the condition affects your ability to work.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 4.2; SU-bekendtgørelsens § 37, stk. 3, jf. § 37, stk. 1",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_24",
+      "canonical_question": "What kinds of documents are NOT considered thorough enough on their own?",
+      "question_variants": [
+        "What medical documents are not sufficient on their own?",
+        "Can a prescription or diagnosis confirmation suffice?",
+        "Why is a GP referral letter not enough?",
+        "Which documents are rejected as insufficient?"
+      ],
+      "answer_text": "Medical documentation is generally not considered thorough and adequate if the applicant only attaches: a statement from their own doctor, psychiatrist, etc. that merely confirms a diagnosis; a medication list showing they receive medicine for an illness; a jobcenter record with no medical information; or a decision — for example from Arbejdsmarkedets Erhvervssikring (AES) or an SPS decision — that contains no medical information. Applications containing only this kind of material are refused without a substantive review, because they don't meet the minimum documentation requirement (see the FAQs on refusal to process). A mere suspicion of a diagnosis is likewise not enough on its own, unless it's accompanied by descriptions of symptoms that reduce your functional level, even if no diagnosis has been made yet.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 4.2, 6.2",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_25",
+      "canonical_question": "Can a statement from a psychologist count as documentation on its own?",
+      "question_variants": [
+        "Can a statement from a psychologist count on its own?",
+        "Is a psychologist report enough for handicaptillæg?",
+        "Do I need a psychiatrist or is a psychologist okay?",
+        "Can a psychologist statement stand alone?"
+      ],
+      "answer_text": "As a starting point, a psychologist's statement cannot stand alone as medical documentation for your application. However, it can be included as part of the overall assessment if it is backed up by a statement from a psychiatric specialist or by other medical records.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 4.2",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_26",
+      "canonical_question": "What if my impairment is congenital and I don't have recent medical records?",
+      "question_variants": [
+        "What if my impairment is congenital and I lack recent records?",
+        "How do I document a childhood or congenital disability?",
+        "What if my diagnosis was made many years ago?",
+        "What documentation is needed for congenital conditions?"
+      ],
+      "answer_text": "If you're applying based on a congenital impairment, you were likely diagnosed and treated in childhood or early youth, and often won't have recent medical documentation describing your current functional level. In this situation it's especially important to submit information about your medical history and your most recent record notes about the impairment; you can also use your personal statement to describe your own situation, so the Agency gets a clearer picture of what the impairment means for you. Examples of congenital impairments (non-exhaustive): cerebral palsy, muscular dystrophy, intellectual disability, autism spectrum disorder, congenital blindness or severe visual impairment, and severe hearing impairment or deafness.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 4.3",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_27",
+      "canonical_question": "Can the Agency ask for more medical information even after I've met the minimum requirement?",
+      "question_variants": [
+        "Can the Agency ask for more medical information?",
+        "Why is the Agency requesting extra medical papers?",
+        "Can the Agency contact a specialist or hospital?",
+        "Can supplementary medical records be requested?"
+      ],
+      "answer_text": "Yes, in special cases. Even where your documentation meets the minimum requirement, the Agency may find that important information is still missing and can request supplementary medical information. This can happen in a few ways: the Agency may ask you directly to submit further information (for example further hospital records, or a report from your municipality); it may request a medical certificate via your GP; it may request further information directly from the hospital, specialist, or other treatment provider you've used, or from an independent specialist; or, if there's a special need to clarify the case further, it may request an opinion from an external institution with recognised expertise, such as a current statement from a specialist or hospital, a specialist medical certificate, or an advisory opinion from Arbejdsmarkedets Erhvervssikring (AES) on your ability to work. The Agency will only ask for information it believes you already have — you shouldn't need to pay to have new documentation created, and the Agency covers any costs connected with the specialist/hospital or AES routes. If a request involves a physical appointment, you're expected to attend it. An AES opinion is advisory only, can't be appealed, and is not binding on the Agency's own decision, although AES will respond to any objection you raise about it.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 5.1, 5.2, 5.4, 5.5.1–5.5.4",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_28",
+      "canonical_question": "What if I can't meet the deadline the Agency sets for submitting extra information?",
+      "question_variants": [
+        "What if I cannot meet the deadline for extra information?",
+        "Can I get an extension to submit medical documents?",
+        "What happens if my doctor's appointment is after the deadline?",
+        "How do I request more time to send medical papers?"
+      ],
+      "answer_text": "In that case, you should contact the Agency and request an extension.\n\nIf you fail to submit the documentation on time and do not ask for an extension, the Agency will decide your case based on the material already available, which in most cases means a denial, per SU-bekendtgørelsen § 37, stk. 6, because there isn't sufficient documentation to process the case — this is treated as a lack of cooperation in clarifying your own case.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 5.3",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_29",
+      "canonical_question": "Can the Agency request a medical certificate directly from my GP?",
+      "question_variants": [
+        "Can the Agency request a medical certificate directly from my GP?",
+        "Does the Agency contact my own doctor?",
+        "Will my GP be asked to fill out an attestation?",
+        "Do I pay if the Agency asks my doctor for a statement?"
+      ],
+      "answer_text": "Yes — if the Agency can't assess your functional level from the documentation already submitted, it can request a medical certificate (lægeattest). In it, your GP must address your functional ability in relation to the specific impairment you applied on the basis of, and state whether further treatment, or referral for further investigation or treatment by a specialist, is needed. Because this normally requires an in-person appointment, you're expected to attend. The Agency covers any costs involved, and may in special cases also request further record information relating to the impairment as part of this process.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 5.4",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_30",
+      "canonical_question": "Can the Agency contact external bodies like hospitals, specialists, or AES directly?",
+      "question_variants": [
+        "Can the Agency contact external specialists or AES?",
+        "What is an advisory opinion from Arbejdsmarkedets Erhvervssikring?",
+        "Can the Agency refer me to a specialist examination?",
+        "Does the Agency cover specialist consultation costs?"
+      ],
+      "answer_text": "Yes, per SU-bekendtgørelsen § 37, stk. 8, where the Agency judges there's a special need to further clarify your case, it can request expert statements from external institutions with recognised expertise. In practice this can be a current statement from a specialist or hospital, a specialist medical certificate, or an advisory opinion from Arbejdsmarkedets Erhvervssikring (AES) on your ability to work. You are expected to attend if the request involves a physical appointment, and the Agency covers any resulting costs. An AES opinion is only advisory and isn't binding on the Agency, and it can't be appealed directly, though AES will comment if you object to it. Whether and which of these routes the Agency chooses in a given case is a discretionary decision made by the Agency, based on what's already in the case file — it isn't something the applicant decides.",
+      "topic": "medical_documentation",
+      "citation": "Vejledning nr 9577, Section 5.5.1–5.5.4",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_31",
+      "canonical_question": "When will my application be refused outright, without the Agency assessing the substance of my case?",
+      "question_variants": [
+        "When will my application be refused outright without assessment?",
+        "What is an afvisning (refusal to process)?",
+        "Why was my application rejected without being reviewed?",
+        "When does an application fail the minimum documentation check?"
+      ],
+      "answer_text": "The Agency can refuse to process (afvise) your application if you don't meet the minimum documentation requirement described under \"Medical documentation\" above. A refusal means the Agency does not assess the content of any documentation.",
+      "topic": "applying_decisions_and_help",
+      "citation": "Vejledning nr 9577, Section 6.1, 6.2",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_32",
+      "canonical_question": "Can I re-apply after having been refused?",
+      "question_variants": [
+        "Can I re-apply after being refused for documentation?",
+        "What should I do if my application was refused?",
+        "Can I submit a new application with proper medical papers?",
+        "Is payment backdated if I reapply after a refusal?"
+      ],
+      "answer_text": "If you're refused, you can apply again with documentation that meets the minimum requirement; if the new application is later approved, the supplement is paid from the new application date, not backdated to the original one. You can also appeal a refusal to the Appeals Board, though such an appeal only examines whether the Agency was entitled to refuse the application at all — not whether you are, or were, entitled to handicaptillæg.",
+      "topic": "applying_decisions_and_help",
+      "citation": "Vejledning nr 9577 af 25/06/2025",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_33",
+      "canonical_question": "Can I be denied because I do not have a permanent functional impairment?",
+      "question_variants": [
+        "Can I be denied if my condition is not permanent?",
+        "What happens if my impairment is deemed temporary?",
+        "Why was I denied for lack of permanence?",
+        "Can temporary illness cause a denial?"
+      ],
+      "answer_text": "If your documentation does not show that you have a permanent impairment, you will be likely denied. This is the case, if you for example apply on the basis of a condition that is by definition not permanent, such as a single surgery, a single period of sickness, a broken arm or pregnancy related issues where the most people will recover completely in a relatively short time period. You can also not apply if you are only sick for a short period of time because you for example are registered as sick for 2 months in relation with a surgery.\n\nThere might be exceptions for non-permanent impairments that might be able to be recognized as permanent when having persisted for a longer period. [reference to the related questions on that]",
+      "topic": "applying_decisions_and_help",
+      "citation": "Vejledning nr 9577, 6.3.",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_34",
+      "canonical_question": "Can I apply due to a disability of my child?",
+      "question_variants": [
+        "Can I apply for handicaptillæg due to my child's disability?",
+        "Can parents get the supplement for an ill or disabled child?",
+        "Is there a disability supplement for student parents with disabled children?",
+        "Does a child's impairment qualify the parent?"
+      ],
+      "answer_text": "No, the handicaptillæg only concerns your own impairment, and not your ability to take on work because of a relative’s impairment.",
+      "topic": "applying_decisions_and_help",
+      "citation": "Vejledning nr 9577, Section 6.3",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_35",
+      "canonical_question": "When does payment of handicaptillæg begin, and how much is it?",
+      "question_variants": [
+        "When does payment of handicaptillæg begin?",
+        "How much is the disability supplement amount?",
+        "From what date is the supplement paid?",
+        "What are the monthly rates for higher education vs vocational?"
+      ],
+      "answer_text": "If you are granted the stipend, the supplement is paid together with your ordinary SU stipend and any SU loans, or together with a final loan — including in months where you receive extra \"clips,\" for example due to childbirth or adoption, or because you're delayed in your studies. As with the ordinary conditions, you must be receiving an SU stipend or a final loan in the specific period the Agency is paying the supplement for. Once your application has been fully processed, the supplement is paid from the month you applied for it — but never earlier than the month the Agency actually received your application via minSU. Rates change over time, so check the current rate on su.dk rather than relying on a fixed figure.",
+      "topic": "payment_work_and_changes",
+      "citation": "Vejledning nr 9577, Section 7.1",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_36",
+      "canonical_question": "What is a \"time-limited\" (tidsbegrænset) handicaptillæg?",
+      "question_variants": [
+        "What is a time-limited handicaptillæg award?",
+        "Why was my supplement granted for a limited period only?",
+        "What does tidsbegrænset mean for the disability supplement?",
+        "How long does a time-limited grant last?"
+      ],
+      "answer_text": "A time-limited award means that, at the time of the decision, it has been made probable that the nature and degree of your impairment is permanent, but this hasn't been finally established. It is awarded from your application date until a specific future date, which is stated in the decision letter you receive.",
+      "topic": "payment_work_and_changes",
+      "citation": "Vejledning nr 9577, Section 7.2",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_37",
+      "canonical_question": "Can I get my time-limited handicaptillæg extended?",
+      "question_variants": [
+        "Can I get my time-limited handicaptillæg extended?",
+        "How do I apply for an extension before my award expires?",
+        "When should I apply for an extension of my supplement?",
+        "What documentation is needed for an extension?"
+      ],
+      "answer_text": "You can apply for an extension through minSU before the award expires, but no earlier than three months before it expires. You must attach the newest medical documentation available for your impairment, newer than what the Agency already has on file — for example the newest records from your ongoing treatment, or a discharge summary from a treatment course that has since ended. You can also use your personal statement to describe how things have developed since your last application.",
+      "topic": "payment_work_and_changes",
+      "citation": "Vejledning nr 9577, Section 7.2",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_38",
+      "canonical_question": "How does receiving handicaptillæg affect how much I'm allowed to earn on the side (fribeløb)?",
+      "question_variants": [
+        "How does the supplement affect my allowed earnings (fribeløb)?",
+        "What is the lower income allowance for handicaptillæg?",
+        "How much money can I earn while getting the disability supplement?",
+        "Does the supplement reduce my annual fribeløb?"
+      ],
+      "answer_text": "If you receive handicaptillæg, you have a reduced income allowance, because the supplement is meant to compensate for not being able to supplement your SU with wage income. This reduced allowance is primarily intended to cover things like interest income or an orphan's pension, along with — in special cases — a very modest wage income that lets you test your own ability to work. The Agency generally regards a modest income connected to this kind of work-capacity test as falling within the reduced allowance.\n\n** Follow up questions **\n\n> **Ask the applicant:** \"Do you receive taxable payments under the Industrial Injuries Insurance Act (arbejdsskadeforsikringsloven) or the Liability for Damages Act (erstatningsansvarsloven)?\"\n\n- **If yes:** this affects your income allowance, and you don't have a right to have the allowance increased in that situation.\n\n- **If no:** not relevant to your case.\n\n> **Ask the applicant:** \"Has there been a change in your condition that could affect whether you still meet the conditions for handicaptillæg — for example, has your condition improved?\"\n\n- **If yes:** you are obliged to inform the Agency of this change.\n\n- **If no:** no reporting obligation is triggered by this rule.",
+      "topic": "payment_work_and_changes",
+      "citation": "Vejledning nr 9577, Section 8.1",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_39",
+      "canonical_question": "What if it turns out I can actually work more than expected, or I receive injury/damages compensation, or my condition changes?",
+      "question_variants": [
+        "What if I work more than expected or receive injury compensation?",
+        "Do damage settlements or injury compensation affect the supplement?",
+        "What if my health improves during my studies?",
+        "Does accident compensation reduce my handicaptillæg?"
+      ],
+      "answer_text": "In this case, the Agency can reopen your case and stop paying the supplement, and in special cases may claim repayment of amounts already paid — see the FAQ on income checks below.",
+      "topic": "payment_work_and_changes",
+      "citation": "Vejledning nr 9577, Section 8.1",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_40",
+      "canonical_question": "How does the Agency check my income, and what happens if I've earned too much?",
+      "question_variants": [
+        "How does the Agency check my annual income?",
+        "What happens if I earn more than my reduced fribeløb?",
+        "Can the Agency demand repayment of handicaptillæg?",
+        "How is income verified with the Danish Tax Agency?"
+      ],
+      "answer_text": "Each year, the Agency checks — using information from the Danish Tax Agency — what you've earned alongside your SU.",
+      "topic": "payment_work_and_changes",
+      "citation": "Vejledning nr 9577, Section 8.2",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_41",
+      "canonical_question": "Can I appeal a decision about handicaptillæg?",
+      "question_variants": [
+        "Can I appeal a decision about handicaptillæg?",
+        "How do I appeal a rejection of the disability supplement?",
+        "Where do I send an appeal for handicaptillæg?",
+        "What is the Appeals Board (Ankenævnet) process?"
+      ],
+      "answer_text": "Yes. Decisions on a denial, on award of a time-limited supplement, and on a refusal to process an application can all be appealed to the Appeals Board for the State Educational Support Schemes (Ankenævnet for Statens Uddannelsesstøtteordninger) within a 4-week deadline. It is your own responsibility to make sure the appeal arrives in time, and appeals are submitted to the Agency, which forwards them. The Board's decisions are final within the administrative system, are binding on the Agency, and cannot themselves be appealed further.",
+      "topic": "applying_decisions_and_help",
+      "citation": "Vejledning nr 9577, Section 9",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_42",
+      "canonical_question": "What if I miss the 4-week deadline for appealing?",
+      "question_variants": [
+        "What if I miss the 4-week deadline for appealing?",
+        "Can I appeal after the 4-week deadline has passed?",
+        "Can late appeals be accepted for special reasons?",
+        "What happens if my appeal is sent too late?"
+      ],
+      "answer_text": "The standard deadline for appealing a decision is 4 weeks from the day you received it. If you miss this deadline, the Appeals Board can in special, excusable cases disregard the delay up to six months after you received the decision. The Agency cannot make this exception for you; only the Appeals Board decides whether a delay is excusable.",
+      "topic": "applying_decisions_and_help",
+      "citation": "Vejledning nr 9577, Section 9",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "id": "FAQ_43",
+      "canonical_question": "If I appeal a refusal-to-process decision, will new medical documentation I send with the appeal be looked at?",
+      "question_variants": [
+        "Can new medical documentation be considered in an appeal?",
+        "If I appeal a refusal, will new records be looked at?",
+        "Can I submit new hospital papers with my appeal?",
+        "Does an appeal against afvisning assess new evidence?"
+      ],
+      "answer_text": "No. An appeal against a refusal-to-process decision only examines whether the Agency was entitled to refuse the application in the first place, not your substantive entitlement to handicaptillæg. New medical documentation submitted with the appeal will not be assessed; to have new documentation considered, you must submit a new application.",
+      "topic": "applying_decisions_and_help",
+      "citation": "Vejledning nr 9577, Section 6.2, 9",
+      "availability": "typed_only",
+      "status": "reconciled_guideline",
+      "gap_note": null,
+      "dcr_note": null,
+      "embedding": null,
+      "updated_at": "2026-09-29"
+    }
+  ]
+}

@@ -1,0 +1,1734 @@
+{
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "dim": 1024,
+  "normalized": true,
+  "similarity": "dot_product (== cosine, since rows are L2-normalized)",
+  "num_rows": 215,
+  "num_records_covered": 43,
+  "num_records_total": 43,
+  "skip_unanswered": false,
+  "source_schema_version": 3,
+  "generated_at": "2026-09-29T21:36:18Z",
+  "rows": [
+    {
+      "id": "FAQ_01",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What is handicaptillæg and who is it for?",
+      "status": "reconciled_guideline",
+      "row": 0
+    },
+    {
+      "id": "FAQ_01",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What is the disability supplement?",
+      "status": "reconciled_guideline",
+      "row": 1
+    },
+    {
+      "id": "FAQ_01",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Who can receive handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 2
+    },
+    {
+      "id": "FAQ_01",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can I get extra SU for a disability?",
+      "status": "reconciled_guideline",
+      "row": 3
+    },
+    {
+      "id": "FAQ_01",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What does the supplement cover?",
+      "status": "reconciled_guideline",
+      "row": 4
+    },
+    {
+      "id": "FAQ_02",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Why does the disability supplement scheme exist?",
+      "status": "reconciled_guideline",
+      "row": 5
+    },
+    {
+      "id": "FAQ_02",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Why does the handicap supplement exist?",
+      "status": "reconciled_guideline",
+      "row": 6
+    },
+    {
+      "id": "FAQ_02",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What is the purpose of handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 7
+    },
+    {
+      "id": "FAQ_02",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Why do students get a disability grant?",
+      "status": "reconciled_guideline",
+      "row": 8
+    },
+    {
+      "id": "FAQ_02",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What is the idea behind the supplement?",
+      "status": "reconciled_guideline",
+      "row": 9
+    },
+    {
+      "id": "FAQ_03",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What conditions must I meet to get handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 10
+    },
+    {
+      "id": "FAQ_03",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What conditions must I meet to get the supplement?",
+      "status": "reconciled_guideline",
+      "row": 11
+    },
+    {
+      "id": "FAQ_03",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What are the requirements for handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 12
+    },
+    {
+      "id": "FAQ_03",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "How do I qualify for the disability supplement?",
+      "status": "reconciled_guideline",
+      "row": 13
+    },
+    {
+      "id": "FAQ_03",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What are the 3 main eligibility criteria?",
+      "status": "reconciled_guideline",
+      "row": 14
+    },
+    {
+      "id": "FAQ_04",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Do I need to get SU to be able to apply for the handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 15
+    },
+    {
+      "id": "FAQ_04",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Do I need to receive SU to get handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 16
+    },
+    {
+      "id": "FAQ_04",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can I get the supplement without receiving SU?",
+      "status": "reconciled_guideline",
+      "row": 17
+    },
+    {
+      "id": "FAQ_04",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Is the supplement tied to ordinary SU?",
+      "status": "reconciled_guideline",
+      "row": 18
+    },
+    {
+      "id": "FAQ_04",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Can I apply for handicaptillæg if I haven't applied for SU?",
+      "status": "reconciled_guideline",
+      "row": 19
+    },
+    {
+      "id": "FAQ_05",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "When am I eligible for SU?",
+      "status": "reconciled_guideline",
+      "row": 20
+    },
+    {
+      "id": "FAQ_05",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "When am I eligible for ordinary SU?",
+      "status": "reconciled_guideline",
+      "row": 21
+    },
+    {
+      "id": "FAQ_05",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What are the general SU requirements?",
+      "status": "reconciled_guideline",
+      "row": 22
+    },
+    {
+      "id": "FAQ_05",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can I get SU if I am under 18?",
+      "status": "reconciled_guideline",
+      "row": 23
+    },
+    {
+      "id": "FAQ_05",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Do I need to be study-active for SU?",
+      "status": "reconciled_guideline",
+      "row": 24
+    },
+    {
+      "id": "FAQ_05b",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can I get handicaptillæg if I'm not a Danish citizen?",
+      "status": "reconciled_guideline",
+      "row": 25
+    },
+    {
+      "id": "FAQ_05b",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can foreign citizens get handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 26
+    },
+    {
+      "id": "FAQ_05b",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "I am not a Danish citizen, can I get the supplement?",
+      "status": "reconciled_guideline",
+      "row": 27
+    },
+    {
+      "id": "FAQ_05b",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can EU citizens receive handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 28
+    },
+    {
+      "id": "FAQ_05b",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What are the rules for non-Danish applicants?",
+      "status": "reconciled_guideline",
+      "row": 29
+    },
+    {
+      "id": "FAQ_06",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Which education programmes qualify for handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 30
+    },
+    {
+      "id": "FAQ_06",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Which education programmes qualify for the supplement?",
+      "status": "reconciled_guideline",
+      "row": 31
+    },
+    {
+      "id": "FAQ_06",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can I get handicaptillæg at university or vocational school?",
+      "status": "reconciled_guideline",
+      "row": 32
+    },
+    {
+      "id": "FAQ_06",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Does my study programme qualify?",
+      "status": "reconciled_guideline",
+      "row": 33
+    },
+    {
+      "id": "FAQ_06",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Is EUD or higher education covered?",
+      "status": "reconciled_guideline",
+      "row": 34
+    },
+    {
+      "id": "FAQ_07",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What does the Agency actually look at when assessing my functional impairment?",
+      "status": "reconciled_guideline",
+      "row": 35
+    },
+    {
+      "id": "FAQ_07",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What does the Agency evaluate in my functional impairment?",
+      "status": "reconciled_guideline",
+      "row": 36
+    },
+    {
+      "id": "FAQ_07",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "How is my disability assessed?",
+      "status": "reconciled_guideline",
+      "row": 37
+    },
+    {
+      "id": "FAQ_07",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What matters when assessing my impairment?",
+      "status": "reconciled_guideline",
+      "row": 38
+    },
+    {
+      "id": "FAQ_07",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "How does the Agency look at functional limitation?",
+      "status": "reconciled_guideline",
+      "row": 39
+    },
+    {
+      "id": "FAQ_08",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What counts as a \"permanent\" physical or mental impairment?",
+      "status": "reconciled_guideline",
+      "row": 40
+    },
+    {
+      "id": "FAQ_08",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What counts as a permanent impairment?",
+      "status": "reconciled_guideline",
+      "row": 41
+    },
+    {
+      "id": "FAQ_08",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "How does SU define permanent for disability?",
+      "status": "reconciled_guideline",
+      "row": 42
+    },
+    {
+      "id": "FAQ_08",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Must my condition be lifelong?",
+      "status": "reconciled_guideline",
+      "row": 43
+    },
+    {
+      "id": "FAQ_08",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What is the legal definition of permanent impairment?",
+      "status": "reconciled_guideline",
+      "row": 44
+    },
+    {
+      "id": "FAQ_09",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "How long does a condition need to have lasted before it counts as permanent?",
+      "status": "reconciled_guideline",
+      "row": 45
+    },
+    {
+      "id": "FAQ_09",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "How long must my condition have lasted to count as permanent?",
+      "status": "reconciled_guideline",
+      "row": 46
+    },
+    {
+      "id": "FAQ_09",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Is there a one-year waiting period for handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 47
+    },
+    {
+      "id": "FAQ_09",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can a non-permanent disease be treated as permanent?",
+      "status": "reconciled_guideline",
+      "row": 48
+    },
+    {
+      "id": "FAQ_09",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Does the condition need to have lasted one year?",
+      "status": "reconciled_guideline",
+      "row": 49
+    },
+    {
+      "id": "FAQ_11",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "How does the Agency assess the severity of my impairment?",
+      "status": "reconciled_guideline",
+      "row": 50
+    },
+    {
+      "id": "FAQ_11",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "How does the Agency assess the severity of my condition?",
+      "status": "reconciled_guideline",
+      "row": 51
+    },
+    {
+      "id": "FAQ_11",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What makes an impairment severe enough for the supplement?",
+      "status": "reconciled_guideline",
+      "row": 52
+    },
+    {
+      "id": "FAQ_11",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "How is severity evaluated?",
+      "status": "reconciled_guideline",
+      "row": 53
+    },
+    {
+      "id": "FAQ_11",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What factors decide how severe my condition is?",
+      "status": "reconciled_guideline",
+      "row": 54
+    },
+    {
+      "id": "FAQ_12",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "How does an ongoing treatment affect the assessment of the severity of my condition?",
+      "status": "reconciled_guideline",
+      "row": 55
+    },
+    {
+      "id": "FAQ_12",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "How does ongoing medical treatment affect my case?",
+      "status": "reconciled_guideline",
+      "row": 56
+    },
+    {
+      "id": "FAQ_12",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can I qualify if I am currently in treatment?",
+      "status": "reconciled_guideline",
+      "row": 57
+    },
+    {
+      "id": "FAQ_12",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What if my recovery is still uncertain during treatment?",
+      "status": "reconciled_guideline",
+      "row": 58
+    },
+    {
+      "id": "FAQ_12",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Does receiving treatment count against permanence?",
+      "status": "reconciled_guideline",
+      "row": 59
+    },
+    {
+      "id": "FAQ_13",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What if I have more than one impairment I want considered?",
+      "status": "reconciled_guideline",
+      "row": 60
+    },
+    {
+      "id": "FAQ_13",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What if I have more than one impairment?",
+      "status": "reconciled_guideline",
+      "row": 61
+    },
+    {
+      "id": "FAQ_13",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can several conditions be combined in the assessment?",
+      "status": "reconciled_guideline",
+      "row": 62
+    },
+    {
+      "id": "FAQ_13",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Does the Agency look at multiple diagnoses together?",
+      "status": "reconciled_guideline",
+      "row": 63
+    },
+    {
+      "id": "FAQ_13",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Can multiple mild impairments qualify together?",
+      "status": "reconciled_guideline",
+      "row": 64
+    },
+    {
+      "id": "FAQ_14",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can I add another impairment while my case is already processed?",
+      "status": "reconciled_guideline",
+      "row": 65
+    },
+    {
+      "id": "FAQ_14",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can I add another impairment while my case is being processed?",
+      "status": "reconciled_guideline",
+      "row": 66
+    },
+    {
+      "id": "FAQ_14",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can I report a new diagnosis after submitting my application?",
+      "status": "reconciled_guideline",
+      "row": 67
+    },
+    {
+      "id": "FAQ_14",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What if a new condition arises during case handling?",
+      "status": "reconciled_guideline",
+      "row": 68
+    },
+    {
+      "id": "FAQ_14",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Can I supplement my application with another illness?",
+      "status": "reconciled_guideline",
+      "row": 69
+    },
+    {
+      "id": "FAQ_15",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "How is my ability to take paid work (\"erhvervsevne\") assessed?",
+      "status": "reconciled_guideline",
+      "row": 70
+    },
+    {
+      "id": "FAQ_15",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "How is my ability to take paid work assessed?",
+      "status": "reconciled_guideline",
+      "row": 71
+    },
+    {
+      "id": "FAQ_15",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What is erhvervsevne in the disability supplement?",
+      "status": "reconciled_guideline",
+      "row": 72
+    },
+    {
+      "id": "FAQ_15",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "How does the Agency evaluate my work capacity?",
+      "status": "reconciled_guideline",
+      "row": 73
+    },
+    {
+      "id": "FAQ_15",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What does limited ability to work mean?",
+      "status": "reconciled_guideline",
+      "row": 74
+    },
+    {
+      "id": "FAQ_16",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "How much work capacity typically counts against getting the supplement?",
+      "status": "reconciled_guideline",
+      "row": 75
+    },
+    {
+      "id": "FAQ_16",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "How much student work counts against the supplement?",
+      "status": "reconciled_guideline",
+      "row": 76
+    },
+    {
+      "id": "FAQ_16",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Is there a weekly hours limit for working alongside study?",
+      "status": "reconciled_guideline",
+      "row": 77
+    },
+    {
+      "id": "FAQ_16",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Does working 5-6 hours a week disqualify me?",
+      "status": "reconciled_guideline",
+      "row": 78
+    },
+    {
+      "id": "FAQ_16",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "How many hours can I work and still qualify?",
+      "status": "reconciled_guideline",
+      "row": 79
+    },
+    {
+      "id": "FAQ_17",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Does my previous work history count against me?",
+      "status": "reconciled_guideline",
+      "row": 80
+    },
+    {
+      "id": "FAQ_17",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Does my previous work history count against me?",
+      "status": "reconciled_guideline",
+      "row": 81
+    },
+    {
+      "id": "FAQ_17",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "If I worked before my studies, does that disqualify me?",
+      "status": "reconciled_guideline",
+      "row": 82
+    },
+    {
+      "id": "FAQ_17",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "How does past employment affect the assessment?",
+      "status": "reconciled_guideline",
+      "row": 83
+    },
+    {
+      "id": "FAQ_17",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Will previous student jobs hurt my chances?",
+      "status": "reconciled_guideline",
+      "row": 84
+    },
+    {
+      "id": "FAQ_18",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Will the Agency consider an impairment mentioned in my records that I didn't list in my application?",
+      "status": "reconciled_guideline",
+      "row": 85
+    },
+    {
+      "id": "FAQ_18",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Will the Agency consider an impairment I forgot to list?",
+      "status": "reconciled_guideline",
+      "row": 86
+    },
+    {
+      "id": "FAQ_18",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What if my medical records mention a condition I didn't list in the form?",
+      "status": "reconciled_guideline",
+      "row": 87
+    },
+    {
+      "id": "FAQ_18",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Does the Agency assess unlisted medical diagnoses?",
+      "status": "reconciled_guideline",
+      "row": 88
+    },
+    {
+      "id": "FAQ_18",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Will unmentioned conditions in my journal be evaluated?",
+      "status": "reconciled_guideline",
+      "row": 89
+    },
+    {
+      "id": "FAQ_19",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What factors do NOT matter in the assessment of my impairment?",
+      "status": "reconciled_guideline",
+      "row": 90
+    },
+    {
+      "id": "FAQ_19",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What factors do not matter in the assessment?",
+      "status": "reconciled_guideline",
+      "row": 91
+    },
+    {
+      "id": "FAQ_19",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Does my financial situation or study pace matter?",
+      "status": "reconciled_guideline",
+      "row": 92
+    },
+    {
+      "id": "FAQ_19",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Do high grades or lack of jobs affect handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 93
+    },
+    {
+      "id": "FAQ_19",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What is excluded from the disability assessment?",
+      "status": "reconciled_guideline",
+      "row": 94
+    },
+    {
+      "id": "FAQ_20",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Does receiving special educational support (SPS) affect my handicaptillæg case?",
+      "status": "reconciled_guideline",
+      "row": 95
+    },
+    {
+      "id": "FAQ_20",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Does receiving SPS affect my handicaptillæg application?",
+      "status": "reconciled_guideline",
+      "row": 96
+    },
+    {
+      "id": "FAQ_20",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can I get handicaptillæg if I already receive SPS?",
+      "status": "reconciled_guideline",
+      "row": 97
+    },
+    {
+      "id": "FAQ_20",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Is special educational support connected to the supplement?",
+      "status": "reconciled_guideline",
+      "row": 98
+    },
+    {
+      "id": "FAQ_20",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Does having SPS prove I qualify for handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 99
+    },
+    {
+      "id": "FAQ_21",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Which documentation do I need to attach with my application to meet the minimum requirements?",
+      "status": "reconciled_guideline",
+      "row": 100
+    },
+    {
+      "id": "FAQ_21",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What medical documentation must I attach?",
+      "status": "reconciled_guideline",
+      "row": 101
+    },
+    {
+      "id": "FAQ_21",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What is the minimum documentation requirement under § 37?",
+      "status": "reconciled_guideline",
+      "row": 102
+    },
+    {
+      "id": "FAQ_21",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Which papers do I need to upload?",
+      "status": "reconciled_guideline",
+      "row": 103
+    },
+    {
+      "id": "FAQ_21",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What doctor's statement is required?",
+      "status": "reconciled_guideline",
+      "row": 104
+    },
+    {
+      "id": "FAQ_22",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What other, non-mandatory documentation is worth submitting?",
+      "status": "reconciled_guideline",
+      "row": 105
+    },
+    {
+      "id": "FAQ_22",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What other non-mandatory documentation is worth submitting?",
+      "status": "reconciled_guideline",
+      "row": 106
+    },
+    {
+      "id": "FAQ_22",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can I submit SPS or municipal housing statements?",
+      "status": "reconciled_guideline",
+      "row": 107
+    },
+    {
+      "id": "FAQ_22",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What extra documents support my application?",
+      "status": "reconciled_guideline",
+      "row": 108
+    },
+    {
+      "id": "FAQ_22",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Should I submit documentation of earlier accommodations?",
+      "status": "reconciled_guideline",
+      "row": 109
+    },
+    {
+      "id": "FAQ_23",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What should the content of the medical documentation actually describe?",
+      "status": "reconciled_guideline",
+      "row": 110
+    },
+    {
+      "id": "FAQ_23",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What should the medical documentation describe?",
+      "status": "reconciled_guideline",
+      "row": 111
+    },
+    {
+      "id": "FAQ_23",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What specific details must the doctor's statement include?",
+      "status": "reconciled_guideline",
+      "row": 112
+    },
+    {
+      "id": "FAQ_23",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What content must the medical records contain?",
+      "status": "reconciled_guideline",
+      "row": 113
+    },
+    {
+      "id": "FAQ_23",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What clinical details does the Agency look for?",
+      "status": "reconciled_guideline",
+      "row": 114
+    },
+    {
+      "id": "FAQ_24",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What kinds of documents are NOT considered thorough enough on their own?",
+      "status": "reconciled_guideline",
+      "row": 115
+    },
+    {
+      "id": "FAQ_24",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What medical documents are not sufficient on their own?",
+      "status": "reconciled_guideline",
+      "row": 116
+    },
+    {
+      "id": "FAQ_24",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can a prescription or diagnosis confirmation suffice?",
+      "status": "reconciled_guideline",
+      "row": 117
+    },
+    {
+      "id": "FAQ_24",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Why is a GP referral letter not enough?",
+      "status": "reconciled_guideline",
+      "row": 118
+    },
+    {
+      "id": "FAQ_24",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Which documents are rejected as insufficient?",
+      "status": "reconciled_guideline",
+      "row": 119
+    },
+    {
+      "id": "FAQ_25",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can a statement from a psychologist count as documentation on its own?",
+      "status": "reconciled_guideline",
+      "row": 120
+    },
+    {
+      "id": "FAQ_25",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can a statement from a psychologist count on its own?",
+      "status": "reconciled_guideline",
+      "row": 121
+    },
+    {
+      "id": "FAQ_25",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Is a psychologist report enough for handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 122
+    },
+    {
+      "id": "FAQ_25",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Do I need a psychiatrist or is a psychologist okay?",
+      "status": "reconciled_guideline",
+      "row": 123
+    },
+    {
+      "id": "FAQ_25",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Can a psychologist statement stand alone?",
+      "status": "reconciled_guideline",
+      "row": 124
+    },
+    {
+      "id": "FAQ_26",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What if my impairment is congenital and I don't have recent medical records?",
+      "status": "reconciled_guideline",
+      "row": 125
+    },
+    {
+      "id": "FAQ_26",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What if my impairment is congenital and I lack recent records?",
+      "status": "reconciled_guideline",
+      "row": 126
+    },
+    {
+      "id": "FAQ_26",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "How do I document a childhood or congenital disability?",
+      "status": "reconciled_guideline",
+      "row": 127
+    },
+    {
+      "id": "FAQ_26",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What if my diagnosis was made many years ago?",
+      "status": "reconciled_guideline",
+      "row": 128
+    },
+    {
+      "id": "FAQ_26",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What documentation is needed for congenital conditions?",
+      "status": "reconciled_guideline",
+      "row": 129
+    },
+    {
+      "id": "FAQ_27",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can the Agency ask for more medical information even after I've met the minimum requirement?",
+      "status": "reconciled_guideline",
+      "row": 130
+    },
+    {
+      "id": "FAQ_27",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can the Agency ask for more medical information?",
+      "status": "reconciled_guideline",
+      "row": 131
+    },
+    {
+      "id": "FAQ_27",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Why is the Agency requesting extra medical papers?",
+      "status": "reconciled_guideline",
+      "row": 132
+    },
+    {
+      "id": "FAQ_27",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can the Agency contact a specialist or hospital?",
+      "status": "reconciled_guideline",
+      "row": 133
+    },
+    {
+      "id": "FAQ_27",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Can supplementary medical records be requested?",
+      "status": "reconciled_guideline",
+      "row": 134
+    },
+    {
+      "id": "FAQ_28",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What if I can't meet the deadline the Agency sets for submitting extra information?",
+      "status": "reconciled_guideline",
+      "row": 135
+    },
+    {
+      "id": "FAQ_28",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What if I cannot meet the deadline for extra information?",
+      "status": "reconciled_guideline",
+      "row": 136
+    },
+    {
+      "id": "FAQ_28",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can I get an extension to submit medical documents?",
+      "status": "reconciled_guideline",
+      "row": 137
+    },
+    {
+      "id": "FAQ_28",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What happens if my doctor's appointment is after the deadline?",
+      "status": "reconciled_guideline",
+      "row": 138
+    },
+    {
+      "id": "FAQ_28",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "How do I request more time to send medical papers?",
+      "status": "reconciled_guideline",
+      "row": 139
+    },
+    {
+      "id": "FAQ_29",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can the Agency request a medical certificate directly from my GP?",
+      "status": "reconciled_guideline",
+      "row": 140
+    },
+    {
+      "id": "FAQ_29",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can the Agency request a medical certificate directly from my GP?",
+      "status": "reconciled_guideline",
+      "row": 141
+    },
+    {
+      "id": "FAQ_29",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Does the Agency contact my own doctor?",
+      "status": "reconciled_guideline",
+      "row": 142
+    },
+    {
+      "id": "FAQ_29",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Will my GP be asked to fill out an attestation?",
+      "status": "reconciled_guideline",
+      "row": 143
+    },
+    {
+      "id": "FAQ_29",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Do I pay if the Agency asks my doctor for a statement?",
+      "status": "reconciled_guideline",
+      "row": 144
+    },
+    {
+      "id": "FAQ_30",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can the Agency contact external bodies like hospitals, specialists, or AES directly?",
+      "status": "reconciled_guideline",
+      "row": 145
+    },
+    {
+      "id": "FAQ_30",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can the Agency contact external specialists or AES?",
+      "status": "reconciled_guideline",
+      "row": 146
+    },
+    {
+      "id": "FAQ_30",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What is an advisory opinion from Arbejdsmarkedets Erhvervssikring?",
+      "status": "reconciled_guideline",
+      "row": 147
+    },
+    {
+      "id": "FAQ_30",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can the Agency refer me to a specialist examination?",
+      "status": "reconciled_guideline",
+      "row": 148
+    },
+    {
+      "id": "FAQ_30",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Does the Agency cover specialist consultation costs?",
+      "status": "reconciled_guideline",
+      "row": 149
+    },
+    {
+      "id": "FAQ_31",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "When will my application be refused outright, without the Agency assessing the substance of my case?",
+      "status": "reconciled_guideline",
+      "row": 150
+    },
+    {
+      "id": "FAQ_31",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "When will my application be refused outright without assessment?",
+      "status": "reconciled_guideline",
+      "row": 151
+    },
+    {
+      "id": "FAQ_31",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What is an afvisning (refusal to process)?",
+      "status": "reconciled_guideline",
+      "row": 152
+    },
+    {
+      "id": "FAQ_31",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Why was my application rejected without being reviewed?",
+      "status": "reconciled_guideline",
+      "row": 153
+    },
+    {
+      "id": "FAQ_31",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "When does an application fail the minimum documentation check?",
+      "status": "reconciled_guideline",
+      "row": 154
+    },
+    {
+      "id": "FAQ_32",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can I re-apply after having been refused?",
+      "status": "reconciled_guideline",
+      "row": 155
+    },
+    {
+      "id": "FAQ_32",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can I re-apply after being refused for documentation?",
+      "status": "reconciled_guideline",
+      "row": 156
+    },
+    {
+      "id": "FAQ_32",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What should I do if my application was refused?",
+      "status": "reconciled_guideline",
+      "row": 157
+    },
+    {
+      "id": "FAQ_32",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can I submit a new application with proper medical papers?",
+      "status": "reconciled_guideline",
+      "row": 158
+    },
+    {
+      "id": "FAQ_32",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Is payment backdated if I reapply after a refusal?",
+      "status": "reconciled_guideline",
+      "row": 159
+    },
+    {
+      "id": "FAQ_33",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can I be denied because I do not have a permanent functional impairment?",
+      "status": "reconciled_guideline",
+      "row": 160
+    },
+    {
+      "id": "FAQ_33",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can I be denied if my condition is not permanent?",
+      "status": "reconciled_guideline",
+      "row": 161
+    },
+    {
+      "id": "FAQ_33",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What happens if my impairment is deemed temporary?",
+      "status": "reconciled_guideline",
+      "row": 162
+    },
+    {
+      "id": "FAQ_33",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Why was I denied for lack of permanence?",
+      "status": "reconciled_guideline",
+      "row": 163
+    },
+    {
+      "id": "FAQ_33",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Can temporary illness cause a denial?",
+      "status": "reconciled_guideline",
+      "row": 164
+    },
+    {
+      "id": "FAQ_34",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can I apply due to a disability of my child?",
+      "status": "reconciled_guideline",
+      "row": 165
+    },
+    {
+      "id": "FAQ_34",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can I apply for handicaptillæg due to my child's disability?",
+      "status": "reconciled_guideline",
+      "row": 166
+    },
+    {
+      "id": "FAQ_34",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can parents get the supplement for an ill or disabled child?",
+      "status": "reconciled_guideline",
+      "row": 167
+    },
+    {
+      "id": "FAQ_34",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Is there a disability supplement for student parents with disabled children?",
+      "status": "reconciled_guideline",
+      "row": 168
+    },
+    {
+      "id": "FAQ_34",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Does a child's impairment qualify the parent?",
+      "status": "reconciled_guideline",
+      "row": 169
+    },
+    {
+      "id": "FAQ_35",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "When does payment of handicaptillæg begin, and how much is it?",
+      "status": "reconciled_guideline",
+      "row": 170
+    },
+    {
+      "id": "FAQ_35",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "When does payment of handicaptillæg begin?",
+      "status": "reconciled_guideline",
+      "row": 171
+    },
+    {
+      "id": "FAQ_35",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "How much is the disability supplement amount?",
+      "status": "reconciled_guideline",
+      "row": 172
+    },
+    {
+      "id": "FAQ_35",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "From what date is the supplement paid?",
+      "status": "reconciled_guideline",
+      "row": 173
+    },
+    {
+      "id": "FAQ_35",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What are the monthly rates for higher education vs vocational?",
+      "status": "reconciled_guideline",
+      "row": 174
+    },
+    {
+      "id": "FAQ_36",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What is a \"time-limited\" (tidsbegrænset) handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 175
+    },
+    {
+      "id": "FAQ_36",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What is a time-limited handicaptillæg award?",
+      "status": "reconciled_guideline",
+      "row": 176
+    },
+    {
+      "id": "FAQ_36",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Why was my supplement granted for a limited period only?",
+      "status": "reconciled_guideline",
+      "row": 177
+    },
+    {
+      "id": "FAQ_36",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What does tidsbegrænset mean for the disability supplement?",
+      "status": "reconciled_guideline",
+      "row": 178
+    },
+    {
+      "id": "FAQ_36",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "How long does a time-limited grant last?",
+      "status": "reconciled_guideline",
+      "row": 179
+    },
+    {
+      "id": "FAQ_37",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can I get my time-limited handicaptillæg extended?",
+      "status": "reconciled_guideline",
+      "row": 180
+    },
+    {
+      "id": "FAQ_37",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can I get my time-limited handicaptillæg extended?",
+      "status": "reconciled_guideline",
+      "row": 181
+    },
+    {
+      "id": "FAQ_37",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "How do I apply for an extension before my award expires?",
+      "status": "reconciled_guideline",
+      "row": 182
+    },
+    {
+      "id": "FAQ_37",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "When should I apply for an extension of my supplement?",
+      "status": "reconciled_guideline",
+      "row": 183
+    },
+    {
+      "id": "FAQ_37",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What documentation is needed for an extension?",
+      "status": "reconciled_guideline",
+      "row": 184
+    },
+    {
+      "id": "FAQ_38",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "How does receiving handicaptillæg affect how much I'm allowed to earn on the side (fribeløb)?",
+      "status": "reconciled_guideline",
+      "row": 185
+    },
+    {
+      "id": "FAQ_38",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "How does the supplement affect my allowed earnings (fribeløb)?",
+      "status": "reconciled_guideline",
+      "row": 186
+    },
+    {
+      "id": "FAQ_38",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What is the lower income allowance for handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 187
+    },
+    {
+      "id": "FAQ_38",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "How much money can I earn while getting the disability supplement?",
+      "status": "reconciled_guideline",
+      "row": 188
+    },
+    {
+      "id": "FAQ_38",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Does the supplement reduce my annual fribeløb?",
+      "status": "reconciled_guideline",
+      "row": 189
+    },
+    {
+      "id": "FAQ_39",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What if it turns out I can actually work more than expected, or I receive injury/damages compensation, or my condition changes?",
+      "status": "reconciled_guideline",
+      "row": 190
+    },
+    {
+      "id": "FAQ_39",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What if I work more than expected or receive injury compensation?",
+      "status": "reconciled_guideline",
+      "row": 191
+    },
+    {
+      "id": "FAQ_39",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Do damage settlements or injury compensation affect the supplement?",
+      "status": "reconciled_guideline",
+      "row": 192
+    },
+    {
+      "id": "FAQ_39",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "What if my health improves during my studies?",
+      "status": "reconciled_guideline",
+      "row": 193
+    },
+    {
+      "id": "FAQ_39",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Does accident compensation reduce my handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 194
+    },
+    {
+      "id": "FAQ_40",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "How does the Agency check my income, and what happens if I've earned too much?",
+      "status": "reconciled_guideline",
+      "row": 195
+    },
+    {
+      "id": "FAQ_40",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "How does the Agency check my annual income?",
+      "status": "reconciled_guideline",
+      "row": 196
+    },
+    {
+      "id": "FAQ_40",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "What happens if I earn more than my reduced fribeløb?",
+      "status": "reconciled_guideline",
+      "row": 197
+    },
+    {
+      "id": "FAQ_40",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can the Agency demand repayment of handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 198
+    },
+    {
+      "id": "FAQ_40",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "How is income verified with the Danish Tax Agency?",
+      "status": "reconciled_guideline",
+      "row": 199
+    },
+    {
+      "id": "FAQ_41",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "Can I appeal a decision about handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 200
+    },
+    {
+      "id": "FAQ_41",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can I appeal a decision about handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 201
+    },
+    {
+      "id": "FAQ_41",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "How do I appeal a rejection of the disability supplement?",
+      "status": "reconciled_guideline",
+      "row": 202
+    },
+    {
+      "id": "FAQ_41",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Where do I send an appeal for handicaptillæg?",
+      "status": "reconciled_guideline",
+      "row": 203
+    },
+    {
+      "id": "FAQ_41",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What is the Appeals Board (Ankenævnet) process?",
+      "status": "reconciled_guideline",
+      "row": 204
+    },
+    {
+      "id": "FAQ_42",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "What if I miss the 4-week deadline for appealing?",
+      "status": "reconciled_guideline",
+      "row": 205
+    },
+    {
+      "id": "FAQ_42",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "What if I miss the 4-week deadline for appealing?",
+      "status": "reconciled_guideline",
+      "row": 206
+    },
+    {
+      "id": "FAQ_42",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "Can I appeal after the 4-week deadline has passed?",
+      "status": "reconciled_guideline",
+      "row": 207
+    },
+    {
+      "id": "FAQ_42",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can late appeals be accepted for special reasons?",
+      "status": "reconciled_guideline",
+      "row": 208
+    },
+    {
+      "id": "FAQ_42",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "What happens if my appeal is sent too late?",
+      "status": "reconciled_guideline",
+      "row": 209
+    },
+    {
+      "id": "FAQ_43",
+      "kind": "canonical",
+      "variant_index": null,
+      "text": "If I appeal a refusal-to-process decision, will new medical documentation I send with the appeal be looked at?",
+      "status": "reconciled_guideline",
+      "row": 210
+    },
+    {
+      "id": "FAQ_43",
+      "kind": "variant",
+      "variant_index": 0,
+      "text": "Can new medical documentation be considered in an appeal?",
+      "status": "reconciled_guideline",
+      "row": 211
+    },
+    {
+      "id": "FAQ_43",
+      "kind": "variant",
+      "variant_index": 1,
+      "text": "If I appeal a refusal, will new records be looked at?",
+      "status": "reconciled_guideline",
+      "row": 212
+    },
+    {
+      "id": "FAQ_43",
+      "kind": "variant",
+      "variant_index": 2,
+      "text": "Can I submit new hospital papers with my appeal?",
+      "status": "reconciled_guideline",
+      "row": 213
+    },
+    {
+      "id": "FAQ_43",
+      "kind": "variant",
+      "variant_index": 3,
+      "text": "Does an appeal against afvisning assess new evidence?",
+      "status": "reconciled_guideline",
+      "row": 214
+    }
+  ]
+}

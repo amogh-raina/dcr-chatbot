@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify, send_from_directory, session, abort
+from flask import Flask, request, render_template, jsonify, send_from_directory, session, abort, redirect
 import logging
 from typing import Optional, Any, Dict
 import random
@@ -833,9 +833,8 @@ def init():
 
 @app.route('/')
 def index():
-    return render_template(
-        "index.html"
-    )
+    query = f'?{request.query_string.decode("utf-8")}' if request.query_string else ''
+    return redirect(f'/demo{query}')
 
 application_runtime.install(app, tab_sessions, lambda: dict(api_key=api_key, token=token, root_url=root_url))
 

@@ -1,0 +1,10 @@
+# Dependencies for the FAQ semantic-search build step (faq_search/).
+# Not required by the main Flask app (app.py) -- install into your dev
+# environment only when you need to (re)build embeddings or run the
+# search service, e.g.:
+#   conda activate dcr
+#   pip install -r faq_search/requirements.txt
+#   python faq_search/embed_faq_data.py
+
+sentence-transformers>=3.0
+numpy>=1.26

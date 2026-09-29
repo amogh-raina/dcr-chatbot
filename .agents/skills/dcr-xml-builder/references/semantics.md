@@ -67,14 +67,30 @@ Fixtures consistently use single `=` for equality. XML-escape quotes, ampersands
 
 `Robot`, `LocalRobot`, `Robot:Prime`, and `Robot:Terminator` are roles on events, not relation types.
 
-- A regular Robot must be enabled and pending.
-- A LocalRobot must be enabled and locally pending.
-- Robots may cascade in one execution cycle.
-- Computation events normally self-exclude or otherwise stop becoming eligible.
-- Hide automatic/System events from ordinary user task lists.
-- Never rely on execution limits as termination logic.
+Automatic execution occurs in a fixed 4-phase **execution cycle** whenever a host requests an activity or a delay expires:
+1. **Prime robots (`Robot:Prime`)**: Run first (if enabled, at most once per cycle, before user activity).
+2. **User activity**: The activity requested by the host executes.
+3. **Regular robots**: `Robot` (runs when enabled and pending) and `LocalRobot` (runs when enabled and locally pending) run in the middle (up to `MaxRobots`, default 256). Robots can toggle each other on and off within the cycle.
+4. **Terminator robots (`Robot:Terminator`)**: Run last (if enabled, at most once per cycle).
 
-The supplied XML directly verifies `Robot` and `LocalRobot`. Prime, Terminator, and effect continuation serialization are not verified.
+Execution limits:
+- Maximum 256 robots per cycle (configurable via runtime `MaxRobots`, can be raised to 4096+).
+- Wall-clock timeout configurable via `Timeout` (format `HH:MM:SS`).
+- Computation events normally self-exclude or otherwise stop becoming eligible.
+- Hide automatic/System events (`Robot`, `Robot:Prime`, `LocalRobot`, `Robot:Terminator`, `System`) from ordinary user task lists.
+
+## Dynamic Effects and Continuations
+
+An **Effect** enables an activity to interact with external services (e.g. REST APIs, CVR lookups, SMS gateways).
+
+- **Execution**: When an activity carrying a dynamic effect executes (typically triggered by a `Robot` or `LocalRobot`), the DCR engine invokes the external service.
+- **Continuations**: An effect concludes with one of three outcomes, triggering an automatic continuation activity:
+  - `ContinueOnOk`: Runs when the call succeeds (e.g. HTTP 200).
+  - `ContinueOnFail`: Runs when the call fails (e.g. HTTP 4xx/5xx).
+  - `ContinueOnTimeout`: Runs when the call times out.
+- **Role `System`**: Continuation activities represent internal machine transitions and should use `role="System"`.
+- **Continuations Limit**: At most 64 consecutive effect continuations can execute per cycle.
+- **Administration**: In DCR Portal 7.3+, custom REST effects are registered centrally at the **Organization Level** via **Effect Admin** / **Effect Wizard**, rather than in raw XML per graph. In graph XML, the event carries `<effects><effect name="...">` with parameter bindings like `$(EventId)` and continuation target event IDs.
 
 ## Time
 

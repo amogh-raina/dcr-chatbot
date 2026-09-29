@@ -192,6 +192,22 @@ def rank(message, last_question, candidates, client=None, settings=None):
     if not keys or len(set(keys)) != len(keys):
         raise MatchError('Invalid candidate catalogue')
     if client is None:
+        if os.getenv('USE_LOCAL_RETRIEVER', '1') == '1' or not os.getenv('OPENAI_API_KEY'):
+            try:
+                from faq_search.retriever import get_retriever
+                retriever = get_retriever()
+                decision, rows = retriever.rank_candidates(
+                    message, candidates, last_context=last_question,
+                    single_threshold=settings.single, min_threshold=settings.minimum, margin_threshold=settings.margin
+                )
+                if decision == 'clarify_match':
+                    decision = 'ambiguous'
+                log.info('Local semantic retriever query=%r decision=%s rows=%s', message, decision, len(rows))
+                return decision, rows
+            except Exception as error:
+                log.warning('Local retriever unavailable: %s', error)
+                if not os.getenv('OPENAI_API_KEY'):
+                    raise MatchError('FAQ matching is temporarily unavailable') from error
         if not os.getenv('OPENAI_API_KEY'):
             raise MatchError('OPENAI_API_KEY is not configured')
         from openai import OpenAI

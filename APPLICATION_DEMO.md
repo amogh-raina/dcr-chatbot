@@ -4,13 +4,13 @@ Branch: `feature/demo-application-flow`. This is a simulated login and submissio
 
 ## Run
 
-1. Import `xml graphs/SU_handicaptillaeg_FAQ_Application_Demo.xml` into DCR as a **new graph**, and note its ID. The existing MVP and supplied form are preserved.
-2. Restart `python app.py` using your normal environment.
+1. Import `xml graphs/SU_handicaptillaeg_FAQ_Application_Lean.xml` (or `SU_handicaptillaeg_FAQ_Application_Structured.xml`) into DCR as a **new graph**, and note its ID. The `Form0` application subprocess and interactive determination clusters are preserved.
+2. Restart `python app.py` (which automatically opens `/demo`).
 3. Open `http://localhost:8080/demo?graphid=NEW_ID`, open support, and choose **Proceed to application**.
 4. At `/mitid`, choose **Continue demo**. No credentials are requested. Start the conversational application and use fictional information only.
 5. Review the answers and choose **Send demo application**. The requested e-Boks confirmation wording is shown alongside an explicit notice that nothing was submitted and no message will be sent.
 
-You can also open `/mitid?graphid=NEW_ID` directly. The default remains MVP `2012701`; use the newly imported graph ID for this experiment. Restarting the app or starting again loses the in-memory application session. Review is read-only in this iteration; changing prior answers requires starting again.
+You can also open `/mitid?graphid=NEW_ID` directly. Restarting the app or starting again loses the in-memory application session. Review is read-only in this iteration; changing prior answers requires starting again.
 
 ## How it works
 

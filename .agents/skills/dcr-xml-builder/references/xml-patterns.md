@@ -955,6 +955,56 @@ A `LocalRobot` runs when enabled and locally pending. Use it when automatic acti
 
 The computed value of the container can drive guarded relations. Corona also uses a guarded self-response when the result is `"retry"`, making the subprocess pending again until enough child data exists. This is powerful but version-sensitive: clone the complete proven structure and test partial input, retry, accepting, and final-result states.
 
+### 8.4 Dynamic Effects and Continuations
+
+**Observed** in DCR Portal 7.3+ and Core Dynamic Effects fixtures:
+
+When an activity carries an external integration effect (e.g. REST API, CVR lookup, document signing), it is typically executed by a `Robot` or `LocalRobot`. Dynamic effects declare parameter bindings using `$(EventId)` and register automatic follow-up targets with `ContinueOnOk`, `ContinueOnFail`, and `ContinueOnTimeout`.
+
+```xml
+<event id="InvokeRetrieval">
+  <precondition message=""/>
+  <custom>
+    <roles>
+      <role>Robot</role>
+    </roles>
+    <effects>
+      <effect name="AI.RetrieveFAQ">
+        <parameter name="Query" value="$(UserQuestion)"/>
+        <parameter name="ContinueOnOk" value="ShowAnswer"/>
+        <parameter name="ContinueOnFail" value="FallbackContact"/>
+        <parameter name="ContinueOnTimeout" value="TimeoutNotice"/>
+      </effect>
+    </effects>
+    <!-- remaining custom fields -->
+  </custom>
+</event>
+
+<!-- Continuation target activities representing machine transitions -->
+<event id="ShowAnswer">
+  <precondition message=""/>
+  <custom>
+    <roles>
+      <role>System</role>
+    </roles>
+  </custom>
+  <dataType>text</dataType>
+</event>
+
+<event id="FallbackContact">
+  <precondition message=""/>
+  <custom>
+    <roles>
+      <role>System</role>
+    </roles>
+  </custom>
+  <dataType>label</dataType>
+</event>
+```
+
+- Continuation target activities should carry `<role>System</role>` so host applications hide them from regular user task lists.
+- Note: Custom REST effects are configured at the Organization level in DCR Portal (Effect Admin / Effect Wizard). The XML references the registered effect name, binds activity values, and points to continuation events.
+
 ## 9. Embedded DMN
 
 ### 9.1 Event linkage
