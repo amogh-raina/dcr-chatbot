@@ -1,0 +1,4 @@
+# Complete offline unit-test environment (no model download is needed).
+-r requirements.txt
+-r faq_search/requirements.txt
+ruff==0.16.10

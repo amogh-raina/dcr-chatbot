@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, createElement } from 'react';
 import './application.css';
 import { newSessionId } from './sessionId';
 import Icon from './Icon';
+import ThemeToggle from './ThemeToggle';
 
 // FAQ answers arrive as stored HTML. Render basic formatting, never scripts.
 function AnswerBody({ html }) {
@@ -300,72 +301,14 @@ function FilePick({ field, busy, onSubmit }) {
   </div>;
 }
 
-/* Buttons for the current question. Typed answers go through the composer. */
-function Answer({ field, busy, onSubmit }) {
-  const [picked, setPicked] = useState([]);
-  useEffect(() => setPicked([]), [field?.id]);
-  if (!field || field.type === 'submit') return null;
-  if (field.type === 'file') return <FilePick field={field} busy={busy} onSubmit={onSubmit} />;
-  if (field.type === 'choice' && field.multiple) {
-    const toggle = (v) => setPicked(p => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
-    return <div className="chat-choices inline checklist">
-      {field.options.map(o =>
-        <button className={`chip${picked.includes(o.value) ? ' picked' : ''}`} disabled={busy}
-          key={o.value} aria-pressed={picked.includes(o.value)}
-          onClick={() => toggle(o.value)}>
-          {picked.includes(o.value) ? <Icon name="check" size={13} stroke={2.5} /> : null}
-          {o.label}
-        </button>)}
-      <button className="chip primary" disabled={busy || !picked.length}
-        onClick={() => onSubmit(picked.join(','))}>Confirm {picked.length ? `(${picked.length})` : ''}</button>
-    </div>;
-  }
-  if (field.type === 'choice')
-    return <div className="chat-choices inline">{field.options.map(o =>
-      <button className="chip" disabled={busy} key={o.value} onClick={() => onSubmit(o.value)}>{o.label}</button>)}</div>;
-  if (['boolean', 'bool'].includes(field.type))
-    return <div className="chat-choices inline">{[['Yes', 'true'], ['No', 'false']].map(([label, v]) =>
-      <button className="chip" key={v} disabled={busy} onClick={() => onSubmit(v)}>{label}</button>)}</div>;
-  return null;
-}
-
-/* The chat composer. Everything typed goes here, answers and questions alike. */
-function Composer({ field, busy, draft, setDraft, onSend, onAsk }) {
-  const box = useRef(null);
-  useEffect(() => { box.current?.focus(); }, [field?.id]);
-  const long = ['longtext', 'textbox'].includes(field?.type);
-  const hint = !field ? 'Type a message…'
-    : field.type === 'file' ? 'Attach file above, or ask a question here…'
-      : field.type === 'date' ? 'e.g. 2026-09'
-        : ['int', 'integer', 'float'].includes(field.type) ? 'Enter a number, or describe in your own words…'
-          : field.type === 'choice' ? 'Choose an option above, or describe in your own words…'
-            : 'Type your answer here…';
-  const send = (e) => { e.preventDefault(); if (draft.trim()) onSend(draft.trim()); };
-  return <form className="composer" onSubmit={send}>
-    {long
-      ? <textarea ref={box} value={draft} maxLength={4000} placeholder={hint} disabled={busy}
-          onChange={e => setDraft(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) send(e); }} />
-      : <input ref={box} value={draft} placeholder={hint} disabled={busy}
-          onChange={e => setDraft(e.target.value)} />}
-    <div className="composer-actions">
-      <button type="button" className="chip ghost" disabled={busy || !draft.trim()}
-        onClick={() => onAsk(draft.trim())}>Ask as question</button>
-      <button type="submit" className="chat-send" disabled={busy || !draft.trim()}>
-        {field?.type === 'file' ? 'Ask' : 'Send answer'}
-      </button>
-    </div>
-  </form>;
-}
-
 /* Editing an earlier answer. When the person answered in their own words,
    those words are what gets edited; the reading is derived again from them. */
-function EditAnswer({ entry, busy, initialWords = '', onSave, onDescribe, onCancel }) {
+function EditAnswer({ entry, busy, initialWords = '', cancelLabel = 'Cancel', onSave, onDescribe, onCancel }) {
   const [value, setValue] = useState('');
   const [words, setWords] = useState(initialWords);
   const [picked, setPicked] = useState([]);
   const describable = ['choice', 'int', 'integer', 'float'].includes(entry.type);
-  const cancel = <button className="chip ghost" type="button" disabled={busy} onClick={onCancel}>Cancel</button>;
+  const cancel = <button className="chip ghost" type="button" disabled={busy} onClick={onCancel}>{cancelLabel}</button>;
 
   const inWords = describable && <form className={`edit-words${initialWords ? ' lead' : ''}`} onSubmit={e => {
       e.preventDefault(); if (words.trim()) onDescribe(entry.id, words.trim());
@@ -421,229 +364,279 @@ function EditAnswer({ entry, busy, initialWords = '', onSave, onDescribe, onCanc
   </form>;
 }
 
-/* One question drawn as a real control: every option visible, chosen ones marked. */
-function FormControl({ row }) {
-  const chosen = String(row.raw ?? '').split(',').map(s => s.trim()).filter(Boolean);
-  const muted = row.state !== 'answered';
+// 5 parts of the application, shown as "Part n of 5". DCR does not say how many questions are left (later
+// questions depend on earlier answers), so the part comes from the field id (fields of the Clean graph's Form0).
+// An unknown field keeps the part of the last known one.
+const STAGES = [
+  { id: 1, title: 'About you' },
+  { id: 2, title: 'Your impairment' },
+  { id: 3, title: 'Work' },
+  { id: 4, title: 'Documentation' },
+  { id: 5, title: 'Check and send' },
+];
+const STAGE_OF_FIELD = {
+  'Form0:Email': 0, 'Form0:Phone': 0, 'Form0:A1_1': 0,
+  'Form0:A2': 1, 'Form0:Impairment_type': 1, 'Form0:Impairment_definition': 1, 'Form0:A14': 1,
+  'Form0:Time_limited': 1, 'Form0:A17': 1,
+  'Form0:Prev_work': 2, 'Form0:A15': 2, 'Form0:Plan_work_studies': 2, 'Form0:A16': 2,
+  'Form0:Samtykke': 3, 'Form0:A5': 3, 'Form0:A11': 3,
+  'Form0:A10': 4,
+};
 
-  if (row.options?.length) {
-    const multi = row.multiple;
-    return <ul className={`fld-options${multi ? ' multi' : ''}`}>
-      {row.options.map(o => {
-        const on = chosen.includes(o.value);
-        return <li key={o.value} className={on ? 'on' : ''}>
-          <span className={multi ? 'box' : 'dot'} aria-hidden="true">
-            {on ? (multi ? <Icon name="check" size={10} stroke={3} /> : '') : ''}
-          </span>
-          <span className="opt-label">{o.label}</span>
-        </li>;
-      })}
-    </ul>;
+function stageOf(state, fieldId, last) {
+  if (!state) return 0;
+  if (['review', 'complete', 'declined'].includes(state.status)) return 4;
+  if (fieldId in STAGE_OF_FIELD) return STAGE_OF_FIELD[fieldId];
+  if (['file', 'demo_file'].includes(state.field?.type)) return 3;
+  return last;
+}
+
+const wide = () => window.matchMedia?.('(min-width: 861px)').matches ?? true;
+const SourceIcon = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><path d="M14 3v6h6" /></svg>;
+
+// A typed answer that is only a number is submitted as it is. Only words are sent to be interpreted.
+const PLAIN_NUMBER = /^[+-]?\d+(?:[.,]\d+)?$/;
+const NUMERIC_TYPES = ['int', 'integer', 'float'];
+
+/* The options of the current question, shown under it in the thread. A single choice is answered by clicking it
+   (no Continue button); several choices are ticked and confirmed with Continue. */
+function InlineChoices({ field, busy, onSubmit }) {
+  const [picked, setPicked] = useState([]);
+  useEffect(() => { setPicked([]); }, [field?.id]);
+  if (!field) return null;
+  if (field.type === 'file') return <FilePick field={field} busy={busy} onSubmit={onSubmit} />;
+  const isBool = ['boolean', 'bool'].includes(field.type);
+  const options = isBool ? [{ label: 'Yes', value: 'true' }, { label: 'No', value: 'false' }]
+    : field.type === 'choice' ? field.options : null;
+  if (!options) return null;
+  const multi = field.type === 'choice' && field.multiple;
+  if (!multi) {
+    return <div className={`ap-choices${options.length === 2 ? ' pair' : ''}`} role="group" aria-label={field.label}>
+      {options.map(o => <button key={o.value} type="button" className="ap-choice" disabled={busy}
+        onClick={() => onSubmit(o.value)}>{o.label}</button>)}
+    </div>;
   }
+  const toggle = (v) => setPicked(p => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
+  return <>
+    <fieldset className="ap-options" disabled={busy}>
+      <legend className="sr-only">{field.label}</legend>
+      <p className="ap-hint">Select all that apply.</p>
+      {options.map(o => <label className="ap-opt" key={o.value}>
+        <input type="checkbox" name={`opt-${field.id}`} checked={picked.includes(o.value)} onChange={() => toggle(o.value)} />
+        <span className="ap-opt-label">{o.label}</span>
+      </label>)}
+    </fieldset>
+    <div className="ap-actions">
+      <button type="button" className="ap-btn primary" disabled={busy || !picked.length}
+        onClick={() => onSubmit(picked.join(','))}>Continue</button>
+    </div>
+  </>;
+}
 
-  if (['boolean', 'bool'].includes(row.type))
-    return <ul className="fld-options">
-      {[['Yes', 'true'], ['No', 'false']].map(([label, v]) =>
-        <li key={v} className={chosen.includes(v) ? 'on' : ''}>
-          <span className="dot" aria-hidden="true" /><span className="opt-label">{label}</span>
-        </li>)}
-    </ul>;
-
-  const long = ['longtext', 'textbox'].includes(row.type);
-  if (row.type === 'file') {
-    const names = String(row.value || '').split(',').map(s => s.trim()).filter(Boolean);
-    return <ul className="fld-files">
-      {names.length ? names.map(n => <li key={n}><Icon name="file" size={14} />{n}</li>)
-        : <li className="none"><Icon name="file" size={14} />No files attached</li>}
-    </ul>;
-  }
-  const unit = row.hours ? 'hours / week' : row.type === 'date' ? 'month' : null;
-  return <div className={`fld-input${long ? ' tall' : ''}${muted ? ' muted' : ''}`}>
-    <span className="fld-text">{row.value || (row.state === 'answered' ? '—' : '')}</span>
-    {unit && <span className="fld-unit">{unit}</span>}
+/* The message box at the bottom of the thread. It is always visible, so there is nothing to open: on a choice
+   question it is the "none of these fit" route (words are read and suggested, the person confirms), on a number
+   or text question it is the answer. A plain number is not interpreted (see send()). Nothing here changes what
+   DCR asks. */
+function Composer({ field, busy, value, onChange, onSend }) {
+  const box = useRef(null);
+  const hasOptions = !!field && (field.type === 'choice' || ['boolean', 'bool'].includes(field.type));
+  useEffect(() => {
+    // Do not pop up the keyboard on a phone for a question that is answered by tapping.
+    if (!hasOptions) box.current?.focus({ preventScroll: true });
+  }, [field?.id, hasOptions]);
+  if (!field || ['file', 'submit', 'boolean', 'bool'].includes(field.type)) return null;
+  const long = ['longtext', 'textbox'].includes(field.type);
+  const choice = field.type === 'choice';
+  const numeric = NUMERIC_TYPES.includes(field.type);
+  const placeholder = choice ? 'None of these fit? Describe your situation'
+    : numeric ? 'Type a number, or describe it in your own words'
+      : field.type === 'date' ? 'For example 2026-09' : 'Type your answer';
+  const label = choice ? 'Describe your situation in your own words' : field.label;
+  const submit = (e) => {
+    e?.preventDefault();
+    const t = value.trim();
+    if (t && !busy) onSend(t);
+  };
+  return <div className="ap-dock">
+    <form className="ap-compose" onSubmit={submit}>
+      {long
+        ? <textarea ref={box} rows={3} value={value} maxLength={4000} disabled={busy} aria-label={label} placeholder={placeholder}
+            onChange={e => onChange(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) submit(e); }} />
+        : <input ref={box} value={value} maxLength={2000} disabled={busy} aria-label={label} placeholder={placeholder}
+            autoComplete="off" inputMode={numeric ? 'decimal' : undefined} onChange={e => onChange(e.target.value)} />}
+      <button type="submit" className="ap-send" aria-label="Send" disabled={busy || !value.trim()}>
+        <Icon name="arrow-up" size={18} stroke={2} />
+      </button>
+    </form>
+    {choice && <p className="ap-compose-hint">We suggest the option that fits. You confirm it before it is used.</p>}
   </div>;
 }
 
-/* The application drawn as a form: every question, every option, what was chosen. */
-function FormPanel({ answers, form, current, editing, busy, onEdit, onSave, onDescribe, onCancel, onClose }) {
-  const [showAll, setShowAll] = useState(true);
-  const byId = Object.fromEntries(answers.map(a => [a.id, a]));
-
-  const rows = (form?.length ? form : []).map(f => {
-    const a = byId[f.id];
-    return {
-      ...f, ...(a || {}),
-      state: a ? 'answered' : f.pending ? 'current' : f.included ? 'upcoming' : 'excluded'
-    };
-  });
-  const shown = showAll ? rows : rows.filter(r => r.state === 'answered' || r.state === 'current');
-  const done = rows.filter(r => r.state === 'answered').length;
-  const live = rows.filter(r => r.state !== 'excluded').length;
-
-  return <aside className="form-panel" aria-label="Application form overview">
-    <header className="form-panel-head">
-      <div className="fp-title">
-        <span className="form-panel-eyebrow">SU · DISABILITY ALLOWANCE</span>
-        <h2>Form overview</h2>
-      </div>
-      <button className="form-panel-close" aria-label="Close form overview" onClick={onClose}>✕</button>
-    </header>
-
-    <div className="fp-progress">
-      <div className="fp-bar"><i style={{ width: `${live ? (done / live) * 100 : 0}%` }} /></div>
-      <span>{done} of {live} answered</span>
-      <button className="form-scope" aria-pressed={showAll}
-        onClick={() => setShowAll(v => !v)}>{showAll ? 'Answered only' : 'All questions'}</button>
-    </div>
-
-    <div className="form-panel-body">
-      {shown.length === 0 && <p className="form-empty">No fields answered yet.</p>}
-      {shown.map((row, i) => <section className={`fld ${row.state}`} key={row.id}>
-        <div className="fld-head">
-          <span className="fld-num">{String(i + 1).padStart(2, '0')}</span>
-          <label className="fld-label">{row.label}</label>
-          {row.state === 'answered' && !editing &&
-            <button className="form-edit" disabled={busy} onClick={() => onEdit(row.id)} aria-label="Edit answer" title="Edit answer">
-              <Icon name="edit" size={13} stroke={2} />
-            </button>}
-          {row.state === 'current' && <span className="fld-pill now">Current</span>}
-          {row.state === 'upcoming' && <span className="fld-pill">Upcoming</span>}
-          {row.state === 'excluded' && <span className="fld-pill off">Not relevant</span>}
-        </div>
-        {editing === row.id && row.state === 'answered'
-          ? <EditAnswer entry={row} busy={busy} onSave={onSave} onDescribe={onDescribe} onCancel={onCancel} />
-          : <FormControl row={row} />}
-        {row.state === 'excluded' &&
-          <p className="fld-why">Excluded based on a previous answer.</p>}
-      </section>)}
-    </div>
-
-    <footer className="form-panel-foot">Demonstration preview. Nothing is submitted to public authorities.</footer>
-  </aside>;
-}
-
-// 5 logical stages of the SU disability allowance workflow
-const STAGES = [
-  { id: 1, title: 'Studieoplysninger', subtitle: 'Indskrivning & uddannelsessted' },
-  { id: 2, title: 'Funktionsnedsættelse', subtitle: 'Lidelsens art & varighed' },
-  { id: 3, title: 'Arbejdsevne & job', subtitle: 'Erhvervserfaring & timer' },
-  { id: 4, title: 'Lægelig dokumentation', subtitle: 'Speciallægeerklæring' },
-  { id: 5, title: 'Gennemse & bekræft', subtitle: 'Samlet oversigt & kvittering' },
+const HELP_EXAMPLES = [
+  { q: 'What documentation do I need?', s: 'Documents and who can issue them' },
+  { q: 'Can I work while receiving handicaptillæg?', s: 'Rules on work and earnings' },
+  { q: 'How long does the decision take?', s: 'After you have applied' }
 ];
 
-function getStageIndex(state) {
-  if (!state) return 0;
-  if (state.status === 'review' || state.status === 'complete' || state.status === 'declined') return 4;
-  const f = state.field;
-  if (!f) return 0;
-  const t = (f.type || '').toLowerCase();
-  const l = (f.label || '').toLowerCase();
-  if (t === 'file' || t === 'demo_file' || l.includes('dokumentation') || l.includes('fil') || l.includes('attest') || l.includes('læge') || l.includes('attach')) return 3;
-  if (l.includes('arbejde') || l.includes('job') || l.includes('timer') || l.includes('hour') || l.includes('beskæftigelse')) return 2;
-  if (l.includes('funktionsnedsættelse') || l.includes('varig') || l.includes('medfødt') || l.includes('tillaeg') || l.includes('impairment') || l.includes('lidelse') || l.includes('diagnose')) return 1;
-  return 0;
-}
-
-// Left sidebar: anchors the phases and documentation guidelines exactly as requested
-function ApplicationSidebar({ state, answeredCount, onReset, busy }) {
-  const currentStage = getStageIndex(state);
-  const ended = state && ['complete', 'declined'].includes(state.status);
-
-  return (
-    <aside className="application-sidebar" aria-label="Faser i ansøgningen og vejledning">
-      {/* 5-Stage Stepper Roadmap */}
-      <div className="sidebar-card stepper-card">
-        <div className="stepper-header">
-          <h3>Faser i ansøgningen</h3>
-          {state && <span className="stepper-badge">{answeredCount} svar</span>}
+/* Ask SU-support: questions about the rules, kept apart from the application so the form never changes because
+   of a question. Anything typed here is a question. The panel follows the question on screen: each new question adds
+   an "About this question" card (help text from DCR) with its suggested questions, and typed questions are searched
+   with that question as context (the server searches the typed words first, then adds the field's question, then,
+   if nothing was found, rewrites the question with the field and its help text). The applicant can switch the
+   context off with the chip above the input. */
+function HelpPanel({ thread, match, determination, busy, error, focusKey, scoped, canScope, onAsk, onRelated, onScope, onPick,
+  onNone, onDetermine, onSkipDetermination, onPerson, onClose }) {
+  const [draft, setDraft] = useState('');
+  const box = useRef(null);
+  const tail = useRef(null);
+  useEffect(() => { if (focusKey > 0) box.current?.focus(); }, [focusKey]);
+  useEffect(() => { tail.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }); }, [thread, match, determination]);
+  const submit = (e) => {
+    e.preventDefault();
+    const text = draft.trim();
+    if (text && !busy) { setDraft(''); onAsk(text); }
+  };
+  const lastField = [...thread].reverse().find(m => m.kind === 'field');
+  const askedRelated = new Set(thread.filter(m => m.relatedId).map(m => m.relatedId));
+  const started = thread.some(m => m.kind !== 'field') || !!match || !!determination;
+  return <aside className="hp" aria-label="Ask SU-support" onKeyDown={e => { if (e.key === 'Escape') onClose(); }}>
+    <div className="hp-grab" aria-hidden="true" />
+    <header className="hp-head">
+      <div>
+        <h2 className="hp-name">Ask SU-support</h2>
+        <p className="hp-sub">Answers from the SU guidelines. Asking never changes your answers.</p>
+      </div>
+      <button type="button" className="hp-close" onClick={onClose} aria-label="Hide Ask SU-support">
+        <Icon name="close" size={20} />
+      </button>
+    </header>
+    <div className="hp-scroll" role="log" aria-live="polite">
+      {!lastField && !started && <div className="hp-greet">
+        <h3>Hello there!</h3>
+        <p>What would you like to know?</p>
+      </div>}
+      {!lastField && !started && !busy && <div className="hp-cards">
+        {HELP_EXAMPLES.map(x => <button key={x.q} type="button" className="hp-card" onClick={() => onAsk(x.q)}>
+          <b>{x.q}</b><span>{x.s}</span>
+        </button>)}
+      </div>}
+      {thread.map(m => {
+        if (m.kind === 'field') {
+          if (m !== lastField) return <p key={m.key} className="hp-divider"><span>Earlier question</span>{m.label}</p>;
+          const related = (m.help?.related || []).filter(r => !askedRelated.has(r.id));
+          return <div key={m.key} className="hp-field">
+            <section className="hp-about">
+              <p className="hp-eyebrow">About this question</p>
+              <h4>{m.label}</h4>
+              {m.help?.html && <AnswerBody html={m.help.html} />}
+            </section>
+            {related.length > 0 && <>
+              <p className="hp-eyebrow hp-sug-label">Common questions</p>
+              <div className="hp-cards">
+                {related.map(r => <button key={r.id} type="button" className="hp-card" disabled={busy}
+                  onClick={() => onRelated(r.id, r.question)}><b>{r.question}</b></button>)}
+              </div>
+            </>}
+          </div>;
+        }
+        if (m.kind === 'ask') return <div key={m.key} className="hp-user">
+          <div className="hp-bubble">{m.text}</div>
+          {m.searchedFor && <p className="hp-understood">Understood as: {m.searchedFor}</p>}
+        </div>;
+        if (m.kind === 'notice') return <p key={m.key} className="hp-note">{m.text}</p>;
+        if (m.kind === 'determination') return <article key={m.key} className="hp-answer">
+          <h4>{m.question}</h4>
+          <p className="hp-understood">Your answer: {m.value}</p>
+          {m.outcomes.map((html, i) => <AnswerBody key={i} html={html} />)}
+        </article>;
+        if (m.kind === 'handover') return <aside key={m.key} className="hp-handover" role="note">
+          <Icon name="user" size={20} />
+          <div><h4>Talk to a person</h4><AnswerBody html={m.html} /></div>
+        </aside>;
+        return <article key={m.key} className="hp-answer">
+          <h4>{m.question}</h4>
+          <AnswerBody html={m.text} />
+          {m.citation && <span className="hp-source"><SourceIcon />Source: {m.citation}</span>}
+        </article>;
+      })}
+      {match && <div className="hp-match">
+        <p className="hp-match-q">{match.response}</p>
+        <div className="hp-cards">
+          {match.candidates.map(c => <button type="button" className="hp-card" key={c.candidate_key} disabled={busy}
+            onClick={() => onPick(c.candidate_key, c.question)}><b>{c.question}</b></button>)}
         </div>
-        <ol className="stepper-list">
-          {STAGES.map((stage, idx) => {
-            const isCompleted = currentStage > idx || ended;
-            const isCurrent = currentStage === idx && !ended;
-            return (
-              <li
-                key={stage.id}
-                className={`stepper-item ${isCompleted ? 'completed' : ''} ${isCurrent ? 'current' : ''}`}
-              >
-                <span className="stepper-marker" aria-hidden="true">
-                  {isCompleted ? <Icon name="check" size={12} stroke={3} /> : stage.id}
-                </span>
-                <div className="stepper-text">
-                  <span className="stepper-title">{stage.title}</span>
-                  <span className="stepper-subtitle">{stage.subtitle}</span>
-                </div>
-                {isCurrent && <span className="stepper-now-indicator">I gang</span>}
-              </li>
-            );
-          })}
-        </ol>
+        {match.status === 'faq_confirm' && match.candidates.length === 1 && <button type="button" className="ap-btn primary"
+          disabled={busy} onClick={() => onPick(match.candidates[0].candidate_key, match.candidates[0].question)}>Yes, show the answer</button>}
+        <button type="button" className="ap-link" disabled={busy} onClick={onNone}>
+          {match.candidates.length === 1 ? 'No, that is not it' : 'None of these'}
+        </button>
+      </div>}
+      {determination && <div className="hp-match hp-followup">
+        <p className="hp-eyebrow">{determination.text || 'One more question so the answer fits your situation (you can skip it):'}</p>
+        <p className="hp-match-q">{determination.prompt.text}</p>
+        <div className="hp-cards">
+          {determination.prompt.options.map(o => <button type="button" className="hp-card" key={o.value} disabled={busy}
+            onClick={() => onDetermine(o.value, o.label)}><b>{o.label}</b></button>)}
+        </div>
+        <button type="button" className="ap-link" disabled={busy} onClick={onSkipDetermination}>Skip</button>
+      </div>}
+      {busy && <div className="hp-typing" role="status" aria-label="Searching the FAQ"><i /><i /><i /></div>}
+      {error && <p className="ap-error" role="alert">{error}</p>}
+      <div ref={tail} />
+    </div>
+    <form className="hp-composer" onSubmit={submit}>
+      <label htmlFor="hp-input" className="sr-only">Your question</label>
+      <input id="hp-input" ref={box} value={draft} maxLength={2000} disabled={busy} autoComplete="off"
+        placeholder={scoped ? 'Ask about this question' : 'Ask about the rules'}
+        onChange={e => setDraft(e.target.value)} />
+      <div className="hp-composer-row">
+        {scoped
+          ? <span className="hp-scope">About this question
+              <button type="button" aria-label="Ask without the question on screen as context" onClick={() => onScope(false)}>
+                <Icon name="close" size={12} />
+              </button></span>
+          : canScope
+            ? <button type="button" className="hp-ctx-on" onClick={() => onScope(true)}>Ask about this question</button>
+            : <span />}
+        <button type="submit" className="hp-send" aria-label="Send question" disabled={busy || !draft.trim()}>
+          <Icon name="arrow-up" size={18} stroke={2} />
+        </button>
       </div>
-
-      {/* Guidelines & Documentation Help */}
-      <div className="sidebar-card guide-card">
-        <h4><Icon name="info" size={15} /> Krav til dokumentation</h4>
-        <p>
-          Dokumentationen skal beskrive dine <em>konkrete funktionstab</em> i relation til at varetage et studiejob.
-          En lægelig diagnose alene er sjældent tilstrækkelig.
-        </p>
-      </div>
-
-      {/* Support Hotline */}
-      <div className="sidebar-card contact-card">
-        <h4>Spørgsmål til SU?</h4>
-        <p className="contact-text">Man–fre 9.00–15.00 · Tlf. 72 31 79 00</p>
-      </div>
-
-      {/* Quick sidebar actions: Save session & Start again */}
-      <div className="sidebar-actions">
-        {state && (
-          <>
-            <button
-              type="button"
-              className="sidebar-save-btn"
-              title="Save session (demo preview)"
-              onClick={() => {
-                alert('Session saved. (Demo preview: progress is stored in your current browser session)');
-              }}
-            >
-              <Icon name="save" size={15} stroke={2} />
-              <span>Save session</span>
-            </button>
-            <button
-              type="button"
-              className="sidebar-reset-btn"
-              disabled={busy}
-              onClick={onReset}
-            >
-              <Icon name="restart" size={14} />
-              <span>Start again</span>
-            </button>
-          </>
-        )}
-      </div>
-    </aside>
-  );
+    </form>
+    <p className="hp-foot">Need a person? <button type="button" className="ap-link" disabled={busy} onClick={onPerson}>Talk to a person</button></p>
+  </aside>;
 }
 
 export function ApplicationDemo() {
   const [state, setState] = useState(null);
   const [thread, setThread] = useState([]);
   const [match, setMatch] = useState(null);
+  const [determination, setDetermination] = useState(null);   // the follow-up question that came with an answer
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
+  const [formError, setFormError] = useState('');   // a problem with the answer itself, shown in the thread
   const [editing, setEditing] = useState(null);
   const [draft, setDraft] = useState('');
   const [interp, setInterp] = useState(null);
-  const [showForm, setShowForm] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(wide);
+  const [helpThread, setHelpThread] = useState([]);
+  const [helpFocus, setHelpFocus] = useState(0);
+  const [scopeOff, setScopeOff] = useState(false);
   const sid = useRef(null);
   if (sid.current === null) sid.current = newSessionId();
   const inflight = useRef(false);
   const tail = useRef(null);
 
-  useEffect(() => { tail.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }); }, [thread, state, match]);
+  useEffect(() => { tail.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }); }, [thread, state, interp, formError, editing, busy]);
+
+  useEffect(() => { setDraft(''); setFormError(''); }, [state?.field?.id]);
+
+  const onField = !!state?.field && state.status === 'question';
+  const helpScope = onField && !scopeOff ? { kind: 'field' } : null;
 
   const add = (entry) => setThread(t => [...t, { ...entry, key: `${t.length}-${entry.kind}` }]);
+  const addHelp = (entry) => setHelpThread(t => [...t, { ...entry, key: `${t.length}-${entry.kind}` }]);
 
   // A question becomes a bubble the moment it is asked, so the conversation
   // reads as a thread from the first turn instead of a lone form card.
@@ -654,11 +647,25 @@ export function ApplicationDemo() {
     asked.current = id;
     const text = state.status === 'review' ? 'Please review your answers below, and then send the demo application.' : state.field?.label;
     if (text) setThread(t => [...t, { kind: 'question', text, key: `${t.length}-question` }]);
-  }, [state?.prompt_id]);
+  }, [state?.prompt_id, state?.status, state?.field?.label]);
 
-  async function request(path, payload) {
+  // The help panel follows the question on screen: a new question adds its card (help text and suggested
+  // questions from DCR) to the panel thread and turns the question context back on.
+  useEffect(() => {
+    const field = state?.field;
+    if (!field || state.status !== 'question') return;
+    setScopeOff(false);
+    setHelpThread(t => {
+      const last = [...t].reverse().find(m => m.kind === 'field');
+      if (last?.fieldId === field.id) return t;
+      return [...t, { kind: 'field', fieldId: field.id, label: field.label, help: field.help, key: `${t.length}-field` }];
+    });
+  }, [state?.field, state?.status]);
+
+  // local: the request is about the form (an answer, a change), so a problem is shown in the thread, not in Help.
+  async function request(path, payload, local = false) {
     if (inflight.current) return null;
-    inflight.current = true; setBusy(true); setError('');
+    inflight.current = true; setBusy(true); setError(''); setFormError('');
     try {
       const r = await fetch(path, {
         method: 'POST',
@@ -668,7 +675,7 @@ export function ApplicationDemo() {
       const data = await r.json();
       if (!r.ok) throw new Error(data.error || 'Could not complete action.');
       return data;
-    } catch (e) { setError(e.message); return null; }
+    } catch (e) { (local ? setFormError : setError)(e.message); return null; }
     finally { inflight.current = false; setBusy(false); }
   }
 
@@ -676,7 +683,7 @@ export function ApplicationDemo() {
     if (sessionStorage.getItem('application-demo-continue') !== 'yes') {
       location.assign(demoUrl('/mitid')); return;
     }
-    request('/application/init', { graph_id: graph(), demo_continue: true })
+    request('/application/init', { graph_id: graph(), demo_continue: true }, true)
       .then(data => { if (data) { setThread([]); setState(data); } });
   }
 
@@ -688,8 +695,9 @@ export function ApplicationDemo() {
       : ['boolean', 'bool'].includes(field.type) ? (raw === 'true' ? 'Yes' : 'No') : raw;
     add({ kind: 'reply', text: field.type === 'submit' ? 'Send demo application' : shown, fieldId: field.id });
     request('/application/answer', { prompt_id: state.prompt_id, value,
-      source: field.type === 'file' ? 'attachment' : 'chosen' }).then(data => {
+      source: field.type === 'file' ? 'attachment' : 'chosen' }, true).then(data => {
       if (data) setState(data);
+      else dropReply(field.id);
     });
   }
 
@@ -711,27 +719,43 @@ export function ApplicationDemo() {
   }
 
   // Typed into the composer. A question mark means they are asking, whatever
-  // the current field type is; that is the reliable route to the FAQ and does
-  // not depend on finding the button.
+  // the current field type is: the question goes to the help panel. Everything
+  // else is an answer to the field on screen.
   function send(text) {
     const field = state.field;
     setDraft(''); setInterp(null);
     if (/\?\s*$/.test(text)) { ask(text); return; }
     if (field?.type === 'file') { ask(text); return; }
+    // A number the person typed is their answer: it is not read by the model and needs no confirmation.
+    // The server still checks the range.
+    if (NUMERIC_TYPES.includes(field?.type) && PLAIN_NUMBER.test(text)) {
+      add({ kind: 'reply', text, fieldId: field.id });
+      request('/application/answer', { prompt_id: state.prompt_id, value: text.replace(',', '.') }, true).then(data => {
+        if (data) setState(data);
+        else { dropReply(field.id); setDraft(text); }
+      });
+      return;
+    }
     add({ kind: 'reply', text, fieldId: field?.id, typedText: text });
     if (field && INTERPRETABLE.includes(field.type)) {
-      request('/application/interpret', { prompt_id: state.prompt_id, message: text }).then(data => {
-        if (!data) return;
+      request('/application/interpret', { prompt_id: state.prompt_id, message: text }, true).then(data => {
+        if (!data) { dropReply(field.id); setDraft(text); return; }
         if (data.status === 'interpreted') {
           setInterp(data);
         } else {
-          askNow(text);
+          // Not readable as an answer. It is not treated as a question either:
+          // asking goes through the help panel only. The words go back into the box to be edited.
+          dropReply(field.id); setDraft(text);
+          add({ kind: 'notice', text: `${data.response || 'I could not read that as an answer.'} `
+            + 'If it was a question about the rules, ask it in Help.' });
+          if (data.handover?.html) { openHelp(); addHelp({ kind: 'handover', html: data.handover.html }); }
         }
       });
       return;
     }
-    request('/application/answer', { prompt_id: state.prompt_id, value: normalise(field, text) }).then(data => {
+    request('/application/answer', { prompt_id: state.prompt_id, value: normalise(field, text) }, true).then(data => {
       if (data) setState(data);
+      else { dropReply(field.id); setDraft(text); }
     });
   }
 
@@ -741,7 +765,7 @@ export function ApplicationDemo() {
     const editTarget = data.editFieldId || editing || target;
     setInterp(null); setEditing(null);
     if (wasEdit) {
-      request('/application/edit', { field_id: editTarget, value }).then(res => {
+      request('/application/edit', { field_id: editTarget, value }, true).then(res => {
         if (res) rewind(editTarget, res);
       });
       return;
@@ -752,14 +776,25 @@ export function ApplicationDemo() {
       const at = t.length - 1 - i;
       return t.map((m, j) => j === at ? { ...m, interpreted: shown } : m);
     });
-    request('/application/answer', { prompt_id: state.prompt_id, value, source: 'interpreted' }).then(res => {
+    request('/application/answer', { prompt_id: state.prompt_id, value, source: 'interpreted' }, true).then(res => {
       if (res) setState(res);
+    });
+  }
+
+  function dropReply(target) {
+    setThread(t => {
+      const i = [...t].reverse().findIndex(m => m.kind === 'reply' && m.fieldId === target);
+      if (i === -1) return t;
+      const at = t.length - 1 - i;
+      return t.filter((_, j) => j !== at);
     });
   }
 
   function rejectInterp() {
     if (interp?.field_id && !interp.wasEdit) {
       const target = interp.field_id;
+      const typed = [...thread].reverse().find(m => m.kind === 'reply' && m.fieldId === target && m.typedText);
+      if (typed) setDraft(typed.typedText);
       setThread(t => {
         const i = [...t].reverse().findIndex(m => m.kind === 'reply' && m.fieldId === target && m.typedText);
         if (i === -1) return t;
@@ -771,7 +806,7 @@ export function ApplicationDemo() {
   }
 
   function describeEdit(fieldId, words) {
-    request('/application/interpret', { field_id: fieldId, message: words }).then(data => {
+    request('/application/interpret', { field_id: fieldId, message: words }, true).then(data => {
       if (!data) return;
       if (data.status === 'interpreted') {
         setInterp({ ...data, wasEdit: true, editFieldId: fieldId });
@@ -796,31 +831,102 @@ export function ApplicationDemo() {
     const entry = (state.answers || []).find(a => a.id === editing);
     const value = normalise(entry, raw);
     setEditing(null);
-    request('/application/edit', { field_id: editing, value }).then(data => {
+    request('/application/edit', { field_id: editing, value }, true).then(data => {
       if (data) rewind(editing, data);
     });
   }
 
-  function askNow(message) {
-    request('/application/ask', { message }).then(data => {
+  // aboutField: opened from "Ask SU-support about this question", which turns the question context back on.
+  function openHelp(aboutField = false) {
+    setHelpOpen(true); if (aboutField) setScopeOff(false); setHelpFocus(n => n + 1);
+  }
+
+  function showHelpResult(data) {
+    if (data.handover?.html) addHelp({ kind: 'handover', html: data.handover.html });
+    if (data.status === 'handover') return;
+    if (['faq_no_match', 'faq_unavailable', 'faq_none', 'faq_out_of_scope'].includes(data.status)) {
+      addHelp({ kind: 'notice', text: data.response }); return;
+    }
+    setMatch(data);
+  }
+
+  function showAnswer(data, question) {
+    addHelp({ kind: 'faq', question: data.faq_question || question, text: data.faq_response,
+      citation: data.faq_citation, faqId: data.faq_id });
+    // Same field, new ticket: adopt it without asking the field again in the thread.
+    asked.current = data.prompt_id;
+    const { prompt, follow_up, ...view } = data;
+    setState(view);
+    // Spec 03: the follow-up determination of an answered FAQ is asked here, not in the chat.
+    setDetermination(prompt?.kind === 'determination' ? { prompt, text: follow_up } : null);
+  }
+
+  function determine(value, text) {
+    const issued = determination;
+    setDetermination(null);
+    request('/application/determination', { retrieval_prompt_id: issued.prompt.id, value }).then(data => {
       if (!data) return;
-      if (data.status === 'faq_no_match') { add({ kind: 'notice', text: data.response }); return; }
-      setMatch(data);
+      addHelp({ kind: 'determination', question: data.answered?.question || issued.prompt.text,
+        value: data.answered?.value || text, outcomes: data.outcomes || [] });
+      if (data.prompt?.kind === 'determination') setDetermination({ prompt: data.prompt });
     });
   }
 
-  function ask(message) {
-    add({ kind: 'ask', text: message });
-    askNow(message);
+  function sendHelp(payload, shown) {
+    setHelpOpen(true);
+    setMatch(null);
+    setDetermination(null);
+    const key = Date.now();
+    addHelp({ kind: 'ask', text: shown, id: key, relatedId: payload.related });
+    request('/application/ask', payload).then(data => {
+      if (!data) return;
+      if (data.searched_for) {
+        setHelpThread(t => t.map(m => (m.id === key ? { ...m, searchedFor: data.searched_for } : m)));
+      }
+      if (data.answered) {
+        if (data.handover?.html) addHelp({ kind: 'handover', html: data.handover.html });
+        showAnswer(data, shown); return;
+      }
+      showHelpResult(data);
+      // Only for statements ("yes I worked 4 years"), not for questions. Shown after any reply that is not an answer.
+      const looksLikeQuestion = /\?\s*$/.test(shown) || /^(what|how|why|when|where|who|which|can|could|do|does|did|is|are|will|would|should|may|must|if)\b/i.test(shown.trim());
+      if (['faq_no_match', 'faq_confirm', 'faq_related', 'faq_clarify'].includes(data.status) && payload.scope === 'field' && !looksLikeQuestion) {
+        addHelp({ kind: 'notice', text: 'If that was your answer to the question, enter it in the form instead. '
+          + 'Here you can ask about the rules.' });
+      }
+    });
+  }
+
+  // Typed in the panel, or a '?' message from the form composer (no scope).
+  function ask(message, scope = helpScope) {
+    const payload = { message };
+    if (scope?.kind === 'field') payload.scope = 'field';
+    sendHelp(payload, message);
+  }
+
+  function askRelated(id, question) {
+    sendHelp({ related: id }, question);
   }
 
   function confirmMatch(candidate_key, question) {
+    const issued = match;
     setMatch(null);
-    request('/application/confirm', { match_id: match.match_id, candidate_key }).then(data => {
-      if (!data) return;
-      add({ kind: 'faq', question: data.faq_question || question, text: data.faq_response });
-      setState(data);
+    request('/application/confirm', { match_id: issued.match_id, candidate_key }).then(data => {
+      if (data) showAnswer(data, question);
     });
+  }
+
+  function noneOfThese() {
+    const issued = match;
+    setMatch(null);
+    request('/application/confirm', { match_id: issued.match_id, candidate_key: 'none' }).then(data => {
+      if (data) showHelpResult(data);
+    });
+  }
+
+  function talkToPerson() {
+    openHelp();
+    request('/application/handover', {}).then(data => { if (data) showHelpResult(data); });
   }
 
   const ended = state && ['complete', 'declined'].includes(state.status);
@@ -828,274 +934,175 @@ export function ApplicationDemo() {
 
   function handleReset() {
     if (window.confirm('Start a new demo and discard this screen’s answers?')) {
-      setState(null); setThread([]); setMatch(null); setInterp(null); setError(''); sid.current = newSessionId();
+      setState(null); setThread([]); setMatch(null); setDetermination(null); setInterp(null); setError(''); setFormError(''); setDraft(''); sid.current = newSessionId();
+      setHelpThread([]); setHelpOpen(wide());
     }
   }
 
+  // Back / Change: the answer being changed is shown in place of the current question.
+  const answers = state?.answers || [];
+  const editIndex = editing ? answers.findIndex(a => a.id === editing) : -1;
+  const editEntry = editIndex >= 0 ? answers[editIndex] : null;
+  function goBack() {
+    const to = editEntry ? editIndex - 1 : answers.length - 1;
+    if (to >= 0) { setInterp(null); setEditing(answers[to].id); }
+  }
+
+  const lastStage = useRef(0);
+  const lastQuestion = thread.map(m => m.kind).lastIndexOf('question');
+  const lastNotice = thread.length && thread[thread.length - 1].kind === 'notice' ? thread[thread.length - 1] : null;
+  const stage = stageOf(state, editEntry ? editEntry.id : state?.field?.id, lastStage.current);
+  lastStage.current = stage;
+
   return (
-    <main className={`application-page ${showForm ? 'with-form' : ''}`}>
-      {/* Top Application Bar */}
-      <header className="application-header">
-        <div className="app-header-left">
-          <a href={demoUrl('/demo')} className="back-link">
-            <Icon name="chevron" size={16} />
-            <span>← Back to SU-support</span>
-          </a>
-          <span className="app-header-divider">|</span>
-          <span className="app-header-title">APPLICATION DEMO</span>
-        </div>
-        <div className="app-header-right">
-          {state && !ended && (
-            <button
-              type="button"
-              className="header-form-toggle"
-              aria-pressed={showForm}
-              onClick={() => setShowForm((v) => !v)}
-            >
-              <Icon name="card" size={15} />
-              <span>{showForm ? 'Hide form' : 'View form'}</span>
-            </button>
-          )}
-        </div>
-      </header>
+    <main className={`ap${helpOpen && state ? ' ap-help' : ''}`}>
+      <div className="ap-split">
+        <section className="ap-main">
+          <div className={`ap-inner${state && !ended ? ' ap-live' : ''}`}>
+            <div className="ap-top">
+              <a href={demoUrl('/demo')} className="ap-back"><Icon name="arrow-left" size={16} />Back to SU-support</a>
+              <div className="ap-top-right">
+                {state && <button type="button" className="ap-link ap-reset" disabled={busy} onClick={handleReset}>Start again</button>}
+                <ThemeToggle />
+                {state && !ended && !helpOpen && (
+                  <button type="button" className="ap-open" aria-expanded={false} onClick={() => openHelp()}>
+                    <Icon name="message" size={18} />Ask SU-support
+                  </button>
+                )}
+              </div>
+            </div>
 
-      {/* Grid Layout: Normal (Sidebar + Center) vs Form Open (50% Application + 50% Form) */}
-      <div className="application-layout-grid">
-        {/* Left Column: Phases and Documentation (hidden when form is open) */}
-        {!showForm && (
-          <ApplicationSidebar
-            state={state}
-            answeredCount={state?.answers?.length || 0}
-            onReset={handleReset}
-            busy={busy}
-          />
-        )}
-
-        {/* Center / Left Half: The Guided Conversational Interface */}
-        <section className="application-shell">
-          <div className="application-topline">
-            {state && !ended && (
-              <span className="dialog-status-pill">
-                <span className="live-dot" /> Active session
-              </span>
+            {!state && (
+              <div className="ap-start">
+                <h1 className="ap-title">Apply for disability allowance</h1>
+                <p className="ap-lead">We ask one question at a time. You can ask about the rules at any point, and change an earlier answer.</p>
+                <button className="ap-btn primary" disabled={busy} onClick={start}>Start the application</button>
+                <p className="ap-demo">Demonstration only. Use fictional information. Answers go to the DCR simulation and file contents are not uploaded. Nothing is sent to an authority.</p>
+                {formError && <p className="ap-error" role="alert">{formError}</p>}
+              </div>
             )}
+
+            {state && !ended && (
+              <>
+                <div className="ap-progress">
+                  <p><span>Part {stage + 1} of {STAGES.length}</span><span>{STAGES[stage].title}</span></p>
+                  <div className="ap-bar" role="progressbar" aria-valuemin={1} aria-valuemax={STAGES.length} aria-valuenow={stage + 1}>
+                    <i style={{ width: `${((stage + 1) / STAGES.length) * 100}%` }} />
+                  </div>
+                </div>
+
+                <div className="ap-chat" role="log" aria-label="Your application">
+                  {thread.map((m, i) => {
+                    if (m.kind === 'question') {
+                      const now = i === lastQuestion && !thread.slice(i + 1).some(x => x.kind === 'reply') && !editEntry && !interp;
+                      return now
+                        ? <h2 key={m.key} className="ap-q now" id="ap-q">{m.text}</h2>
+                        : <p key={m.key} className="ap-q">{m.text}</p>;
+                    }
+                    if (m.kind === 'reply') {
+                      const changeable = !editEntry && !interp && answers.some(a => a.id === m.fieldId);
+                      return <div key={m.key} className="ap-a">
+                        <div className="ap-a-row">
+                          {changeable && <button type="button" className="ap-edit" disabled={busy} title="Change this answer"
+                            onClick={() => { setInterp(null); setEditing(m.fieldId); }}
+                            aria-label={`Change answer: ${m.text}`}><Icon name="edit" size={16} /></button>}
+                          <div className="ap-bubble">{m.interpreted || m.text}</div>
+                        </div>
+                        {m.interpreted && m.typedText && <small>You wrote: {m.typedText}</small>}
+                      </div>;
+                    }
+                    return null;
+                  })}
+
+                  {editEntry && <div className="ap-edit-box">
+                    <button type="button" className="ap-prev" disabled={busy || editIndex <= 0} onClick={goBack}>
+                      <Icon name="arrow-left" size={16} />Previous question
+                    </button>
+                    <h2 className="ap-q now" id="ap-q">{editEntry.label}</h2>
+                    <p className="ap-current">Your answer: <b>{editEntry.value}</b></p>
+                    <p className="ap-hint">If you change it, the questions after it are asked again.</p>
+                    {!interp && (editEntry.type === 'file'
+                      ? <><FilePick field={editEntry} busy={busy} onSubmit={saveEdit} />
+                          <div className="ap-actions"><button type="button" className="ap-link" disabled={busy} onClick={() => setEditing(null)}>Keep this answer</button></div></>
+                      : <EditAnswer entry={editEntry} busy={busy} cancelLabel="Keep this answer"
+                          initialWords={(thread.find(m => m.kind === 'reply' && m.fieldId === editEntry.id && m.typedText) || {}).typedText || ''}
+                          onSave={saveEdit} onDescribe={describeEdit} onCancel={() => setEditing(null)} />)}
+                  </div>}
+
+                  {lastNotice && !interp && !editEntry && <p className="ap-notice" role="status">{lastNotice.text}</p>}
+
+                  {!editEntry && !interp && (review
+                    ? <div className="ap-actions">
+                        <button className="ap-btn primary" disabled={busy} onClick={() => answer('send')}>Send demo application</button>
+                      </div>
+                    : <InlineChoices field={state.field} busy={busy} onSubmit={answer} />)}
+
+                  {!editEntry && !interp && !review && !(helpOpen && helpScope) && (
+                    <p className="ap-ask">
+                      Not sure? <button type="button" className="ap-link" onClick={() => openHelp(true)}>Ask SU-support about this question</button>
+                    </p>
+                  )}
+
+                  {interp && (
+                    <div className="ap-interp" role="group" aria-label="Suggested answer">
+                      <p className="ap-interp-label">Based on what you wrote, this option fits best</p>
+                      <p className="ap-interp-value">{interp.display}</p>
+                      <div className="ap-actions">
+                        <button className="ap-btn primary" disabled={busy} onClick={() => confirmInterp(interp)}>Use this answer</button>
+                        <button className="ap-link" disabled={busy} onClick={rejectInterp}>Not this</button>
+                      </div>
+                    </div>
+                  )}
+
+                  {busy && !helpOpen && thread.length > 0 && thread[thread.length - 1].kind === 'reply' &&
+                    <div className="hp-typing" role="status" aria-label="Checking"><i /><i /><i /></div>}
+                  {formError && <p className="ap-error" role="alert">{formError}</p>}
+                  <div ref={tail} />
+                </div>
+
+                {!editEntry && !interp && !review && (
+                  <Composer field={state.field} busy={busy} value={draft} onChange={setDraft} onSend={send} />
+                )}
+              </>
+            )}
+
+            {ended && (
+              <div className="ap-done" role="status">
+                <h1 className="ap-title">{state.status === 'complete' ? 'Demo complete' : 'Application not sent'}</h1>
+                <p className="ap-lead">{state.response}</p>
+                <p className="ap-demo">{state.demo_notice}</p>
+                <a className="ap-btn secondary link" href={demoUrl('/demo')}>Return to the FAQ</a>
+              </div>
+            )}
+
+            {error && !helpOpen && <p className="ap-error" role="alert">{error}</p>}
           </div>
-
-          <h1 className="application-title">Apply for disability allowance</h1>
-          <p className="application-notice">
-            <Icon name="info" size={16} />
-            <span>
-              Demonstration only. Use fictional information. Answers are sent to the DCR simulation; file contents are not uploaded. Nothing is submitted to an authority.
-            </span>
-          </p>
-
-          {!state && (
-            <div className="application-start-card">
-              <h2>Ready to try the application?</h2>
-              <p>
-                We’ll guide you through the questions one step at a time. You can ask questions about the rules or
-                change previous answers whenever you like.
-              </p>
-              <button className="primary-start-btn" disabled={busy} onClick={start}>
-                Start demo application →
-              </button>
-            </div>
-          )}
-
-          {state && (
-            <div className="chat">
-              {thread.map((m) => {
-                if (m.kind === 'question') {
-                  return (
-                    <div key={m.key} className="bubble bot">
-                      {m.text}
-                    </div>
-                  );
-                }
-
-                if (m.kind === 'reply') {
-                  const entry = (state.answers || []).find((a) => a.id === m.fieldId);
-                  if (editing && editing === m.fieldId && entry) {
-                    return (
-                      <div key={m.key} className="bubble bot editing">
-                        <span className="edit-tag">Editing answer · {entry.label}</span>
-                        <EditAnswer
-                          entry={entry}
-                          busy={busy}
-                          initialWords={m.typedText || ''}
-                          onSave={saveEdit}
-                          onDescribe={describeEdit}
-                          onCancel={() => setEditing(null)}
-                        />
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <div key={m.key} className="turn-user">
-                      <div className="bubble user">
-                        <span className="user-reply-text">{m.text}</span>
-                        {entry && !editing && !ended && (
-                          <button
-                            className="edit-link"
-                            disabled={busy}
-                            onClick={() => setEditing(m.fieldId)}
-                            aria-label="Edit answer"
-                            title="Edit answer"
-                          >
-                            <Icon name="edit" size={13} stroke={2} />
-                          </button>
-                        )}
-                      </div>
-                      {m.interpreted && (
-                        <p className="read-as">
-                          <span className="read-as-label">Interpreted as:</span> {m.interpreted}
-                        </p>
-                      )}
-                    </div>
-                  );
-                }
-
-                if (m.kind === 'ask') {
-                  return (
-                    <div key={m.key} className="bubble user aside">
-                      <span className="aside-tag">Question for FAQ</span>
-                      {m.text}
-                    </div>
-                  );
-                }
-
-                if (m.kind === 'notice') {
-                  return (
-                    <div key={m.key} className="bubble bot notice">
-                      {m.text}
-                    </div>
-                  );
-                }
-
-                return (
-                  <div key={m.key} className="bubble bot faq">
-                    <span className="faq-tag">From FAQ · {m.question}</span>
-                    <AnswerBody html={m.text} />
-                  </div>
-                );
-              })}
-
-              {!ended &&
-                !match &&
-                !interp &&
-                (review ? (
-                  <div className="chat-choices">
-                    <button className="chip primary send-btn" disabled={busy} onClick={() => answer('send')}>
-                      Send demo application
-                    </button>
-                  </div>
-                ) : (
-                  <Answer field={state.field} busy={busy} onSubmit={answer} />
-                ))}
-
-              {interp && (
-                <div className="bubble bot interp">
-                  <span className="interp-eyebrow">Suggested answer based on your description</span>
-                  <span className="faq-tag">{interp.display}</span>
-                  <div className="chat-choices" style={{ marginTop: '12px' }}>
-                    <button className="chip primary" disabled={busy} onClick={() => confirmInterp(interp)}>
-                      Use this answer
-                    </button>
-                    <button className="chip ghost" disabled={busy} onClick={rejectInterp}>
-                      Choose another
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {match && (
-                <div className="bubble bot match">
-                  <p className="chat-question">{match.response}</p>
-                  <div className="chat-choices">
-                    {match.candidates.map((c) => (
-                      <button
-                        className="chip"
-                        key={c.candidate_key}
-                        disabled={busy}
-                        onClick={() => confirmMatch(c.candidate_key, c.question)}
-                      >
-                        {c.question}
-                      </button>
-                    ))}
-                    <button className="chip ghost" disabled={busy} onClick={() => setMatch(null)}>
-                      None of these
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {ended && (
-                <div className="application-card application-success" role="status">
-                  <span className="application-tick">{state.status === 'complete' ? '✓' : '—'}</span>
-                  <h2>{state.status === 'complete' ? 'Demo complete' : 'Application not sent'}</h2>
-                  <p>{state.response}</p>
-                  <strong className="success-demo-notice">{state.demo_notice}</strong>
-                  <p>
-                    <a href={demoUrl('/demo')} className="return-faq-link">
-                      Return to the FAQ →
-                    </a>
-                  </p>
-                </div>
-              )}
-
-              <div ref={tail} />
-            </div>
-          )}
-
-          {state && !ended && !match && !editing && !interp && (
-            <Composer
-              field={state.field}
-              busy={busy}
-              draft={draft}
-              setDraft={setDraft}
-              onSend={send}
-              onAsk={(t) => {
-                setDraft('');
-                ask(t);
-              }}
-            />
-          )}
-
-          {state?.answers?.length > 0 && !showForm && (
-            <details className="application-history" open={review}>
-              <summary>Your answers ({state.answers.length})</summary>
-              <dl>
-                {state.answers.map((a, i) => (
-                  <div key={i}>
-                    <dt>{a.label}</dt>
-                    <dd>{a.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </details>
-          )}
-
-          {error && <p className="application-error" role="alert">{error}</p>}
-          {busy && <p className="chat-busy" role="status">Checking next step…</p>}
         </section>
 
-        {/* Right Half: Live Form Review Panel (when toggled on) */}
-        {showForm && state && (
-          <FormPanel
-            answers={state.answers || []}
-            form={state.form || []}
-            current={!ended && !review ? state.field : null}
-            editing={editing}
+        {helpOpen && state && !ended && (
+          <HelpPanel
+            thread={helpThread}
+            match={match}
+            determination={determination}
             busy={busy}
-            onEdit={setEditing}
-            onSave={saveEdit}
-            onDescribe={describeEdit}
-            onCancel={() => setEditing(null)}
-            onClose={() => setShowForm(false)}
+            error={error}
+            focusKey={helpFocus}
+            scoped={!!helpScope}
+            canScope={onField}
+            onAsk={(t) => ask(t)}
+            onRelated={askRelated}
+            onScope={(on) => { setScopeOff(!on); setHelpFocus(n => n + 1); }}
+            onPick={confirmMatch}
+            onNone={noneOfThese}
+            onDetermine={determine}
+            onSkipDetermination={() => setDetermination(null)}
+            onPerson={talkToPerson}
+            onClose={() => setHelpOpen(false)}
           />
         )}
       </div>
+
+      {helpOpen && state && !ended && <div className="ap-scrim" onClick={() => setHelpOpen(false)} aria-hidden="true" />}
     </main>
   );
 }

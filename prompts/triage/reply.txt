@@ -1,0 +1,1 @@
+If the applicant message answers the prompt on screen, which option does it give? Use "none" if it does not answer it.

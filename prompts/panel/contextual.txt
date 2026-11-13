@@ -1,0 +1,1 @@
+Does the applicant message only make sense together with the context, for example "what do I put here?", "does that count?", "and if not?" or "what does this mean"? False if it is a self-contained question or there is no context.

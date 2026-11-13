@@ -6,5 +6,5 @@
 #   pip install -r faq_search/requirements.txt
 #   python faq_search/embed_faq_data.py
 
-sentence-transformers>=3.0
-numpy>=1.26
+sentence-transformers>=6.1,<7
+numpy>=1.26,<3

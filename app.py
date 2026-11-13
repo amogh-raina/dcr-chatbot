@@ -1,23 +1,29 @@
-from flask import Flask, request, render_template, jsonify, send_from_directory, session, abort, redirect
+from flask import Flask, request, jsonify, send_from_directory, abort, redirect
 import logging
 from typing import Optional, Any, Dict
 import random
 from dotenv import load_dotenv
+
+load_dotenv()
+
 import json
 import time
 import re
-import dcr_repository as dcrrepo
-import questions as quest
-import utility as utility
-import chatnlp as chatnlp
-import faq_runtime
-import application_runtime
+import dcrai.dcr.dcr_repository as dcrrepo
+from dcrai import paths
+from dcrai.observability.redaction import redact
+import dcrai.legacy.questions as quest
+import dcrai.legacy.utility as utility
+import dcrai.legacy.chatnlp as chatnlp
+from dcrai.chat import faq_runtime
+from dcrai.chat import retrieval_runtime
+from dcrai.application import application_runtime
+import dcrai.observability.interaction_log as ilog
 import threading
 from datetime import datetime
 import os
 
 from waitress import serve
-load_dotenv()
 try:
     from external_scripts import graph_parser
 except ModuleNotFoundError as error:
@@ -37,7 +43,7 @@ app = Flask(__name__)
 api_key = os.getenv("API_KEY")
 token = os.getenv("TOKEN")
 root_url = os.getenv("ROOT_URL")
-TRACE_DIR = "runtime_traces"
+TRACE_DIR = str(paths.RUNTIME_TRACES)
 
 # Store for tab-specific sessions
 tab_sessions = {}
@@ -78,7 +84,7 @@ def _persist_runtime_trace_file(
         )
         filepath = os.path.join(TRACE_DIR, filename)
         with open(filepath, "w", encoding="utf-8") as file:
-            json.dump(payload, file, indent=2, ensure_ascii=False)
+            json.dump(redact(payload), file, indent=2, ensure_ascii=False)
         return filepath
     except Exception as e:
         logging.warning(f"Failed to persist runtime trace file ({trace_kind}): {str(e)}")
@@ -102,110 +108,36 @@ def _persist_raw_final_state_file(
 
 
 def _collect_and_persist_runtime_traces(tab_session: Dict[str, Any], session_id: str) -> Dict[str, Optional[str]]:
-    """Collect simulation payloads and persist them under runtime_traces/."""
+    """Persist the final /simulation/ event list under runtime_traces/.
+
+    The /simulation/ engine has no full-payload or log read (GET
+    /simulation/{id} is 404), so only the event list is collected.
+    """
     graph_id = tab_session.get("graph_id")
     simulation_id = tab_session.get("simulation_id")
-    traces: Dict[str, Any] = {
-        "sim": None,
-        "log": None,
-        "events": None,
-    }
-
-    try:
-        sim_payload = dcrrepo.get_simulation_payload(tab_session)
-        if sim_payload is not None:
-            traces["sim"] = _persist_runtime_trace_file(
-                session_id=session_id,
-                graph_id=graph_id,
-                simulation_id=simulation_id,
-                trace_kind="sim_payload",
-                payload=sim_payload
-            )
-        else:
-            traces["sim"] = _persist_runtime_trace_file(
-                session_id=session_id,
-                graph_id=graph_id,
-                simulation_id=simulation_id,
-                trace_kind="sim_payload_error",
-                payload={
-                    "error": "Simulation payload endpoint returned no data",
-                    "attempted_endpoints": [
-                        f"/api/graphs/{graph_id}/sims/{simulation_id}",
-                        f"/api/graphs/{graph_id}/simulation/{simulation_id}"
-                    ]
-                }
-            )
-    except Exception as e:
-        logging.warning(f"Failed to collect simulation payload: {str(e)}")
-        traces["sim"] = _persist_runtime_trace_file(
-            session_id=session_id,
-            graph_id=graph_id,
-            simulation_id=simulation_id,
-            trace_kind="sim_payload_error",
-            payload={
-                "error": f"Exception while collecting simulation payload: {str(e)}",
-                "attempted_endpoints": [
-                    f"/api/graphs/{graph_id}/sims/{simulation_id}",
-                    f"/api/graphs/{graph_id}/simulation/{simulation_id}"
-                ]
-            }
-        )
-
-    try:
-        sim_log = dcrrepo.get_simulation_log(tab_session)
-        if sim_log is not None:
-            traces["log"] = _persist_runtime_trace_file(
-                session_id=session_id,
-                graph_id=graph_id,
-                simulation_id=simulation_id,
-                trace_kind="sim_log",
-                payload=sim_log
-            )
-    except Exception as e:
-        logging.warning(f"Failed to collect simulation log: {str(e)}")
-
+    endpoint = f"/api/graphs/{graph_id}/simulation/{simulation_id}/event"
+    traces: Dict[str, Any] = {"events": None}
     try:
         sim_events = dcrrepo.get_simulation_events(tab_session)
         if sim_events is not None:
             traces["events"] = _persist_runtime_trace_file(
-                session_id=session_id,
-                graph_id=graph_id,
-                simulation_id=simulation_id,
-                trace_kind="sim_events",
-                payload=sim_events
-            )
+                session_id=session_id, graph_id=graph_id, simulation_id=simulation_id,
+                trace_kind="sim_events", payload=sim_events)
             # Keep the events payload in session for any downstream use.
             set_tab_session(session_id, "simulation_state", sim_events)
         else:
             traces["events"] = _persist_runtime_trace_file(
-                session_id=session_id,
-                graph_id=graph_id,
-                simulation_id=simulation_id,
+                session_id=session_id, graph_id=graph_id, simulation_id=simulation_id,
                 trace_kind="sim_events_error",
-                payload={
-                    "error": "Simulation events endpoint returned no data",
-                    "attempted_endpoints": [
-                        f"/api/graphs/{graph_id}/sims/{simulation_id}/events",
-                        f"/api/graphs/{graph_id}/simulation/{simulation_id}/event"
-                    ]
-                }
-            )
+                payload={"error": "Simulation events endpoint returned no data",
+                         "attempted_endpoints": [endpoint]})
     except Exception as e:
         logging.warning(f"Failed to collect simulation events: {str(e)}")
         traces["events"] = _persist_runtime_trace_file(
-            session_id=session_id,
-            graph_id=graph_id,
-            simulation_id=simulation_id,
+            session_id=session_id, graph_id=graph_id, simulation_id=simulation_id,
             trace_kind="sim_events_error",
-            payload={
-                "error": f"Exception while collecting simulation events: {str(e)}",
-                "attempted_endpoints": [
-                    f"/api/graphs/{graph_id}/sims/{simulation_id}/events",
-                    f"/api/graphs/{graph_id}/simulation/{simulation_id}/event"
-                ]
-            }
-        )
-
+            payload={"error": f"Exception while collecting simulation events: {str(e)}",
+                     "attempted_endpoints": [endpoint]})
     return traces
 
 # Error Handlers
@@ -227,12 +159,14 @@ def internal_server_error(error):
 @app.errorhandler(Exception)
 def handle_exception(error):
     logging.error(f'Unhandled Exception: {error}')
-    return jsonify({'error': 'Server Error', 'message': str(error)}), 500
+    return jsonify({'error': 'Server Error', 'message': 'An internal error occurred. Please try again later.'}), 500
 
 def faq_response(state, data):
     # Serialize matching/confirmation/execution within each browser session.
     with state.setdefault('faq_lock', threading.RLock()):
         try:
+            if state.get('retrieval_mode'):
+                return jsonify(retrieval_runtime.handle(state, data))
             return jsonify(faq_runtime.handle(state, data))
         except faq_runtime.StateError as error:
             logging.warning('FAQ state validation failed: %s marking=%s', error, state.get('simulation_state'))
@@ -267,7 +201,6 @@ def chat_reply():
     # now we start chatting, i.e. we receive a response from the user
     datatype = None
     enum = None
-    conclusion = None
     event_id = tab_session.get("event_id")
     question = tab_session.get("question")
     lang = tab_session.get("graph_language") or "da"
@@ -291,7 +224,6 @@ def chat_reply():
     
     chat_result = {}
     comment = ""
-    replyvalue = None
     logging.info(f'CHAT message={msg_text}, value={msg_value}, simulation_id={simulation_id}, event_id={event_id}')
     interpreted_event = utility.get_event(event_id, simulation_state)
     # A request to see the menu is not a selection and must not execute it.
@@ -504,7 +436,7 @@ def ask_question(session_id):
                 logging.info(f'*** Inferred reply: event_id={event_id}, reply={inferred_reply}, value={inferred_value}, question={question}')
                 logging.info(f'*** Event of the inferred? {found_event}')
                 return ({'response': question, 'confirm': True, 'qvalue': inferred_reply, 'value': inferred_value,
-                                'enum': f"Yes ({inferred_value})", 'event_id': event_id, 'datatype': found_event['dataType'], 'enum': found_event.get('choiceValues', '')})
+                                'event_id': event_id, 'datatype': found_event['dataType'], 'enum': found_event.get('choiceValues', '')})
     
     # If we reach this point, we have no inferred replies, and we have to ask the user the next pending question
     found_event = utility.get_pending_event(simulation_state)
@@ -549,8 +481,6 @@ def ask_question(session_id):
         return ({
             'conclusion': conclusion,
             'raw_final_state_file': raw_final_state_file,
-            'simulation_payload_file': trace_files.get("sim"),
-            'simulation_log_file': trace_files.get("log"),
             'simulation_events_file': trace_files.get("events"),
         })
 
@@ -632,7 +562,7 @@ def edit_event():
     else:
         last_event = tab_session.get("last_event", {})
         if(event_toedit not in last_event.keys()): 
-            abort(400, f'No previous reply found') 
+            abort(400, 'No previous reply found')
         value = last_event[event_toedit]
     
     simulation_state = tab_session.get("simulation_state")
@@ -656,7 +586,7 @@ def edit_event():
                 except ValueError as e:
                     logging.error(f"Invalid enum format: {qvalue}. Error: {str(e)}")
                     qvalue = ""
-                    abort(500, f"Problem with parsing the new question. ")
+                    abort(500, "Problem with parsing the new question. ")
             if datatype == 'date':
                 try: 
                     qvalue = utility.get_date_as_string(value)
@@ -758,6 +688,12 @@ def init():
     # determine the first question or information event.
     simulation_state = dcrrepo.get_events(tab_session)
     set_tab_session(session_id, "simulation_state", simulation_state)
+    if retrieval_runtime.is_retrieval(simulation_state):
+        # Retrieval graph: questions go through DCR's Robot and effect; the LLM only classifies.
+        ilog.start(tab_session, graph_id, simulation_id, interface='chat')
+        response = retrieval_runtime.initialize(tab_session, simulation_state)
+        response.update(welcome=welcome, simulation_id=simulation_id, graph_language=graphLanguage)
+        return jsonify(response)
     if faq_runtime.is_faq(simulation_state):
         # Background parsing remains review-only; FAQ runtime never consumes it.
         parse_graph_for_review(graphxml, tab_session)
@@ -779,7 +715,7 @@ def init():
     else:
         chat_id = chatnlp.create_chat(100, "x", "", "", tab_session["graph_id"], root_url, api_key, token)
         logging.info(f'ZZZ chat_id={chat_id}')
-        if chat_id == None:
+        if chat_id is None:
             logging.error("Could not create chat")
             abort(500, 'Could not create chat')
         
@@ -912,4 +848,5 @@ def get_parsed_graph(graph_id):
         }), 500
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
     serve(app, host="0.0.0.0", port=8080)

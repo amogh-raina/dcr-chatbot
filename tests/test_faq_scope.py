@@ -3,8 +3,8 @@ import json
 import unittest
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
-import openchat
-import faq_runtime as faq
+from dcrai.llm import openchat
+import dcrai.chat.faq_runtime as faq
 
 PAIR = {'candidate_key': 'global:1', 'event_id': 'global', 'value': '1',
         'question': 'How do I apply?'}

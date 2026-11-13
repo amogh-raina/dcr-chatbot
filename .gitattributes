@@ -1,0 +1,7 @@
+*.md whitespace=-blank-at-eol
+*.py text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.yml text eol=lf

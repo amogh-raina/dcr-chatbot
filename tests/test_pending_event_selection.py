@@ -1,6 +1,6 @@
 import unittest
 
-import utility
+from dcrai.legacy import utility
 
 
 def pending_event(event_id, event_type="", data_type=""):

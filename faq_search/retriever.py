@@ -52,7 +52,15 @@ class FAQRetriever:
         records_path: Path = DEFAULT_RECORDS_PATH,
         vectors_path: Path = DEFAULT_VECTORS_PATH,
         meta_path: Path = DEFAULT_META_PATH,
+        query_prompt: str | None = None,
     ):
+        # Optional prompt applied to the USER QUERY only (stored questions are embedded without one).
+        # Either the name of a prompt the model defines (Qwen3-Embedding has "query") or literal text,
+        # e.g. "Instruct: Given a question, retrieve the matching FAQ question\nQuery:". Defaults to
+        # the FAQ_QUERY_PROMPT environment variable; empty means no prompt. Thresholds are tuned per
+        # prompt setting, so recalibrate when this changes.
+        from dcrai import registry  # the registry owns the default and records it in the version id
+        self.query_prompt = (query_prompt if query_prompt is not None else registry.get("FAQ_QUERY_PROMPT")).strip()
         self.records_path = Path(records_path)
         self.vectors_path = Path(vectors_path)
         self.meta_path = Path(meta_path)
@@ -88,6 +96,23 @@ class FAQRetriever:
             self._model = SentenceTransformer(self._model_name)
         return self._model
 
+    def _encode_query(self, query: str) -> np.ndarray:
+        """Embeds one user query (with the optional query prompt) as an L2-normalized float32 vector."""
+        kwargs: dict[str, Any] = {}
+        if self.query_prompt:
+            if self.query_prompt in (getattr(self.model, "prompts", None) or {}):
+                kwargs["prompt_name"] = self.query_prompt
+            else:
+                kwargs["prompt"] = self.query_prompt
+        vec = self.model.encode(
+            [query],
+            show_progress_bar=False,
+            convert_to_numpy=True,
+            normalize_embeddings=True,
+            **kwargs,
+        )[0]
+        return vec.astype("float32")
+
     def retrieve(self, query: str, top_k: int = 3) -> list[SearchResult]:
         """Perform semantic search for a query and return top_k unique FAQ records."""
         query = (query or "").strip()
@@ -95,12 +120,7 @@ class FAQRetriever:
             return []
 
         # Encode query and normalize
-        query_vec = self.model.encode(
-            [query],
-            show_progress_bar=False,
-            convert_to_numpy=True,
-            normalize_embeddings=True,
-        )[0].astype("float32")
+        query_vec = self._encode_query(query)
 
         # Cosine similarity == dot product since rows and query are L2 normalized
         scores = np.dot(self._vectors, query_vec)

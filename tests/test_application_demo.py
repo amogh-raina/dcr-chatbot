@@ -5,7 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 import xml.etree.ElementTree as E
 from flask import Flask
-import application_runtime as runtime
+import dcrai.application.application_runtime as runtime
 
 class Model:
  def __init__(self):

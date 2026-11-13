@@ -5,13 +5,26 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "lint": "eslint . --max-warnings 0",
+    "test": "node --test src/*.test.mjs",
+    "test:ui": "node preview/preview.mjs && node preview/thread.mjs"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "6.1.1",
-    "vite": "8.3.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@vitejs/plugin-react": "6.1.1",
+    "eslint": "9.39.5",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.14.0",
+    "playwright": "1.65.0",
+    "vite": "8.3.8"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
 }

@@ -1,31 +1,39 @@
 # Secrets and local environments
 .env
 .env.*
-!.env.faq.example
 !.env.example
 .venv/
 venv/
 __pycache__/
 *.py[cod]
 .DS_Store
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.jj/
+.claude/
+/AI/
 
-# Local reference material and generated data
-/FAQ_GRAPH_REVIEW.md
-/faq_inventory_v1.md
-/FAQ_SMOKE_RESULT.md
+# Runtime data and personal review material
+/docs/local/
 /parsed_graphs/
-/runtime_traces/
-/[eE]xternal_[sS]cripts/*
+/traces/*
+!/traces/README.md
+/external_scripts/*
 !/external_scripts/graph_parser.py
 !/external_scripts/__init__.py
-/interaction_logs
-.playwright-mcp
-# Frontend dependencies (built demo is intentionally shared)
+.playwright-mcp/
 node_modules/
 *.log
 
-# Personal notes, debugging screenshots, packaged skill artifacts
-/idea.md
-/application-start.png
-/home-closed.png
-/dcr-xml-builder.skill
+# Only graph generation tools are shared; ad-hoc Portal probes stay local.
+/tools/*
+!/tools/clean_graph/
+/xml graphs/*
+# Historical graphs already tracked remain tracked. Share the credential-free current build.
+!/xml graphs/SU_handicaptillaeg_FAQ_Retrieval_Clean_NoEffect.xml
+
+# Exclude stray document copies, but retain the required canonical build source.
+Question_upmapping_chatbot.docx
+!/docs/sources/Question_upmapping_chatbot.docx

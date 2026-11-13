@@ -1,7 +1,7 @@
 import copy
 import unittest
 from unittest.mock import patch
-import faq_runtime as faq
+import dcrai.chat.faq_runtime as faq
 
 def payload():
  def e(id,tags,label,options='',**state):

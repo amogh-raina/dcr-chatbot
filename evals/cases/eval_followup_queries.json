@@ -1,0 +1,73 @@
+{
+  "description": "Help panel (application) follow-up eval, written 2026-10-09. Each case seeds the panel state the way application_runtime keeps it: the field on screen (help text from the Clean graph), the applicant's previous panel question (help_last_message) and the FAQ shown for it (help_last_faq, from faq_qa_records.json). Then 'message' is asked with the field as context and the outcome is scored. followup: true = the message only makes sense with context (previous question or the field on screen), false = self-contained, null = not a question (a statement or an answer). expect: {'answer': [ids]} = one of these FAQs should be answered (options containing one count as partial); {'no_answer': true} = no FAQ answers it, the panel should say so (no match, or 'the answer above is the closest'); {'same_or_answer': [ids]} = the FAQ already shown covers it, so pointing back to it or showing it again is correct. Labelled by one person (Claude, reviewed by nobody yet): treat the labels as a first pass and correct them where you disagree.",
+  "groups": {
+    "F": "follow-up that a different FAQ answers",
+    "N": "follow-up that no FAQ answers (must not be answered)",
+    "S": "follow-up that the FAQ just shown already covers",
+    "C": "self-contained control on the field, no history",
+    "T": "topic switch after a previous FAQ (must not be pulled towards the previous topic)",
+    "V": "vague message that depends on the field on screen",
+    "A": "an answer or statement typed into Help (not a question)",
+    "O": "out of scope or a request to assess the applicant's own case",
+    "M": "second-step follow-up (the previous question was itself a follow-up)"
+  },
+  "queries": [
+    {"id": "f01", "group": "F", "field": "Form0:Prev_work", "previous": "what if I have prior work experience? how would that affect my application?", "previous_faq": "FAQ_17", "message": "and how is my ability to work assessed then?", "followup": true, "expect": {"answer": ["FAQ_15"]}},
+    {"id": "f02", "group": "F", "field": "Form0:Plan_work_studies", "previous": "how many hours can I work and still qualify?", "previous_faq": "FAQ_16", "message": "does unpaid volunteering count towards those hours too?", "followup": true, "expect": {"answer": ["FAQ_P09"]}},
+    {"id": "f03", "group": "F", "field": "Form0:Plan_work_studies", "previous": "how many hours can I work and still qualify?", "previous_faq": "FAQ_16", "message": "and how much am I allowed to earn then?", "followup": true, "expect": {"answer": ["FAQ_38"]}},
+    {"id": "f04", "group": "F", "field": "Form0:A11", "previous": "which documents do I need to attach?", "previous_faq": "FAQ_21", "message": "how old can they be?", "followup": true, "expect": {"answer": ["FAQ_P04"]}},
+    {"id": "f05", "group": "F", "field": "Form0:A11", "previous": "which documents do I need to attach?", "previous_faq": "FAQ_21", "message": "is a note from my psychologist enough for that?", "followup": true, "expect": {"answer": ["FAQ_25"]}},
+    {"id": "f06", "group": "F", "field": "Form0:A11", "previous": "how recent should the documents be?", "previous_faq": "FAQ_P04", "message": "can I black out parts of them?", "followup": true, "expect": {"answer": ["FAQ_P06"]}},
+    {"id": "f07", "group": "F", "field": "Form0:Time_limited", "previous": "what is a time-limited supplement?", "previous_faq": "FAQ_36", "message": "can I get it extended?", "followup": true, "expect": {"answer": ["FAQ_37"]}},
+    {"id": "f08", "group": "F", "field": "Form0:A10", "previous": "how long will processing take?", "previous_faq": "FAQ_P08", "message": "and if they say no, can I appeal?", "followup": true, "expect": {"answer": ["FAQ_41", "FAQ_32"]}, "note": "FAQ_32 also states that a refusal can be appealed; corrected 2026-10-10"},
+    {"id": "f09", "group": "F", "field": "Form0:A10", "previous": "can I appeal a decision?", "previous_faq": "FAQ_41", "message": "what if I'm late with it?", "followup": true, "expect": {"answer": ["FAQ_42"]}},
+    {"id": "f10", "group": "F", "field": "Form0:Impairment_type", "previous": "What if my impairment is congenital and I don't have recent medical records?", "previous_faq": "FAQ_26", "message": "should I write a personal statement about it then?", "followup": true, "expect": {"answer": ["FAQ_P05"]}},
+    {"id": "f11", "group": "F", "field": "Form0:A2", "previous": "what counts as a permanent impairment?", "previous_faq": "FAQ_08", "message": "what if I have two of them?", "followup": true, "expect": {"answer": ["FAQ_13"]}},
+    {"id": "f12", "group": "F", "field": "Form0:Impairment_definition", "previous": "what counts as a permanent impairment?", "previous_faq": "FAQ_08", "message": "how long does it need to have lasted?", "followup": true, "expect": {"answer": ["FAQ_09"]}},
+    {"id": "f13", "group": "F", "field": "Form0:A5", "previous": "should I include a personal statement?", "previous_faq": "FAQ_P05", "message": "okay, and what should the medical records themselves describe?", "followup": true, "expect": {"answer": ["FAQ_23"]}},
+    {"id": "f14", "group": "F", "field": "Form0:A1_1", "previous": "when does payment begin?", "previous_faq": "FAQ_35", "message": "do I need to get ordinary SU first for that?", "followup": true, "expect": {"answer": ["FAQ_04"]}},
+
+    {"id": "n01", "group": "N", "field": "Form0:Prev_work", "previous": "what if I have prior work experience? how would that affect my application?", "previous_faq": "FAQ_17", "message": "okay, but would the number of hours matter here?", "followup": true, "expect": {"no_answer": true}, "note": "The live case from 2026-10-09. FAQ_16 (5-6 hours of current work capacity) is not about hours of past work."},
+    {"id": "n02", "group": "N", "field": "Form0:Plan_work_studies", "previous": "how many hours can I work and still qualify?", "previous_faq": "FAQ_16", "message": "is that different for master's students?", "followup": true, "expect": {"no_answer": true}},
+    {"id": "n03", "group": "N", "field": "Form0:A11", "previous": "how recent should the documents be?", "previous_faq": "FAQ_P04", "message": "do they have to be translated into Danish?", "followup": true, "expect": {"no_answer": true}},
+    {"id": "n04", "group": "N", "field": "Form0:Time_limited", "previous": "can I get my time-limited supplement extended?", "previous_faq": "FAQ_37", "message": "will it go faster if I apply for it early?", "followup": true, "expect": {"no_answer": true}},
+    {"id": "n05", "group": "N", "field": "Form0:A10", "previous": "how long will processing take?", "previous_faq": "FAQ_P08", "message": "can I pay to have it processed faster?", "followup": true, "expect": {"no_answer": true}},
+    {"id": "n06", "group": "N", "field": "Form0:Email", "previous": "how can I follow my case?", "previous_faq": "FAQ_P02", "message": "will you also send me a text message?", "followup": true, "expect": {"no_answer": true}},
+    {"id": "n07", "group": "N", "field": "Form0:A5", "previous": "should I include a personal statement?", "previous_faq": "FAQ_P05", "message": "how many pages should it be?", "followup": true, "expect": {"no_answer": true}},
+    {"id": "n08", "group": "N", "field": "Form0:Plan_work_studies", "previous": "may I do voluntary work?", "previous_faq": "FAQ_P09", "message": "what if they pay me in gift cards instead of money?", "followup": true, "expect": {"no_answer": true}, "note": "Ambiguous: arguably FAQ_P09/FAQ_38 touch it. Kept as no_answer because neither says anything about payment in kind."},
+
+    {"id": "s01", "group": "S", "field": "Form0:Prev_work", "previous": "what if I have prior work experience? how would that affect my application?", "previous_faq": "FAQ_17", "message": "so they won't contact my old employers?", "followup": true, "expect": {"same_or_answer": ["FAQ_17"]}, "note": "FAQ_17 says contacting employers is not part of the assessment. The current 'same FAQ' text says the answer above 'does not say more', which is wrong here: watch the wording."},
+    {"id": "s02", "group": "S", "field": "Form0:A11", "previous": "which documents do I need to attach?", "previous_faq": "FAQ_21", "message": "so a record from my GP is enough?", "followup": true, "expect": {"same_or_answer": ["FAQ_21", "FAQ_24"]}},
+    {"id": "s03", "group": "S", "field": "Form0:Time_limited", "previous": "can I get my time-limited supplement extended?", "previous_faq": "FAQ_37", "message": "how early can I apply for that?", "followup": true, "expect": {"same_or_answer": ["FAQ_37"]}},
+
+    {"id": "c01", "group": "C", "field": "Form0:Prev_work", "previous": null, "previous_faq": null, "message": "Does work I did before my studies count against me?", "followup": false, "expect": {"answer": ["FAQ_17"]}},
+    {"id": "c02", "group": "C", "field": "Form0:A11", "previous": null, "previous_faq": null, "message": "May I black out sensitive details in my medical records?", "followup": false, "expect": {"answer": ["FAQ_P06"]}},
+    {"id": "c03", "group": "C", "field": "Form0:A5", "previous": null, "previous_faq": null, "message": "what should I write about in my personal statement?", "followup": false, "expect": {"answer": ["FAQ_P05"]}},
+    {"id": "c04", "group": "C", "field": "Form0:Plan_work_studies", "previous": null, "previous_faq": null, "message": "how many hours a week can I work and still get the supplement?", "followup": false, "expect": {"answer": ["FAQ_16"]}},
+    {"id": "c05", "group": "C", "field": "Form0:Impairment_type", "previous": null, "previous_faq": null, "message": "I was born with my condition and only have old records, is that a problem?", "followup": false, "expect": {"answer": ["FAQ_26"]}},
+    {"id": "c06", "group": "C", "field": "Form0:A10", "previous": null, "previous_faq": null, "message": "how long does it take before I get a decision?", "followup": false, "expect": {"answer": ["FAQ_P08"]}},
+
+    {"id": "t01", "group": "T", "field": "Form0:Prev_work", "previous": "what if I have prior work experience? how would that affect my application?", "previous_faq": "FAQ_17", "message": "Can someone else handle my application for me?", "followup": false, "expect": {"answer": ["FAQ_P07"]}},
+    {"id": "t02", "group": "T", "field": "Form0:A11", "previous": "which documents do I need to attach?", "previous_faq": "FAQ_21", "message": "Can I get handicaptillæg if I'm not a Danish citizen?", "followup": false, "expect": {"answer": ["FAQ_05b"]}},
+    {"id": "t03", "group": "T", "field": "Form0:Plan_work_studies", "previous": "how many hours can I work and still qualify?", "previous_faq": "FAQ_16", "message": "Can I receive a scholarship while getting the supplement?", "followup": false, "expect": {"answer": ["FAQ_P12"]}},
+    {"id": "t04", "group": "T", "field": "Form0:A5", "previous": "should I include a personal statement?", "previous_faq": "FAQ_P05", "message": "can I apply because of my child's disability?", "followup": false, "expect": {"answer": ["FAQ_34"]}},
+
+    {"id": "v01", "group": "V", "field": "Form0:Impairment_definition", "previous": null, "previous_faq": null, "message": "what does this mean?", "followup": true, "expect": {"answer": ["FAQ_08", "FAQ_09"]}},
+    {"id": "v02", "group": "V", "field": "Form0:A14", "previous": null, "previous_faq": null, "message": "what if it hasn't been a full year yet?", "followup": true, "expect": {"answer": ["FAQ_09", "FAQ_33"]}},
+    {"id": "v03", "group": "V", "field": "Form0:Plan_work_studies", "previous": null, "previous_faq": null, "message": "I'm not sure, how does my answer here affect the application?", "followup": true, "expect": {"answer": ["FAQ_16", "FAQ_15"]}},
+    {"id": "v04", "group": "V", "field": "Form0:A11", "previous": null, "previous_faq": null, "message": "what counts here?", "followup": true, "expect": {"answer": ["FAQ_21", "FAQ_24"]}},
+    {"id": "v05", "group": "V", "field": "Form0:Time_limited", "previous": null, "previous_faq": null, "message": "what is that?", "followup": true, "expect": {"answer": ["FAQ_36"]}},
+    {"id": "v06", "group": "V", "field": "Form0:Samtykke", "previous": null, "previous_faq": null, "message": "why are you asking me this?", "followup": true, "expect": {"no_answer": true}, "note": "Demo consent question: no FAQ covers it; the help text on screen does."},
+
+    {"id": "a01", "group": "A", "field": "Form0:Prev_work", "previous": null, "previous_faq": null, "message": "yes I worked 4 years at a supermarket", "followup": null, "expect": {"no_answer": true}},
+    {"id": "a02", "group": "A", "field": "Form0:A15", "previous": null, "previous_faq": null, "message": "about 10 hours a week", "followup": null, "expect": {"no_answer": true}},
+    {"id": "a03", "group": "A", "field": "Form0:A2", "previous": null, "previous_faq": null, "message": "it's a physical impairment, I use a wheelchair", "followup": null, "expect": {"no_answer": true}},
+
+    {"id": "o01", "group": "O", "field": "Form0:A2", "previous": null, "previous_faq": null, "message": "will I get the supplement with my condition?", "followup": false, "expect": {"no_answer": true}, "note": "A request to assess the applicant's own case. Options with FAQ_03/FAQ_07 would be acceptable as 'related' but not as an answer."},
+    {"id": "o02", "group": "O", "field": "Form0:Plan_work_studies", "previous": null, "previous_faq": null, "message": "how do I apply for housing benefit?", "followup": false, "expect": {"no_answer": true}},
+    {"id": "o03", "group": "O", "field": "Form0:Email", "previous": "how can I follow my case?", "previous_faq": "FAQ_P02", "message": "what's the weather like in Copenhagen today?", "followup": false, "expect": {"no_answer": true}},
+
+    {"id": "m01", "group": "M", "field": "Form0:Plan_work_studies", "previous": "and how much am I allowed to earn then?", "previous_faq": "FAQ_38", "message": "what happens if I go over it?", "followup": true, "expect": {"answer": ["FAQ_40", "FAQ_39"]}},
+    {"id": "m02", "group": "M", "field": "Form0:A10", "previous": "what if I'm late with it?", "previous_faq": "FAQ_42", "message": "and will new documents I send with the appeal be looked at?", "followup": true, "expect": {"answer": ["FAQ_43"]}, "note": "FAQ_43 is about appeals against a refusal to process; acceptable as the closest answer."}
+  ]
+}

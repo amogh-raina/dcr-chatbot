@@ -1,0 +1,1 @@
+Would this FAQ help the applicant with what they ask: does it answer it directly, or cover the topic their question is about (a broader FAQ that contains the answer counts)? False if it is about a different topic or situation.

@@ -1,0 +1,1022 @@
+{
+ "args": {
+  "cmd": "panel",
+  "graph": "2014118",
+  "base": "http://127.0.0.1:8080",
+  "expect_mode": "shadow",
+  "repeat": 1,
+  "cases": null,
+  "skip_mechanics": false
+ },
+ "replay": [
+  {
+   "id": "f01",
+   "group": "F",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_01",
+    "FAQ_03",
+    "FAQ_07"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 9.06,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_15"
+    ]
+   }
+  },
+  {
+   "id": "f02",
+   "group": "F",
+   "rep": 0,
+   "verdict": "confirm_right",
+   "kind": "confirm",
+   "row": 6,
+   "status": "faq_confirm",
+   "faq_ids": [
+    "FAQ_P09"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.46,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P09"
+    ]
+   }
+  },
+  {
+   "id": "f03",
+   "group": "F",
+   "rep": 0,
+   "verdict": "partial",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_38",
+    "FAQ_01",
+    "FAQ_35"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.76,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_38"
+    ]
+   }
+  },
+  {
+   "id": "f04",
+   "group": "F",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_04",
+    "FAQ_01",
+    "FAQ_03"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.54,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P04"
+    ]
+   }
+  },
+  {
+   "id": "f05",
+   "group": "F",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_01",
+    "FAQ_03"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 4.19,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_25"
+    ]
+   }
+  },
+  {
+   "id": "f06",
+   "group": "F",
+   "rep": 0,
+   "verdict": "confirm_right",
+   "kind": "confirm",
+   "row": 6,
+   "status": "faq_confirm",
+   "faq_ids": [
+    "FAQ_P06"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 4.78,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P06"
+    ]
+   }
+  },
+  {
+   "id": "f07",
+   "group": "F",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_37"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.64,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_37"
+    ]
+   }
+  },
+  {
+   "id": "f08",
+   "group": "F",
+   "rep": 0,
+   "verdict": "partial",
+   "kind": "clarify",
+   "row": 7,
+   "status": "faq_clarify",
+   "faq_ids": [
+    "FAQ_41",
+    "FAQ_32",
+    "FAQ_42"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.14,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_41",
+     "FAQ_32"
+    ]
+   }
+  },
+  {
+   "id": "f09",
+   "group": "F",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_P01",
+    "FAQ_01"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.9,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_42"
+    ]
+   }
+  },
+  {
+   "id": "f10",
+   "group": "F",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_01",
+    "FAQ_03"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 4.58,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P05"
+    ]
+   }
+  },
+  {
+   "id": "f11",
+   "group": "F",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_01",
+    "FAQ_35",
+    "FAQ_08"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.92,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_13"
+    ]
+   }
+  },
+  {
+   "id": "f12",
+   "group": "F",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_03",
+    "FAQ_01",
+    "FAQ_08"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 4.96,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_09"
+    ]
+   }
+  },
+  {
+   "id": "f13",
+   "group": "F",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_23"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.59,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_23"
+    ]
+   }
+  },
+  {
+   "id": "f14",
+   "group": "F",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_04"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.27,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_04"
+    ]
+   }
+  },
+  {
+   "id": "n01",
+   "group": "N",
+   "rep": 0,
+   "verdict": "shown_options",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_P09",
+    "FAQ_09"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.85,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "n02",
+   "group": "N",
+   "rep": 0,
+   "verdict": "shown_options",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_01"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.31,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "n03",
+   "group": "N",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "not_covered",
+   "row": 9,
+   "status": "faq_no_match",
+   "faq_ids": [],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.76,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "n04",
+   "group": "N",
+   "rep": 0,
+   "verdict": "shown_options",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_01"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.84,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "n05",
+   "group": "N",
+   "rep": 0,
+   "verdict": "shown_options",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_P08"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 1.96,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "n06",
+   "group": "N",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "not_covered",
+   "row": 9,
+   "status": "faq_no_match",
+   "faq_ids": [],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.2,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "n07",
+   "group": "N",
+   "rep": 0,
+   "verdict": "shown_options",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_P01"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.84,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "n08",
+   "group": "N",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "not_covered",
+   "row": 9,
+   "status": "faq_no_match",
+   "faq_ids": [],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.19,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "s01",
+   "group": "S",
+   "rep": 0,
+   "verdict": "confirm_right",
+   "kind": "confirm",
+   "row": 6,
+   "status": "faq_confirm",
+   "faq_ids": [
+    "FAQ_17"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.16,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "same_or_answer": [
+     "FAQ_17"
+    ]
+   }
+  },
+  {
+   "id": "s02",
+   "group": "S",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_P05",
+    "FAQ_04"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.98,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "same_or_answer": [
+     "FAQ_21",
+     "FAQ_24"
+    ]
+   }
+  },
+  {
+   "id": "s03",
+   "group": "S",
+   "rep": 0,
+   "verdict": "options_miss",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_03",
+    "FAQ_P01",
+    "FAQ_05"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.49,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "same_or_answer": [
+     "FAQ_37"
+    ]
+   }
+  },
+  {
+   "id": "c01",
+   "group": "C",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_17"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.28,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_17"
+    ]
+   }
+  },
+  {
+   "id": "c02",
+   "group": "C",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_P06"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.96,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P06"
+    ]
+   }
+  },
+  {
+   "id": "c03",
+   "group": "C",
+   "rep": 0,
+   "verdict": "missed",
+   "kind": "out_of_scope",
+   "row": 1,
+   "status": "faq_out_of_scope",
+   "faq_ids": [],
+   "source": "code",
+   "mismatch": false,
+   "latency": 1.45,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P05"
+    ]
+   }
+  },
+  {
+   "id": "c04",
+   "group": "C",
+   "rep": 0,
+   "verdict": "confirm_right",
+   "kind": "confirm",
+   "row": 6,
+   "status": "faq_confirm",
+   "faq_ids": [
+    "FAQ_16"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.15,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_16"
+    ]
+   }
+  },
+  {
+   "id": "c05",
+   "group": "C",
+   "rep": 0,
+   "verdict": "confirm_right",
+   "kind": "confirm",
+   "row": 6,
+   "status": "faq_confirm",
+   "faq_ids": [
+    "FAQ_26"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.49,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_26"
+    ]
+   }
+  },
+  {
+   "id": "c06",
+   "group": "C",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_P08"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.4,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P08"
+    ]
+   }
+  },
+  {
+   "id": "t01",
+   "group": "T",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_P07"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.64,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P07"
+    ]
+   }
+  },
+  {
+   "id": "t02",
+   "group": "T",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_05b"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.59,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_05b"
+    ]
+   }
+  },
+  {
+   "id": "t03",
+   "group": "T",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_P12"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.29,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_P12"
+    ]
+   }
+  },
+  {
+   "id": "t04",
+   "group": "T",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "answer",
+   "row": 4,
+   "status": "question",
+   "faq_ids": [
+    "FAQ_34"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 8.36,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_34"
+    ]
+   }
+  },
+  {
+   "id": "a01",
+   "group": "A",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "not_covered",
+   "row": 3,
+   "status": "faq_no_match",
+   "faq_ids": [],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.05,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "a02",
+   "group": "A",
+   "rep": 0,
+   "verdict": "shown_options",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_P09",
+    "FAQ_16"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.59,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "a03",
+   "group": "A",
+   "rep": 0,
+   "verdict": "shown_options",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_07",
+    "FAQ_08",
+    "FAQ_33"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.16,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "o01",
+   "group": "O",
+   "rep": 0,
+   "verdict": "shown_options",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_03",
+    "FAQ_02",
+    "FAQ_04"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.13,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "o02",
+   "group": "O",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "out_of_scope",
+   "row": 1,
+   "status": "faq_out_of_scope",
+   "faq_ids": [],
+   "source": "code",
+   "mismatch": false,
+   "latency": 1.31,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "o03",
+   "group": "O",
+   "rep": 0,
+   "verdict": "correct",
+   "kind": "out_of_scope",
+   "row": 1,
+   "status": "faq_out_of_scope",
+   "faq_ids": [],
+   "source": "code",
+   "mismatch": false,
+   "latency": 1.33,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "no_answer": true
+   }
+  },
+  {
+   "id": "m01",
+   "group": "M",
+   "rep": 0,
+   "verdict": "confirm_right",
+   "kind": "confirm",
+   "row": 6,
+   "status": "faq_confirm",
+   "faq_ids": [
+    "FAQ_40"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 3.14,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_40",
+     "FAQ_39"
+    ]
+   }
+  },
+  {
+   "id": "m02",
+   "group": "M",
+   "rep": 0,
+   "verdict": "partial",
+   "kind": "offer",
+   "row": 5,
+   "status": "faq_related",
+   "faq_ids": [
+    "FAQ_43",
+    "FAQ_22"
+   ],
+   "source": "code",
+   "mismatch": false,
+   "latency": 2.57,
+   "violations": [],
+   "error": null,
+   "expect": {
+    "answer": [
+     "FAQ_43"
+    ]
+   }
+  }
+ ],
+ "mechanics": [
+  {
+   "name": "second miss carries a handover",
+   "status": "FAIL",
+   "detail": ""
+  },
+  {
+   "name": "person request: can I speak to a caseworker?",
+   "status": "pass",
+   "detail": "status handover"
+  },
+  {
+   "name": "person request: I want to talk to somebody",
+   "status": "pass",
+   "detail": "status handover"
+  },
+  {
+   "name": "person request: I'd like to talk to a real person",
+   "status": "pass",
+   "detail": "status handover"
+  },
+  {
+   "name": "person request: can I call someone about my case",
+   "status": "pass",
+   "detail": "status handover"
+  },
+  {
+   "name": "probe (no expectation): I need a human",
+   "status": "info",
+   "detail": "status faq_confirm, outcome confirm"
+  },
+  {
+   "name": "probe (no expectation): put me through to an advisor",
+   "status": "info",
+   "detail": "status faq_related, outcome offer"
+  },
+  {
+   "name": "probe (no expectation): give me a phone number",
+   "status": "info",
+   "detail": "status faq_no_match, outcome not_covered"
+  },
+  {
+   "name": "probe (no expectation): kan jeg tale med en sagsbehandler",
+   "status": "info",
+   "detail": "status faq_out_of_scope, outcome out_of_scope"
+  },
+  {
+   "name": "deadline wording gives a handover block once",
+   "status": "pass",
+   "detail": "first True, second False"
+  },
+  {
+   "name": "out of scope: what's the weather like in Copenhagen today?",
+   "status": "FAIL",
+   "detail": "status faq_out_of_scope, outcome out_of_scope, row 1, searched True"
+  },
+  {
+   "name": "out of scope: how do I apply for housing benefit?",
+   "status": "FAIL",
+   "detail": "status faq_out_of_scope, outcome out_of_scope, row 1, searched True"
+  },
+  {
+   "name": "out of scope: will I get the supplement with my condition?",
+   "status": "FAIL",
+   "detail": "status faq_related, outcome offer, row 5, searched True"
+  },
+  {
+   "name": "confirm accepted",
+   "status": "pass",
+   "detail": "status question"
+  },
+  {
+   "name": "confirm rejected",
+   "status": "pass",
+   "detail": "status faq_none"
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+Does the applicant message only make sense together with the context (the last answered FAQ or follow-up), for example because it says "it", "that" or "and what about"? False if the message is self-contained or there is no context.

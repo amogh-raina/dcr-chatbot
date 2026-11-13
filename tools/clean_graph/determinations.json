@@ -1,0 +1,22 @@
+{
+ "FAQ_05b": {
+  "ask": "Do you receive your right to SU because you are treated as an EU/EEA worker or self-employed person in Denmark under EU law — rather than on another basis for equal treatment with Danish citizens?",
+  "yes": "to keep your right to SU you generally need to work continuously around 10–12 hours a week over a coherent 10-week period. Because of that, you are, as a starting point, not considered to have very significant limitations on your ability to take paid work, so you generally cannot receive handicaptillæg on this basis. One exception: if you become temporarily unable to work because of illness or an accident, you can keep your worker/self-employed status and your right to SU during that period — but you still cannot receive handicaptillæg for that period, because the reduced capacity is temporary rather than permanent.",
+  "no": ": this EU/EEA worker-status restriction does not apply to you; your eligibility follows the general conditions instead."
+ },
+ "FAQ_09": {
+  "ask": "Are you currently undergoing treatment (for example after an accident or a trauma) where the eventual, longer-term effect cannot yet be judged at the time your case is decided?",
+  "yes": "the Agency can, in this situation, award a time-limited handicaptillæg rather than making a final decision on permanence — see the FAQs on time-limited awards.",
+  "no": ": your case is assessed under the standard permanence rules described above, without this special time-limited-award route being relevant."
+ },
+ "FAQ_31": {
+  "ask": "Does your application include only one (or more) of the following, and nothing that meets the fuller minimum requirement: (a) a statement from your own doctor/psychiatrist that merely confirms a diagnosis, (b) a medication list, (c) a referral from your GP with no further medical description, (d) a jobcenter record with no medical information, (e) a decision — e.g. from AES or SPS — with no medical information, or (f) no documentation at all?",
+  "yes": "your application risks to be refused without a substantive review, because this does not meet the minimum documentation requirement under SU-bekendtgørelsens § 37, stk. 3, jf. § 37, stk. 1.",
+  "no": ": your application likely clears the minimum documentation check, and the Agency can move on to assess the substance of your case."
+ },
+ "FAQ_42": {
+  "ask": "Did you miss the 4-week deadline for submitting your appeal?",
+  "yes": "the Appeals Board can, in some cases, disregard a missed deadline — up to six months after you received the decision — if the delay is excusable for special reasons. It is the Appeals Board, not the Agency, that decides whether the delay counts as excusable, so the Agency cannot make that call for you.",
+  "no": ": the standard process applies — submit your appeal to the Agency within the 4-week deadline."
+ }
+}

@@ -1,21 +1,36 @@
 #!/usr/bin/env python3
 """
-build_faq_data.py -- Reconciles and builds faq_qa_records.json from the authoritative
-guideline mapping in Question_upmapping_chatbot.docx (Vejledning nr 9577 af 25/06/2025).
+build_faq_data.py -- Builds faq_search/data/faq_qa_records.json.
 
-This script:
-1. Extracts canonical questions, sources, and answer text directly from Question_upmapping_chatbot.docx.
-2. Decouples follow-up determinations ('hvis' exception branches), preserving them exclusively
-   for the DCR process graph rather than embedding them into monolithic text answers.
-3. Provides high-quality multilingual phrasing variants (3-5 per FAQ) for robust vector retrieval.
-4. Categorizes records into the 5 core thematic topics.
-5. Saves the clean records schema to faq_search/data/faq_qa_records.json.
+Sources:
+1. Question_upmapping_chatbot.docx (Vejledning nr 9577 af 25/06/2025): the 43 guideline FAQs.
+   The questions, source sections and answer text are read straight from the document.
+2. SU_handicaptillaeg_FAQ_Expanded_Questions_Answers.md: 12 practical FAQs (how to apply, case
+   status, documentation age, representatives, scholarships ...) that the guideline mapping does
+   not cover. Their answers are read verbatim from that file; ids are FAQ_P01..FAQ_P12.
+
+What the script does:
+- Keeps follow-up determinations ('hvis' branches: the "Ask the applicant" question and its
+  "If yes" / "If no" lines) OUT of the answers. They are modelled in the DCR graph. Only the
+  number of determination questions is recorded, in dcr_note.
+- Removes authoring leftovers from the docx (stray "Section N" headings, [FAQ: ...] blocks and
+  [reference ...] notes). The questions inside [FAQ: ...] blocks become extra phrasing variants.
+- Normalises citations to "Vejledning nr 9577, Section X".
+- Attaches 3-5 English phrasing variants per record (Danish variants are added later).
+- Validates the result and refuses to write the file if anything leaked or is missing.
+
+Run from the repo root:  python faq_search/build_faq_data.py
+Then recompute the vectors: python faq_search/embed_faq_data.py
+
+Language edits: faq_search/answer_edits.json lists exact passages of answers to replace (grammar,
+punctuation, British spelling, consistent terms, no em dashes) without changing what an answer says.
+Each passage must occur exactly once, otherwise the build stops: the source text has changed and the
+edit needs a look. The source documents themselves are not edited.
 """
 from __future__ import annotations
 
 import json
 import re
-import sys
 import xml.etree.ElementTree as ET
 import zipfile
 from datetime import date
@@ -23,8 +38,14 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 PROJECT_ROOT = HERE.parent
-DOCX_PATH = PROJECT_ROOT / "Question_upmapping_chatbot.docx"
+DOCX_PATH = PROJECT_ROOT / "docs" / "sources" / "Question_upmapping_chatbot.docx"
+PRACTICAL_MD_PATH = PROJECT_ROOT / "docs" / "sources" / "SU_handicaptillaeg_FAQ_Expanded_Questions_Answers.md"
 OUTPUT_PATH = HERE / "data" / "faq_qa_records.json"
+ANSWER_EDITS_PATH = HERE / "answer_edits.json"
+
+SCHEMA_VERSION = 4
+CITATION_PREFIX = "Vejledning nr 9577"
+GUIDELINE_CITATION = f"{CITATION_PREFIX} af 25/06/2025"
 
 TOPIC_MAP = {
     "Purpose and scope of the scheme": "eligibility_and_education",
@@ -48,28 +69,32 @@ TOPICS_LIST = [
     {"id": "payment_work_and_changes", "label": "Payment, work and changes after approval"},
 ]
 
-# Curated answer text overrides for specific FAQs where docx text is fragmented or needs clean phrasing
-CUSTOM_ANSWERS = {
+# Base answers for guideline FAQs whose docx entry has NO plain answer text: all of their content is
+# inside the "Follow-up determination" block, which this script deliberately drops. The wording below
+# is taken from that block, with the yes/no branching removed. They are marked drafted_needs_review
+# so that someone with legal knowledge confirms them. A base answer is used only while the docx gives
+# no answer text; if the docx gains one, the docx wins and the build stops until this entry is removed.
+BASE_ANSWERS = {
     "25": (
-        "As a starting point, a psychologist's statement cannot stand alone as medical documentation "
-        "for your application. However, it can be included as part of the overall assessment if it is "
-        "backed up by a statement from a psychiatric specialist or by other medical records."
+        "As a starting point, a psychologist's statement cannot stand alone as your medical documentation. "
+        "It can be included as part of the overall assessment of your application if it is backed up by a "
+        "statement from a psychiatric specialist or by other medical documentation."
     ),
     "42": (
-        "The standard deadline for appealing a decision is 4 weeks from the day you received it. "
-        "If you miss this deadline, the Appeals Board can in special, excusable cases disregard the delay "
-        "up to six months after you received the decision. The Agency cannot make this exception for you; "
-        "only the Appeals Board decides whether a delay is excusable."
+        "You have 4 weeks to submit your appeal to the Agency. If you miss the deadline, the Appeals Board "
+        "can in some cases disregard it, up to six months after you received the decision, if the delay is "
+        "excusable for special reasons. It is the Appeals Board, not the Agency, that decides whether the "
+        "delay counts as excusable, so the Agency cannot make that call for you."
     ),
     "43": (
-        "No. An appeal against a refusal-to-process decision only examines whether the Agency was entitled "
-        "to refuse the application in the first place, not your substantive entitlement to handicaptillæg. "
-        "New medical documentation submitted with the appeal will not be assessed; to have new documentation "
-        "considered, you must submit a new application."
+        "No. New medical documentation sent with an appeal against a refusal-to-process decision will not be "
+        "taken into account in that appeal. Such an appeal only examines whether the Agency was entitled to "
+        "refuse the application in the first place, not your substantive entitlement to handicaptillæg. "
+        "To have new documentation considered, you would need to submit a new application instead."
     ),
 }
 
-# Curated Danish and English phrasing variants for each FAQ
+# Curated English phrasing variants for each guideline FAQ (Danish variants are added later).
 DEFAULT_VARIANTS = {
     "01": ["What is the disability supplement?", "Who can receive handicaptillæg?", "Can I get extra SU for a disability?", "What does the supplement cover?"],
     "02": ["Why does the handicap supplement exist?", "What is the purpose of handicaptillæg?", "Why do students get a disability grant?", "What is the idea behind the supplement?"],
@@ -116,6 +141,103 @@ DEFAULT_VARIANTS = {
     "43": ["Can new medical documentation be considered in an appeal?", "If I appeal a refusal, will new records be looked at?", "Can I submit new hospital papers with my appeal?", "Does an appeal against afvisning assess new evidence?"],
 }
 
+# Practical FAQs taken from SU_handicaptillaeg_FAQ_Expanded_Questions_Answers.md, keyed by the FAQ number
+# used in that file (graph event FAQ_Answer_<n>). Question, answer text and availability are read from
+# the file; the citation comes from the <purpose> field of SU_handicaptillaeg_FAQ_AnswerMatching_Expanded.xml.
+PRACTICAL_SECTION_TOPIC = {
+    "Eligibility and qualifying education": "eligibility_and_education",
+    "Impairment and ability to work": "impairment_and_work_capacity",
+    "Medical documentation": "medical_documentation",
+    "Applying, decisions and help": "applying_decisions_and_help",
+    "Payment, work and changes after approval": "payment_work_and_changes",
+}
+
+PRACTICAL_FAQS = {
+    10: {
+        "id": "FAQ_P01",
+        "citation": "Guideline sections 3.5 and 4; SU.dk application FAQ.",
+        "variants": ["Where do I submit an application for the disability supplement?", "What are the steps to apply for handicaptillæg in minSU?", "How can I apply for the handicap supplement?", "Which portal do I use to apply for handicaptillæg?"],
+    },
+    17: {
+        "id": "FAQ_P02",
+        "citation": "Current SU.dk case-status and contact guidance.",
+        "variants": ["How do I check the status of my application?", "How can I contact SU about my handicaptillæg case?", "Where can I find out what is happening with my application?", "Who do I contact about my case?"],
+    },
+    19: {
+        "id": "FAQ_P03",
+        "citation": "English explanatory FAQ; content key BAS-06. Sources: SU FAQ, “Can an application be approved in advance?”",
+        "variants": ["Can I find out beforehand whether I will qualify?", "Is there a pre-approval before I apply?", "Can SU tell me in advance if I am eligible?", "Can I get a binding answer before submitting an application?"],
+    },
+    28: {
+        "id": "FAQ_P04",
+        "citation": "English explanatory FAQ; content key DOC-03. Sources: GUIDE §4.1; SU documentation page, “Minimum documentation requirements”.",
+        "variants": ["How old can my medical records be?", "Do my medical records need to be from this year?", "Are records older than three years accepted?", "Does the documentation have to be current?"],
+    },
+    34: {
+        "id": "FAQ_P05",
+        "citation": "English explanatory FAQ; content key DOC-14. Sources: SU FAQ and documentation page; GUIDE §§4.3 and 7.2.",
+        "variants": ["Do I need to write a personal statement?", "What should I put in a personal statement for my application?", "Is a personal statement required for handicaptillæg?", "Is a personal statement part of the minimum documentation?"],
+    },
+    35: {
+        "id": "FAQ_P06",
+        "citation": "English explanatory FAQ; content key DOC-REDACT. Sources: SU documentation page, “Sådan skaffer du din dokumentation”.",
+        "variants": ["Can I black out parts of my medical records before uploading?", "Is it allowed to cross out sensitive information in my records?", "What if my records contain details about other people or other diagnoses?", "Can I hide traumatic experiences described in my journal?"],
+    },
+    39: {
+        "id": "FAQ_P07",
+        "citation": "English explanatory FAQ; content key CASE-04. Sources: SU FAQ, “Can others help me contact the authority?”",
+        "variants": ["Can someone apply on my behalf?", "How do I give someone power of attorney for my case?", "Can a relative or helper handle my application?", "Will the authority send letters to my representative?"],
+    },
+    40: {
+        "id": "FAQ_P08",
+        "citation": "English explanatory FAQ; content key CASE-02. Sources: SU status page; REPORT, “How long does it take?”",
+        "variants": ["How long does it take to get a decision?", "What is the average processing time for handicaptillæg?", "When will I hear back on my application?", "How many months does case handling take?"],
+    },
+    42: {
+        "id": "FAQ_P09",
+        "citation": "English explanatory FAQ; content key PAY-05. Sources: SU FAQ, “May I perform voluntary work?”",
+        "variants": ["Can I do unpaid volunteer work while receiving the supplement?", "Does voluntary work affect my handicaptillæg?", "Is volunteering allowed with the disability supplement?", "How many hours of voluntary work are allowed?"],
+    },
+    44: {
+        "id": "FAQ_P10",
+        "citation": "English explanatory FAQ; content key PAY-08. Sources: SU FAQ, “If I change education or resume after leave”.",
+        "variants": ["Do I need to reapply if I switch study programme?", "What if I go from a bachelor's to a master's programme?", "Does the supplement continue after I return from leave?", "Must I apply again for handicaptillæg when I start a new programme?"],
+    },
+    45: {
+        "id": "FAQ_P11",
+        "citation": "English explanatory FAQ; content key PAY-09. Sources: SU FAQ, “If I move to a final loan”.",
+        "variants": ["How do I get the supplement paid with a final loan (slutlån)?", "What should I do when my SU changes to a final loan?", "Is the disability supplement paid during the final loan period?", "Who do I contact to activate the supplement with my final loan?"],
+    },
+    46: {
+        "id": "FAQ_P12",
+        "citation": "English explanatory FAQ; content key PAY-SCHOLARSHIP. Sources: SU FAQ, “Kan jeg modtage legater, når jeg modtager handicaptillæg?”.",
+        "variants": ["Do grants or scholarships affect my handicaptillæg?", "Does a scholarship count as income for the supplement?", "Can I apply to increase my income allowance because of a scholarship?", "Can I receive a grant from a foundation and the disability supplement?"],
+    },
+}
+
+# The source answer for practical FAQ 17 says contact details "are not embedded in this graph". In this
+# knowledge base the same sentence would be confusing, so it is reworded.
+PRACTICAL_ANSWER_REPLACE = {
+    17: ("so they are not embedded in this graph.", "so they are not stored in this chatbot."),
+}
+PRACTICAL_GAP_NOTES = {
+    17: "Answer only points to SU.dk: no contact details or status link are stored. Confirm this is what the chatbot should say.",
+}
+
+
+FOLLOW_UP_MARKER = re.compile(r"^\*\*\s*Follow[\s-]*up\b", re.IGNORECASE)
+DETERMINATION_ASK = re.compile(r"^>\s*\*\*\s*Ask the applicant", re.IGNORECASE)
+DETERMINATION_BRANCH = re.compile(r"^-\s*\*\*\s*If\s+(yes|no)\b", re.IGNORECASE)
+HEADING_ONLY = re.compile(r"^Section\s+\d+(\.\d+)*\.?$")
+EDITOR_REFERENCE = re.compile(r"\s*\[reference[^\]]*\]", re.IGNORECASE)
+LEAK_PATTERNS = [
+    ("determination marker", re.compile(r"Ask the applicant|\*\*|Follow[\s-]*up (question|determination)", re.IGNORECASE)),
+    ("if yes/no branch", re.compile(r"(^|\n)\s*-?\s*If (yes|no)\b", re.IGNORECASE)),
+    ("authoring note", re.compile(r"\[FAQ:|\[reference|^\s*\]\s*$", re.IGNORECASE | re.MULTILINE)),
+    ("stray heading", re.compile(r"(^|\n)Section \d+(\.\d+)*\.?\s*($|\n)")),
+    ("em dash (add a language edit to answer_edits.json)", re.compile("\u2014")),
+]
+
 
 def extract_paragraphs_from_docx(docx_path: Path) -> list[str]:
     with zipfile.ZipFile(docx_path) as z:
@@ -129,78 +251,167 @@ def extract_paragraphs_from_docx(docx_path: Path) -> list[str]:
         return text
 
 
+def normalise_source(raw: str) -> str:
+    """'** Source 6.3.**' -> 'Section 6.3'; 'Section 4.2' stays; '' stays ''."""
+    s = raw.replace("**", "").strip()
+    s = re.sub(r"^Source:?\s*", "", s, flags=re.IGNORECASE).strip().rstrip(".").strip()
+    if re.match(r"^\d", s):
+        s = f"Section {s}"
+    return s
+
+
 def parse_raw_faqs(lines: list[str]) -> list[dict]:
     raw_faqs: list[dict] = []
     curr_sec = "Overall eligibility conditions"
     curr = None
+    in_faq_block = False
 
     for line in lines:
         if line.startswith("## "):
             curr_sec = line[3:].strip()
+            in_faq_block = False
         elif line.startswith("### FAQ"):
             if curr:
                 raw_faqs.append(curr)
+            in_faq_block = False
             m = re.match(r"### FAQ\s+(\d+[a-z]?):\s*(.*)", line)
-            num = m.group(1) if m else str(len(raw_faqs) + 1)
-            raw_title = m.group(2).strip() if m else line
+            if not m:
+                raise ValueError(f"Cannot read FAQ number from heading: {line!r}")
+            raw_title = m.group(2).strip()
             title = re.sub(r"\s*\[alternative.*\]", "", raw_title).strip()
             curr = {
-                "num": num,
+                "num": m.group(1),
                 "title": title,
                 "topic": TOPIC_MAP.get(curr_sec, "eligibility_and_education"),
                 "source": "",
-                "pre_det_lines": [],
-                "in_det": False,
+                "answer_lines": [],
+                "extra_questions": [],
+                "determination_count": 0,
             }
-        elif curr:
-            if line.startswith("**Source:**") or line.startswith("** Source"):
-                src = re.sub(r"^\*\*\s*Source:?\s*", "", line).replace("**", "").strip()
-                curr["source"] = src
-            elif line.startswith("**Follow-up determination**"):
-                curr["in_det"] = True
-            elif not curr["in_det"]:
-                curr["pre_det_lines"].append(line)
+        elif curr is None:
+            continue  # preamble before the first FAQ
+        elif in_faq_block:
+            # Inside an authoring block "[FAQ: question / answer / FAQ: question / answer ... ]".
+            if line.strip() == "]":
+                in_faq_block = False
+            elif line.startswith("FAQ:"):
+                curr["extra_questions"].append(line[4:].strip())
+        elif line.startswith("[FAQ:"):
+            in_faq_block = True
+            curr["extra_questions"].append(line[5:].strip())
+        elif re.match(r"^\*\*\s*Source", line):
+            curr["source"] = normalise_source(line)
+        elif FOLLOW_UP_MARKER.match(line):
+            continue
+        elif DETERMINATION_ASK.match(line):
+            curr["determination_count"] += 1
+        elif DETERMINATION_BRANCH.match(line):
+            continue
+        elif HEADING_ONLY.match(line):
+            continue
+        else:
+            cleaned = EDITOR_REFERENCE.sub("", line).strip()
+            if cleaned:
+                curr["answer_lines"].append(cleaned)
 
     if curr:
         raw_faqs.append(curr)
     return raw_faqs
 
 
-def build():
-    if not DOCX_PATH.exists():
-        raise FileNotFoundError(f"Source DOCX not found at {DOCX_PATH}")
+def parse_practical_faqs(md_path: Path) -> dict[int, dict]:
+    """Reads the practical FAQs listed in PRACTICAL_FAQS from the Expanded Q/A markdown file."""
+    if not md_path.exists():
+        raise FileNotFoundError(f"Practical FAQ source not found at {md_path}")
+    md = md_path.read_text(encoding="utf-8")
+    found: dict[int, dict] = {}
+    section = ""
+    for block in re.split(r"(?m)^(?=#{2,3} )", md):
+        if block.startswith("## "):
+            section = block[3:].splitlines()[0].strip()
+            continue
+        m = re.match(
+            r"### FAQ (\d+): (.*?)\n\n\*\*Availability:\*\* (.*?)\s*\n\*\*Graph event:\*\* `(.*?)`\n\n(.*)",
+            block, re.DOTALL)
+        if not m or int(m.group(1)) not in PRACTICAL_FAQS:
+            continue
+        n = int(m.group(1))
+        paragraphs = [re.sub(r"\s*\n\s*", " ", p).strip() for p in re.split(r"\n\s*\n", m.group(5).strip())]
+        found[n] = {
+            "question": m.group(2).strip(),
+            "availability": "suggested" if m.group(3).startswith("Suggested") else "typed_only",
+            "event": m.group(4),
+            "section": section,
+            "answer": "\n\n".join(p for p in paragraphs if p),
+        }
+    missing = sorted(set(PRACTICAL_FAQS) - set(found))
+    if missing:
+        raise ValueError(f"Practical FAQs not found in {md_path.name}: {missing}")
+    return found
 
-    lines = extract_paragraphs_from_docx(DOCX_PATH)
-    raw_faqs = parse_raw_faqs(lines)
 
-    final_records = []
-    seen_ids = set()
+def distinct_variants(canonical: str, variants: list[str]) -> list[str]:
+    """Drops blanks, repeats and the canonical question itself (case-insensitive), keeping order."""
+    seen = {canonical.strip().casefold()}
+    out: list[str] = []
+    for v in variants:
+        v = v.strip()
+        if v and v.casefold() not in seen:
+            seen.add(v.casefold())
+            out.append(v)
+    return out
 
+
+def guideline_records(raw_faqs: list[dict]) -> list[dict]:
+    records = []
+    seen_ids: set[str] = set()
     for r in raw_faqs:
         raw_num = r["num"]
         base_id = f"FAQ_{int(raw_num):02d}" if raw_num.isdigit() else f"FAQ_{raw_num}"
-        if base_id in seen_ids:
-            final_id = f"{base_id}b"
-            key_num = f"{raw_num}b"
+        if base_id in seen_ids:  # the docx has a second "FAQ 05"
+            final_id, key_num = f"{base_id}b", f"{raw_num}b"
         else:
-            final_id = base_id
-            key_num = raw_num
+            final_id, key_num = base_id, raw_num
         seen_ids.add(final_id)
 
-        if raw_num in CUSTOM_ANSWERS:
-            answer_text = CUSTOM_ANSWERS[raw_num]
+        parsed_answer = "\n\n".join(r["answer_lines"]).strip()
+        gap_notes: list[str] = []
+        status = "reconciled_guideline"
+        if parsed_answer:
+            if raw_num in BASE_ANSWERS:
+                raise ValueError(
+                    f"{final_id}: the docx now has answer text, so BASE_ANSWERS[{raw_num!r}] is obsolete. Remove it.")
+            answer_text = parsed_answer
+        elif raw_num in BASE_ANSWERS:
+            answer_text = BASE_ANSWERS[raw_num]
+            status = "drafted_needs_review"
+            gap_notes.append(
+                "The docx has no plain answer for this FAQ (only the follow-up determination). "
+                "This base answer was drafted from the determination text and needs review.")
         else:
-            joined = "\n\n".join(r["pre_det_lines"]).strip()
-            answer_text = joined if joined else "Please consult the official guidance for details on this condition."
+            raise ValueError(f"{final_id}: no answer text in the docx and no BASE_ANSWERS entry.")
 
-        src = r["source"].strip()
-        citation = f"Vejledning nr 9577, {src}" if src else "Vejledning nr 9577 af 25/06/2025"
+        if r["source"]:
+            citation = f"{CITATION_PREFIX}, {r['source']}"
+        else:
+            citation = GUIDELINE_CITATION
+            gap_notes.append("The docx gives no source section for this FAQ, so the citation is generic.")
 
-        variants = DEFAULT_VARIANTS.get(key_num) or DEFAULT_VARIANTS.get(raw_num)
-        if not variants:
-            variants = [r["title"], f"How does {r['title'].lower()} work?", f"Rules regarding {r['title'].lower()}"]
+        configured = DEFAULT_VARIANTS.get(key_num) or DEFAULT_VARIANTS.get(raw_num)
+        if not configured:
+            raise ValueError(f"{final_id}: no entry in DEFAULT_VARIANTS.")
+        variants = distinct_variants(r["title"], configured + r["extra_questions"])
 
-        final_records.append({
+        dcr_note = None
+        if r["determination_count"]:
+            dcr_note = (f"The docx lists {r['determination_count']} follow-up determination question(s) for this FAQ. "
+                        "They are modelled in the DCR graph, not stored in this record.")
+        if raw_num == "33":
+            note = ("The docx answer ended with a placeholder pointing to related questions on persistence "
+                    "(likely FAQ_09 and FAQ_12). The placeholder was removed and the link is not resolved.")
+            dcr_note = f"{dcr_note} {note}" if dcr_note else note
+
+        records.append({
             "id": final_id,
             "canonical_question": r["title"],
             "question_variants": variants,
@@ -208,29 +419,136 @@ def build():
             "topic": r["topic"],
             "citation": citation,
             "availability": "suggested" if int(re.sub(r"\D", "", raw_num) or "99") <= 20 else "typed_only",
-            "status": "reconciled_guideline",
-            "gap_note": None,
-            "dcr_note": None,
+            "status": status,
+            "gap_note": " ".join(gap_notes) or None,
+            "dcr_note": dcr_note,
             "embedding": None,
             "updated_at": date.today().isoformat(),
         })
+    return records
 
-    out = {
-        "schema_version": 3,
+
+def practical_records(md_path: Path) -> list[dict]:
+    found = parse_practical_faqs(md_path)
+    records = []
+    for n, cfg in PRACTICAL_FAQS.items():
+        item = found[n]
+        answer = item["answer"]
+        if n in PRACTICAL_ANSWER_REPLACE:
+            old, new = PRACTICAL_ANSWER_REPLACE[n]
+            if old not in answer:
+                raise ValueError(f"{cfg['id']}: expected text not found for rewording: {old!r}")
+            answer = answer.replace(old, new)
+        topic = PRACTICAL_SECTION_TOPIC.get(item["section"])
+        if not topic:
+            raise ValueError(f"{cfg['id']}: unknown section {item['section']!r} in {md_path.name}")
+        records.append({
+            "id": cfg["id"],
+            "canonical_question": item["question"],
+            "question_variants": distinct_variants(item["question"], cfg["variants"]),
+            "answer_text": answer,
+            "topic": topic,
+            "citation": cfg["citation"],
+            "availability": item["availability"],
+            "status": "practical_expanded_graph",
+            "gap_note": PRACTICAL_GAP_NOTES.get(n),
+            "dcr_note": (f"Practical FAQ from {md_path.name} (graph event {item['event']}). "
+                         "Not part of the Vejledning mapping in the docx."),
+            "embedding": None,
+            "updated_at": date.today().isoformat(),
+        })
+    return records
+
+
+def validate(records: list[dict]) -> None:
+    """Raises ValueError listing every problem found, so a bad build is never written."""
+    problems: list[str] = []
+    ids = [r["id"] for r in records]
+    for dup in sorted({i for i in ids if ids.count(i) > 1}):
+        problems.append(f"duplicate id {dup}")
+    topic_ids = {t["id"] for t in TOPICS_LIST}
+    for r in records:
+        rid = r["id"]
+        answer = r["answer_text"]
+        if len(answer.split()) < 15:
+            problems.append(f"{rid}: answer is only {len(answer.split())} words")
+        for label, pattern in LEAK_PATTERNS:
+            if pattern.search(answer):
+                problems.append(f"{rid}: answer contains {label}")
+        if r["topic"] not in topic_ids:
+            problems.append(f"{rid}: unknown topic {r['topic']!r}")
+        if r["availability"] not in {"suggested", "typed_only"}:
+            problems.append(f"{rid}: bad availability {r['availability']!r}")
+        if not 3 <= len(r["question_variants"]) <= 8:
+            problems.append(f"{rid}: {len(r['question_variants'])} variants (expected 3-8)")
+        folded = [v.casefold() for v in [r["canonical_question"], *r["question_variants"]]]
+        if len(set(folded)) != len(folded):
+            problems.append(f"{rid}: canonical question and variants are not all distinct")
+        if r["id"].startswith("FAQ_P"):
+            continue
+        if re.match(r"^Vejledning nr 9577, \d", r["citation"]):
+            problems.append(f"{rid}: citation {r['citation']!r} lacks 'Section'")
+    if problems:
+        raise ValueError("FAQ data failed validation:\n  " + "\n  ".join(problems))
+
+
+def build() -> dict:
+    if not DOCX_PATH.exists():
+        raise FileNotFoundError(f"Source DOCX not found at {DOCX_PATH}")
+
+    raw_faqs = parse_raw_faqs(extract_paragraphs_from_docx(DOCX_PATH))
+    unused = sorted(set(BASE_ANSWERS) - {r["num"] for r in raw_faqs})
+    if unused:
+        raise ValueError(f"BASE_ANSWERS has entries for FAQs not in the docx: {unused}")
+
+    records = guideline_records(raw_faqs) + practical_records(PRACTICAL_MD_PATH)
+    apply_answer_edits(records)
+    validate(records)
+
+    return {
+        "schema_version": SCHEMA_VERSION,
         "generated_at": date.today().isoformat(),
         "notes": {
-            "description": "Reconciled authoritative FAQ knowledge base aligned with Vejledning nr 9577 af 25/06/2025 and Question_upmapping_chatbot.docx.",
-            "determinations": "Follow-up determination logic ('hvis' rules) is decoupled from plain text blocks and modeled in the DCR process graph.",
+            "description": ("FAQ knowledge base: 43 guideline FAQs from Vejledning nr 9577 af 25/06/2025 "
+                            "(Question_upmapping_chatbot.docx) plus 12 practical FAQs (ids FAQ_P01..FAQ_P12) "
+                            "from SU_handicaptillaeg_FAQ_Expanded_Questions_Answers.md."),
+            "determinations": ("Follow-up determination logic ('hvis' rules) is not stored here. "
+                               "It is modelled in the DCR process graph."),
+            "languages": "English only for now. Danish phrasing variants are to be added.",
+            "status_values": {
+                "reconciled_guideline": "Answer taken from the docx, with the language edits in answer_edits.json.",
+                "drafted_needs_review": "No plain answer in the docx; base answer drafted from the determination text. Needs review.",
+                "practical_expanded_graph": "Practical FAQ taken from the Expanded Q/A file, with the language edits in answer_edits.json.",
+            },
             "embedding": "Computed by embed_faq_data.py and stored in companion faq_embeddings.npy.",
         },
         "topics": TOPICS_LIST,
-        "records": final_records,
+        "records": records,
     }
-    return out
+
+
+def apply_answer_edits(records: list[dict], edits_path: Path = ANSWER_EDITS_PATH) -> None:
+    """Applies the language edits in place. Raises ValueError listing every edit that does not fit."""
+    edits = json.loads(edits_path.read_text(encoding="utf-8"))["edits"]
+    by_id = {r["id"]: r for r in records}
+    problems: list[str] = []
+    for i, edit in enumerate(edits, 1):
+        record = by_id.get(edit["id"])
+        if record is None:
+            problems.append(f"edit {i}: unknown id {edit['id']}")
+            continue
+        count = record["answer_text"].count(edit["old"])
+        if count != 1:
+            problems.append(f"edit {i} ({edit['id']}): passage found {count} times, expected once: {edit['old'][:60]!r}")
+            continue
+        record["answer_text"] = record["answer_text"].replace(edit["old"], edit["new"])
+    if problems:
+        raise ValueError(f"{edits_path.name} does not fit the source text:\n  " + "\n  ".join(problems))
 
 
 if __name__ == "__main__":
     data = build()
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Successfully generated {len(data['records'])} reconciled FAQ records to {OUTPUT_PATH}")
+    print(f"Wrote {len(data['records'])} FAQ records to {OUTPUT_PATH}")
+    print("Next: python faq_search/embed_faq_data.py")

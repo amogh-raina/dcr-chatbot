@@ -3,8 +3,8 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-import dcr_repository as repo
-import questions
+import dcrai.dcr.dcr_repository as repo
+from dcrai.legacy import questions
 
 XML = '''<dcrgraph><specification><resources><events><event id="menu"><custom><eventData><dataType dataSetActivity="robot">choice</dataType></eventData></custom></event></events></resources></specification></dcrgraph>'''
 
@@ -12,7 +12,7 @@ class RuntimeChoiceTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self.pathpatch = patch.object(repo, '__file__', str(Path(self.tmp.name)/'dcr_repository.py'))
+        self.pathpatch = patch.object(repo.paths, 'RUNTIME_TRACES', Path(self.tmp.name)/'traces'/'runtime')
         self.pathpatch.start(); self.addCleanup(self.pathpatch.stop)
         self.state = {'graph_xml': XML, 'graph_id': 'test', 'simulation_id': 'test', 'root_url': 'https://example.test/', 'api_key': 'test'}
         self.payload = {'events': [
@@ -22,9 +22,9 @@ class RuntimeChoiceTests(unittest.TestCase):
     def test_resolves_robot_choices_and_preserves_raw_diagnostic(self):
         result = repo._prepare_event_payload(self.state, self.payload)
         self.assertEqual(result['events'][1]['choiceValues'], 'Medical content (2), Proceed to application (6)')
-        from utility import get_events_enabled_not_executed
+        from dcrai.legacy.utility import get_events_enabled_not_executed
         self.assertEqual(get_events_enabled_not_executed(result)[0]['choiceValues'], result['events'][1]['choiceValues'])
-        saved = json.loads(next(Path(self.tmp.name).glob('runtime_traces/*.json')).read_text())
+        saved = json.loads(next(Path(self.tmp.name).glob('traces/runtime/*.json')).read_text())
         self.assertEqual(saved[-1]['raw_events'][1]['choiceValues'], '')
         self.assertNotIn('api_key', saved[-1])
 
@@ -42,12 +42,12 @@ class RuntimeChoiceTests(unittest.TestCase):
         self.assertEqual(questions.get_information_text({'value':'Computed answer','description':'Fallback'}), 'Computed answer')
 
     @patch.object(repo._session, "post")
-    def test_dynamic_selection_uses_explicit_value_api(self, post):
+    def test_dynamic_selection_uses_simulation_engine(self, post):
         post.return_value.status_code = 204
         self.assertTrue(repo.execute_event(self.state, "menu", "2", ""))
-        self.assertTrue(post.call_args.args[0].endswith("/sims/test/events/menu"))
-        self.assertIn('value="2"', post.call_args.kwargs["json"]["DataXML"])
-        self.assertIn('type="int"', post.call_args.kwargs["json"]["DataXML"])
+        self.assertTrue(post.call_args.args[0].endswith("/api/graphs/test/simulation/test/event"))
+        self.assertEqual(post.call_args.kwargs["json"]["eventId"], "menu")
+        self.assertEqual(post.call_args.kwargs["json"]["eventValue"], "2")
 
     def test_unexecuted_robot_is_not_used(self):
         self.payload['events'][0]['executed'] = None

@@ -1,0 +1,293 @@
+{
+  "description": "Language edits to the FAQ answers, applied by build_faq_data.py after the answers are read from docs/sources. Each 'old' passage must occur exactly once in the answer. The edits fix grammar, punctuation, British spelling and consistent terms (the Agency, handicaptillæg, 'you'), and remove em dashes. They do not change what an answer says. 2026-11-06.",
+  "edits": [
+    {
+      "id": "FAQ_02",
+      "why": "em dash",
+      "old": "The scheme equalises the financial situation of students with a permanent impairment — who often cannot supplement their SU with paid work — with that of other students.",
+      "new": "Students with a permanent impairment often cannot supplement their SU with paid work. The scheme equalises their financial situation with that of other students."
+    },
+    {
+      "id": "FAQ_04",
+      "why": "unclear wording; 'handicapstipend' and 'handicap stipend' replaced by the term used everywhere else",
+      "old": "The handicapstipend is a stipend that is allocated as an addition to the general SU stipend. It is therefore always necessary in order to be granted the handicap stipend to be eligible for the general SU.",
+      "new": "Yes. Handicaptillæg is paid as a supplement to the ordinary SU stipend, so to be granted handicaptillæg you must always be eligible for ordinary SU."
+    },
+    {
+      "id": "FAQ_05",
+      "why": "em dash",
+      "old": "you don't receive SU or a final loan — for example months",
+      "new": "you don't receive SU or a final loan, for example months"
+    },
+    {
+      "id": "FAQ_07",
+      "why": "em dash",
+      "old": "the impairment and its severity — including whether",
+      "new": "the impairment and its severity, including whether"
+    },
+    {
+      "id": "FAQ_08",
+      "why": "list items were split into separate paragraphs mid-sentence; 'within a longer number of years'; em dash",
+      "old": "As a starting point, an impairment is permanent when it is not expected to improve substantially, either on its own or through treatment, within a longer number of years. Some non-exhaustive examples are:\n\npermanent physical impairments include severe muscle or nerve conditions (e.g. muscular dystrophy, MS, severe spinal conditions, cerebral palsy),\n\nblindness or severe visual impairment, and\n\ndeafness or severe hearing impairment.\n\nPermanent mental impairments can include:\n\nsevere psychological difficulties due to personality disorder, eating disorder, OCD or anxiety,\n\nschizophrenia-spectrum disorders,\n\naffective disorders (including bipolar disorder and recurrent depression),\n\nand ADHD or autism spectrum disorder.\n\nHaving one of these conditions does not by itself guarantee approval, and conditions outside this list can also qualify — the list is not exhaustive.",
+      "new": "As a starting point, an impairment is permanent when it is not expected to improve substantially, either on its own or through treatment, within a period of several years. Some examples follow; neither list is exhaustive.\n\nPermanent physical impairments can include severe muscle or nerve conditions (e.g. muscular dystrophy, MS, severe spinal conditions, cerebral palsy), blindness or severe visual impairment, and deafness or severe hearing impairment.\n\nPermanent mental impairments can include severe psychological difficulties due to personality disorder, eating disorder, OCD or anxiety; schizophrenia-spectrum disorders; affective disorders (including bipolar disorder and recurrent depression); and ADHD or autism spectrum disorder.\n\nHaving one of these conditions does not by itself guarantee approval, and conditions that are not listed can also qualify."
+    },
+    {
+      "id": "FAQ_09",
+      "why": "em dash",
+      "old": "once it has lasted around a year — meaning that, as a starting point,",
+      "new": "once it has lasted around a year. This means that, as a starting point,"
+    },
+    {
+      "id": "FAQ_09",
+      "why": "em dash",
+      "old": "not an automatic entitlement threshold — a shorter or longer period can still be relevant depending on the evidence.",
+      "new": "not an automatic entitlement threshold. A shorter or longer period can still be relevant, depending on the evidence."
+    },
+    {
+      "id": "FAQ_11",
+      "why": "em dash",
+      "old": "There is no fixed list of qualifying diagnoses — one person being awarded the supplement for a given permanent impairment does not mean everyone with the same diagnosis will be, since the extent of symptoms varies between people.",
+      "new": "There is no fixed list of qualifying diagnoses. If one person is awarded the supplement for a given permanent impairment, that does not mean everyone with the same diagnosis will be, since the extent of symptoms varies between people."
+    },
+    {
+      "id": "FAQ_12",
+      "why": "grammar ('This can for example be the case that', 'will be also')",
+      "old": "Even if a treatment has an effect on the impairment that you have, the residual symptoms can be severe enough to amount to a sufficient impairment. This can for example be the case that you have side effects from the medical treatment. This will be also considered in the assessment.",
+      "new": "Even if treatment has an effect on your impairment, your residual symptoms can still be severe enough to count as a sufficient impairment. This can be the case, for example, if you have side effects from the medical treatment. Side effects are also considered in the assessment."
+    },
+    {
+      "id": "FAQ_13",
+      "why": "em dash",
+      "old": "you must identify each impairment you want considered — one that is merely mentioned",
+      "new": "you must identify each impairment you want considered. An impairment that is merely mentioned"
+    },
+    {
+      "id": "FAQ_15",
+      "why": "em dash",
+      "old": "your ability to work as a student — it is not the same",
+      "new": "your ability to work as a student. It is not the same"
+    },
+    {
+      "id": "FAQ_15",
+      "why": "em dash",
+      "old": "not automatically enough on its own — for example, being dyslexic",
+      "new": "not automatically enough on its own. For example, being dyslexic"
+    },
+    {
+      "id": "FAQ_15",
+      "why": "slash in running text",
+      "old": "reading/writing difficulties",
+      "new": "reading and writing difficulties"
+    },
+    {
+      "id": "FAQ_16",
+      "why": "em dash",
+      "old": "rather than automatic cut-offs — the Agency looks at",
+      "new": "rather than automatic cut-offs. The Agency looks at"
+    },
+    {
+      "id": "FAQ_17",
+      "why": "word order",
+      "old": "Both work before and after your application can be part of the overall assessment.",
+      "new": "Work both before and after your application can be part of the overall assessment."
+    },
+    {
+      "id": "FAQ_21",
+      "why": "em dash",
+      "old": "(there is a separate rule for congenital impairments — see the FAQ on that topic)",
+      "new": "(a separate rule applies to congenital impairments, described in the FAQ on that topic)"
+    },
+    {
+      "id": "FAQ_21",
+      "why": "em dashes (item 1)",
+      "old": "1. Records — including discharge letters (epikriser) and referrals — from your GP, if",
+      "new": "1. Records from your GP, including discharge letters (epikriser) and referrals, if"
+    },
+    {
+      "id": "FAQ_21",
+      "why": "em dash; the closing quotation mark was missing",
+      "old": "rather than assess it on the merits — see the FAQs under \"Refusal to process and denial.",
+      "new": "rather than assess it on the merits. See the FAQs under \"Refusal to process and denial\"."
+    },
+    {
+      "id": "FAQ_21",
+      "why": "awkward phrasing",
+      "old": "Documentation that is set as a minimum requirement is documentation you can get yourself, free of charge:",
+      "new": "The documentation required as a minimum is documentation you can get yourself, free of charge:"
+    },
+    {
+      "id": "FAQ_22",
+      "why": "em dash",
+      "old": "not a strict minimum requirement — not every applicant",
+      "new": "not a strict minimum requirement, and not every applicant"
+    },
+    {
+      "id": "FAQ_24",
+      "why": "em dashes",
+      "old": "or a decision — for example from Arbejdsmarkedets Erhvervssikring (AES) or an SPS decision — that contains no medical information.",
+      "new": "or a decision that contains no medical information, such as an SPS decision or a decision from Arbejdsmarkedets Erhvervssikring (AES)."
+    },
+    {
+      "id": "FAQ_24",
+      "why": "addresses the reader as 'you' like the other answers",
+      "old": "if the applicant only attaches: a statement from their own doctor, psychiatrist, etc. that merely confirms a diagnosis; a medication list showing they receive medicine for an illness;",
+      "new": "if you only attach: a statement from your own doctor, psychiatrist or similar that merely confirms a diagnosis; a medication list showing that you receive medicine for an illness;"
+    },
+    {
+      "id": "FAQ_27",
+      "why": "em dash",
+      "old": "information it believes you already have — you shouldn't need to pay",
+      "new": "information it believes you already have. You shouldn't need to pay"
+    },
+    {
+      "id": "FAQ_27",
+      "why": "slash and jargon ('routes')",
+      "old": "connected with the specialist/hospital or AES routes.",
+      "new": "connected with requests to a specialist, a hospital or AES."
+    },
+    {
+      "id": "FAQ_28",
+      "why": "em dash",
+      "old": "sufficient documentation to process the case — this is treated as",
+      "new": "sufficient documentation to process the case. This is treated as"
+    },
+    {
+      "id": "FAQ_29",
+      "why": "em dash",
+      "old": "Yes — if the Agency can't assess",
+      "new": "Yes. If the Agency can't assess"
+    },
+    {
+      "id": "FAQ_30",
+      "why": "em dash; addresses the reader as 'you' like the other answers",
+      "old": "what's already in the case file — it isn't something the applicant decides.",
+      "new": "what's already in the case file. It isn't something you decide."
+    },
+    {
+      "id": "FAQ_31",
+      "why": "'above' has no meaning in a chat",
+      "old": "if you don't meet the minimum documentation requirement described under \"Medical documentation\" above.",
+      "new": "if you don't meet the minimum requirement for medical documentation."
+    },
+    {
+      "id": "FAQ_32",
+      "why": "em dash",
+      "old": "entitled to refuse the application at all — not whether",
+      "new": "entitled to refuse the application at all, not whether"
+    },
+    {
+      "id": "FAQ_33",
+      "why": "grammar and word order throughout; American spelling 'recognized'",
+      "old": "If your documentation does not show that you have a permanent impairment, you will be likely denied. This is the case, if you for example apply on the basis of a condition that is by definition not permanent, such as a single surgery, a single period of sickness, a broken arm or pregnancy related issues where the most people will recover completely in a relatively short time period. You can also not apply if you are only sick for a short period of time because you for example are registered as sick for 2 months in relation with a surgery.\n\nThere might be exceptions for non-permanent impairments that might be able to be recognized as permanent when having persisted for a longer period.",
+      "new": "If your documentation does not show that you have a permanent impairment, you will likely be denied. This is the case if, for example, you apply on the basis of a condition that is by definition not permanent, such as a single operation, a single period of illness, a broken arm or pregnancy-related issues, where most people recover completely within a relatively short time. Nor can you apply if you are only ill for a short period, for example if you are on sick leave for 2 months in connection with an operation.\n\nThere may be exceptions: a condition that is not permanent can in some cases be recognised as permanent once it has lasted for a longer period."
+    },
+    {
+      "id": "FAQ_34",
+      "why": "grammar ('the handicaptillæg', 'take on work'); curly apostrophe",
+      "old": "No, the handicaptillæg only concerns your own impairment, and not your ability to take on work because of a relative’s impairment.",
+      "new": "No. Handicaptillæg only concerns your own impairment. It does not cover limits on your ability to work that are caused by a relative's impairment."
+    },
+    {
+      "id": "FAQ_35",
+      "why": "em dash; comma moved outside the quotation marks (British style)",
+      "old": "together with a final loan — including in months where you receive extra \"clips,\" for example",
+      "new": "together with a final loan. This includes months in which you receive extra \"clips\", for example"
+    },
+    {
+      "id": "FAQ_35",
+      "why": "em dash",
+      "old": "from the month you applied for it — but never earlier",
+      "new": "from the month you applied for it, but never earlier"
+    },
+    {
+      "id": "FAQ_35",
+      "why": "'the stipend' meant the supplement",
+      "old": "If you are granted the stipend, the supplement is paid together",
+      "new": "If you are granted the supplement, it is paid together"
+    },
+    {
+      "id": "FAQ_37",
+      "why": "em dash",
+      "old": "newer than what the Agency already has on file — for example the newest records",
+      "new": "newer than what the Agency already has on file. This could be the newest records"
+    },
+    {
+      "id": "FAQ_38",
+      "why": "em dashes",
+      "old": "interest income or an orphan's pension, along with — in special cases — a very modest wage income",
+      "new": "interest income or an orphan's pension. In special cases it can also cover a very modest wage income"
+    },
+    {
+      "id": "FAQ_39",
+      "why": "em dash; 'below' has no meaning in a chat",
+      "old": "amounts already paid — see the FAQ on income checks below.",
+      "new": "amounts already paid. See the FAQ on income checks."
+    },
+    {
+      "id": "FAQ_40",
+      "why": "em dashes",
+      "old": "Each year, the Agency checks — using information from the Danish Tax Agency — what you've earned",
+      "new": "Each year, the Agency uses information from the Danish Tax Agency to check what you've earned"
+    },
+    {
+      "id": "FAQ_P01",
+      "why": "curly quotation marks; the other answers use straight ones",
+      "old": "“Apply for SU” and then “Disability supplement”",
+      "new": "\"Apply for SU\" and then \"Disability supplement\""
+    },
+    {
+      "id": "FAQ_P02",
+      "why": "'the Agency', as in the guideline answers",
+      "old": "If the authority asks",
+      "new": "If the Agency asks"
+    },
+    {
+      "id": "FAQ_P03",
+      "why": "'the Agency', as in the guideline answers",
+      "old": "The authority cannot give advance approval.",
+      "new": "The Agency cannot give advance approval."
+    },
+    {
+      "id": "FAQ_P06",
+      "why": "'the Agency', as in the guideline answers",
+      "old": "the authority may refuse to process the application.",
+      "new": "the Agency may refuse to process your application."
+    },
+    {
+      "id": "FAQ_P07",
+      "why": "'the Agency' and 'you', as in the guideline answers",
+      "old": "A person can be authorised through a case power of attorney. When a representative is registered, the authority sends case material to that representative, although the applicant can still submit information.",
+      "new": "You can authorise another person through a power of attorney for your case. When a representative is registered, the Agency sends case material to them, although you can still submit information yourself."
+    },
+    {
+      "id": "FAQ_P09",
+      "why": "'the Agency', as in the guideline answers",
+      "old": "the authority may reopen the case to reassess work capacity.",
+      "new": "the Agency may reopen your case to reassess your ability to work."
+    },
+    {
+      "id": "FAQ_P10",
+      "why": "'handicaptillæg', as in the guideline answers",
+      "old": "The disability supplement does not automatically follow",
+      "new": "Handicaptillæg does not automatically follow"
+    },
+    {
+      "id": "FAQ_P10",
+      "why": "addresses the reader as 'you'",
+      "old": "may apply when the person recently received the supplement,",
+      "new": "may apply if you received the supplement recently,"
+    },
+    {
+      "id": "FAQ_P11",
+      "why": "'handicaptillæg', as in the guideline answers",
+      "old": "payment of the disability supplement can be activated",
+      "new": "payment of handicaptillæg can be activated"
+    },
+    {
+      "id": "FAQ_P12",
+      "why": "'handicaptillæg', as in the guideline answers",
+      "old": "alongside SU and the disability supplement.",
+      "new": "alongside SU and handicaptillæg."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+/* Shared tokens for SU-support (FAQ chat and application). Light is the default;
+   data-theme="warm" or "dark" on <html> switches. With no attribute the system
+   light/dark setting applies. Source: the DCR.AI design system, v2. */
+:root {
+  --bg: #fafafa; --surface: #ffffff; --fg: #0b0b0c; --muted: #65656d;
+  --line: #e4e4e7; --line-strong: #8a8a93; --wash: #f1f1f3;
+  --accent: #2d58cf; --accent-wash: #edf1fb; --send-idle: #a3a3aa; --on-fg: #ffffff;
+  --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius-sm: 10px; --radius-md: 14px; --radius-lg: 22px; --radius-bubble: 20px; --radius-pill: 999px;
+  --shadow-pill: 0 6px 24px rgba(0, 0, 0, 0.08);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="warm"]) {
+    --bg: #0d0d0f; --surface: #151518; --fg: #f4f4f5; --muted: #a3a3ad; --line: #2a2a30; --line-strong: #71717b;
+    --wash: #1e1e23; --accent: #94b1ff; --accent-wash: #1a2236; --send-idle: #4b4b53; --on-fg: #0d0d0f;
+    --shadow-pill: 0 6px 24px rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="warm"] {
+  --bg: #f4f1ec; --surface: #fbf9f6; --fg: #1c1915; --muted: #6b645a; --line: #e3ded5; --line-strong: #8f877b;
+  --wash: #ebe6dd; --accent: #2d58cf; --accent-wash: #eceff8; --send-idle: #b3aa9d; --on-fg: #fbf9f6;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0d0d0f; --surface: #151518; --fg: #f4f4f5; --muted: #a3a3ad; --line: #2a2a30; --line-strong: #71717b;
+  --wash: #1e1e23; --accent: #94b1ff; --accent-wash: #1a2236; --send-idle: #4b4b53; --on-fg: #0d0d0f;
+  --shadow-pill: 0 6px 24px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
+/* The theme change eases every colour together for a moment. */
+.theme-anim, .theme-anim *, .theme-anim *::before, .theme-anim *::after {
+  transition: background-color .38s ease, border-color .38s ease, color .38s ease, fill .38s ease, stroke .38s ease, box-shadow .38s ease !important;
+}
+
+.theme-anim .theme-toggle::before { transition: transform .38s cubic-bezier(.3, .9, .3, 1), background-color .38s ease !important; }
+.theme-toggle { position: relative; display: inline-grid; grid-template-columns: repeat(3, 1fr); padding: 3px; border: 1px solid var(--line); border-radius: var(--radius-pill); background: var(--surface); isolation: isolate; }
+.theme-toggle::before { content: ""; position: absolute; z-index: -1; top: 3px; bottom: 3px; left: 3px; width: calc((100% - 6px) / 3); border-radius: var(--radius-pill); background: var(--fg); transform: translateX(calc(var(--i, 0) * 100%)); transition: transform .38s cubic-bezier(.3, .9, .3, 1), background-color .38s; }
+.theme-toggle button { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; min-width: 62px; padding: 0 12px; border: 0; border-radius: var(--radius-pill); background: none; cursor: pointer; font: 500 14px var(--font-sans); color: var(--muted); transition: color .3s; }
+.theme-toggle button[aria-checked="true"] { color: var(--on-fg); }
+.theme-toggle button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.theme-toggle.compact button { min-width: 36px; min-height: 34px; padding: 0 8px; }
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle::before, .theme-toggle button { transition: none; }
+  .theme-anim, .theme-anim *, .theme-anim *::before, .theme-anim *::after { transition: none !important; }
+}

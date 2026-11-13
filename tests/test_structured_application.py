@@ -1,12 +1,11 @@
 """Tests verifying the clean, structured DCR XML model and tag-decoupled runtime."""
-import os
 import unittest
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from unittest.mock import patch
 
-import application_runtime as runtime
-import dcr_repository as repo
+import dcrai.application.application_runtime as runtime
+import dcrai.dcr.dcr_repository as repo
 
 
 class StructuredApplicationTests(unittest.TestCase):
@@ -216,7 +215,7 @@ class StructuredApplicationTests(unittest.TestCase):
         }
         with patch.object(repo, "create_simulation", return_value=101), \
              patch.object(repo, "get_raw_events", return_value=payload_after_replay), \
-             patch.object(repo, "execute_raw_event", return_value=True) as mock_exec:
+             patch.object(repo, "execute_raw_event", return_value=True):
             res = runtime.edit(state, {"field_id": "Form0:Phone", "value": "+45 99 88 77 66"})
             self.assertEqual(state["simulation_id"], 101, "Simulation ID must be updated to new simulation")
             self.assertEqual(res["status"], "question")

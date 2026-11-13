@@ -31,6 +31,7 @@ export default function Icon({ name, size = 22, stroke = 1.8 }) {
       </>
     ),
     check: <polyline points="20 6 9 17 4 12" />,
+    'arrow-left': <path d="M20 12H4M10 6l-6 6 6 6" />,
     'arrow-right': (
       <>
         <line x1="4" y1="12" x2="20" y2="12" />
@@ -55,6 +56,21 @@ export default function Icon({ name, size = 22, stroke = 1.8 }) {
         <line x1="12" y1="12" x2="12" y2="16" />
       </>
     ),
+    sun: (
+      <>
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+      </>
+    ),
+    moon: <path d="M21 13a8.5 8.5 0 1 1-10-10 7 7 0 0 0 10 10Z" />,
+    leaf: (
+      <>
+        <path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15" />
+        <path d="M5 19c3-5 6-8 10-10" />
+      </>
+    ),
+    'arrow-up': <path d="M12 19V5M5 12l7-7 7 7" />,
+    plus: <path d="M12 5v14M5 12h14" />,
     save: (
       <>
         <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />

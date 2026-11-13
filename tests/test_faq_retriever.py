@@ -1,10 +1,12 @@
 """Tests for FAQ semantic retriever and Lean DCR XML graph validation."""
+import os
 import unittest
 from pathlib import Path
 
-from faq_search.retriever import get_retriever, FAQRetriever
+from faq_search.retriever import get_retriever
 
 
+@unittest.skipUnless(os.getenv("RUN_RETRIEVAL_EVAL") == "1", "set RUN_RETRIEVAL_EVAL=1 for embedding integration tests")
 class TestFAQRetriever(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

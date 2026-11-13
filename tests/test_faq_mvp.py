@@ -5,7 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import app as webapp
-import chatnlp
+from dcrai.legacy import chatnlp
 
 
 ROOT = Path(__file__).resolve().parents[1]

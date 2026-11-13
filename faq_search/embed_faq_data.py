@@ -49,8 +49,8 @@ Usage:
     # override the model:
     python faq_search/embed_faq_data.py --model sentence-transformers/all-MiniLM-L6-v2
 
-Default model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2.
-Chosen over an English-only model (e.g. all-MiniLM-L6-v2 -- same 384 dims,
+Default model: Qwen/Qwen3-Embedding-0.6B (see DEFAULT_MODEL).
+The fallback multilingual MiniLM model is chosen over an English-only model (e.g. all-MiniLM-L6-v2 -- same 384 dims,
 smaller and faster) because the source content is bilingual (Danish su.dk
 originals, English content-model translations) and it isn't yet confirmed
 whether live users will type Danish or English questions. If you know

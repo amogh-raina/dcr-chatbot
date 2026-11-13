@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch
 
-import questions
+from dcrai.legacy import questions
 
 
 class InformationEventTests(unittest.TestCase):

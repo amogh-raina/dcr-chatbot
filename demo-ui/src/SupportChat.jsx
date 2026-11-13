@@ -2,6 +2,8 @@ import { createElement, useEffect, useRef, useState } from 'react';
 import Icon from './Icon';
 import botIcon from './assets/icons8-bot.gif';
 
+// A retrieval chat with no activity for this long is ended (recorded in DCR as FAQ_Triage = 4, goodbye shown).
+const IDLE_SECONDS = 120;
 const newId = () => globalThis.crypto?.randomUUID?.() || `su-${Date.now()}-${Math.random()}`;
 const label = (option) => option.question || '';
 const isUtility = (option) => ['back to topics', 'proceed to application'].includes(label(option).trim().toLowerCase());
@@ -59,7 +61,52 @@ function ApplicationField({ data, active, onAction }) {
   </form>;
 }
 
+// Retrieval graph turns: every text is DCR's (event descriptions) or the retrieval result DCR stored.
+const isHtml = (text) => /^\s*</.test(text || '');
+function Text({ text }) {
+  if (!text) return null;
+  return isHtml(text) ? <Answer html={text} /> : <div className="chat-bubble">{text}</div>;
+}
+
+function RetrievalReply({ data, active, onAction }) {
+  const button = (key, text, payload) => <button key={key} type="button" disabled={!active} onClick={() => onAction(payload, text)}>{text}</button>;
+  const prompt = data.prompt;
+  const applying = data.application === true && !!data.field;
+  return <div className="chat-row assistant"><div className="assistant-mark"><img src={botIcon} width="18" height="18" alt="" /></div><div className="assistant-content">
+    {data.searched_for && <p className="chat-follow-up">Searching for: {data.searched_for}</p>}
+    <Text text={data.response} />
+    {data.answered && <p className="chat-follow-up">{data.answered.question} <strong>{data.answered.value}</strong></p>}
+    {data.handover?.html && <aside className="chat-handover" role="note">
+      <strong>Talk to a person</strong>
+      <Answer html={data.handover.html} />
+    </aside>}
+    {data.answer && <>
+      <p className="matched-question">{data.answer.question}</p>
+      <Answer html={data.answer.html} />
+      {data.answer.citation && <p className="chat-follow-up">Source: {data.answer.citation}</p>}
+    </>}
+    {(data.outcomes || []).map((html, index) => <Answer key={index} html={html} />)}
+    {data.status === 'welcome' && data.examples?.length > 0 && <>
+      <p className="topic-label">For example</p>
+      <div className="choice-grid">{data.examples.map(item => typeof item === 'string'
+        ? button(item, item, { message: item })
+        : button(item.id, item.question, { action: 'example', faq_id: item.id }))}</div>
+    </>}
+    {data.follow_up && <p className="chat-follow-up">{data.follow_up}</p>}
+    {prompt && <>
+      {prompt.kind === 'confirm' && <p className="matched-question">{prompt.text}</p>}
+      {['determination', 'scope_check'].includes(prompt.kind) && <div className="chat-bubble">{prompt.text}</div>}
+      <div className="choice-grid">{prompt.options.map(option => button(`${prompt.id}:${option.value}`, option.label,
+        { action: 'reply', retrieval_prompt_id: prompt.id, value: option.value }))}</div>
+    </>}
+    {applying && <><div className="chat-bubble">{data.field.label}</div><ApplicationField data={data} active={active} onAction={onAction} /></>}
+    {data.application === true && ['complete', 'declined'].includes(data.status) && <p className="chat-follow-up">{data.demo_notice}</p>}
+    {!prompt && !applying && data.actions?.length > 0 && <div className="choice-grid">{data.actions.map(item => button(item.action, item.label, { action: item.action }))}</div>}
+  </div></div>;
+}
+
 function Reply({ data, active, onAction }) {
+  if (data.retrieval) return <RetrievalReply data={data} active={active} onAction={onAction} />;
   const menus = data.navigation || [];
   const menu = menus.find(item => item.event_id === data.event_id) || menus.find(item => !item.is_home) || menus[0];
   const options = (menu?.options || []).filter(option => !isUtility(option));
@@ -118,6 +165,7 @@ export default function SupportChat() {
   const [busy, setBusy] = useState(false);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState('');
+  const [ended, setEnded] = useState(null);   // null, 'idle' or 'closed'
   const session = useRef(newId());
   const busyRef = useRef(false);
   const initialized = useRef(false);
@@ -138,6 +186,11 @@ export default function SupportChat() {
       if (!response.ok) throw new Error(data.error || 'The chat could not complete your request.');
       if (!data.faq) throw new Error('This chat needs a FAQ graph. Please check the selected graph.');
       setMessages(current => [...current, { id: newId(), data }]);
+      if (data.retrieval && data.status === 'ended') setEnded(payload?.reason === 'idle' ? 'idle' : 'closed');
+      // Safety net: the server asks to leave the chat for the application (MitID first). Same-site paths only.
+      if (data.status === 'navigate' && typeof data.navigate === 'string' && data.navigate.startsWith('/mitid')) {
+        window.location.assign(data.navigate); return;
+      }
       if (data.navigation) setNavigation(data.navigation);
       setReady(!data.error_code);
       if (data.error_code) setError('Please start a new chat to continue.');
@@ -149,7 +202,7 @@ export default function SupportChat() {
   }
   function initialize() {
     if (busyRef.current) return;
-    initialized.current = true; session.current = newId(); setReady(false); setMessages([]); setNavigation([]); setInput('');
+    initialized.current = true; session.current = newId(); setReady(false); setMessages([]); setNavigation([]); setInput(''); setEnded(null);
     const graph = new URLSearchParams(window.location.search).get('graphid') || '2012701';
     request('/init', { graph_id: graph });
   }
@@ -161,7 +214,8 @@ export default function SupportChat() {
     // the application start page, then the conversational application. The FAQ
     // simulation is deliberately left untouched; /application/init starts its
     // own. The inline handover below remains only as a safety net.
-    if (text?.trim().toLowerCase() === 'proceed to application') {
+    // The retrieval chat's Start button (and the 'Start the application' action) does the same.
+    if (text?.trim().toLowerCase() === 'proceed to application' || payload?.action === 'apply') {
       const graph = new URLSearchParams(window.location.search).get('graphid') || '2012701';
       window.location.assign(`/mitid?graphid=${encodeURIComponent(graph)}`);
       return;
@@ -169,16 +223,24 @@ export default function SupportChat() {
     request('/chat', payload, text);
   };
   useEffect(() => () => controller.current?.abort(), []);
+  // Idle timeout: restarts on every turn; no reminder messages, the session simply ends after IDLE_SECONDS.
+  useEffect(() => {
+    const live = messages.some(message => message.data?.retrieval);
+    if (!live || !ready || busy || ended) return undefined;
+    const timer = setTimeout(() => request('/chat', { action: 'end', reason: 'idle' }), IDLE_SECONDS * 1000);
+    return () => clearTimeout(timer);
+  }, [messages, ready, busy, ended]);
   useEffect(() => { if (open) { if (!busy && ready) inputRef.current?.focus(); else panel.current?.querySelector('button:not(:disabled)')?.focus(); } }, [open, busy, ready]);
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = messages.length <= 1 ? 0 : scrollRef.current.scrollHeight; }, [open, messages, busy, error]);
   function keyboard(event) {
     if (event.key === 'Escape') { event.preventDefault(); close(); }
 
   }
+  const retrieval = messages.some(message => message.data?.retrieval);
   const allOptions = navigation.flatMap(menu => (menu.options || []).map(option => ({ option, menu })));
   const back = allOptions.find(({ option }) => label(option).trim().toLowerCase() === 'back to topics');
   const apply = allOptions.find(({ option }) => label(option).trim().toLowerCase() === 'proceed to application');
-  const disabled = busy || !ready;
+  const disabled = busy || !ready || !!ended;
   return <aside className="support-widget">
     <button ref={launcher} className="support-launcher" aria-label="Open SU-support" aria-expanded={open} onClick={show}>
       <span className="launcher-bot-wrap">
@@ -207,12 +269,13 @@ export default function SupportChat() {
       </header>
       {sizing && <div className="support-size-controls"><label>Width <input aria-label="Chat width" type="range" min="360" max="760" step="10" value={size.width} onChange={event => setSize(current => ({ ...current, width: Number(event.target.value) }))} /></label><label>Height <input aria-label="Chat height" type="range" min="440" max="900" step="10" value={size.height} onChange={event => setSize(current => ({ ...current, height: Number(event.target.value) }))} /></label><button onClick={() => setSize({ width: 480, height: 730 })}>Reset size</button></div>}
       <div className="support-messages" ref={scrollRef} role="log" aria-live="polite" aria-relevant="additions">
-        <div className="chat-intro"><h2>Let’s find your answer.</h2><p>Choose a topic or ask a question about disability allowance.</p></div>
+        {!retrieval && <div className="chat-intro"><h2>Let’s find your answer.</h2><p>Choose a topic or ask a question about disability allowance.</p></div>}
         {messages.map((message, index) => message.data ? <Reply key={message.id} data={message.data} active={!disabled && index === messages.length - 1} onAction={submit} /> : <div key={message.id} className="chat-row user"><div className="chat-bubble">{message.text}</div></div>)}
         {busy && <div className="typing-indicator" role="status" aria-label="SU-support is replying"><span /><span /><span /></div>}
+        {ended && <div className="support-ended" role="status"><p>{ended === 'idle' ? `This chat ended after ${IDLE_SECONDS / 60} minutes without activity.` : 'This chat has ended.'}</p><button type="button" onClick={initialize}>Start a new chat</button></div>}
         {error && <div className="support-error" role="alert"><p>{error}</p><button type="button" onClick={initialize}>Start a new chat</button></div>}
       </div>
-      <nav className="support-navigation" aria-label="Chat navigation"><button disabled={disabled} onClick={() => submit(back ? choicePayload(back.option, back.menu) : { action: 'topics' }, 'Back to topics')}>← Back to topics</button>{apply && <button className="apply" disabled={disabled} onClick={() => submit(choicePayload(apply.option, apply.menu), label(apply.option))}>Proceed to application ↗</button>}</nav>
+      <nav className="support-navigation" aria-label="Chat navigation">{retrieval ? <button className="apply" disabled={busy || !ready} onClick={() => submit({ action: 'apply' }, 'Start the application')}>Start the application</button> : <><button disabled={disabled} onClick={() => submit(back ? choicePayload(back.option, back.menu) : { action: 'topics' }, 'Back to topics')}>← Back to topics</button>{apply && <button className="apply" disabled={disabled} onClick={() => submit(choicePayload(apply.option, apply.menu), label(apply.option))}>Proceed to application ↗</button>}</>}</nav>
       <form className="support-composer" onSubmit={event => { event.preventDefault(); if (!input.trim() || disabled || busyRef.current) return; submit({ message: input.trim() }, input.trim()); setInput(''); }}><input ref={inputRef} value={input} onChange={event => setInput(event.target.value)} placeholder="Type your question…" aria-label="Message SU-support" disabled={disabled} /><button type="submit" aria-label="Send message" disabled={disabled || !input.trim()}><Icon name="send" size={20} /></button></form>
       <p className="support-note">Official answers from the disability allowance FAQ</p>
     </section></>}

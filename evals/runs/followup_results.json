@@ -1,0 +1,9503 @@
+[
+ {
+  "id": "f01",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_01"
+  ],
+  "error": null,
+  "latency": 42.08,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.0
+  },
+  "rewrite": "How is my ability to work assessed for handicaptillæg (the SU disability supplement)?",
+  "searches": [
+   {
+    "query": "How is my ability to work assessed for handicaptillæg (the SU disability supplement)?",
+    "judge": "How is my ability to work assessed for handicaptillæg (the SU disability supplement)?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_04",
+      0.777
+     ],
+     [
+      "FAQ_01",
+      0.716
+     ],
+     [
+      "FAQ_34",
+      0.716
+     ]
+    ],
+    "candidates": [
+     "FAQ_04",
+     "FAQ_01",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_04": 0.01,
+     "FAQ_01": 0.68,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "How is my ability to work assessed for handicaptillæg (the SU disability supplement)?",
+  "response": null
+ },
+ {
+  "id": "f01",
+  "repeat": 1,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.45,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.0
+  },
+  "rewrite": "How is my ability to work assessed for the handicaptillæg application?",
+  "searches": [
+   {
+    "query": "How is my ability to work assessed for the handicaptillæg application?",
+    "judge": "How is my ability to work assessed for the handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.776
+     ],
+     [
+      "FAQ_34",
+      0.771
+     ],
+     [
+      "FAQ_04",
+      0.755
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_34",
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_03": 0.4,
+     "FAQ_34": 0.0,
+     "FAQ_04": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "How is my ability to work assessed for the handicaptillæg application?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "f01",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 1.71,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.0
+  },
+  "rewrite": "How is my ability to work assessed in relation to my application for handicaptillæg?",
+  "searches": [
+   {
+    "query": "How is my ability to work assessed in relation to my application for handicaptillæg?",
+    "judge": "How is my ability to work assessed in relation to my application for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.772
+     ],
+     [
+      "FAQ_P09",
+      0.77
+     ],
+     [
+      "FAQ_03",
+      0.77
+     ]
+    ],
+    "candidates": [
+     "FAQ_34",
+     "FAQ_P09",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_34": 0.0,
+     "FAQ_P09": 0.93,
+     "FAQ_03": 0.14
+    },
+    "kept": [
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": "How is my ability to work assessed in relation to my application for handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "f02",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 1.56,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.01
+  },
+  "rewrite": "Does unpaid volunteering count towards the work hours when applying for handicaptillæg?",
+  "searches": [
+   {
+    "query": "Does unpaid volunteering count towards the work hours when applying for handicaptillæg?",
+    "judge": "Does unpaid volunteering count towards the work hours when applying for handicaptillæg?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P09",
+      0.813
+     ],
+     [
+      "FAQ_06",
+      0.692
+     ],
+     [
+      "FAQ_09",
+      0.676
+     ]
+    ],
+    "candidates": [
+     "FAQ_P09"
+    ],
+    "relevance": {
+     "FAQ_P09": 1.0
+    },
+    "kept": [
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": "Does unpaid volunteering count towards the work hours when applying for handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "f02",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 2.17,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.01
+  },
+  "rewrite": "Does unpaid volunteering count towards the hours I plan to work alongside my studies?",
+  "searches": [
+   {
+    "query": "Does unpaid volunteering count towards the hours I plan to work alongside my studies?",
+    "judge": "Does unpaid volunteering count towards the hours I plan to work alongside my studies?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P09",
+      0.702
+     ],
+     [
+      "FAQ_16",
+      0.659
+     ],
+     [
+      "FAQ_19",
+      0.604
+     ]
+    ],
+    "candidates": [
+     "FAQ_P09",
+     "FAQ_16",
+     "FAQ_19"
+    ],
+    "relevance": {
+     "FAQ_P09": 1.0,
+     "FAQ_16": 0.19,
+     "FAQ_19": 0.0
+    },
+    "kept": [
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": "Does unpaid volunteering count towards the hours I plan to work alongside my studies?",
+  "response": null
+ },
+ {
+  "id": "f02",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 1.32,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.01
+  },
+  "rewrite": "Does unpaid volunteering count towards the hours worked when applying for handicaptillæg?",
+  "searches": [
+   {
+    "query": "Does unpaid volunteering count towards the hours worked when applying for handicaptillæg?",
+    "judge": "Does unpaid volunteering count towards the hours worked when applying for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P09",
+      0.798
+     ],
+     [
+      "FAQ_06",
+      0.699
+     ],
+     [
+      "FAQ_09",
+      0.681
+     ]
+    ],
+    "candidates": [
+     "FAQ_P09",
+     "FAQ_06",
+     "FAQ_09"
+    ],
+    "relevance": {
+     "FAQ_P09": 1.0,
+     "FAQ_06": 0.0,
+     "FAQ_09": 0.0
+    },
+    "kept": [
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": "Does unpaid volunteering count towards the hours worked when applying for handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "f03",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_38"
+  ],
+  "error": null,
+  "latency": 1.02,
+  "signals": {
+   "contextual": 0.89,
+   "distress": 0.0
+  },
+  "rewrite": "How much am I allowed to earn while receiving handicaptillæg?",
+  "searches": [
+   {
+    "query": "How much am I allowed to earn while receiving handicaptillæg?",
+    "judge": "How much am I allowed to earn while receiving handicaptillæg?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_38",
+      0.854
+     ],
+     [
+      "FAQ_P12",
+      0.706
+     ],
+     [
+      "FAQ_06",
+      0.691
+     ]
+    ],
+    "candidates": [
+     "FAQ_38"
+    ],
+    "relevance": {
+     "FAQ_38": 1.0
+    },
+    "kept": [
+     "FAQ_38"
+    ]
+   }
+  ],
+  "searched_for": "How much am I allowed to earn while receiving handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "f03",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_38",
+   "FAQ_P12"
+  ],
+  "error": null,
+  "latency": 1.45,
+  "signals": {
+   "contextual": 0.89,
+   "distress": 0.0
+  },
+  "rewrite": "How much money am I allowed to earn if I work besides my studies and still qualify for handicaptillæg?",
+  "searches": [
+   {
+    "query": "How much money am I allowed to earn if I work besides my studies and still qualify for handicaptillæg?",
+    "judge": "How much money am I allowed to earn if I work besides my studies and still qualify for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_38",
+      0.79
+     ],
+     [
+      "FAQ_06",
+      0.752
+     ],
+     [
+      "FAQ_P12",
+      0.727
+     ]
+    ],
+    "candidates": [
+     "FAQ_38",
+     "FAQ_06",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_38": 1.0,
+     "FAQ_06": 0.01,
+     "FAQ_P12": 0.67
+    },
+    "kept": [
+     "FAQ_38",
+     "FAQ_P12"
+    ]
+   }
+  ],
+  "searched_for": "How much money am I allowed to earn if I work besides my studies and still qualify for handicaptillæg?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f03",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_38"
+  ],
+  "error": null,
+  "latency": 1.67,
+  "signals": {
+   "contextual": 0.89,
+   "distress": 0.0
+  },
+  "rewrite": "How much am I allowed to earn while receiving the handicaptillæg?",
+  "searches": [
+   {
+    "query": "How much am I allowed to earn while receiving the handicaptillæg?",
+    "judge": "How much am I allowed to earn while receiving the handicaptillæg?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_38",
+      0.842
+     ],
+     [
+      "FAQ_35",
+      0.703
+     ],
+     [
+      "FAQ_P12",
+      0.702
+     ]
+    ],
+    "candidates": [
+     "FAQ_38"
+    ],
+    "relevance": {
+     "FAQ_38": 1.0
+    },
+    "kept": [
+     "FAQ_38"
+    ]
+   }
+  ],
+  "searched_for": "How much am I allowed to earn while receiving the handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "f04",
+  "repeat": 0,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.07,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "Is there an age limit for the medical records I attach for my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Is there an age limit for the medical records I attach for my handicaptillæg application?",
+    "judge": "Is there an age limit for the medical records I attach for my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.746
+     ],
+     [
+      "FAQ_P05",
+      0.74
+     ],
+     [
+      "FAQ_03",
+      0.737
+     ]
+    ],
+    "candidates": [
+     "FAQ_34",
+     "FAQ_P05",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_34": 0.0,
+     "FAQ_P05": 0.1,
+     "FAQ_03": 0.01
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Is there an age limit for the medical records I attach for my handicaptillæg application?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "f04",
+  "repeat": 1,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.39,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "Is there an age limit for medical records that I attach to my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Is there an age limit for medical records that I attach to my handicaptillæg application?",
+    "judge": "Is there an age limit for medical records that I attach to my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.721
+     ],
+     [
+      "FAQ_P05",
+      0.721
+     ],
+     [
+      "FAQ_09",
+      0.713
+     ]
+    ],
+    "candidates": [
+     "FAQ_34",
+     "FAQ_P05",
+     "FAQ_09"
+    ],
+    "relevance": {
+     "FAQ_34": 0.0,
+     "FAQ_P05": 0.06,
+     "FAQ_09": 0.17
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Is there an age limit for medical records that I attach to my handicaptillæg application?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "f04",
+  "repeat": 2,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.11,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "Is there an age limit on the medical records I can attach for my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Is there an age limit on the medical records I can attach for my handicaptillæg application?",
+    "judge": "Is there an age limit on the medical records I can attach for my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.738
+     ],
+     [
+      "FAQ_P05",
+      0.727
+     ],
+     [
+      "FAQ_03",
+      0.718
+     ]
+    ],
+    "candidates": [
+     "FAQ_34",
+     "FAQ_P05",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_34": 0.0,
+     "FAQ_P05": 0.01,
+     "FAQ_03": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Is there an age limit on the medical records I can attach for my handicaptillæg application?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "f05",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_25",
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.23,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "Is a note from my psychologist sufficient as medical documentation for my impairment when applying for handicaptillæg?",
+  "searches": [
+   {
+    "query": "Is a note from my psychologist sufficient as medical documentation for my impairment when applying for handicaptillæg?",
+    "judge": "Is a note from my psychologist sufficient as medical documentation for my impairment when applying for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_25",
+      0.805
+     ],
+     [
+      "FAQ_34",
+      0.755
+     ],
+     [
+      "FAQ_P05",
+      0.725
+     ]
+    ],
+    "candidates": [
+     "FAQ_25",
+     "FAQ_34",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_25": 1.0,
+     "FAQ_34": 0.0,
+     "FAQ_P05": 0.54
+    },
+    "kept": [
+     "FAQ_25",
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "Is a note from my psychologist sufficient as medical documentation for my impairment when applying for handicaptillæg?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f05",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_25",
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.32,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "Is a note from my psychologist enough as medical documentation for the handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Is a note from my psychologist enough as medical documentation for the handicaptillæg application?",
+    "judge": "Is a note from my psychologist enough as medical documentation for the handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_25",
+      0.844
+     ],
+     [
+      "FAQ_P05",
+      0.77
+     ],
+     [
+      "FAQ_34",
+      0.737
+     ]
+    ],
+    "candidates": [
+     "FAQ_25",
+     "FAQ_P05",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_25": 1.0,
+     "FAQ_P05": 0.75,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_25",
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "Is a note from my psychologist enough as medical documentation for the handicaptillæg application?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f05",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_25",
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.38,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "Is a note from my psychologist enough as medical documentation for handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Is a note from my psychologist enough as medical documentation for handicaptillæg application?",
+    "judge": "Is a note from my psychologist enough as medical documentation for handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_25",
+      0.846
+     ],
+     [
+      "FAQ_P05",
+      0.777
+     ],
+     [
+      "FAQ_34",
+      0.768
+     ]
+    ],
+    "candidates": [
+     "FAQ_25",
+     "FAQ_P05",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_25": 1.0,
+     "FAQ_P05": 0.73,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_25",
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "Is a note from my psychologist enough as medical documentation for handicaptillæg application?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f06",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P06"
+  ],
+  "error": null,
+  "latency": 1.18,
+  "signals": {
+   "contextual": 0.86,
+   "distress": 0.0
+  },
+  "rewrite": "Can I black out parts of my medical records before submitting them for the handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Can I black out parts of my medical records before submitting them for the handicaptillæg application?",
+    "judge": "Can I black out parts of my medical records before submitting them for the handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P06",
+      0.799
+     ],
+     [
+      "FAQ_P05",
+      0.678
+     ],
+     [
+      "FAQ_04",
+      0.652
+     ]
+    ],
+    "candidates": [
+     "FAQ_P06",
+     "FAQ_P05",
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_P06": 1.0,
+     "FAQ_P05": 0.05,
+     "FAQ_04": 0.0
+    },
+    "kept": [
+     "FAQ_P06"
+    ]
+   }
+  ],
+  "searched_for": "Can I black out parts of my medical records before submitting them for the handicaptillæg application?",
+  "response": null
+ },
+ {
+  "id": "f06",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P06"
+  ],
+  "error": null,
+  "latency": 1.02,
+  "signals": {
+   "contextual": 0.86,
+   "distress": 0.0
+  },
+  "rewrite": "Can I black out parts of medical records before attaching them to my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Can I black out parts of medical records before attaching them to my handicaptillæg application?",
+    "judge": "Can I black out parts of medical records before attaching them to my handicaptillæg application?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P06",
+      0.842
+     ],
+     [
+      "FAQ_18",
+      0.646
+     ],
+     [
+      "FAQ_P05",
+      0.646
+     ]
+    ],
+    "candidates": [
+     "FAQ_P06"
+    ],
+    "relevance": {
+     "FAQ_P06": 1.0
+    },
+    "kept": [
+     "FAQ_P06"
+    ]
+   }
+  ],
+  "searched_for": "Can I black out parts of medical records before attaching them to my handicaptillæg application?",
+  "response": null
+ },
+ {
+  "id": "f06",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P06"
+  ],
+  "error": null,
+  "latency": 1.07,
+  "signals": {
+   "contextual": 0.86,
+   "distress": 0.0
+  },
+  "rewrite": "Can I black out parts of my medical records when submitting them for the SU disability supplement application?",
+  "searches": [
+   {
+    "query": "Can I black out parts of my medical records when submitting them for the SU disability supplement application?",
+    "judge": "Can I black out parts of my medical records when submitting them for the SU disability supplement application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P06",
+      0.752
+     ],
+     [
+      "FAQ_01",
+      0.701
+     ],
+     [
+      "FAQ_P01",
+      0.68
+     ]
+    ],
+    "candidates": [
+     "FAQ_P06",
+     "FAQ_01",
+     "FAQ_P01"
+    ],
+    "relevance": {
+     "FAQ_P06": 1.0,
+     "FAQ_01": 0.03,
+     "FAQ_P01": 0.43
+    },
+    "kept": [
+     "FAQ_P06"
+    ]
+   }
+  ],
+  "searched_for": "Can I black out parts of my medical records when submitting them for the SU disability supplement application?",
+  "response": null
+ },
+ {
+  "id": "f07",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_37"
+  ],
+  "error": null,
+  "latency": 1.35,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.0
+  },
+  "rewrite": "Can I get my time-limited handicaptillæg extended?",
+  "searches": [
+   {
+    "query": "Can I get my time-limited handicaptillæg extended?",
+    "judge": "Can I get my time-limited handicaptillæg extended?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_37",
+      1.001
+     ],
+     [
+      "FAQ_36",
+      0.791
+     ],
+     [
+      "FAQ_09",
+      0.76
+     ]
+    ],
+    "candidates": [
+     "FAQ_37"
+    ],
+    "relevance": {
+     "FAQ_37": 1.0
+    },
+    "kept": [
+     "FAQ_37"
+    ]
+   }
+  ],
+  "searched_for": "Can I get my time-limited handicaptillæg extended?",
+  "response": null
+ },
+ {
+  "id": "f07",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_37"
+  ],
+  "error": null,
+  "latency": 1.15,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.0
+  },
+  "rewrite": "Can I get my time-limited handicaptillæg extended?",
+  "searches": [
+   {
+    "query": "Can I get my time-limited handicaptillæg extended?",
+    "judge": "Can I get my time-limited handicaptillæg extended?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_37",
+      1.001
+     ],
+     [
+      "FAQ_36",
+      0.791
+     ],
+     [
+      "FAQ_09",
+      0.76
+     ]
+    ],
+    "candidates": [
+     "FAQ_37"
+    ],
+    "relevance": {
+     "FAQ_37": 1.0
+    },
+    "kept": [
+     "FAQ_37"
+    ]
+   }
+  ],
+  "searched_for": "Can I get my time-limited handicaptillæg extended?",
+  "response": null
+ },
+ {
+  "id": "f07",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_37",
+   "FAQ_36"
+  ],
+  "error": null,
+  "latency": 1.03,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.0
+  },
+  "rewrite": "Can I get my time-limited handicap-stipend extended?",
+  "searches": [
+   {
+    "query": "Can I get my time-limited handicap-stipend extended?",
+    "judge": "Can I get my time-limited handicap-stipend extended?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_37",
+      0.836
+     ],
+     [
+      "FAQ_P01",
+      0.728
+     ],
+     [
+      "FAQ_36",
+      0.685
+     ]
+    ],
+    "candidates": [
+     "FAQ_37",
+     "FAQ_P01",
+     "FAQ_36"
+    ],
+    "relevance": {
+     "FAQ_37": 1.0,
+     "FAQ_P01": 0.18,
+     "FAQ_36": 0.73
+    },
+    "kept": [
+     "FAQ_37",
+     "FAQ_36"
+    ]
+   }
+  ],
+  "searched_for": "Can I get my time-limited handicap-stipend extended?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f08",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_32"
+  ],
+  "error": null,
+  "latency": 0.48,
+  "signals": {
+   "contextual": 0.47,
+   "distress": 0.06
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "and if they say no, can I appeal?",
+    "judge": "and if they say no, can I appeal?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_42",
+      0.666
+     ],
+     [
+      "FAQ_41",
+      0.632
+     ],
+     [
+      "FAQ_32",
+      0.624
+     ]
+    ],
+    "candidates": [
+     "FAQ_42",
+     "FAQ_41",
+     "FAQ_32"
+    ],
+    "relevance": {
+     "FAQ_42": 0.99,
+     "FAQ_41": 1.0,
+     "FAQ_32": 1.0
+    },
+    "kept": [
+     "FAQ_41",
+     "FAQ_32",
+     "FAQ_42"
+    ]
+   },
+   {
+    "query": "Review and send demo application and if they say no, can I appeal?",
+    "judge": "and if they say no, can I appeal?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_31",
+      0.742
+     ],
+     [
+      "FAQ_32",
+      0.742
+     ],
+     [
+      "FAQ_P02",
+      0.673
+     ]
+    ],
+    "candidates": [
+     "FAQ_31",
+     "FAQ_32",
+     "FAQ_P02"
+    ],
+    "relevance": {
+     "FAQ_31": 0.01,
+     "FAQ_32": 1.0,
+     "FAQ_P02": 0.02
+    },
+    "kept": [
+     "FAQ_32"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "f08",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_32"
+  ],
+  "error": null,
+  "latency": 0.46,
+  "signals": {
+   "contextual": 0.47,
+   "distress": 0.06
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "and if they say no, can I appeal?",
+    "judge": "and if they say no, can I appeal?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_42",
+      0.666
+     ],
+     [
+      "FAQ_41",
+      0.632
+     ],
+     [
+      "FAQ_32",
+      0.624
+     ]
+    ],
+    "candidates": [
+     "FAQ_42",
+     "FAQ_41",
+     "FAQ_32"
+    ],
+    "relevance": {
+     "FAQ_42": 0.99,
+     "FAQ_41": 1.0,
+     "FAQ_32": 1.0
+    },
+    "kept": [
+     "FAQ_41",
+     "FAQ_32",
+     "FAQ_42"
+    ]
+   },
+   {
+    "query": "Review and send demo application and if they say no, can I appeal?",
+    "judge": "and if they say no, can I appeal?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_31",
+      0.742
+     ],
+     [
+      "FAQ_32",
+      0.742
+     ],
+     [
+      "FAQ_P02",
+      0.673
+     ]
+    ],
+    "candidates": [
+     "FAQ_31",
+     "FAQ_32",
+     "FAQ_P02"
+    ],
+    "relevance": {
+     "FAQ_31": 0.01,
+     "FAQ_32": 1.0,
+     "FAQ_P02": 0.02
+    },
+    "kept": [
+     "FAQ_32"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "f08",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_32"
+  ],
+  "error": null,
+  "latency": 0.46,
+  "signals": {
+   "contextual": 0.47,
+   "distress": 0.06
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "and if they say no, can I appeal?",
+    "judge": "and if they say no, can I appeal?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_42",
+      0.666
+     ],
+     [
+      "FAQ_41",
+      0.632
+     ],
+     [
+      "FAQ_32",
+      0.624
+     ]
+    ],
+    "candidates": [
+     "FAQ_42",
+     "FAQ_41",
+     "FAQ_32"
+    ],
+    "relevance": {
+     "FAQ_42": 0.99,
+     "FAQ_41": 1.0,
+     "FAQ_32": 1.0
+    },
+    "kept": [
+     "FAQ_41",
+     "FAQ_32",
+     "FAQ_42"
+    ]
+   },
+   {
+    "query": "Review and send demo application and if they say no, can I appeal?",
+    "judge": "and if they say no, can I appeal?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_31",
+      0.742
+     ],
+     [
+      "FAQ_32",
+      0.742
+     ],
+     [
+      "FAQ_P02",
+      0.673
+     ]
+    ],
+    "candidates": [
+     "FAQ_31",
+     "FAQ_32",
+     "FAQ_P02"
+    ],
+    "relevance": {
+     "FAQ_31": 0.01,
+     "FAQ_32": 1.0,
+     "FAQ_P02": 0.02
+    },
+    "kept": [
+     "FAQ_32"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "f09",
+  "repeat": 0,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.1,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.04
+  },
+  "rewrite": "What happens if I am late submitting my application for handicaptillæg?",
+  "searches": [
+   {
+    "query": "What happens if I am late submitting my application for handicaptillæg?",
+    "judge": "What happens if I am late submitting my application for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.713
+     ],
+     [
+      "FAQ_04",
+      0.695
+     ],
+     [
+      "FAQ_34",
+      0.688
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_04",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_09": 0.0,
+     "FAQ_04": 0.0,
+     "FAQ_34": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "What happens if I am late submitting my application for handicaptillæg?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "f09",
+  "repeat": 1,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.01,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.04
+  },
+  "rewrite": "What happens if I am late submitting my application for the handicaptillæg?",
+  "searches": [
+   {
+    "query": "What happens if I am late submitting my application for the handicaptillæg?",
+    "judge": "What happens if I am late submitting my application for the handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.708
+     ],
+     [
+      "FAQ_04",
+      0.685
+     ],
+     [
+      "FAQ_41",
+      0.679
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_04",
+     "FAQ_41"
+    ],
+    "relevance": {
+     "FAQ_09": 0.0,
+     "FAQ_04": 0.0,
+     "FAQ_41": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "What happens if I am late submitting my application for the handicaptillæg?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "f09",
+  "repeat": 2,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.35,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.04
+  },
+  "rewrite": "What happens if I submit my handicaptillæg application late?",
+  "searches": [
+   {
+    "query": "What happens if I submit my handicaptillæg application late?",
+    "judge": "What happens if I submit my handicaptillæg application late?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.743
+     ],
+     [
+      "FAQ_37",
+      0.73
+     ],
+     [
+      "FAQ_41",
+      0.715
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_37",
+     "FAQ_41"
+    ],
+    "relevance": {
+     "FAQ_09": 0.0,
+     "FAQ_37": 0.03,
+     "FAQ_41": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "What happens if I submit my handicaptillæg application late?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "f10",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_01"
+  ],
+  "error": null,
+  "latency": 1.31,
+  "signals": {
+   "contextual": 0.99,
+   "distress": 0.0
+  },
+  "rewrite": "Do I need to write a personal statement about my congenital impairment when applying for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "Do I need to write a personal statement about my congenital impairment when applying for the SU disability supplement?",
+    "judge": "Do I need to write a personal statement about my congenital impairment when applying for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.781
+     ],
+     [
+      "FAQ_03",
+      0.736
+     ],
+     [
+      "FAQ_41",
+      0.733
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_03",
+     "FAQ_41"
+    ],
+    "relevance": {
+     "FAQ_01": 0.67,
+     "FAQ_03": 0.49,
+     "FAQ_41": 0.0
+    },
+    "kept": [
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "Do I need to write a personal statement about my congenital impairment when applying for the SU disability supplement?",
+  "response": null
+ },
+ {
+  "id": "f10",
+  "repeat": 1,
+  "verdict": "options_wrong",
+  "outcome": "options",
+  "ids": [
+   "FAQ_P01",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.2,
+  "signals": {
+   "contextual": 0.99,
+   "distress": 0.0
+  },
+  "rewrite": "Should I write a personal statement about my congenital impairment when applying for the disability supplement?",
+  "searches": [
+   {
+    "query": "Should I write a personal statement about my congenital impairment when applying for the disability supplement?",
+    "judge": "Should I write a personal statement about my congenital impairment when applying for the disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.758
+     ],
+     [
+      "FAQ_41",
+      0.754
+     ],
+     [
+      "FAQ_03",
+      0.75
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_41",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.93,
+     "FAQ_41": 0.0,
+     "FAQ_03": 0.88
+    },
+    "kept": [
+     "FAQ_P01",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": "Should I write a personal statement about my congenital impairment when applying for the disability supplement?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f10",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.36,
+  "signals": {
+   "contextual": 0.99,
+   "distress": 0.0
+  },
+  "rewrite": "Do I need to write a personal statement for my congenital impairment when applying for handicaptillæg?",
+  "searches": [
+   {
+    "query": "Do I need to write a personal statement for my congenital impairment when applying for handicaptillæg?",
+    "judge": "Do I need to write a personal statement for my congenital impairment when applying for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.843
+     ],
+     [
+      "FAQ_34",
+      0.803
+     ],
+     [
+      "FAQ_04",
+      0.745
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_34",
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_P05": 1.0,
+     "FAQ_34": 0.01,
+     "FAQ_04": 0.01
+    },
+    "kept": [
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "Do I need to write a personal statement for my congenital impairment when applying for handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "f11",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.2,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Can I apply for handicaptillæg if I have two types of functional impairments?",
+  "searches": [
+   {
+    "query": "Can I apply for handicaptillæg if I have two types of functional impairments?",
+    "judge": "Can I apply for handicaptillæg if I have two types of functional impairments?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.834
+     ],
+     [
+      "FAQ_03",
+      0.801
+     ],
+     [
+      "FAQ_04",
+      0.757
+     ]
+    ],
+    "candidates": [
+     "FAQ_34",
+     "FAQ_03",
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_34": 0.01,
+     "FAQ_03": 0.94,
+     "FAQ_04": 0.0
+    },
+    "kept": [
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": "Can I apply for handicaptillæg if I have two types of functional impairments?",
+  "response": null
+ },
+ {
+  "id": "f11",
+  "repeat": 1,
+  "verdict": "options_wrong",
+  "outcome": "options",
+  "ids": [
+   "FAQ_03",
+   "FAQ_01"
+  ],
+  "error": null,
+  "latency": 1.14,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Can I apply for the disability supplement if I have two different types of functional impairments?",
+  "searches": [
+   {
+    "query": "Can I apply for the disability supplement if I have two different types of functional impairments?",
+    "judge": "Can I apply for the disability supplement if I have two different types of functional impairments?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.767
+     ],
+     [
+      "FAQ_01",
+      0.766
+     ],
+     [
+      "FAQ_35",
+      0.743
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_01",
+     "FAQ_35"
+    ],
+    "relevance": {
+     "FAQ_03": 0.97,
+     "FAQ_01": 0.85,
+     "FAQ_35": 0.01
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "Can I apply for the disability supplement if I have two different types of functional impairments?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f11",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.37,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Can I select two types of functional impairments for my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Can I select two types of functional impairments for my handicaptillæg application?",
+    "judge": "Can I select two types of functional impairments for my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.771
+     ],
+     [
+      "FAQ_03",
+      0.754
+     ],
+     [
+      "FAQ_04",
+      0.716
+     ]
+    ],
+    "candidates": [
+     "FAQ_34",
+     "FAQ_03",
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_34": 0.0,
+     "FAQ_03": 0.67,
+     "FAQ_04": 0.0
+    },
+    "kept": [
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": "Can I select two types of functional impairments for my handicaptillæg application?",
+  "response": null
+ },
+ {
+  "id": "f12",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_08",
+   "FAQ_09",
+   "FAQ_01"
+  ],
+  "error": null,
+  "latency": 1.14,
+  "signals": {
+   "contextual": 0.97,
+   "distress": 0.0
+  },
+  "rewrite": "How long does an impairment need to have lasted to be considered permanent for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "How long does an impairment need to have lasted to be considered permanent for the SU disability supplement?",
+    "judge": "How long does an impairment need to have lasted to be considered permanent for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_08",
+      0.821
+     ],
+     [
+      "FAQ_09",
+      0.723
+     ],
+     [
+      "FAQ_01",
+      0.703
+     ]
+    ],
+    "candidates": [
+     "FAQ_08",
+     "FAQ_09",
+     "FAQ_01"
+    ],
+    "relevance": {
+     "FAQ_08": 1.0,
+     "FAQ_09": 1.0,
+     "FAQ_01": 0.94
+    },
+    "kept": [
+     "FAQ_08",
+     "FAQ_09",
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "How long does an impairment need to have lasted to be considered permanent for the SU disability supplement?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f12",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_09",
+   "FAQ_08",
+   "FAQ_33"
+  ],
+  "error": null,
+  "latency": 1.11,
+  "signals": {
+   "contextual": 0.97,
+   "distress": 0.0
+  },
+  "rewrite": "How long does an impairment need to have lasted to be considered permanent for the handicaptillæg?",
+  "searches": [
+   {
+    "query": "How long does an impairment need to have lasted to be considered permanent for the handicaptillæg?",
+    "judge": "How long does an impairment need to have lasted to be considered permanent for the handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.741
+     ],
+     [
+      "FAQ_08",
+      0.734
+     ],
+     [
+      "FAQ_33",
+      0.716
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_08",
+     "FAQ_33"
+    ],
+    "relevance": {
+     "FAQ_09": 1.0,
+     "FAQ_08": 0.98,
+     "FAQ_33": 0.94
+    },
+    "kept": [
+     "FAQ_09",
+     "FAQ_08",
+     "FAQ_33"
+    ]
+   }
+  ],
+  "searched_for": "How long does an impairment need to have lasted to be considered permanent for the handicaptillæg?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f12",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_09",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.27,
+  "signals": {
+   "contextual": 0.97,
+   "distress": 0.0
+  },
+  "rewrite": "How long does a condition need to have lasted to be considered permanent for the handicaptillæg?",
+  "searches": [
+   {
+    "query": "How long does a condition need to have lasted to be considered permanent for the handicaptillæg?",
+    "judge": "How long does a condition need to have lasted to be considered permanent for the handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.816
+     ],
+     [
+      "FAQ_37",
+      0.736
+     ],
+     [
+      "FAQ_03",
+      0.73
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_37",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_09": 1.0,
+     "FAQ_37": 0.4,
+     "FAQ_03": 0.92
+    },
+    "kept": [
+     "FAQ_09",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": "How long does a condition need to have lasted to be considered permanent for the handicaptillæg?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f13",
+  "repeat": 0,
+  "verdict": "options_wrong",
+  "outcome": "options",
+  "ids": [
+   "FAQ_03",
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.25,
+  "signals": {
+   "contextual": 0.95,
+   "distress": 0.0
+  },
+  "rewrite": "What should the medical records for handicaptillæg include or describe?",
+  "searches": [
+   {
+    "query": "What should the medical records for handicaptillæg include or describe?",
+    "judge": "What should the medical records for handicaptillæg include or describe?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.762
+     ],
+     [
+      "FAQ_P05",
+      0.735
+     ],
+     [
+      "FAQ_01",
+      0.699
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_P05",
+     "FAQ_01"
+    ],
+    "relevance": {
+     "FAQ_03": 0.55,
+     "FAQ_P05": 0.81,
+     "FAQ_01": 0.37
+    },
+    "kept": [
+     "FAQ_P05",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": "What should the medical records for handicaptillæg include or describe?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f13",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P01"
+  ],
+  "error": null,
+  "latency": 1.28,
+  "signals": {
+   "contextual": 0.95,
+   "distress": 0.0
+  },
+  "rewrite": "What information should the medical records themselves include when applying for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "What information should the medical records themselves include when applying for the SU disability supplement?",
+    "judge": "What information should the medical records themselves include when applying for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.763
+     ],
+     [
+      "FAQ_03",
+      0.74
+     ],
+     [
+      "FAQ_P01",
+      0.728
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_03",
+     "FAQ_P01"
+    ],
+    "relevance": {
+     "FAQ_01": 0.29,
+     "FAQ_03": 0.38,
+     "FAQ_P01": 0.82
+    },
+    "kept": [
+     "FAQ_P01"
+    ]
+   }
+  ],
+  "searched_for": "What information should the medical records themselves include when applying for the SU disability supplement?",
+  "response": null
+ },
+ {
+  "id": "f13",
+  "repeat": 2,
+  "verdict": "missed",
+  "outcome": "same_faq",
+  "ids": [],
+  "error": null,
+  "latency": 1.32,
+  "signals": {
+   "contextual": 0.95,
+   "distress": 0.0
+  },
+  "rewrite": "What details should the medical records include for the handicaptillæg application?",
+  "searches": [
+   {
+    "query": "What details should the medical records include for the handicaptillæg application?",
+    "judge": "What details should the medical records include for the handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.785
+     ],
+     [
+      "FAQ_P05",
+      0.778
+     ],
+     [
+      "FAQ_34",
+      0.772
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_P05",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_03": 0.23,
+     "FAQ_P05": 0.79,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "What details should the medical records include for the handicaptillæg application?",
+  "response": "The answer above is the closest the FAQ has. It does not say more about this. For questions about your own case, use the contact options published on SU.dk."
+ },
+ {
+  "id": "f14",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_04"
+  ],
+  "error": null,
+  "latency": 1.28,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Do I need to receive ordinary SU before I can get the handicaptillæg disability supplement?",
+  "searches": [
+   {
+    "query": "Do I need to receive ordinary SU before I can get the handicaptillæg disability supplement?",
+    "judge": "Do I need to receive ordinary SU before I can get the handicaptillæg disability supplement?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_04",
+      0.88
+     ],
+     [
+      "FAQ_01",
+      0.757
+     ],
+     [
+      "FAQ_20",
+      0.75
+     ]
+    ],
+    "candidates": [
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_04": 1.0
+    },
+    "kept": [
+     "FAQ_04"
+    ]
+   }
+  ],
+  "searched_for": "Do I need to receive ordinary SU before I can get the handicaptillæg disability supplement?",
+  "response": null
+ },
+ {
+  "id": "f14",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_04",
+   "FAQ_01",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.22,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Do I need to receive ordinary SU before I can get the disability supplement (handicaptillæg)?",
+  "searches": [
+   {
+    "query": "Do I need to receive ordinary SU before I can get the disability supplement (handicaptillæg)?",
+    "judge": "Do I need to receive ordinary SU before I can get the disability supplement (handicaptillæg)?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_04",
+      0.836
+     ],
+     [
+      "FAQ_01",
+      0.775
+     ],
+     [
+      "FAQ_03",
+      0.762
+     ]
+    ],
+    "candidates": [
+     "FAQ_04",
+     "FAQ_01",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_04": 1.0,
+     "FAQ_01": 0.95,
+     "FAQ_03": 0.99
+    },
+    "kept": [
+     "FAQ_04",
+     "FAQ_03",
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "Do I need to receive ordinary SU before I can get the disability supplement (handicaptillæg)?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "f14",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_04",
+   "FAQ_01",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.22,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Do I need to receive ordinary SU before I can get the disability supplement (handicaptillæg)?",
+  "searches": [
+   {
+    "query": "Do I need to receive ordinary SU before I can get the disability supplement (handicaptillæg)?",
+    "judge": "Do I need to receive ordinary SU before I can get the disability supplement (handicaptillæg)?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_04",
+      0.836
+     ],
+     [
+      "FAQ_01",
+      0.775
+     ],
+     [
+      "FAQ_03",
+      0.762
+     ]
+    ],
+    "candidates": [
+     "FAQ_04",
+     "FAQ_01",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_04": 1.0,
+     "FAQ_01": 0.95,
+     "FAQ_03": 0.99
+    },
+    "kept": [
+     "FAQ_04",
+     "FAQ_03",
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "Do I need to receive ordinary SU before I can get the disability supplement (handicaptillæg)?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "n01",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.11,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Does the number of hours I worked before my studies matter for the handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Does the number of hours I worked before my studies matter for the handicaptillæg application?",
+    "judge": "Does the number of hours I worked before my studies matter for the handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.732
+     ],
+     [
+      "FAQ_04",
+      0.724
+     ],
+     [
+      "FAQ_P09",
+      0.719
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_04",
+     "FAQ_P09"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.07,
+     "FAQ_04": 0.0,
+     "FAQ_P09": 0.01
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Does the number of hours I worked before my studies matter for the handicaptillæg application?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "n01",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 1.5,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Does the number of hours I worked in the last three years matter for my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Does the number of hours I worked in the last three years matter for my handicaptillæg application?",
+    "judge": "Does the number of hours I worked in the last three years matter for my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.717
+     ],
+     [
+      "FAQ_P09",
+      0.702
+     ],
+     [
+      "FAQ_P05",
+      0.691
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_P09",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_09": 0.03,
+     "FAQ_P09": 0.74,
+     "FAQ_P05": 0.1
+    },
+    "kept": [
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": "Does the number of hours I worked in the last three years matter for my handicaptillæg application?",
+  "response": null
+ },
+ {
+  "id": "n01",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 1.15,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "Does the number of hours I worked in the last three years matter for my application for handicaptillæg?",
+  "searches": [
+   {
+    "query": "Does the number of hours I worked in the last three years matter for my application for handicaptillæg?",
+    "judge": "Does the number of hours I worked in the last three years matter for my application for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.737
+     ],
+     [
+      "FAQ_P09",
+      0.732
+     ],
+     [
+      "FAQ_P05",
+      0.705
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_P09",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_09": 0.02,
+     "FAQ_P09": 0.73,
+     "FAQ_P05": 0.16
+    },
+    "kept": [
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": "Does the number of hours I worked in the last three years matter for my application for handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "n02",
+  "repeat": 0,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_06",
+   "FAQ_01",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.71,
+  "signals": {
+   "contextual": 0.94,
+   "distress": 0.0
+  },
+  "rewrite": "Is the eligibility for handicaptillæg different for master's students compared to other students?",
+  "searches": [
+   {
+    "query": "Is the eligibility for handicaptillæg different for master's students compared to other students?",
+    "judge": "Is the eligibility for handicaptillæg different for master's students compared to other students?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_06",
+      0.751
+     ],
+     [
+      "FAQ_01",
+      0.723
+     ],
+     [
+      "FAQ_03",
+      0.72
+     ]
+    ],
+    "candidates": [
+     "FAQ_06",
+     "FAQ_01",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_06": 0.55,
+     "FAQ_01": 0.8,
+     "FAQ_03": 0.89
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_01",
+     "FAQ_06"
+    ]
+   }
+  ],
+  "searched_for": "Is the eligibility for handicaptillæg different for master's students compared to other students?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "n02",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.23,
+  "signals": {
+   "contextual": 0.94,
+   "distress": 0.0
+  },
+  "rewrite": "Is the assessment of planned work while studying different for master's students when applying for handicaptillæg?",
+  "searches": [
+   {
+    "query": "Is the assessment of planned work while studying different for master's students when applying for handicaptillæg?",
+    "judge": "Is the assessment of planned work while studying different for master's students when applying for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_06",
+      0.722
+     ],
+     [
+      "FAQ_P05",
+      0.717
+     ],
+     [
+      "FAQ_19",
+      0.68
+     ]
+    ],
+    "candidates": [
+     "FAQ_06",
+     "FAQ_P05",
+     "FAQ_19"
+    ],
+    "relevance": {
+     "FAQ_06": 0.04,
+     "FAQ_P05": 0.14,
+     "FAQ_19": 0.07
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Is the assessment of planned work while studying different for master's students when applying for handicaptillæg?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "n02",
+  "repeat": 2,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_06",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.41,
+  "signals": {
+   "contextual": 0.94,
+   "distress": 0.0
+  },
+  "rewrite": "Is the rules for planning to work and qualifying for handicaptillæg different for master's students?",
+  "searches": [
+   {
+    "query": "Is the rules for planning to work and qualifying for handicaptillæg different for master's students?",
+    "judge": "Is the rules for planning to work and qualifying for handicaptillæg different for master's students?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_06",
+      0.719
+     ],
+     [
+      "FAQ_03",
+      0.7
+     ],
+     [
+      "FAQ_P05",
+      0.683
+     ]
+    ],
+    "candidates": [
+     "FAQ_06",
+     "FAQ_03",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_06": 0.58,
+     "FAQ_03": 0.84,
+     "FAQ_P05": 0.04
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_06"
+    ]
+   }
+  ],
+  "searched_for": "Is the rules for planning to work and qualifying for handicaptillæg different for master's students?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "n03",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_21"
+  ],
+  "error": null,
+  "latency": 1.66,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.0
+  },
+  "rewrite": "Do the medical records I attach need to be translated into Danish?",
+  "searches": [
+   {
+    "query": "do they have to be translated into Danish?",
+    "judge": "do they have to be translated into Danish?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      0.578
+     ],
+     [
+      "FAQ_40",
+      0.513
+     ],
+     [
+      "FAQ_P05",
+      0.448
+     ]
+    ],
+    "candidates": [
+     "FAQ_05b",
+     "FAQ_40",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_05b": 0.0,
+     "FAQ_40": 0.0,
+     "FAQ_P05": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Attach medical records documenting each impairment you want considered. Records from a hospital, specialist, GP or other relevant treatment provider are the minimum requirement. do they have to be translated into Danish?",
+    "judge": "do they have to be translated into Danish?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_21",
+      0.657
+     ],
+     [
+      "FAQ_26",
+      0.63
+     ],
+     [
+      "FAQ_23",
+      0.628
+     ]
+    ],
+    "candidates": [
+     "FAQ_21",
+     "FAQ_26",
+     "FAQ_23"
+    ],
+    "relevance": {
+     "FAQ_21": 0.0,
+     "FAQ_26": 0.0,
+     "FAQ_23": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do the medical records I attach need to be translated into Danish?",
+    "judge": "Do the medical records I attach need to be translated into Danish?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P04",
+      0.65
+     ],
+     [
+      "FAQ_23",
+      0.648
+     ],
+     [
+      "FAQ_21",
+      0.633
+     ]
+    ],
+    "candidates": [
+     "FAQ_P04",
+     "FAQ_23",
+     "FAQ_21"
+    ],
+    "relevance": {
+     "FAQ_P04": 0.0,
+     "FAQ_23": 0.2,
+     "FAQ_21": 0.53
+    },
+    "kept": [
+     "FAQ_21"
+    ]
+   }
+  ],
+  "searched_for": "Do the medical records I attach need to be translated into Danish?",
+  "response": null
+ },
+ {
+  "id": "n03",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.5,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.0
+  },
+  "rewrite": "Do medical records for the SU disability supplement need to be translated into Danish?",
+  "searches": [
+   {
+    "query": "do they have to be translated into Danish?",
+    "judge": "do they have to be translated into Danish?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      0.578
+     ],
+     [
+      "FAQ_40",
+      0.513
+     ],
+     [
+      "FAQ_P05",
+      0.448
+     ]
+    ],
+    "candidates": [
+     "FAQ_05b",
+     "FAQ_40",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_05b": 0.0,
+     "FAQ_40": 0.0,
+     "FAQ_P05": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Attach medical records documenting each impairment you want considered. Records from a hospital, specialist, GP or other relevant treatment provider are the minimum requirement. do they have to be translated into Danish?",
+    "judge": "do they have to be translated into Danish?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_21",
+      0.657
+     ],
+     [
+      "FAQ_26",
+      0.63
+     ],
+     [
+      "FAQ_23",
+      0.628
+     ]
+    ],
+    "candidates": [
+     "FAQ_21",
+     "FAQ_26",
+     "FAQ_23"
+    ],
+    "relevance": {
+     "FAQ_21": 0.0,
+     "FAQ_26": 0.0,
+     "FAQ_23": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do medical records for the SU disability supplement need to be translated into Danish?",
+    "judge": "Do medical records for the SU disability supplement need to be translated into Danish?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      0.663
+     ],
+     [
+      "FAQ_01",
+      0.648
+     ],
+     [
+      "FAQ_P01",
+      0.617
+     ]
+    ],
+    "candidates": [
+     "FAQ_05b",
+     "FAQ_01",
+     "FAQ_P01"
+    ],
+    "relevance": {
+     "FAQ_05b": 0.0,
+     "FAQ_01": 0.02,
+     "FAQ_P01": 0.17
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Do medical records for the SU disability supplement need to be translated into Danish?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "n03",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P01"
+  ],
+  "error": null,
+  "latency": 1.43,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.0
+  },
+  "rewrite": "Do medical records need to be translated into Danish for the SU disability supplement application?",
+  "searches": [
+   {
+    "query": "do they have to be translated into Danish?",
+    "judge": "do they have to be translated into Danish?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      0.578
+     ],
+     [
+      "FAQ_40",
+      0.513
+     ],
+     [
+      "FAQ_P05",
+      0.448
+     ]
+    ],
+    "candidates": [
+     "FAQ_05b",
+     "FAQ_40",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_05b": 0.0,
+     "FAQ_40": 0.0,
+     "FAQ_P05": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Attach medical records documenting each impairment you want considered. Records from a hospital, specialist, GP or other relevant treatment provider are the minimum requirement. do they have to be translated into Danish?",
+    "judge": "do they have to be translated into Danish?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_21",
+      0.657
+     ],
+     [
+      "FAQ_26",
+      0.63
+     ],
+     [
+      "FAQ_23",
+      0.628
+     ]
+    ],
+    "candidates": [
+     "FAQ_21",
+     "FAQ_26",
+     "FAQ_23"
+    ],
+    "relevance": {
+     "FAQ_21": 0.0,
+     "FAQ_26": 0.0,
+     "FAQ_23": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do medical records need to be translated into Danish for the SU disability supplement application?",
+    "judge": "Do medical records need to be translated into Danish for the SU disability supplement application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      0.7
+     ],
+     [
+      "FAQ_P01",
+      0.666
+     ],
+     [
+      "FAQ_01",
+      0.662
+     ]
+    ],
+    "candidates": [
+     "FAQ_05b",
+     "FAQ_P01",
+     "FAQ_01"
+    ],
+    "relevance": {
+     "FAQ_05b": 0.0,
+     "FAQ_P01": 0.56,
+     "FAQ_01": 0.09
+    },
+    "kept": [
+     "FAQ_P01"
+    ]
+   }
+  ],
+  "searched_for": "Do medical records need to be translated into Danish for the SU disability supplement application?",
+  "response": null
+ },
+ {
+  "id": "n04",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 1.14,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.0
+  },
+  "rewrite": "Will applying early for the handicaptillæg make the process go faster?",
+  "searches": [
+   {
+    "query": "Will applying early for the handicaptillæg make the process go faster?",
+    "judge": "Will applying early for the handicaptillæg make the process go faster?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.72
+     ],
+     [
+      "FAQ_37",
+      0.707
+     ],
+     [
+      "FAQ_P08",
+      0.698
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_37",
+     "FAQ_P08"
+    ],
+    "relevance": {
+     "FAQ_09": 0.0,
+     "FAQ_37": 0.0,
+     "FAQ_P08": 0.91
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": "Will applying early for the handicaptillæg make the process go faster?",
+  "response": null
+ },
+ {
+  "id": "n04",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 1.09,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.0
+  },
+  "rewrite": "Will applying for the time-limited handicaptillæg early make the process faster?",
+  "searches": [
+   {
+    "query": "Will applying for the time-limited handicaptillæg early make the process faster?",
+    "judge": "Will applying for the time-limited handicaptillæg early make the process faster?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_37",
+      0.8
+     ],
+     [
+      "FAQ_09",
+      0.75
+     ],
+     [
+      "FAQ_P08",
+      0.707
+     ]
+    ],
+    "candidates": [
+     "FAQ_37",
+     "FAQ_09",
+     "FAQ_P08"
+    ],
+    "relevance": {
+     "FAQ_37": 0.15,
+     "FAQ_09": 0.0,
+     "FAQ_P08": 0.95
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": "Will applying for the time-limited handicaptillæg early make the process faster?",
+  "response": null
+ },
+ {
+  "id": "n04",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 1.31,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.0
+  },
+  "rewrite": "Will applying early make the processing of my handicaptillæg application faster?",
+  "searches": [
+   {
+    "query": "Will applying early make the processing of my handicaptillæg application faster?",
+    "judge": "Will applying early make the processing of my handicaptillæg application faster?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P08",
+      0.714
+     ],
+     [
+      "FAQ_09",
+      0.697
+     ],
+     [
+      "FAQ_37",
+      0.681
+     ]
+    ],
+    "candidates": [
+     "FAQ_P08",
+     "FAQ_09",
+     "FAQ_37"
+    ],
+    "relevance": {
+     "FAQ_P08": 0.88,
+     "FAQ_09": 0.0,
+     "FAQ_37": 0.0
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": "Will applying early make the processing of my handicaptillæg application faster?",
+  "response": null
+ },
+ {
+  "id": "n05",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 0.33,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.05
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "can I pay to have it processed faster?",
+    "judge": "can I pay to have it processed faster?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P08",
+      0.715
+     ],
+     [
+      "FAQ_42",
+      0.649
+     ],
+     [
+      "FAQ_28",
+      0.634
+     ]
+    ],
+    "candidates": [
+     "FAQ_P08",
+     "FAQ_42",
+     "FAQ_28"
+    ],
+    "relevance": {
+     "FAQ_P08": 0.72,
+     "FAQ_42": 0.0,
+     "FAQ_28": 0.0
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "n05",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 0.33,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.05
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "can I pay to have it processed faster?",
+    "judge": "can I pay to have it processed faster?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P08",
+      0.715
+     ],
+     [
+      "FAQ_42",
+      0.649
+     ],
+     [
+      "FAQ_28",
+      0.634
+     ]
+    ],
+    "candidates": [
+     "FAQ_P08",
+     "FAQ_42",
+     "FAQ_28"
+    ],
+    "relevance": {
+     "FAQ_P08": 0.72,
+     "FAQ_42": 0.0,
+     "FAQ_28": 0.0
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "n05",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 0.33,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.05
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "can I pay to have it processed faster?",
+    "judge": "can I pay to have it processed faster?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P08",
+      0.715
+     ],
+     [
+      "FAQ_42",
+      0.649
+     ],
+     [
+      "FAQ_28",
+      0.634
+     ]
+    ],
+    "candidates": [
+     "FAQ_P08",
+     "FAQ_42",
+     "FAQ_28"
+    ],
+    "relevance": {
+     "FAQ_P08": 0.72,
+     "FAQ_42": 0.0,
+     "FAQ_28": 0.0
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "n06",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.76,
+  "signals": {
+   "contextual": 0.31,
+   "distress": 0.0
+  },
+  "rewrite": "Will I receive a text message about my application in addition to emails?",
+  "searches": [
+   {
+    "query": "will you also send me a text message?",
+    "judge": "will you also send me a text message?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.534
+     ],
+     [
+      "FAQ_P03",
+      0.521
+     ],
+     [
+      "FAQ_P02",
+      0.52
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_P03",
+     "FAQ_P02"
+    ],
+    "relevance": {
+     "FAQ_P07": 0.0,
+     "FAQ_P03": 0.0,
+     "FAQ_P02": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "What email address should we use to contact you about this application? will you also send me a text message?",
+    "judge": "will you also send me a text message?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.638
+     ],
+     [
+      "FAQ_P07",
+      0.609
+     ],
+     [
+      "FAQ_P03",
+      0.6
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_P07",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_P07": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Will I receive a text message about my application in addition to emails?",
+    "judge": "Will I receive a text message about my application in addition to emails?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.725
+     ],
+     [
+      "FAQ_P08",
+      0.69
+     ],
+     [
+      "FAQ_P03",
+      0.682
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_P08",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.14,
+     "FAQ_P08": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Will I receive a text message about my application in addition to emails?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "n06",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P02"
+  ],
+  "error": null,
+  "latency": 1.5,
+  "signals": {
+   "contextual": 0.31,
+   "distress": 0.0
+  },
+  "rewrite": "Will I also receive a text message about my application status?",
+  "searches": [
+   {
+    "query": "will you also send me a text message?",
+    "judge": "will you also send me a text message?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.534
+     ],
+     [
+      "FAQ_P03",
+      0.521
+     ],
+     [
+      "FAQ_P02",
+      0.52
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_P03",
+     "FAQ_P02"
+    ],
+    "relevance": {
+     "FAQ_P07": 0.0,
+     "FAQ_P03": 0.0,
+     "FAQ_P02": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "What email address should we use to contact you about this application? will you also send me a text message?",
+    "judge": "will you also send me a text message?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.638
+     ],
+     [
+      "FAQ_P07",
+      0.609
+     ],
+     [
+      "FAQ_P03",
+      0.6
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_P07",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_P07": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Will I also receive a text message about my application status?",
+    "judge": "Will I also receive a text message about my application status?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.826
+     ],
+     [
+      "FAQ_P08",
+      0.715
+     ],
+     [
+      "FAQ_P03",
+      0.649
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_P08",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.62,
+     "FAQ_P08": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": [
+     "FAQ_P02"
+    ]
+   }
+  ],
+  "searched_for": "Will I also receive a text message about my application status?",
+  "response": null
+ },
+ {
+  "id": "n06",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 2.08,
+  "signals": {
+   "contextual": 0.31,
+   "distress": 0.0
+  },
+  "rewrite": "Will I receive a text message to follow up on my SU disability supplement application?",
+  "searches": [
+   {
+    "query": "will you also send me a text message?",
+    "judge": "will you also send me a text message?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.534
+     ],
+     [
+      "FAQ_P03",
+      0.521
+     ],
+     [
+      "FAQ_P02",
+      0.52
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_P03",
+     "FAQ_P02"
+    ],
+    "relevance": {
+     "FAQ_P07": 0.0,
+     "FAQ_P03": 0.0,
+     "FAQ_P02": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "What email address should we use to contact you about this application? will you also send me a text message?",
+    "judge": "will you also send me a text message?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.638
+     ],
+     [
+      "FAQ_P07",
+      0.609
+     ],
+     [
+      "FAQ_P03",
+      0.6
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_P07",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_P07": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Will I receive a text message to follow up on my SU disability supplement application?",
+    "judge": "Will I receive a text message to follow up on my SU disability supplement application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.787
+     ],
+     [
+      "FAQ_41",
+      0.783
+     ],
+     [
+      "FAQ_P01",
+      0.768
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_41",
+     "FAQ_P01"
+    ],
+    "relevance": {
+     "FAQ_01": 0.09,
+     "FAQ_41": 0.0,
+     "FAQ_P01": 0.11
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Will I receive a text message to follow up on my SU disability supplement application?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "n07",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.57,
+  "signals": {
+   "contextual": 0.03,
+   "distress": 0.0
+  },
+  "rewrite": "How many pages should my personal statement be when describing how my impairment affects my ability to work alongside my studies?",
+  "searches": [
+   {
+    "query": "how many pages should it be?",
+    "judge": "how many pages should it be?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P04",
+      0.61
+     ],
+     [
+      "FAQ_21",
+      0.542
+     ],
+     [
+      "FAQ_24",
+      0.534
+     ]
+    ],
+    "candidates": [
+     "FAQ_P04",
+     "FAQ_21",
+     "FAQ_24"
+    ],
+    "relevance": {
+     "FAQ_P04": 0.0,
+     "FAQ_21": 0.0,
+     "FAQ_24": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Attach your personal statement describing how your impairment affects your ability to take paid work alongside your studies. how many pages should it be?",
+    "judge": "how many pages should it be?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.763
+     ],
+     [
+      "FAQ_15",
+      0.626
+     ],
+     [
+      "FAQ_22",
+      0.613
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_15",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.0,
+     "FAQ_15": 0.0,
+     "FAQ_22": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "How many pages should my personal statement be when describing how my impairment affects my ability to work alongside my studies?",
+    "judge": "How many pages should my personal statement be when describing how my impairment affects my ability to work alongside my studies?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.729
+     ],
+     [
+      "FAQ_07",
+      0.64
+     ],
+     [
+      "FAQ_15",
+      0.603
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_07",
+     "FAQ_15"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.96,
+     "FAQ_07": 0.1,
+     "FAQ_15": 0.13
+    },
+    "kept": [
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "How many pages should my personal statement be when describing how my impairment affects my ability to work alongside my studies?",
+  "response": null
+ },
+ {
+  "id": "n07",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.48,
+  "signals": {
+   "contextual": 0.03,
+   "distress": 0.0
+  },
+  "rewrite": "How long should the personal statement be when describing how my impairment affects my ability to work alongside my studies?",
+  "searches": [
+   {
+    "query": "how many pages should it be?",
+    "judge": "how many pages should it be?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P04",
+      0.61
+     ],
+     [
+      "FAQ_21",
+      0.542
+     ],
+     [
+      "FAQ_24",
+      0.534
+     ]
+    ],
+    "candidates": [
+     "FAQ_P04",
+     "FAQ_21",
+     "FAQ_24"
+    ],
+    "relevance": {
+     "FAQ_P04": 0.0,
+     "FAQ_21": 0.0,
+     "FAQ_24": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Attach your personal statement describing how your impairment affects your ability to take paid work alongside your studies. how many pages should it be?",
+    "judge": "how many pages should it be?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.763
+     ],
+     [
+      "FAQ_15",
+      0.626
+     ],
+     [
+      "FAQ_22",
+      0.613
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_15",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.0,
+     "FAQ_15": 0.0,
+     "FAQ_22": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "How long should the personal statement be when describing how my impairment affects my ability to work alongside my studies?",
+    "judge": "How long should the personal statement be when describing how my impairment affects my ability to work alongside my studies?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.733
+     ],
+     [
+      "FAQ_07",
+      0.643
+     ],
+     [
+      "FAQ_33",
+      0.604
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_07",
+     "FAQ_33"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.89,
+     "FAQ_07": 0.13,
+     "FAQ_33": 0.0
+    },
+    "kept": [
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "How long should the personal statement be when describing how my impairment affects my ability to work alongside my studies?",
+  "response": null
+ },
+ {
+  "id": "n07",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.9,
+  "signals": {
+   "contextual": 0.03,
+   "distress": 0.0
+  },
+  "rewrite": "How many pages should my personal statement be when describing how my impairment affects my ability to work alongside my studies for the handicaptillæg application?",
+  "searches": [
+   {
+    "query": "how many pages should it be?",
+    "judge": "how many pages should it be?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P04",
+      0.61
+     ],
+     [
+      "FAQ_21",
+      0.542
+     ],
+     [
+      "FAQ_24",
+      0.534
+     ]
+    ],
+    "candidates": [
+     "FAQ_P04",
+     "FAQ_21",
+     "FAQ_24"
+    ],
+    "relevance": {
+     "FAQ_P04": 0.0,
+     "FAQ_21": 0.0,
+     "FAQ_24": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Attach your personal statement describing how your impairment affects your ability to take paid work alongside your studies. how many pages should it be?",
+    "judge": "how many pages should it be?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.763
+     ],
+     [
+      "FAQ_15",
+      0.626
+     ],
+     [
+      "FAQ_22",
+      0.613
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_15",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.0,
+     "FAQ_15": 0.0,
+     "FAQ_22": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "How many pages should my personal statement be when describing how my impairment affects my ability to work alongside my studies for the handicaptillæg application?",
+    "judge": "How many pages should my personal statement be when describing how my impairment affects my ability to work alongside my studies for the handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.795
+     ],
+     [
+      "FAQ_P01",
+      0.677
+     ],
+     [
+      "FAQ_34",
+      0.676
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_P01",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.96,
+     "FAQ_P01": 0.13,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "How many pages should my personal statement be when describing how my impairment affects my ability to work alongside my studies for the handicaptillæg application?",
+  "response": null
+ },
+ {
+  "id": "n08",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_15"
+  ],
+  "error": null,
+  "latency": 1.21,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.01
+  },
+  "rewrite": "Does it count as paid work if I am paid in gift cards instead of money while studying?",
+  "searches": [
+   {
+    "query": "Does it count as paid work if I am paid in gift cards instead of money while studying?",
+    "judge": "Does it count as paid work if I am paid in gift cards instead of money while studying?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_15",
+      0.626
+     ],
+     [
+      "FAQ_P09",
+      0.57
+     ],
+     [
+      "FAQ_16",
+      0.568
+     ]
+    ],
+    "candidates": [
+     "FAQ_15",
+     "FAQ_P09",
+     "FAQ_16"
+    ],
+    "relevance": {
+     "FAQ_15": 0.65,
+     "FAQ_P09": 0.22,
+     "FAQ_16": 0.01
+    },
+    "kept": [
+     "FAQ_15"
+    ]
+   }
+  ],
+  "searched_for": "Does it count as paid work if I am paid in gift cards instead of money while studying?",
+  "response": null
+ },
+ {
+  "id": "n08",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_38"
+  ],
+  "error": null,
+  "latency": 1.4,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.01
+  },
+  "rewrite": "If I get paid in gift cards instead of money for work alongside my studies, how does that affect my disability supplement application?",
+  "searches": [
+   {
+    "query": "If I get paid in gift cards instead of money for work alongside my studies, how does that affect my disability supplement application?",
+    "judge": "If I get paid in gift cards instead of money for work alongside my studies, how does that affect my disability supplement application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_35",
+      0.717
+     ],
+     [
+      "FAQ_38",
+      0.704
+     ],
+     [
+      "FAQ_P12",
+      0.704
+     ]
+    ],
+    "candidates": [
+     "FAQ_35",
+     "FAQ_38",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_35": 0.0,
+     "FAQ_38": 0.91,
+     "FAQ_P12": 0.26
+    },
+    "kept": [
+     "FAQ_38"
+    ]
+   }
+  ],
+  "searched_for": "If I get paid in gift cards instead of money for work alongside my studies, how does that affect my disability supplement application?",
+  "response": null
+ },
+ {
+  "id": "n08",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.13,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.01
+  },
+  "rewrite": "Does it count as planned paid work if I am paid in gift cards instead of money?",
+  "searches": [
+   {
+    "query": "Does it count as planned paid work if I am paid in gift cards instead of money?",
+    "judge": "Does it count as planned paid work if I am paid in gift cards instead of money?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_15",
+      0.626
+     ],
+     [
+      "FAQ_P09",
+      0.538
+     ],
+     [
+      "FAQ_16",
+      0.479
+     ]
+    ],
+    "candidates": [
+     "FAQ_15",
+     "FAQ_P09",
+     "FAQ_16"
+    ],
+    "relevance": {
+     "FAQ_15": 0.42,
+     "FAQ_P09": 0.12,
+     "FAQ_16": 0.03
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Does it count as planned paid work if I am paid in gift cards instead of money?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "s01",
+  "repeat": 0,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.2,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.01
+  },
+  "rewrite": "Will the Agency contact my previous employers as part of the assessment for the disability supplement?",
+  "searches": [
+   {
+    "query": "Will the Agency contact my previous employers as part of the assessment for the disability supplement?",
+    "judge": "Will the Agency contact my previous employers as part of the assessment for the disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.658
+     ],
+     [
+      "FAQ_03",
+      0.653
+     ],
+     [
+      "FAQ_07",
+      0.65
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_03",
+     "FAQ_07"
+    ],
+    "relevance": {
+     "FAQ_01": 0.02,
+     "FAQ_03": 0.02,
+     "FAQ_07": 0.06
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Will the Agency contact my previous employers as part of the assessment for the disability supplement?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "s01",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "same_faq",
+  "ids": [],
+  "error": null,
+  "latency": 1.31,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.01
+  },
+  "rewrite": "Will the Agency contact my old employers about my previous work when assessing my application?",
+  "searches": [
+   {
+    "query": "Will the Agency contact my old employers about my previous work when assessing my application?",
+    "judge": "Will the Agency contact my old employers about my previous work when assessing my application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_17",
+      0.728
+     ],
+     [
+      "FAQ_15",
+      0.664
+     ],
+     [
+      "FAQ_18",
+      0.612
+     ]
+    ],
+    "candidates": [
+     "FAQ_17",
+     "FAQ_15",
+     "FAQ_18"
+    ],
+    "relevance": {
+     "FAQ_17": 1.0,
+     "FAQ_15": 0.0,
+     "FAQ_18": 0.01
+    },
+    "kept": [
+     "FAQ_17"
+    ]
+   }
+  ],
+  "searched_for": "Will the Agency contact my old employers about my previous work when assessing my application?",
+  "response": "The answer above is the closest the FAQ has. It does not say more about this. For questions about your own case, use the contact options published on SU.dk."
+ },
+ {
+  "id": "s01",
+  "repeat": 2,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.55,
+  "signals": {
+   "contextual": 0.93,
+   "distress": 0.01
+  },
+  "rewrite": "Will the Agency contact my previous employers as part of the assessment for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "Will the Agency contact my previous employers as part of the assessment for the SU disability supplement?",
+    "judge": "Will the Agency contact my previous employers as part of the assessment for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.709
+     ],
+     [
+      "FAQ_08",
+      0.657
+     ],
+     [
+      "FAQ_03",
+      0.644
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_08",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_01": 0.14,
+     "FAQ_08": 0.0,
+     "FAQ_03": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Will the Agency contact my previous employers as part of the assessment for the SU disability supplement?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "s02",
+  "repeat": 0,
+  "verdict": "missed",
+  "outcome": "options",
+  "ids": [
+   "FAQ_P01",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.09,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.01
+  },
+  "rewrite": "Is a medical record from my GP sufficient as documentation for my handicap supplement application?",
+  "searches": [
+   {
+    "query": "Is a medical record from my GP sufficient as documentation for my handicap supplement application?",
+    "judge": "Is a medical record from my GP sufficient as documentation for my handicap supplement application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.806
+     ],
+     [
+      "FAQ_03",
+      0.713
+     ],
+     [
+      "FAQ_P12",
+      0.692
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_03",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.82,
+     "FAQ_03": 0.59,
+     "FAQ_P12": 0.0
+    },
+    "kept": [
+     "FAQ_P01",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": "Is a medical record from my GP sufficient as documentation for my handicap supplement application?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "s02",
+  "repeat": 1,
+  "verdict": "missed",
+  "outcome": "options",
+  "ids": [
+   "FAQ_P05",
+   "FAQ_25"
+  ],
+  "error": null,
+  "latency": 1.1,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.01
+  },
+  "rewrite": "Is a record from my GP enough as medical documentation for my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Is a record from my GP enough as medical documentation for my handicaptillæg application?",
+    "judge": "Is a record from my GP enough as medical documentation for my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.775
+     ],
+     [
+      "FAQ_25",
+      0.734
+     ],
+     [
+      "FAQ_34",
+      0.723
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_25",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.66,
+     "FAQ_25": 0.81,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_25",
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "Is a record from my GP enough as medical documentation for my handicaptillæg application?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "s02",
+  "repeat": 2,
+  "verdict": "missed",
+  "outcome": "options",
+  "ids": [
+   "FAQ_P05",
+   "FAQ_25"
+  ],
+  "error": null,
+  "latency": 1.18,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.01
+  },
+  "rewrite": "Is a medical record from my GP alone enough documentation for my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "Is a medical record from my GP alone enough documentation for my handicaptillæg application?",
+    "judge": "Is a medical record from my GP alone enough documentation for my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.761
+     ],
+     [
+      "FAQ_25",
+      0.738
+     ],
+     [
+      "FAQ_34",
+      0.711
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_25",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.91,
+     "FAQ_25": 0.96,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_25",
+     "FAQ_P05"
+    ]
+   }
+  ],
+  "searched_for": "Is a medical record from my GP alone enough documentation for my handicaptillæg application?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "s03",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "same_faq",
+  "ids": [],
+  "error": null,
+  "latency": 1.04,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "How early can I apply for the time-limited handicaptillæg?",
+  "searches": [
+   {
+    "query": "How early can I apply for the time-limited handicaptillæg?",
+    "judge": "How early can I apply for the time-limited handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_37",
+      0.766
+     ],
+     [
+      "FAQ_35",
+      0.766
+     ],
+     [
+      "FAQ_09",
+      0.758
+     ]
+    ],
+    "candidates": [
+     "FAQ_37",
+     "FAQ_35",
+     "FAQ_09"
+    ],
+    "relevance": {
+     "FAQ_37": 0.79,
+     "FAQ_35": 0.07,
+     "FAQ_09": 0.01
+    },
+    "kept": [
+     "FAQ_37"
+    ]
+   }
+  ],
+  "searched_for": "How early can I apply for the time-limited handicaptillæg?",
+  "response": "The answer above is the closest the FAQ has. It does not say more about this. For questions about your own case, use the contact options published on SU.dk."
+ },
+ {
+  "id": "s03",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "same_faq",
+  "ids": [],
+  "error": null,
+  "latency": 1.31,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "How early can I apply for the time-limited handicaptillæg?",
+  "searches": [
+   {
+    "query": "How early can I apply for the time-limited handicaptillæg?",
+    "judge": "How early can I apply for the time-limited handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_37",
+      0.766
+     ],
+     [
+      "FAQ_35",
+      0.766
+     ],
+     [
+      "FAQ_09",
+      0.758
+     ]
+    ],
+    "candidates": [
+     "FAQ_37",
+     "FAQ_35",
+     "FAQ_09"
+    ],
+    "relevance": {
+     "FAQ_37": 0.79,
+     "FAQ_35": 0.07,
+     "FAQ_09": 0.01
+    },
+    "kept": [
+     "FAQ_37"
+    ]
+   }
+  ],
+  "searched_for": "How early can I apply for the time-limited handicaptillæg?",
+  "response": "The answer above is the closest the FAQ has. It does not say more about this. For questions about your own case, use the contact options published on SU.dk."
+ },
+ {
+  "id": "s03",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "same_faq",
+  "ids": [],
+  "error": null,
+  "latency": 1.16,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "How early can I apply for the time-limited handicaptillæg?",
+  "searches": [
+   {
+    "query": "How early can I apply for the time-limited handicaptillæg?",
+    "judge": "How early can I apply for the time-limited handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_37",
+      0.766
+     ],
+     [
+      "FAQ_35",
+      0.766
+     ],
+     [
+      "FAQ_09",
+      0.758
+     ]
+    ],
+    "candidates": [
+     "FAQ_37",
+     "FAQ_35",
+     "FAQ_09"
+    ],
+    "relevance": {
+     "FAQ_37": 0.79,
+     "FAQ_35": 0.07,
+     "FAQ_09": 0.01
+    },
+    "kept": [
+     "FAQ_37"
+    ]
+   }
+  ],
+  "searched_for": "How early can I apply for the time-limited handicaptillæg?",
+  "response": "The answer above is the closest the FAQ has. It does not say more about this. For questions about your own case, use the contact options published on SU.dk."
+ },
+ {
+  "id": "c01",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_01"
+  ],
+  "error": null,
+  "latency": 1.39,
+  "signals": {
+   "contextual": 0.95,
+   "distress": 0.0
+  },
+  "rewrite": "Does work I did before my studies count against me for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "Does work I did before my studies count against me for the SU disability supplement?",
+    "judge": "Does work I did before my studies count against me for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.809
+     ],
+     [
+      "FAQ_08",
+      0.737
+     ],
+     [
+      "FAQ_P09",
+      0.707
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_08",
+     "FAQ_P09"
+    ],
+    "relevance": {
+     "FAQ_01": 0.63,
+     "FAQ_08": 0.02,
+     "FAQ_P09": 0.02
+    },
+    "kept": [
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "Does work I did before my studies count against me for the SU disability supplement?",
+  "response": null
+ },
+ {
+  "id": "c01",
+  "repeat": 1,
+  "verdict": "options_wrong",
+  "outcome": "options",
+  "ids": [
+   "FAQ_01",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.38,
+  "signals": {
+   "contextual": 0.95,
+   "distress": 0.0
+  },
+  "rewrite": "Does the work I did before starting my studies affect my eligibility for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "Does the work I did before starting my studies affect my eligibility for the SU disability supplement?",
+    "judge": "Does the work I did before starting my studies affect my eligibility for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.78
+     ],
+     [
+      "FAQ_03",
+      0.711
+     ],
+     [
+      "FAQ_P09",
+      0.702
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_03",
+     "FAQ_P09"
+    ],
+    "relevance": {
+     "FAQ_01": 0.52,
+     "FAQ_03": 0.62,
+     "FAQ_P09": 0.06
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "Does the work I did before starting my studies affect my eligibility for the SU disability supplement?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "c01",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_17"
+  ],
+  "error": null,
+  "latency": 1.06,
+  "signals": {
+   "contextual": 0.95,
+   "distress": 0.0
+  },
+  "rewrite": "Does work I did before my studies count against me when applying for handicaptillæg?",
+  "searches": [
+   {
+    "query": "Does work I did before my studies count against me when applying for handicaptillæg?",
+    "judge": "Does work I did before my studies count against me when applying for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_17",
+      0.753
+     ],
+     [
+      "FAQ_06",
+      0.728
+     ],
+     [
+      "FAQ_P09",
+      0.724
+     ]
+    ],
+    "candidates": [
+     "FAQ_17",
+     "FAQ_06",
+     "FAQ_P09"
+    ],
+    "relevance": {
+     "FAQ_17": 1.0,
+     "FAQ_06": 0.0,
+     "FAQ_P09": 0.07
+    },
+    "kept": [
+     "FAQ_17"
+    ]
+   }
+  ],
+  "searched_for": "Does work I did before my studies count against me when applying for handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "c02",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P06"
+  ],
+  "error": null,
+  "latency": 0.32,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "May I black out sensitive details in my medical records?",
+    "judge": "May I black out sensitive details in my medical records?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P06",
+      0.909
+     ],
+     [
+      "FAQ_23",
+      0.668
+     ],
+     [
+      "FAQ_18",
+      0.663
+     ]
+    ],
+    "candidates": [
+     "FAQ_P06"
+    ],
+    "relevance": {
+     "FAQ_P06": 1.0
+    },
+    "kept": [
+     "FAQ_P06"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "c02",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P06"
+  ],
+  "error": null,
+  "latency": 0.33,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "May I black out sensitive details in my medical records?",
+    "judge": "May I black out sensitive details in my medical records?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P06",
+      0.909
+     ],
+     [
+      "FAQ_23",
+      0.668
+     ],
+     [
+      "FAQ_18",
+      0.663
+     ]
+    ],
+    "candidates": [
+     "FAQ_P06"
+    ],
+    "relevance": {
+     "FAQ_P06": 1.0
+    },
+    "kept": [
+     "FAQ_P06"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "c02",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P06"
+  ],
+  "error": null,
+  "latency": 0.36,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "May I black out sensitive details in my medical records?",
+    "judge": "May I black out sensitive details in my medical records?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P06",
+      0.909
+     ],
+     [
+      "FAQ_23",
+      0.668
+     ],
+     [
+      "FAQ_18",
+      0.663
+     ]
+    ],
+    "candidates": [
+     "FAQ_P06"
+    ],
+    "relevance": {
+     "FAQ_P06": 1.0
+    },
+    "kept": [
+     "FAQ_P06"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "c03",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_P05",
+   "FAQ_07"
+  ],
+  "error": null,
+  "latency": 1.51,
+  "signals": {
+   "contextual": 0.73,
+   "distress": 0.0
+  },
+  "rewrite": "What should I include in my personal statement about how my impairment affects my ability to work during my studies?",
+  "searches": [
+   {
+    "query": "What should I include in my personal statement about how my impairment affects my ability to work during my studies?",
+    "judge": "What should I include in my personal statement about how my impairment affects my ability to work during my studies?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.686
+     ],
+     [
+      "FAQ_17",
+      0.677
+     ],
+     [
+      "FAQ_07",
+      0.653
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_17",
+     "FAQ_07"
+    ],
+    "relevance": {
+     "FAQ_P05": 1.0,
+     "FAQ_17": 0.01,
+     "FAQ_07": 0.79
+    },
+    "kept": [
+     "FAQ_P05",
+     "FAQ_07"
+    ]
+   }
+  ],
+  "searched_for": "What should I include in my personal statement about how my impairment affects my ability to work during my studies?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "c03",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_15",
+   "FAQ_P05"
+  ],
+  "error": null,
+  "latency": 1.12,
+  "signals": {
+   "contextual": 0.73,
+   "distress": 0.0
+  },
+  "rewrite": "What should I include in my personal statement about how my impairment affects my ability to take paid work alongside my studies?",
+  "searches": [
+   {
+    "query": "What should I include in my personal statement about how my impairment affects my ability to take paid work alongside my studies?",
+    "judge": "What should I include in my personal statement about how my impairment affects my ability to take paid work alongside my studies?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_17",
+      0.691
+     ],
+     [
+      "FAQ_15",
+      0.676
+     ],
+     [
+      "FAQ_P05",
+      0.662
+     ]
+    ],
+    "candidates": [
+     "FAQ_17",
+     "FAQ_15",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_17": 0.03,
+     "FAQ_15": 0.99,
+     "FAQ_P05": 1.0
+    },
+    "kept": [
+     "FAQ_P05",
+     "FAQ_15"
+    ]
+   }
+  ],
+  "searched_for": "What should I include in my personal statement about how my impairment affects my ability to take paid work alongside my studies?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "c03",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_P05",
+   "FAQ_07"
+  ],
+  "error": null,
+  "latency": 1.24,
+  "signals": {
+   "contextual": 0.73,
+   "distress": 0.0
+  },
+  "rewrite": "What should I include in my personal statement to describe how my impairment affects my ability to work during my studies?",
+  "searches": [
+   {
+    "query": "What should I include in my personal statement to describe how my impairment affects my ability to work during my studies?",
+    "judge": "What should I include in my personal statement to describe how my impairment affects my ability to work during my studies?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.697
+     ],
+     [
+      "FAQ_17",
+      0.664
+     ],
+     [
+      "FAQ_07",
+      0.645
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_17",
+     "FAQ_07"
+    ],
+    "relevance": {
+     "FAQ_P05": 1.0,
+     "FAQ_17": 0.0,
+     "FAQ_07": 0.79
+    },
+    "kept": [
+     "FAQ_P05",
+     "FAQ_07"
+    ]
+   }
+  ],
+  "searched_for": "What should I include in my personal statement to describe how my impairment affects my ability to work during my studies?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "c04",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_16",
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 0.36,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "how many hours a week can I work and still get the supplement?",
+    "judge": "how many hours a week can I work and still get the supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.781
+     ],
+     [
+      "FAQ_P09",
+      0.713
+     ],
+     [
+      "FAQ_37",
+      0.697
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_37"
+    ],
+    "relevance": {
+     "FAQ_16": 0.99,
+     "FAQ_P09": 0.67,
+     "FAQ_37": 0.0
+    },
+    "kept": [
+     "FAQ_16",
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "c04",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_16",
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 0.29,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "how many hours a week can I work and still get the supplement?",
+    "judge": "how many hours a week can I work and still get the supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.781
+     ],
+     [
+      "FAQ_P09",
+      0.713
+     ],
+     [
+      "FAQ_37",
+      0.697
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_37"
+    ],
+    "relevance": {
+     "FAQ_16": 0.99,
+     "FAQ_P09": 0.67,
+     "FAQ_37": 0.0
+    },
+    "kept": [
+     "FAQ_16",
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "c04",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_16",
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 0.31,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "how many hours a week can I work and still get the supplement?",
+    "judge": "how many hours a week can I work and still get the supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.781
+     ],
+     [
+      "FAQ_P09",
+      0.713
+     ],
+     [
+      "FAQ_37",
+      0.697
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_37"
+    ],
+    "relevance": {
+     "FAQ_16": 0.99,
+     "FAQ_P09": 0.67,
+     "FAQ_37": 0.0
+    },
+    "kept": [
+     "FAQ_16",
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "c05",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_26"
+  ],
+  "error": null,
+  "latency": 0.31,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.01
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "I was born with my condition and only have old records, is that a problem?",
+    "judge": "I was born with my condition and only have old records, is that a problem?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_26",
+      0.728
+     ],
+     [
+      "FAQ_08",
+      0.652
+     ],
+     [
+      "FAQ_18",
+      0.638
+     ]
+    ],
+    "candidates": [
+     "FAQ_26",
+     "FAQ_08",
+     "FAQ_18"
+    ],
+    "relevance": {
+     "FAQ_26": 1.0,
+     "FAQ_08": 0.36,
+     "FAQ_18": 0.24
+    },
+    "kept": [
+     "FAQ_26"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "c05",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_26"
+  ],
+  "error": null,
+  "latency": 0.36,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.01
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "I was born with my condition and only have old records, is that a problem?",
+    "judge": "I was born with my condition and only have old records, is that a problem?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_26",
+      0.728
+     ],
+     [
+      "FAQ_08",
+      0.652
+     ],
+     [
+      "FAQ_18",
+      0.638
+     ]
+    ],
+    "candidates": [
+     "FAQ_26",
+     "FAQ_08",
+     "FAQ_18"
+    ],
+    "relevance": {
+     "FAQ_26": 1.0,
+     "FAQ_08": 0.36,
+     "FAQ_18": 0.24
+    },
+    "kept": [
+     "FAQ_26"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "c05",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_26"
+  ],
+  "error": null,
+  "latency": 0.33,
+  "signals": {
+   "contextual": 0.01,
+   "distress": 0.01
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "I was born with my condition and only have old records, is that a problem?",
+    "judge": "I was born with my condition and only have old records, is that a problem?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_26",
+      0.728
+     ],
+     [
+      "FAQ_08",
+      0.652
+     ],
+     [
+      "FAQ_18",
+      0.638
+     ]
+    ],
+    "candidates": [
+     "FAQ_26",
+     "FAQ_08",
+     "FAQ_18"
+    ],
+    "relevance": {
+     "FAQ_26": 1.0,
+     "FAQ_08": 0.36,
+     "FAQ_18": 0.24
+    },
+    "kept": [
+     "FAQ_26"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "c06",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 0.34,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "how long does it take before I get a decision?",
+    "judge": "how long does it take before I get a decision?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P08",
+      0.944
+     ],
+     [
+      "FAQ_42",
+      0.644
+     ],
+     [
+      "FAQ_P03",
+      0.636
+     ]
+    ],
+    "candidates": [
+     "FAQ_P08"
+    ],
+    "relevance": {
+     "FAQ_P08": 1.0
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "c06",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 0.28,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "how long does it take before I get a decision?",
+    "judge": "how long does it take before I get a decision?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P08",
+      0.944
+     ],
+     [
+      "FAQ_42",
+      0.644
+     ],
+     [
+      "FAQ_P03",
+      0.636
+     ]
+    ],
+    "candidates": [
+     "FAQ_P08"
+    ],
+    "relevance": {
+     "FAQ_P08": 1.0
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "c06",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P08"
+  ],
+  "error": null,
+  "latency": 0.33,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "how long does it take before I get a decision?",
+    "judge": "how long does it take before I get a decision?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P08",
+      0.944
+     ],
+     [
+      "FAQ_42",
+      0.644
+     ],
+     [
+      "FAQ_P03",
+      0.636
+     ]
+    ],
+    "candidates": [
+     "FAQ_P08"
+    ],
+    "relevance": {
+     "FAQ_P08": 1.0
+    },
+    "kept": [
+     "FAQ_P08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t01",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P07"
+  ],
+  "error": null,
+  "latency": 0.5,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can someone else handle my application for me?",
+    "judge": "Can someone else handle my application for me?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.9
+     ],
+     [
+      "FAQ_P03",
+      0.707
+     ],
+     [
+      "FAQ_P02",
+      0.695
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07"
+    ],
+    "relevance": {
+     "FAQ_P07": 1.0
+    },
+    "kept": [
+     "FAQ_P07"
+    ]
+   },
+   {
+    "query": "Did you have work in the last three years? Can someone else handle my application for me?",
+    "judge": "Can someone else handle my application for me?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.76
+     ],
+     [
+      "FAQ_17",
+      0.704
+     ],
+     [
+      "FAQ_P03",
+      0.645
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_17",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P07": 1.0,
+     "FAQ_17": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": [
+     "FAQ_P07"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t01",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P07"
+  ],
+  "error": null,
+  "latency": 0.49,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can someone else handle my application for me?",
+    "judge": "Can someone else handle my application for me?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.9
+     ],
+     [
+      "FAQ_P03",
+      0.707
+     ],
+     [
+      "FAQ_P02",
+      0.695
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07"
+    ],
+    "relevance": {
+     "FAQ_P07": 1.0
+    },
+    "kept": [
+     "FAQ_P07"
+    ]
+   },
+   {
+    "query": "Did you have work in the last three years? Can someone else handle my application for me?",
+    "judge": "Can someone else handle my application for me?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.76
+     ],
+     [
+      "FAQ_17",
+      0.704
+     ],
+     [
+      "FAQ_P03",
+      0.645
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_17",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P07": 1.0,
+     "FAQ_17": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": [
+     "FAQ_P07"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t01",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P07"
+  ],
+  "error": null,
+  "latency": 0.41,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can someone else handle my application for me?",
+    "judge": "Can someone else handle my application for me?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.9
+     ],
+     [
+      "FAQ_P03",
+      0.707
+     ],
+     [
+      "FAQ_P02",
+      0.695
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07"
+    ],
+    "relevance": {
+     "FAQ_P07": 1.0
+    },
+    "kept": [
+     "FAQ_P07"
+    ]
+   },
+   {
+    "query": "Did you have work in the last three years? Can someone else handle my application for me?",
+    "judge": "Can someone else handle my application for me?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.76
+     ],
+     [
+      "FAQ_17",
+      0.704
+     ],
+     [
+      "FAQ_P03",
+      0.645
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_17",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P07": 1.0,
+     "FAQ_17": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": [
+     "FAQ_P07"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t02",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_03",
+   "FAQ_05b"
+  ],
+  "error": null,
+  "latency": 0.63,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "judge": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      1.001
+     ],
+     [
+      "FAQ_03",
+      0.777
+     ],
+     [
+      "FAQ_34",
+      0.768
+     ]
+    ],
+    "candidates": [
+     "FAQ_05b"
+    ],
+    "relevance": {
+     "FAQ_05b": 1.0
+    },
+    "kept": [
+     "FAQ_05b"
+    ]
+   },
+   {
+    "query": "Attach medical records documenting each impairment you want considered. Records from a hospital, specialist, GP or other relevant treatment provider are the minimum requirement. Can I get handicaptillæg if I'm not a Danish citizen?",
+    "judge": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.732
+     ],
+     [
+      "FAQ_05b",
+      0.732
+     ],
+     [
+      "FAQ_34",
+      0.719
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_05b",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_03": 0.84,
+     "FAQ_05b": 1.0,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_05b",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "t02",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_03",
+   "FAQ_05b"
+  ],
+  "error": null,
+  "latency": 0.47,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "judge": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      1.001
+     ],
+     [
+      "FAQ_03",
+      0.777
+     ],
+     [
+      "FAQ_34",
+      0.768
+     ]
+    ],
+    "candidates": [
+     "FAQ_05b"
+    ],
+    "relevance": {
+     "FAQ_05b": 1.0
+    },
+    "kept": [
+     "FAQ_05b"
+    ]
+   },
+   {
+    "query": "Attach medical records documenting each impairment you want considered. Records from a hospital, specialist, GP or other relevant treatment provider are the minimum requirement. Can I get handicaptillæg if I'm not a Danish citizen?",
+    "judge": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.732
+     ],
+     [
+      "FAQ_05b",
+      0.732
+     ],
+     [
+      "FAQ_34",
+      0.719
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_05b",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_03": 0.84,
+     "FAQ_05b": 1.0,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_05b",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "t02",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_03",
+   "FAQ_05b"
+  ],
+  "error": null,
+  "latency": 0.46,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "judge": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      1.001
+     ],
+     [
+      "FAQ_03",
+      0.777
+     ],
+     [
+      "FAQ_34",
+      0.768
+     ]
+    ],
+    "candidates": [
+     "FAQ_05b"
+    ],
+    "relevance": {
+     "FAQ_05b": 1.0
+    },
+    "kept": [
+     "FAQ_05b"
+    ]
+   },
+   {
+    "query": "Attach medical records documenting each impairment you want considered. Records from a hospital, specialist, GP or other relevant treatment provider are the minimum requirement. Can I get handicaptillæg if I'm not a Danish citizen?",
+    "judge": "Can I get handicaptillæg if I'm not a Danish citizen?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.732
+     ],
+     [
+      "FAQ_05b",
+      0.732
+     ],
+     [
+      "FAQ_34",
+      0.719
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_05b",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_03": 0.84,
+     "FAQ_05b": 1.0,
+     "FAQ_34": 0.0
+    },
+    "kept": [
+     "FAQ_05b",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "t03",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P12"
+  ],
+  "error": null,
+  "latency": 0.54,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can I receive a scholarship while getting the supplement?",
+    "judge": "Can I receive a scholarship while getting the supplement?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P12",
+      0.988
+     ],
+     [
+      "FAQ_P09",
+      0.731
+     ],
+     [
+      "FAQ_04",
+      0.696
+     ]
+    ],
+    "candidates": [
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P12": 1.0
+    },
+    "kept": [
+     "FAQ_P12"
+    ]
+   },
+   {
+    "query": "Do you plan to work besides your studies? Can I receive a scholarship while getting the supplement?",
+    "judge": "Can I receive a scholarship while getting the supplement?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P12",
+      0.886
+     ],
+     [
+      "FAQ_P09",
+      0.741
+     ],
+     [
+      "FAQ_16",
+      0.696
+     ]
+    ],
+    "candidates": [
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P12": 1.0
+    },
+    "kept": [
+     "FAQ_P12"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t03",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P12"
+  ],
+  "error": null,
+  "latency": 0.49,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can I receive a scholarship while getting the supplement?",
+    "judge": "Can I receive a scholarship while getting the supplement?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P12",
+      0.988
+     ],
+     [
+      "FAQ_P09",
+      0.731
+     ],
+     [
+      "FAQ_04",
+      0.696
+     ]
+    ],
+    "candidates": [
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P12": 1.0
+    },
+    "kept": [
+     "FAQ_P12"
+    ]
+   },
+   {
+    "query": "Do you plan to work besides your studies? Can I receive a scholarship while getting the supplement?",
+    "judge": "Can I receive a scholarship while getting the supplement?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P12",
+      0.886
+     ],
+     [
+      "FAQ_P09",
+      0.741
+     ],
+     [
+      "FAQ_16",
+      0.696
+     ]
+    ],
+    "candidates": [
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P12": 1.0
+    },
+    "kept": [
+     "FAQ_P12"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t03",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P12"
+  ],
+  "error": null,
+  "latency": 0.47,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "Can I receive a scholarship while getting the supplement?",
+    "judge": "Can I receive a scholarship while getting the supplement?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P12",
+      0.988
+     ],
+     [
+      "FAQ_P09",
+      0.731
+     ],
+     [
+      "FAQ_04",
+      0.696
+     ]
+    ],
+    "candidates": [
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P12": 1.0
+    },
+    "kept": [
+     "FAQ_P12"
+    ]
+   },
+   {
+    "query": "Do you plan to work besides your studies? Can I receive a scholarship while getting the supplement?",
+    "judge": "Can I receive a scholarship while getting the supplement?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_P12",
+      0.886
+     ],
+     [
+      "FAQ_P09",
+      0.741
+     ],
+     [
+      "FAQ_16",
+      0.696
+     ]
+    ],
+    "candidates": [
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P12": 1.0
+    },
+    "kept": [
+     "FAQ_P12"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t04",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_34"
+  ],
+  "error": null,
+  "latency": 0.48,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "can I apply because of my child's disability?",
+    "judge": "can I apply because of my child's disability?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.964
+     ],
+     [
+      "FAQ_26",
+      0.712
+     ],
+     [
+      "FAQ_03",
+      0.681
+     ]
+    ],
+    "candidates": [
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_34": 1.0
+    },
+    "kept": [
+     "FAQ_34"
+    ]
+   },
+   {
+    "query": "Attach your personal statement describing how your impairment affects your ability to take paid work alongside your studies. can I apply because of my child's disability?",
+    "judge": "can I apply because of my child's disability?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.815
+     ],
+     [
+      "FAQ_26",
+      0.692
+     ],
+     [
+      "FAQ_33",
+      0.669
+     ]
+    ],
+    "candidates": [
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_34": 1.0
+    },
+    "kept": [
+     "FAQ_34"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t04",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_34"
+  ],
+  "error": null,
+  "latency": 0.45,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "can I apply because of my child's disability?",
+    "judge": "can I apply because of my child's disability?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.964
+     ],
+     [
+      "FAQ_26",
+      0.712
+     ],
+     [
+      "FAQ_03",
+      0.681
+     ]
+    ],
+    "candidates": [
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_34": 1.0
+    },
+    "kept": [
+     "FAQ_34"
+    ]
+   },
+   {
+    "query": "Attach your personal statement describing how your impairment affects your ability to take paid work alongside your studies. can I apply because of my child's disability?",
+    "judge": "can I apply because of my child's disability?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.815
+     ],
+     [
+      "FAQ_26",
+      0.692
+     ],
+     [
+      "FAQ_33",
+      0.669
+     ]
+    ],
+    "candidates": [
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_34": 1.0
+    },
+    "kept": [
+     "FAQ_34"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "t04",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_34"
+  ],
+  "error": null,
+  "latency": 0.52,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "can I apply because of my child's disability?",
+    "judge": "can I apply because of my child's disability?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.964
+     ],
+     [
+      "FAQ_26",
+      0.712
+     ],
+     [
+      "FAQ_03",
+      0.681
+     ]
+    ],
+    "candidates": [
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_34": 1.0
+    },
+    "kept": [
+     "FAQ_34"
+    ]
+   },
+   {
+    "query": "Attach your personal statement describing how your impairment affects your ability to take paid work alongside your studies. can I apply because of my child's disability?",
+    "judge": "can I apply because of my child's disability?",
+    "decision": "single_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.815
+     ],
+     [
+      "FAQ_26",
+      0.692
+     ],
+     [
+      "FAQ_33",
+      0.669
+     ]
+    ],
+    "candidates": [
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_34": 1.0
+    },
+    "kept": [
+     "FAQ_34"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": null
+ },
+ {
+  "id": "v01",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_33",
+   "FAQ_08",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.25,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What does it mean that my impairment must be per definition permanent already upon first manifestation for the handicaptillæg application?",
+  "searches": [
+   {
+    "query": "What does it mean that my impairment must be per definition permanent already upon first manifestation for the handicaptillæg application?",
+    "judge": "What does it mean that my impairment must be per definition permanent already upon first manifestation for the handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_33",
+      0.744
+     ],
+     [
+      "FAQ_08",
+      0.743
+     ],
+     [
+      "FAQ_03",
+      0.708
+     ]
+    ],
+    "candidates": [
+     "FAQ_33",
+     "FAQ_08",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_33": 0.91,
+     "FAQ_08": 0.92,
+     "FAQ_03": 0.92
+    },
+    "kept": [
+     "FAQ_08",
+     "FAQ_03",
+     "FAQ_33"
+    ]
+   }
+  ],
+  "searched_for": "What does it mean that my impairment must be per definition permanent already upon first manifestation for the handicaptillæg application?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v01",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_08",
+   "FAQ_33",
+   "FAQ_07"
+  ],
+  "error": null,
+  "latency": 1.29,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What does it mean if my impairment is per definition permanent already upon first manifestation?",
+  "searches": [
+   {
+    "query": "What does it mean if my impairment is per definition permanent already upon first manifestation?",
+    "judge": "What does it mean if my impairment is per definition permanent already upon first manifestation?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_08",
+      0.884
+     ],
+     [
+      "FAQ_33",
+      0.84
+     ],
+     [
+      "FAQ_07",
+      0.77
+     ]
+    ],
+    "candidates": [
+     "FAQ_08",
+     "FAQ_33",
+     "FAQ_07"
+    ],
+    "relevance": {
+     "FAQ_08": 0.95,
+     "FAQ_33": 0.85,
+     "FAQ_07": 0.77
+    },
+    "kept": [
+     "FAQ_08",
+     "FAQ_33",
+     "FAQ_07"
+    ]
+   }
+  ],
+  "searched_for": "What does it mean if my impairment is per definition permanent already upon first manifestation?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v01",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_08",
+   "FAQ_33",
+   "FAQ_07"
+  ],
+  "error": null,
+  "latency": 1.26,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What does it mean if my impairment is permanent by definition from the first time it appeared?",
+  "searches": [
+   {
+    "query": "What does it mean if my impairment is permanent by definition from the first time it appeared?",
+    "judge": "What does it mean if my impairment is permanent by definition from the first time it appeared?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_08",
+      0.893
+     ],
+     [
+      "FAQ_33",
+      0.842
+     ],
+     [
+      "FAQ_07",
+      0.757
+     ]
+    ],
+    "candidates": [
+     "FAQ_08",
+     "FAQ_33",
+     "FAQ_07"
+    ],
+    "relevance": {
+     "FAQ_08": 0.97,
+     "FAQ_33": 0.96,
+     "FAQ_07": 0.86
+    },
+    "kept": [
+     "FAQ_08",
+     "FAQ_33",
+     "FAQ_07"
+    ]
+   }
+  ],
+  "searched_for": "What does it mean if my impairment is permanent by definition from the first time it appeared?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v02",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_09"
+  ],
+  "error": null,
+  "latency": 1.3,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.03
+  },
+  "rewrite": "What if my symptoms or effects from my disability have lasted less than a year for the SU handicaptillæg?",
+  "searches": [
+   {
+    "query": "What if my symptoms or effects from my disability have lasted less than a year for the SU handicaptillæg?",
+    "judge": "What if my symptoms or effects from my disability have lasted less than a year for the SU handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.742
+     ],
+     [
+      "FAQ_04",
+      0.739
+     ],
+     [
+      "FAQ_01",
+      0.723
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_04",
+     "FAQ_01"
+    ],
+    "relevance": {
+     "FAQ_09": 0.99,
+     "FAQ_04": 0.0,
+     "FAQ_01": 0.2
+    },
+    "kept": [
+     "FAQ_09"
+    ]
+   }
+  ],
+  "searched_for": "What if my symptoms or effects from my disability have lasted less than a year for the SU handicaptillæg?",
+  "response": null
+ },
+ {
+  "id": "v02",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_09",
+   "FAQ_08"
+  ],
+  "error": null,
+  "latency": 1.36,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.03
+  },
+  "rewrite": "What if my symptoms or effects have not lasted for a full year yet?",
+  "searches": [
+   {
+    "query": "What if my symptoms or effects have not lasted for a full year yet?",
+    "judge": "What if my symptoms or effects have not lasted for a full year yet?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.803
+     ],
+     [
+      "FAQ_08",
+      0.706
+     ],
+     [
+      "FAQ_12",
+      0.644
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_08",
+     "FAQ_12"
+    ],
+    "relevance": {
+     "FAQ_09": 1.0,
+     "FAQ_08": 0.85,
+     "FAQ_12": 0.01
+    },
+    "kept": [
+     "FAQ_09",
+     "FAQ_08"
+    ]
+   }
+  ],
+  "searched_for": "What if my symptoms or effects have not lasted for a full year yet?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v02",
+  "repeat": 2,
+  "verdict": "options_wrong",
+  "outcome": "options",
+  "ids": [
+   "FAQ_01",
+   "FAQ_08"
+  ],
+  "error": null,
+  "latency": 1.03,
+  "signals": {
+   "contextual": 0.96,
+   "distress": 0.03
+  },
+  "rewrite": "What if my symptoms or effects have lasted less than a full year for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "What if my symptoms or effects have lasted less than a full year for the SU disability supplement?",
+    "judge": "What if my symptoms or effects have lasted less than a full year for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.768
+     ],
+     [
+      "FAQ_08",
+      0.745
+     ],
+     [
+      "FAQ_35",
+      0.713
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_08",
+     "FAQ_35"
+    ],
+    "relevance": {
+     "FAQ_01": 0.61,
+     "FAQ_08": 0.73,
+     "FAQ_35": 0.0
+    },
+    "kept": [
+     "FAQ_08",
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "What if my symptoms or effects have lasted less than a full year for the SU disability supplement?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v03",
+  "repeat": 0,
+  "verdict": "options_wrong",
+  "outcome": "options",
+  "ids": [
+   "FAQ_01",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.14,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "How does my answer about planning to work alongside my studies affect my application for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "How does my answer about planning to work alongside my studies affect my application for the SU disability supplement?",
+    "judge": "How does my answer about planning to work alongside my studies affect my application for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.8
+     ],
+     [
+      "FAQ_41",
+      0.745
+     ],
+     [
+      "FAQ_03",
+      0.745
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_41",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_01": 0.87,
+     "FAQ_41": 0.01,
+     "FAQ_03": 0.51
+    },
+    "kept": [
+     "FAQ_01",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": "How does my answer about planning to work alongside my studies affect my application for the SU disability supplement?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v03",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_01"
+  ],
+  "error": null,
+  "latency": 1.2,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "How does my answer about planning to work besides my studies affect my application for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "How does my answer about planning to work besides my studies affect my application for the SU disability supplement?",
+    "judge": "How does my answer about planning to work besides my studies affect my application for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.8
+     ],
+     [
+      "FAQ_03",
+      0.736
+     ],
+     [
+      "FAQ_41",
+      0.735
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_03",
+     "FAQ_41"
+    ],
+    "relevance": {
+     "FAQ_01": 0.82,
+     "FAQ_03": 0.18,
+     "FAQ_41": 0.0
+    },
+    "kept": [
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "How does my answer about planning to work besides my studies affect my application for the SU disability supplement?",
+  "response": null
+ },
+ {
+  "id": "v03",
+  "repeat": 2,
+  "verdict": "options_wrong",
+  "outcome": "options",
+  "ids": [
+   "FAQ_01",
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 1.01,
+  "signals": {
+   "contextual": 0.98,
+   "distress": 0.0
+  },
+  "rewrite": "How does my answer to whether I plan to work besides my studies affect my application for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "How does my answer to whether I plan to work besides my studies affect my application for the SU disability supplement?",
+    "judge": "How does my answer to whether I plan to work besides my studies affect my application for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.802
+     ],
+     [
+      "FAQ_03",
+      0.741
+     ],
+     [
+      "FAQ_P09",
+      0.73
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_03",
+     "FAQ_P09"
+    ],
+    "relevance": {
+     "FAQ_01": 0.71,
+     "FAQ_03": 0.1,
+     "FAQ_P09": 0.67
+    },
+    "kept": [
+     "FAQ_01",
+     "FAQ_P09"
+    ]
+   }
+  ],
+  "searched_for": "How does my answer to whether I plan to work besides my studies affect my application for the SU disability supplement?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v04",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_08"
+  ],
+  "error": null,
+  "latency": 1.14,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What types of medical records count as documentation for my impairments when applying for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "What types of medical records count as documentation for my impairments when applying for the SU disability supplement?",
+    "judge": "What types of medical records count as documentation for my impairments when applying for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.746
+     ],
+     [
+      "FAQ_03",
+      0.696
+     ],
+     [
+      "FAQ_08",
+      0.695
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_03",
+     "FAQ_08"
+    ],
+    "relevance": {
+     "FAQ_01": 0.25,
+     "FAQ_03": 0.14,
+     "FAQ_08": 0.51
+    },
+    "kept": [
+     "FAQ_08"
+    ]
+   }
+  ],
+  "searched_for": "What types of medical records count as documentation for my impairments when applying for the SU disability supplement?",
+  "response": null
+ },
+ {
+  "id": "v04",
+  "repeat": 1,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.09,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What types of medical records count as documentation for the handicaptillæg application?",
+  "searches": [
+   {
+    "query": "What types of medical records count as documentation for the handicaptillæg application?",
+    "judge": "What types of medical records count as documentation for the handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.767
+     ],
+     [
+      "FAQ_03",
+      0.762
+     ],
+     [
+      "FAQ_34",
+      0.723
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_03",
+     "FAQ_34"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.43,
+     "FAQ_03": 0.04,
+     "FAQ_34": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "What types of medical records count as documentation for the handicaptillæg application?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "v04",
+  "repeat": 2,
+  "verdict": "missed",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.05,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What types of medical records are accepted as documentation for impairments when applying for handicaptillæg?",
+  "searches": [
+   {
+    "query": "What types of medical records are accepted as documentation for impairments when applying for handicaptillæg?",
+    "judge": "What types of medical records are accepted as documentation for impairments when applying for handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_34",
+      0.737
+     ],
+     [
+      "FAQ_03",
+      0.73
+     ],
+     [
+      "FAQ_P05",
+      0.693
+     ]
+    ],
+    "candidates": [
+     "FAQ_34",
+     "FAQ_03",
+     "FAQ_P05"
+    ],
+    "relevance": {
+     "FAQ_34": 0.0,
+     "FAQ_03": 0.24,
+     "FAQ_P05": 0.23
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "What types of medical records are accepted as documentation for impairments when applying for handicaptillæg?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "v05",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_36",
+   "FAQ_37",
+   "FAQ_01"
+  ],
+  "error": null,
+  "latency": 1.03,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What is a time-limited handicap-stipend (handicaptillæg)?",
+  "searches": [
+   {
+    "query": "What is a time-limited handicap-stipend (handicaptillæg)?",
+    "judge": "What is a time-limited handicap-stipend (handicaptillæg)?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_36",
+      0.871
+     ],
+     [
+      "FAQ_37",
+      0.754
+     ],
+     [
+      "FAQ_01",
+      0.751
+     ]
+    ],
+    "candidates": [
+     "FAQ_36",
+     "FAQ_37",
+     "FAQ_01"
+    ],
+    "relevance": {
+     "FAQ_36": 1.0,
+     "FAQ_37": 0.98,
+     "FAQ_01": 0.92
+    },
+    "kept": [
+     "FAQ_36",
+     "FAQ_37",
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "What is a time-limited handicap-stipend (handicaptillæg)?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v05",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_36",
+   "FAQ_37",
+   "FAQ_02"
+  ],
+  "error": null,
+  "latency": 1.35,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What is a time-limited handicap-stipend?",
+  "searches": [
+   {
+    "query": "What is a time-limited handicap-stipend?",
+    "judge": "What is a time-limited handicap-stipend?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_36",
+      0.821
+     ],
+     [
+      "FAQ_37",
+      0.733
+     ],
+     [
+      "FAQ_02",
+      0.696
+     ]
+    ],
+    "candidates": [
+     "FAQ_36",
+     "FAQ_37",
+     "FAQ_02"
+    ],
+    "relevance": {
+     "FAQ_36": 1.0,
+     "FAQ_37": 0.75,
+     "FAQ_02": 0.67
+    },
+    "kept": [
+     "FAQ_36",
+     "FAQ_37",
+     "FAQ_02"
+    ]
+   }
+  ],
+  "searched_for": "What is a time-limited handicap-stipend?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v05",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_36",
+   "FAQ_37",
+   "FAQ_01"
+  ],
+  "error": null,
+  "latency": 1.06,
+  "signals": {
+   "contextual": 1.0,
+   "distress": 0.0
+  },
+  "rewrite": "What is a time-limited handicap-stipend (handicaptillæg)?",
+  "searches": [
+   {
+    "query": "What is a time-limited handicap-stipend (handicaptillæg)?",
+    "judge": "What is a time-limited handicap-stipend (handicaptillæg)?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_36",
+      0.871
+     ],
+     [
+      "FAQ_37",
+      0.754
+     ],
+     [
+      "FAQ_01",
+      0.751
+     ]
+    ],
+    "candidates": [
+     "FAQ_36",
+     "FAQ_37",
+     "FAQ_01"
+    ],
+    "relevance": {
+     "FAQ_36": 1.0,
+     "FAQ_37": 0.98,
+     "FAQ_01": 0.92
+    },
+    "kept": [
+     "FAQ_36",
+     "FAQ_37",
+     "FAQ_01"
+    ]
+   }
+  ],
+  "searched_for": "What is a time-limited handicap-stipend (handicaptillæg)?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "v06",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.74,
+  "signals": {
+   "contextual": 0.14,
+   "distress": 0.01
+  },
+  "rewrite": "Why am I being asked to agree to continue the demonstration using fictional information?",
+  "searches": [
+   {
+    "query": "why are you asking me this?",
+    "judge": "why are you asking me this?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.555
+     ],
+     [
+      "FAQ_27",
+      0.551
+     ],
+     [
+      "FAQ_P01",
+      0.536
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_27",
+     "FAQ_P01"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_27": 0.0,
+     "FAQ_P01": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do you agree to continue this demonstration using fictional information? why are you asking me this?",
+    "judge": "why are you asking me this?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.559
+     ],
+     [
+      "FAQ_28",
+      0.548
+     ],
+     [
+      "FAQ_22",
+      0.545
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_28",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.0,
+     "FAQ_28": 0.0,
+     "FAQ_22": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Why am I being asked to agree to continue the demonstration using fictional information?",
+    "judge": "Why am I being asked to agree to continue the demonstration using fictional information?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_28",
+      0.587
+     ],
+     [
+      "FAQ_27",
+      0.581
+     ],
+     [
+      "FAQ_P06",
+      0.572
+     ]
+    ],
+    "candidates": [
+     "FAQ_28",
+     "FAQ_27",
+     "FAQ_P06"
+    ],
+    "relevance": {
+     "FAQ_28": 0.0,
+     "FAQ_27": 0.0,
+     "FAQ_P06": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Why am I being asked to agree to continue the demonstration using fictional information?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "v06",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.46,
+  "signals": {
+   "contextual": 0.14,
+   "distress": 0.01
+  },
+  "rewrite": "Why am I being asked to agree to use fictional information in this demonstration?",
+  "searches": [
+   {
+    "query": "why are you asking me this?",
+    "judge": "why are you asking me this?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.555
+     ],
+     [
+      "FAQ_27",
+      0.551
+     ],
+     [
+      "FAQ_P01",
+      0.536
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_27",
+     "FAQ_P01"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_27": 0.0,
+     "FAQ_P01": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do you agree to continue this demonstration using fictional information? why are you asking me this?",
+    "judge": "why are you asking me this?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.559
+     ],
+     [
+      "FAQ_28",
+      0.548
+     ],
+     [
+      "FAQ_22",
+      0.545
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_28",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.0,
+     "FAQ_28": 0.0,
+     "FAQ_22": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Why am I being asked to agree to use fictional information in this demonstration?",
+    "judge": "Why am I being asked to agree to use fictional information in this demonstration?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P06",
+      0.558
+     ],
+     [
+      "FAQ_P07",
+      0.543
+     ],
+     [
+      "FAQ_25",
+      0.535
+     ]
+    ],
+    "candidates": [
+     "FAQ_P06",
+     "FAQ_P07",
+     "FAQ_25"
+    ],
+    "relevance": {
+     "FAQ_P06": 0.0,
+     "FAQ_P07": 0.0,
+     "FAQ_25": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Why am I being asked to agree to use fictional information in this demonstration?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "v06",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.79,
+  "signals": {
+   "contextual": 0.14,
+   "distress": 0.01
+  },
+  "rewrite": "Why do you ask if I agree to continue the demonstration using fictional information?",
+  "searches": [
+   {
+    "query": "why are you asking me this?",
+    "judge": "why are you asking me this?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.555
+     ],
+     [
+      "FAQ_27",
+      0.551
+     ],
+     [
+      "FAQ_P01",
+      0.536
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_27",
+     "FAQ_P01"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_27": 0.0,
+     "FAQ_P01": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do you agree to continue this demonstration using fictional information? why are you asking me this?",
+    "judge": "why are you asking me this?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P05",
+      0.559
+     ],
+     [
+      "FAQ_28",
+      0.548
+     ],
+     [
+      "FAQ_22",
+      0.545
+     ]
+    ],
+    "candidates": [
+     "FAQ_P05",
+     "FAQ_28",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_P05": 0.0,
+     "FAQ_28": 0.0,
+     "FAQ_22": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Why do you ask if I agree to continue the demonstration using fictional information?",
+    "judge": "Why do you ask if I agree to continue the demonstration using fictional information?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_28",
+      0.57
+     ],
+     [
+      "FAQ_P06",
+      0.557
+     ],
+     [
+      "FAQ_22",
+      0.556
+     ]
+    ],
+    "candidates": [
+     "FAQ_28",
+     "FAQ_P06",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_28": 0.0,
+     "FAQ_P06": 0.0,
+     "FAQ_22": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "Why do you ask if I agree to continue the demonstration using fictional information?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "a01",
+  "repeat": 0,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_01",
+   "FAQ_03"
+  ],
+  "error": null,
+  "latency": 1.29,
+  "signals": {
+   "contextual": 0.14,
+   "distress": 0.0
+  },
+  "rewrite": "Does it matter that I worked for 4 years at a supermarket when applying for the SU disability supplement?",
+  "searches": [
+   {
+    "query": "yes I worked 4 years at a supermarket",
+    "judge": "yes I worked 4 years at a supermarket",
+    "decision": "no_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.479
+     ],
+     [
+      "FAQ_17",
+      0.473
+     ],
+     [
+      "FAQ_15",
+      0.453
+     ]
+    ],
+    "candidates": [],
+    "relevance": {},
+    "kept": []
+   },
+   {
+    "query": "Did you have work in the last three years? yes I worked 4 years at a supermarket",
+    "judge": "yes I worked 4 years at a supermarket",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_17",
+      0.544
+     ],
+     [
+      "FAQ_15",
+      0.491
+     ],
+     [
+      "FAQ_16",
+      0.482
+     ]
+    ],
+    "candidates": [
+     "FAQ_17",
+     "FAQ_15",
+     "FAQ_16"
+    ],
+    "relevance": {
+     "FAQ_17": 0.16,
+     "FAQ_15": 0.0,
+     "FAQ_16": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Does it matter that I worked for 4 years at a supermarket when applying for the SU disability supplement?",
+    "judge": "Does it matter that I worked for 4 years at a supermarket when applying for the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_01",
+      0.787
+     ],
+     [
+      "FAQ_03",
+      0.733
+     ],
+     [
+      "FAQ_35",
+      0.716
+     ]
+    ],
+    "candidates": [
+     "FAQ_01",
+     "FAQ_03",
+     "FAQ_35"
+    ],
+    "relevance": {
+     "FAQ_01": 0.81,
+     "FAQ_03": 0.8,
+     "FAQ_35": 0.01
+    },
+    "kept": [
+     "FAQ_01",
+     "FAQ_03"
+    ]
+   }
+  ],
+  "searched_for": "Does it matter that I worked for 4 years at a supermarket when applying for the SU disability supplement?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "a01",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_17"
+  ],
+  "error": null,
+  "latency": 1.83,
+  "signals": {
+   "contextual": 0.14,
+   "distress": 0.0
+  },
+  "rewrite": "Does work experience from four years ago count when applying for handicaptillæg if the question is about work in the last three years?",
+  "searches": [
+   {
+    "query": "yes I worked 4 years at a supermarket",
+    "judge": "yes I worked 4 years at a supermarket",
+    "decision": "no_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.479
+     ],
+     [
+      "FAQ_17",
+      0.473
+     ],
+     [
+      "FAQ_15",
+      0.453
+     ]
+    ],
+    "candidates": [],
+    "relevance": {},
+    "kept": []
+   },
+   {
+    "query": "Did you have work in the last three years? yes I worked 4 years at a supermarket",
+    "judge": "yes I worked 4 years at a supermarket",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_17",
+      0.544
+     ],
+     [
+      "FAQ_15",
+      0.491
+     ],
+     [
+      "FAQ_16",
+      0.482
+     ]
+    ],
+    "candidates": [
+     "FAQ_17",
+     "FAQ_15",
+     "FAQ_16"
+    ],
+    "relevance": {
+     "FAQ_17": 0.16,
+     "FAQ_15": 0.0,
+     "FAQ_16": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Does work experience from four years ago count when applying for handicaptillæg if the question is about work in the last three years?",
+    "judge": "Does work experience from four years ago count when applying for handicaptillæg if the question is about work in the last three years?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_09",
+      0.714
+     ],
+     [
+      "FAQ_17",
+      0.697
+     ],
+     [
+      "FAQ_03",
+      0.685
+     ]
+    ],
+    "candidates": [
+     "FAQ_09",
+     "FAQ_17",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_09": 0.01,
+     "FAQ_17": 0.89,
+     "FAQ_03": 0.3
+    },
+    "kept": [
+     "FAQ_17"
+    ]
+   }
+  ],
+  "searched_for": "Does work experience from four years ago count when applying for handicaptillæg if the question is about work in the last three years?",
+  "response": null
+ },
+ {
+  "id": "a01",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P01"
+  ],
+  "error": null,
+  "latency": 1.43,
+  "signals": {
+   "contextual": 0.14,
+   "distress": 0.0
+  },
+  "rewrite": "Does it matter if I worked 4 years at a supermarket when applying for the SU handicaptillæg and answering whether I had work in the last three years?",
+  "searches": [
+   {
+    "query": "yes I worked 4 years at a supermarket",
+    "judge": "yes I worked 4 years at a supermarket",
+    "decision": "no_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.479
+     ],
+     [
+      "FAQ_17",
+      0.473
+     ],
+     [
+      "FAQ_15",
+      0.453
+     ]
+    ],
+    "candidates": [],
+    "relevance": {},
+    "kept": []
+   },
+   {
+    "query": "Did you have work in the last three years? yes I worked 4 years at a supermarket",
+    "judge": "yes I worked 4 years at a supermarket",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_17",
+      0.544
+     ],
+     [
+      "FAQ_15",
+      0.491
+     ],
+     [
+      "FAQ_16",
+      0.482
+     ]
+    ],
+    "candidates": [
+     "FAQ_17",
+     "FAQ_15",
+     "FAQ_16"
+    ],
+    "relevance": {
+     "FAQ_17": 0.16,
+     "FAQ_15": 0.0,
+     "FAQ_16": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Does it matter if I worked 4 years at a supermarket when applying for the SU handicaptillæg and answering whether I had work in the last three years?",
+    "judge": "Does it matter if I worked 4 years at a supermarket when applying for the SU handicaptillæg and answering whether I had work in the last three years?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_04",
+      0.768
+     ],
+     [
+      "FAQ_P01",
+      0.693
+     ],
+     [
+      "FAQ_20",
+      0.648
+     ]
+    ],
+    "candidates": [
+     "FAQ_04",
+     "FAQ_P01",
+     "FAQ_20"
+    ],
+    "relevance": {
+     "FAQ_04": 0.0,
+     "FAQ_P01": 0.88,
+     "FAQ_20": 0.0
+    },
+    "kept": [
+     "FAQ_P01"
+    ]
+   }
+  ],
+  "searched_for": "Does it matter if I worked 4 years at a supermarket when applying for the SU handicaptillæg and answering whether I had work in the last three years?",
+  "response": null
+ },
+ {
+  "id": "a02",
+  "repeat": 0,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_16",
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 0.44,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "about 10 hours a week",
+    "judge": "about 10 hours a week",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.673
+     ],
+     [
+      "FAQ_P09",
+      0.645
+     ],
+     [
+      "FAQ_15",
+      0.579
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_15"
+    ],
+    "relevance": {
+     "FAQ_16": 0.91,
+     "FAQ_P09": 1.0,
+     "FAQ_15": 0.0
+    },
+    "kept": [
+     "FAQ_P09",
+     "FAQ_16"
+    ]
+   },
+   {
+    "query": "How many hours did you work per week on average in this job? about 10 hours a week",
+    "judge": "about 10 hours a week",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.723
+     ],
+     [
+      "FAQ_P09",
+      0.638
+     ],
+     [
+      "FAQ_15",
+      0.561
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_15"
+    ],
+    "relevance": {
+     "FAQ_16": 0.91,
+     "FAQ_P09": 1.0,
+     "FAQ_15": 0.0
+    },
+    "kept": [
+     "FAQ_P09",
+     "FAQ_16"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "a02",
+  "repeat": 1,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_16",
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 0.49,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "about 10 hours a week",
+    "judge": "about 10 hours a week",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.673
+     ],
+     [
+      "FAQ_P09",
+      0.645
+     ],
+     [
+      "FAQ_15",
+      0.579
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_15"
+    ],
+    "relevance": {
+     "FAQ_16": 0.91,
+     "FAQ_P09": 1.0,
+     "FAQ_15": 0.0
+    },
+    "kept": [
+     "FAQ_P09",
+     "FAQ_16"
+    ]
+   },
+   {
+    "query": "How many hours did you work per week on average in this job? about 10 hours a week",
+    "judge": "about 10 hours a week",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.723
+     ],
+     [
+      "FAQ_P09",
+      0.638
+     ],
+     [
+      "FAQ_15",
+      0.561
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_15"
+    ],
+    "relevance": {
+     "FAQ_16": 0.91,
+     "FAQ_P09": 1.0,
+     "FAQ_15": 0.0
+    },
+    "kept": [
+     "FAQ_P09",
+     "FAQ_16"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "a02",
+  "repeat": 2,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_16",
+   "FAQ_P09"
+  ],
+  "error": null,
+  "latency": 0.45,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "about 10 hours a week",
+    "judge": "about 10 hours a week",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.673
+     ],
+     [
+      "FAQ_P09",
+      0.645
+     ],
+     [
+      "FAQ_15",
+      0.579
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_15"
+    ],
+    "relevance": {
+     "FAQ_16": 0.91,
+     "FAQ_P09": 1.0,
+     "FAQ_15": 0.0
+    },
+    "kept": [
+     "FAQ_P09",
+     "FAQ_16"
+    ]
+   },
+   {
+    "query": "How many hours did you work per week on average in this job? about 10 hours a week",
+    "judge": "about 10 hours a week",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_16",
+      0.723
+     ],
+     [
+      "FAQ_P09",
+      0.638
+     ],
+     [
+      "FAQ_15",
+      0.561
+     ]
+    ],
+    "candidates": [
+     "FAQ_16",
+     "FAQ_P09",
+     "FAQ_15"
+    ],
+    "relevance": {
+     "FAQ_16": 0.91,
+     "FAQ_P09": 1.0,
+     "FAQ_15": 0.0
+    },
+    "kept": [
+     "FAQ_P09",
+     "FAQ_16"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "a03",
+  "repeat": 0,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_08",
+   "FAQ_33",
+   "FAQ_07"
+  ],
+  "error": null,
+  "latency": 0.34,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "it's a physical impairment, I use a wheelchair",
+    "judge": "it's a physical impairment, I use a wheelchair",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_08",
+      0.67
+     ],
+     [
+      "FAQ_33",
+      0.636
+     ],
+     [
+      "FAQ_07",
+      0.599
+     ]
+    ],
+    "candidates": [
+     "FAQ_08",
+     "FAQ_33",
+     "FAQ_07"
+    ],
+    "relevance": {
+     "FAQ_08": 0.56,
+     "FAQ_33": 0.71,
+     "FAQ_07": 0.87
+    },
+    "kept": [
+     "FAQ_07",
+     "FAQ_33",
+     "FAQ_08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "a03",
+  "repeat": 1,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_08",
+   "FAQ_33",
+   "FAQ_07"
+  ],
+  "error": null,
+  "latency": 0.31,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "it's a physical impairment, I use a wheelchair",
+    "judge": "it's a physical impairment, I use a wheelchair",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_08",
+      0.67
+     ],
+     [
+      "FAQ_33",
+      0.636
+     ],
+     [
+      "FAQ_07",
+      0.599
+     ]
+    ],
+    "candidates": [
+     "FAQ_08",
+     "FAQ_33",
+     "FAQ_07"
+    ],
+    "relevance": {
+     "FAQ_08": 0.56,
+     "FAQ_33": 0.71,
+     "FAQ_07": 0.87
+    },
+    "kept": [
+     "FAQ_07",
+     "FAQ_33",
+     "FAQ_08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "a03",
+  "repeat": 2,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_08",
+   "FAQ_33",
+   "FAQ_07"
+  ],
+  "error": null,
+  "latency": 0.31,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "it's a physical impairment, I use a wheelchair",
+    "judge": "it's a physical impairment, I use a wheelchair",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_08",
+      0.67
+     ],
+     [
+      "FAQ_33",
+      0.636
+     ],
+     [
+      "FAQ_07",
+      0.599
+     ]
+    ],
+    "candidates": [
+     "FAQ_08",
+     "FAQ_33",
+     "FAQ_07"
+    ],
+    "relevance": {
+     "FAQ_08": 0.56,
+     "FAQ_33": 0.71,
+     "FAQ_07": 0.87
+    },
+    "kept": [
+     "FAQ_07",
+     "FAQ_33",
+     "FAQ_08"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "o01",
+  "repeat": 0,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_03",
+   "FAQ_07",
+   "FAQ_11"
+  ],
+  "error": null,
+  "latency": 0.74,
+  "signals": {
+   "contextual": 0.12,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "will I get the supplement with my condition?",
+    "judge": "will I get the supplement with my condition?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.802
+     ],
+     [
+      "FAQ_04",
+      0.71
+     ],
+     [
+      "FAQ_02",
+      0.693
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_04",
+     "FAQ_02"
+    ],
+    "relevance": {
+     "FAQ_03": 0.99,
+     "FAQ_04": 0.01,
+     "FAQ_02": 0.53
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_02"
+    ]
+   },
+   {
+    "query": "What type of functional impairment do you have? Use fictional details for this demo. will I get the supplement with my condition?",
+    "judge": "will I get the supplement with my condition?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.722
+     ],
+     [
+      "FAQ_07",
+      0.72
+     ],
+     [
+      "FAQ_11",
+      0.719
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_07",
+     "FAQ_11"
+    ],
+    "relevance": {
+     "FAQ_03": 0.99,
+     "FAQ_07": 0.59,
+     "FAQ_11": 0.76
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_11",
+     "FAQ_07"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "o01",
+  "repeat": 1,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_03",
+   "FAQ_07",
+   "FAQ_11"
+  ],
+  "error": null,
+  "latency": 0.46,
+  "signals": {
+   "contextual": 0.12,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "will I get the supplement with my condition?",
+    "judge": "will I get the supplement with my condition?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.802
+     ],
+     [
+      "FAQ_04",
+      0.71
+     ],
+     [
+      "FAQ_02",
+      0.693
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_04",
+     "FAQ_02"
+    ],
+    "relevance": {
+     "FAQ_03": 0.99,
+     "FAQ_04": 0.01,
+     "FAQ_02": 0.53
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_02"
+    ]
+   },
+   {
+    "query": "What type of functional impairment do you have? Use fictional details for this demo. will I get the supplement with my condition?",
+    "judge": "will I get the supplement with my condition?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.722
+     ],
+     [
+      "FAQ_07",
+      0.72
+     ],
+     [
+      "FAQ_11",
+      0.719
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_07",
+     "FAQ_11"
+    ],
+    "relevance": {
+     "FAQ_03": 0.99,
+     "FAQ_07": 0.59,
+     "FAQ_11": 0.76
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_11",
+     "FAQ_07"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "o01",
+  "repeat": 2,
+  "verdict": "shown_options",
+  "outcome": "options",
+  "ids": [
+   "FAQ_03",
+   "FAQ_07",
+   "FAQ_11"
+  ],
+  "error": null,
+  "latency": 0.47,
+  "signals": {
+   "contextual": 0.12,
+   "distress": 0.0
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "will I get the supplement with my condition?",
+    "judge": "will I get the supplement with my condition?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.802
+     ],
+     [
+      "FAQ_04",
+      0.71
+     ],
+     [
+      "FAQ_02",
+      0.693
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_04",
+     "FAQ_02"
+    ],
+    "relevance": {
+     "FAQ_03": 0.99,
+     "FAQ_04": 0.01,
+     "FAQ_02": 0.53
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_02"
+    ]
+   },
+   {
+    "query": "What type of functional impairment do you have? Use fictional details for this demo. will I get the supplement with my condition?",
+    "judge": "will I get the supplement with my condition?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_03",
+      0.722
+     ],
+     [
+      "FAQ_07",
+      0.72
+     ],
+     [
+      "FAQ_11",
+      0.719
+     ]
+    ],
+    "candidates": [
+     "FAQ_03",
+     "FAQ_07",
+     "FAQ_11"
+    ],
+    "relevance": {
+     "FAQ_03": 0.99,
+     "FAQ_07": 0.59,
+     "FAQ_11": 0.76
+    },
+    "kept": [
+     "FAQ_03",
+     "FAQ_11",
+     "FAQ_07"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "o02",
+  "repeat": 0,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.3,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": "How do I apply for housing benefit?",
+  "searches": [
+   {
+    "query": "how do I apply for housing benefit?",
+    "judge": "how do I apply for housing benefit?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.702
+     ],
+     [
+      "FAQ_03",
+      0.598
+     ],
+     [
+      "FAQ_04",
+      0.579
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_03",
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.0,
+     "FAQ_03": 0.0,
+     "FAQ_04": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do you plan to work besides your studies? how do I apply for housing benefit?",
+    "judge": "how do I apply for housing benefit?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.574
+     ],
+     [
+      "FAQ_P01",
+      0.567
+     ],
+     [
+      "FAQ_P12",
+      0.555
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_P01",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P07": 0.01,
+     "FAQ_P01": 0.0,
+     "FAQ_P12": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": null,
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "o02",
+  "repeat": 1,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.32,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": "How do I apply for housing benefit?",
+  "searches": [
+   {
+    "query": "how do I apply for housing benefit?",
+    "judge": "how do I apply for housing benefit?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.702
+     ],
+     [
+      "FAQ_03",
+      0.598
+     ],
+     [
+      "FAQ_04",
+      0.579
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_03",
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.0,
+     "FAQ_03": 0.0,
+     "FAQ_04": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do you plan to work besides your studies? how do I apply for housing benefit?",
+    "judge": "how do I apply for housing benefit?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.574
+     ],
+     [
+      "FAQ_P01",
+      0.567
+     ],
+     [
+      "FAQ_P12",
+      0.555
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_P01",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P07": 0.01,
+     "FAQ_P01": 0.0,
+     "FAQ_P12": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": null,
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "o02",
+  "repeat": 2,
+  "verdict": "correct",
+  "outcome": "no_match",
+  "ids": [],
+  "error": null,
+  "latency": 1.54,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": "How do I apply for housing benefit while receiving the SU disability supplement?",
+  "searches": [
+   {
+    "query": "how do I apply for housing benefit?",
+    "judge": "how do I apply for housing benefit?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.702
+     ],
+     [
+      "FAQ_03",
+      0.598
+     ],
+     [
+      "FAQ_04",
+      0.579
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_03",
+     "FAQ_04"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.0,
+     "FAQ_03": 0.0,
+     "FAQ_04": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "Do you plan to work besides your studies? how do I apply for housing benefit?",
+    "judge": "how do I apply for housing benefit?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P07",
+      0.574
+     ],
+     [
+      "FAQ_P01",
+      0.567
+     ],
+     [
+      "FAQ_P12",
+      0.555
+     ]
+    ],
+    "candidates": [
+     "FAQ_P07",
+     "FAQ_P01",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_P07": 0.01,
+     "FAQ_P01": 0.0,
+     "FAQ_P12": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "How do I apply for housing benefit while receiving the SU disability supplement?",
+    "judge": "How do I apply for housing benefit while receiving the SU disability supplement?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.758
+     ],
+     [
+      "FAQ_01",
+      0.752
+     ],
+     [
+      "FAQ_03",
+      0.736
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_01",
+     "FAQ_03"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.1,
+     "FAQ_01": 0.02,
+     "FAQ_03": 0.0
+    },
+    "kept": []
+   }
+  ],
+  "searched_for": "How do I apply for housing benefit while receiving the SU disability supplement?",
+  "response": "I could not find an answer to that in the handicaptillæg FAQ."
+ },
+ {
+  "id": "o03",
+  "repeat": 0,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P02"
+  ],
+  "error": null,
+  "latency": 1.3,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": "What email address should I provide for contact about my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "what's the weather like in Copenhagen today?",
+    "judge": "what's the weather like in Copenhagen today?",
+    "decision": "no_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      0.434
+     ],
+     [
+      "FAQ_P04",
+      0.431
+     ],
+     [
+      "FAQ_11",
+      0.421
+     ]
+    ],
+    "candidates": [],
+    "relevance": {},
+    "kept": []
+   },
+   {
+    "query": "What email address should we use to contact you about this application? what's the weather like in Copenhagen today?",
+    "judge": "what's the weather like in Copenhagen today?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.605
+     ],
+     [
+      "FAQ_P01",
+      0.591
+     ],
+     [
+      "FAQ_P03",
+      0.531
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_P01",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_P01": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "What email address should I provide for contact about my handicaptillæg application?",
+    "judge": "What email address should I provide for contact about my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.802
+     ],
+     [
+      "FAQ_41",
+      0.773
+     ],
+     [
+      "FAQ_P02",
+      0.768
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_41",
+     "FAQ_P02"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.02,
+     "FAQ_41": 0.0,
+     "FAQ_P02": 0.96
+    },
+    "kept": [
+     "FAQ_P02"
+    ]
+   }
+  ],
+  "searched_for": "What email address should I provide for contact about my handicaptillæg application?",
+  "response": null
+ },
+ {
+  "id": "o03",
+  "repeat": 1,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P02"
+  ],
+  "error": null,
+  "latency": 1.34,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": "What email address can I use for contact about my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "what's the weather like in Copenhagen today?",
+    "judge": "what's the weather like in Copenhagen today?",
+    "decision": "no_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      0.434
+     ],
+     [
+      "FAQ_P04",
+      0.431
+     ],
+     [
+      "FAQ_11",
+      0.421
+     ]
+    ],
+    "candidates": [],
+    "relevance": {},
+    "kept": []
+   },
+   {
+    "query": "What email address should we use to contact you about this application? what's the weather like in Copenhagen today?",
+    "judge": "what's the weather like in Copenhagen today?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.605
+     ],
+     [
+      "FAQ_P01",
+      0.591
+     ],
+     [
+      "FAQ_P03",
+      0.531
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_P01",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_P01": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "What email address can I use for contact about my handicaptillæg application?",
+    "judge": "What email address can I use for contact about my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.805
+     ],
+     [
+      "FAQ_P02",
+      0.767
+     ],
+     [
+      "FAQ_41",
+      0.759
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_P02",
+     "FAQ_41"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.11,
+     "FAQ_P02": 0.97,
+     "FAQ_41": 0.0
+    },
+    "kept": [
+     "FAQ_P02"
+    ]
+   }
+  ],
+  "searched_for": "What email address can I use for contact about my handicaptillæg application?",
+  "response": null
+ },
+ {
+  "id": "o03",
+  "repeat": 2,
+  "verdict": "WRONG",
+  "outcome": "answered",
+  "ids": [
+   "FAQ_P02"
+  ],
+  "error": null,
+  "latency": 1.3,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.0
+  },
+  "rewrite": "What email address should I provide for contact about my handicaptillæg application?",
+  "searches": [
+   {
+    "query": "what's the weather like in Copenhagen today?",
+    "judge": "what's the weather like in Copenhagen today?",
+    "decision": "no_match",
+    "scores": [
+     [
+      "FAQ_05b",
+      0.434
+     ],
+     [
+      "FAQ_P04",
+      0.431
+     ],
+     [
+      "FAQ_11",
+      0.421
+     ]
+    ],
+    "candidates": [],
+    "relevance": {},
+    "kept": []
+   },
+   {
+    "query": "What email address should we use to contact you about this application? what's the weather like in Copenhagen today?",
+    "judge": "what's the weather like in Copenhagen today?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P02",
+      0.605
+     ],
+     [
+      "FAQ_P01",
+      0.591
+     ],
+     [
+      "FAQ_P03",
+      0.531
+     ]
+    ],
+    "candidates": [
+     "FAQ_P02",
+     "FAQ_P01",
+     "FAQ_P03"
+    ],
+    "relevance": {
+     "FAQ_P02": 0.0,
+     "FAQ_P01": 0.0,
+     "FAQ_P03": 0.0
+    },
+    "kept": []
+   },
+   {
+    "query": "What email address should I provide for contact about my handicaptillæg application?",
+    "judge": "What email address should I provide for contact about my handicaptillæg application?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_P01",
+      0.802
+     ],
+     [
+      "FAQ_41",
+      0.773
+     ],
+     [
+      "FAQ_P02",
+      0.768
+     ]
+    ],
+    "candidates": [
+     "FAQ_P01",
+     "FAQ_41",
+     "FAQ_P02"
+    ],
+    "relevance": {
+     "FAQ_P01": 0.02,
+     "FAQ_41": 0.0,
+     "FAQ_P02": 0.96
+    },
+    "kept": [
+     "FAQ_P02"
+    ]
+   }
+  ],
+  "searched_for": "What email address should I provide for contact about my handicaptillæg application?",
+  "response": null
+ },
+ {
+  "id": "m01",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_38",
+   "FAQ_40",
+   "FAQ_P12"
+  ],
+  "error": null,
+  "latency": 1.25,
+  "signals": {
+   "contextual": 0.99,
+   "distress": 0.01
+  },
+  "rewrite": "What happens if I earn more than the allowed amount while receiving handicaptillæg?",
+  "searches": [
+   {
+    "query": "What happens if I earn more than the allowed amount while receiving handicaptillæg?",
+    "judge": "What happens if I earn more than the allowed amount while receiving handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_38",
+      0.804
+     ],
+     [
+      "FAQ_40",
+      0.718
+     ],
+     [
+      "FAQ_P12",
+      0.69
+     ]
+    ],
+    "candidates": [
+     "FAQ_38",
+     "FAQ_40",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_38": 1.0,
+     "FAQ_40": 1.0,
+     "FAQ_P12": 0.7
+    },
+    "kept": [
+     "FAQ_38",
+     "FAQ_40",
+     "FAQ_P12"
+    ]
+   }
+  ],
+  "searched_for": "What happens if I earn more than the allowed amount while receiving handicaptillæg?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "m01",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_38",
+   "FAQ_40",
+   "FAQ_P12"
+  ],
+  "error": null,
+  "latency": 1.07,
+  "signals": {
+   "contextual": 0.99,
+   "distress": 0.01
+  },
+  "rewrite": "What happens if I earn more than the allowed income limit when receiving handicaptillæg?",
+  "searches": [
+   {
+    "query": "What happens if I earn more than the allowed income limit when receiving handicaptillæg?",
+    "judge": "What happens if I earn more than the allowed income limit when receiving handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_38",
+      0.785
+     ],
+     [
+      "FAQ_40",
+      0.691
+     ],
+     [
+      "FAQ_P12",
+      0.675
+     ]
+    ],
+    "candidates": [
+     "FAQ_38",
+     "FAQ_40",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_38": 1.0,
+     "FAQ_40": 1.0,
+     "FAQ_P12": 0.92
+    },
+    "kept": [
+     "FAQ_38",
+     "FAQ_40",
+     "FAQ_P12"
+    ]
+   }
+  ],
+  "searched_for": "What happens if I earn more than the allowed income limit when receiving handicaptillæg?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "m01",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_38",
+   "FAQ_40",
+   "FAQ_P12"
+  ],
+  "error": null,
+  "latency": 1.12,
+  "signals": {
+   "contextual": 0.99,
+   "distress": 0.01
+  },
+  "rewrite": "What happens if I earn more than the allowed amount while receiving handicaptillæg?",
+  "searches": [
+   {
+    "query": "What happens if I earn more than the allowed amount while receiving handicaptillæg?",
+    "judge": "What happens if I earn more than the allowed amount while receiving handicaptillæg?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_38",
+      0.804
+     ],
+     [
+      "FAQ_40",
+      0.718
+     ],
+     [
+      "FAQ_P12",
+      0.69
+     ]
+    ],
+    "candidates": [
+     "FAQ_38",
+     "FAQ_40",
+     "FAQ_P12"
+    ],
+    "relevance": {
+     "FAQ_38": 1.0,
+     "FAQ_40": 1.0,
+     "FAQ_P12": 0.7
+    },
+    "kept": [
+     "FAQ_38",
+     "FAQ_40",
+     "FAQ_P12"
+    ]
+   }
+  ],
+  "searched_for": "What happens if I earn more than the allowed amount while receiving handicaptillæg?",
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "m02",
+  "repeat": 0,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_43",
+   "FAQ_22"
+  ],
+  "error": null,
+  "latency": 0.47,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.03
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "and will new documents I send with the appeal be looked at?",
+    "judge": "and will new documents I send with the appeal be looked at?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_43",
+      0.777
+     ],
+     [
+      "FAQ_42",
+      0.657
+     ],
+     [
+      "FAQ_22",
+      0.623
+     ]
+    ],
+    "candidates": [
+     "FAQ_43",
+     "FAQ_42",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_43": 1.0,
+     "FAQ_42": 0.01,
+     "FAQ_22": 0.76
+    },
+    "kept": [
+     "FAQ_43",
+     "FAQ_22"
+    ]
+   },
+   {
+    "query": "Review and send demo application and will new documents I send with the appeal be looked at?",
+    "judge": "and will new documents I send with the appeal be looked at?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_43",
+      0.734
+     ],
+     [
+      "FAQ_P02",
+      0.712
+     ],
+     [
+      "FAQ_22",
+      0.701
+     ]
+    ],
+    "candidates": [
+     "FAQ_43",
+     "FAQ_P02",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_43": 1.0,
+     "FAQ_P02": 0.25,
+     "FAQ_22": 0.76
+    },
+    "kept": [
+     "FAQ_43",
+     "FAQ_22"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "m02",
+  "repeat": 1,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_43",
+   "FAQ_22"
+  ],
+  "error": null,
+  "latency": 0.45,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.03
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "and will new documents I send with the appeal be looked at?",
+    "judge": "and will new documents I send with the appeal be looked at?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_43",
+      0.777
+     ],
+     [
+      "FAQ_42",
+      0.657
+     ],
+     [
+      "FAQ_22",
+      0.623
+     ]
+    ],
+    "candidates": [
+     "FAQ_43",
+     "FAQ_42",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_43": 1.0,
+     "FAQ_42": 0.01,
+     "FAQ_22": 0.76
+    },
+    "kept": [
+     "FAQ_43",
+     "FAQ_22"
+    ]
+   },
+   {
+    "query": "Review and send demo application and will new documents I send with the appeal be looked at?",
+    "judge": "and will new documents I send with the appeal be looked at?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_43",
+      0.734
+     ],
+     [
+      "FAQ_P02",
+      0.712
+     ],
+     [
+      "FAQ_22",
+      0.701
+     ]
+    ],
+    "candidates": [
+     "FAQ_43",
+     "FAQ_P02",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_43": 1.0,
+     "FAQ_P02": 0.25,
+     "FAQ_22": 0.76
+    },
+    "kept": [
+     "FAQ_43",
+     "FAQ_22"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ },
+ {
+  "id": "m02",
+  "repeat": 2,
+  "verdict": "partial",
+  "outcome": "options",
+  "ids": [
+   "FAQ_43",
+   "FAQ_22"
+  ],
+  "error": null,
+  "latency": 0.56,
+  "signals": {
+   "contextual": 0.0,
+   "distress": 0.03
+  },
+  "rewrite": null,
+  "searches": [
+   {
+    "query": "and will new documents I send with the appeal be looked at?",
+    "judge": "and will new documents I send with the appeal be looked at?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_43",
+      0.777
+     ],
+     [
+      "FAQ_42",
+      0.657
+     ],
+     [
+      "FAQ_22",
+      0.623
+     ]
+    ],
+    "candidates": [
+     "FAQ_43",
+     "FAQ_42",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_43": 1.0,
+     "FAQ_42": 0.01,
+     "FAQ_22": 0.76
+    },
+    "kept": [
+     "FAQ_43",
+     "FAQ_22"
+    ]
+   },
+   {
+    "query": "Review and send demo application and will new documents I send with the appeal be looked at?",
+    "judge": "and will new documents I send with the appeal be looked at?",
+    "decision": "clarify_match",
+    "scores": [
+     [
+      "FAQ_43",
+      0.734
+     ],
+     [
+      "FAQ_P02",
+      0.712
+     ],
+     [
+      "FAQ_22",
+      0.701
+     ]
+    ],
+    "candidates": [
+     "FAQ_43",
+     "FAQ_P02",
+     "FAQ_22"
+    ],
+    "relevance": {
+     "FAQ_43": 1.0,
+     "FAQ_P02": 0.25,
+     "FAQ_22": 0.76
+    },
+    "kept": [
+     "FAQ_43",
+     "FAQ_22"
+    ]
+   }
+  ],
+  "searched_for": null,
+  "response": "I found a few questions that may fit. Which one is closest?"
+ }
+]

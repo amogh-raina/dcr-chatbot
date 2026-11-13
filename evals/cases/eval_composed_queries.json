@@ -1,0 +1,346 @@
+{
+  "description": "Help-panel questions about the field on screen. Each case is searched as typed and as '<field label> <message>'; the app's rule (typed first, composed only if none of the field's linked FAQs is shown) is scored as a third column. expected lists the FAQ ids that answer it. All cases were written and labelled by the same author; a second labeller should review them. The 8 answer-scope cases (c16-c18, c40-c44) were removed with the 'Ask about this answer' button on 2026-10-08.",
+  "queries": [
+    {
+      "id": "c01",
+      "scope": "field",
+      "target": "Form0:Plan_work_studies",
+      "message": "what do I put here?",
+      "expected": [
+        "FAQ_16",
+        "FAQ_15"
+      ]
+    },
+    {
+      "id": "c02",
+      "scope": "field",
+      "target": "Form0:A16",
+      "message": "how many hours is too many?",
+      "expected": [
+        "FAQ_16"
+      ]
+    },
+    {
+      "id": "c03",
+      "scope": "field",
+      "target": "Form0:Impairment_definition",
+      "message": "what does permanent mean here?",
+      "expected": [
+        "FAQ_08",
+        "FAQ_09"
+      ]
+    },
+    {
+      "id": "c04",
+      "scope": "field",
+      "target": "Form0:Impairment_definition",
+      "message": "I'm not sure, what should I pick?",
+      "expected": [
+        "FAQ_08",
+        "FAQ_09"
+      ]
+    },
+    {
+      "id": "c05",
+      "scope": "field",
+      "target": "Form0:A14",
+      "message": "does it have to be exactly a year?",
+      "expected": [
+        "FAQ_09"
+      ]
+    },
+    {
+      "id": "c06",
+      "scope": "field",
+      "target": "Form0:Impairment_type",
+      "message": "what counts as congenital?",
+      "expected": [
+        "FAQ_26"
+      ]
+    },
+    {
+      "id": "c07",
+      "scope": "field",
+      "target": "Form0:Time_limited",
+      "message": "what is this?",
+      "expected": [
+        "FAQ_36"
+      ]
+    },
+    {
+      "id": "c08",
+      "scope": "field",
+      "target": "Form0:A17",
+      "message": "why does that matter?",
+      "expected": [
+        "FAQ_37"
+      ]
+    },
+    {
+      "id": "c09",
+      "scope": "field",
+      "target": "Form0:A1_1",
+      "message": "which month should I choose?",
+      "expected": [
+        "FAQ_35"
+      ]
+    },
+    {
+      "id": "c10",
+      "scope": "field",
+      "target": "Form0:A11",
+      "message": "what do I need to attach?",
+      "expected": [
+        "FAQ_21",
+        "FAQ_22"
+      ]
+    },
+    {
+      "id": "c11",
+      "scope": "field",
+      "target": "Form0:A11",
+      "message": "can I black out parts of it?",
+      "expected": [
+        "FAQ_P06"
+      ]
+    },
+    {
+      "id": "c12",
+      "scope": "field",
+      "target": "Form0:A5",
+      "message": "do I have to write this?",
+      "expected": [
+        "FAQ_P05"
+      ]
+    },
+    {
+      "id": "c13",
+      "scope": "field",
+      "target": "Form0:A2",
+      "message": "what if I have more than one?",
+      "expected": [
+        "FAQ_13"
+      ]
+    },
+    {
+      "id": "c14",
+      "scope": "field",
+      "target": "Form0:Prev_work",
+      "message": "does a student job count?",
+      "expected": [
+        "FAQ_17",
+        "FAQ_15"
+      ]
+    },
+    {
+      "id": "c15",
+      "scope": "field",
+      "target": "Form0:A15",
+      "message": "what if it varied a lot?",
+      "expected": [
+        "FAQ_17",
+        "FAQ_15",
+        "FAQ_16"
+      ]
+    },
+    {
+      "id": "c19",
+      "scope": "field",
+      "target": "Form0:A1_1",
+      "message": "can I choose a month in the past?",
+      "expected": [
+        "FAQ_35"
+      ]
+    },
+    {
+      "id": "c20",
+      "scope": "field",
+      "target": "Form0:A2",
+      "message": "my condition isn't on this list",
+      "expected": [
+        "FAQ_08"
+      ]
+    },
+    {
+      "id": "c21",
+      "scope": "field",
+      "target": "Form0:A2",
+      "message": "does ADHD count as mental?",
+      "expected": [
+        "FAQ_08"
+      ]
+    },
+    {
+      "id": "c22",
+      "scope": "field",
+      "target": "Form0:Impairment_type",
+      "message": "I got ill as a teenager, which one is that?",
+      "expected": [
+        "FAQ_26"
+      ]
+    },
+    {
+      "id": "c23",
+      "scope": "field",
+      "target": "Form0:Impairment_type",
+      "message": "I don't have recent records, is that a problem?",
+      "expected": [
+        "FAQ_26",
+        "FAQ_P04"
+      ]
+    },
+    {
+      "id": "c24",
+      "scope": "field",
+      "target": "Form0:Impairment_definition",
+      "message": "my doctor says it might get better",
+      "expected": [
+        "FAQ_08",
+        "FAQ_33",
+        "FAQ_12"
+      ]
+    },
+    {
+      "id": "c25",
+      "scope": "field",
+      "target": "Form0:A14",
+      "message": "it has been 10 months, can I still apply?",
+      "expected": [
+        "FAQ_09"
+      ]
+    },
+    {
+      "id": "c26",
+      "scope": "field",
+      "target": "Form0:Time_limited",
+      "message": "how do I know if mine is time-limited?",
+      "expected": [
+        "FAQ_36"
+      ]
+    },
+    {
+      "id": "c27",
+      "scope": "field",
+      "target": "Form0:A17",
+      "message": "when can I apply for an extension?",
+      "expected": [
+        "FAQ_37"
+      ]
+    },
+    {
+      "id": "c28",
+      "scope": "field",
+      "target": "Form0:Prev_work",
+      "message": "I stopped working because of my illness",
+      "expected": [
+        "FAQ_17"
+      ]
+    },
+    {
+      "id": "c29",
+      "scope": "field",
+      "target": "Form0:Prev_work",
+      "message": "does unpaid volunteering count as work?",
+      "expected": [
+        "FAQ_P09"
+      ]
+    },
+    {
+      "id": "c30",
+      "scope": "field",
+      "target": "Form0:A15",
+      "message": "should I count holiday jobs?",
+      "expected": [
+        "FAQ_16",
+        "FAQ_15",
+        "FAQ_17"
+      ]
+    },
+    {
+      "id": "c31",
+      "scope": "field",
+      "target": "Form0:Plan_work_studies",
+      "message": "will I lose the supplement if I work?",
+      "expected": [
+        "FAQ_39",
+        "FAQ_16",
+        "FAQ_38"
+      ]
+    },
+    {
+      "id": "c32",
+      "scope": "field",
+      "target": "Form0:A16",
+      "message": "what happens if I earn more than allowed?",
+      "expected": [
+        "FAQ_40",
+        "FAQ_38"
+      ]
+    },
+    {
+      "id": "c33",
+      "scope": "field",
+      "target": "Form0:A16",
+      "message": "is 3 hours a week ok?",
+      "expected": [
+        "FAQ_16"
+      ]
+    },
+    {
+      "id": "c34",
+      "scope": "field",
+      "target": "Form0:A5",
+      "message": "what should the statement say?",
+      "expected": [
+        "FAQ_P05"
+      ]
+    },
+    {
+      "id": "c35",
+      "scope": "field",
+      "target": "Form0:A11",
+      "message": "is a letter from my psychologist enough?",
+      "expected": [
+        "FAQ_25"
+      ]
+    },
+    {
+      "id": "c36",
+      "scope": "field",
+      "target": "Form0:A11",
+      "message": "how old can the records be?",
+      "expected": [
+        "FAQ_P04"
+      ]
+    },
+    {
+      "id": "c37",
+      "scope": "field",
+      "target": "Form0:A11",
+      "message": "my doctor only wrote the diagnosis, is that ok?",
+      "expected": [
+        "FAQ_24"
+      ]
+    },
+    {
+      "id": "c38",
+      "scope": "field",
+      "target": "Form0:A10",
+      "message": "how long until I hear back?",
+      "expected": [
+        "FAQ_P08"
+      ]
+    },
+    {
+      "id": "c39",
+      "scope": "field",
+      "target": "Form0:A10",
+      "message": "what if they refuse me?",
+      "expected": [
+        "FAQ_41",
+        "FAQ_32",
+        "FAQ_31"
+      ]
+    }
+  ]
+}

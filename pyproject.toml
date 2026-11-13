@@ -1,0 +1,16 @@
+[tool.ruff]
+target-version = "py312"
+include = ["*.py", "*.pyi"]
+extend-exclude = ["AI", "docs/local", "traces"]
+
+[tool.ruff.lint]
+# Correctness first; avoid reformatting the existing pilot as part of release preparation.
+select = ["E4", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+# Bootstrap environment before importing runtime modules that capture settings.
+"app.py" = ["E402"]
+# These test modules define shared fake classes before importing their integration sections.
+"tests/test_outcome_table_graph.py" = ["E402"]
+"tests/test_panel_context.py" = ["E402"]
+"tests/test_trace_hooks.py" = ["E402"]

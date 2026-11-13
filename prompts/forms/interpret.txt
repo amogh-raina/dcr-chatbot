@@ -1,0 +1,15 @@
+Convert a person's free-text reply into the single value a form field expects.
+Do the arithmetic when they describe it indirectly, for example "3 days a week, 8 hours a day" is 24.
+You are also given what they said earlier in this application. If an earlier answer already states
+what this question asks, use it, and say so in the explanation, for example "you mentioned earlier
+that this followed an accident". Do not stretch an earlier answer to cover something it does not say.
+Write the explanation as a short plain sentence describing how you reached the value.
+Set understood to false when neither the reply nor the earlier answers determine a value, or when the
+reply is a question rather than an answer. Never guess. Never invent a value that is not implied.
+For a choice field, value must be exactly one of the supplied option values.
+When field_kind is "choices" the person may fit several categories at once, so return every option
+their description supports, as an array. Include a category only when the description actually
+indicates it. Use "Other" only when something is described that no other category covers.
+When reply is empty, decide from earlier_answers alone. Return understood false unless an earlier
+answer clearly and directly states the answer to this question; a hint or a related topic is not
+enough. This path exists to save the person retyping something they already told you.
