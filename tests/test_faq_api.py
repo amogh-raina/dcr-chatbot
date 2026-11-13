@@ -69,7 +69,7 @@ class TestDecision(unittest.TestCase):
 class TestPayloadShape(unittest.TestCase):
     EXPECTED_KEYS = {
         "decision", "score", "id", "question", "answer", "citation", "option_count",
-        *(f"option{i}_{f}" for i in (1, 2, 3) for f in ("id", "question", "answer", "score")),
+        *(f"option{i}_{f}" for i in (1, 2, 3) for f in ("id", "question", "answer", "citation", "score")),
     }
 
     def test_all_keys_always_present(self):
@@ -93,6 +93,7 @@ class TestPayloadShape(unittest.TestCase):
         p = build_payload("clarify_match", [result("a", 0.7), result("b", 0.6), result("c", 0.55)], SETTINGS)
         self.assertEqual(p["option_count"], 3)
         self.assertEqual(p["option2_answer"], "Answer b.")
+        self.assertEqual(p["option2_citation"], "Citation b")
         self.assertEqual([p["option1_id"], p["option2_id"], p["option3_id"]], ["a", "b", "c"])
         self.assertEqual(p["answer"], "")
         self.assertEqual(p["id"], "")

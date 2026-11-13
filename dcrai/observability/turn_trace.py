@@ -251,9 +251,10 @@ HELP_COMMENT = re.compile(r'application help \(([^)]+)\)')
 
 
 def _retrieval_payload(state):
-    """The FAQ_RetrievalOk value of the last event list, parsed, or None. Same reading rule as rr.search."""
+    """The active surface's retrieval continuation, parsed, or None. Same event selection as rr.search_ids."""
     after = (state.get('simulation_state') or {}).get('events') or []
-    ok = next((e for e in after if e.get('id') == 'FAQ_RetrievalOk'), None)
+    ok_id = 'Help_RetrievalOk' if state.get('panel_search') and 'application_answers' in state else 'FAQ_RetrievalOk'
+    ok = next((e for e in after if e.get('id') == ok_id), None)
     if not ok or not ok.get('executed'):
         return None
     data = json.loads(ok.get('value') or '')
@@ -318,7 +319,7 @@ def _search_record(recorder, state, args, kwargs, result, mark, started, error):
 def traced_search(fn):
     """Decorator for rr.search(state, query, comment='', judge=None): add one search record to the open turn.
 
-    Reads the API payload back from state['simulation_state'] (FAQ_RetrievalOk), the retrieved ids from
+    Reads the interface's API payload from state['simulation_state'] (FAQ_RetrievalOk or Help_RetrievalOk), the retrieved ids from
     state['last_search'], the kept candidates and their tiers from the return value, and the relevance probabilities from
     the Decisions calls made during the search. Never changes the result or raises.
     """

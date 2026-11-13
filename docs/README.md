@@ -18,6 +18,7 @@ New handoffs go in `handoffs/` named `HANDOFF_<date>_<topic>.md`.
 - [Run and deploy](guides/DEPLOY.md)
 - [Install and use the DCR graph skill](guides/DCR_SKILL.md)
 - [Repository review and tracking policy](guides/REPOSITORY_REVIEW.md)
+- [Branch review against main](guides/BRANCH_REVIEW.md)
 - [Current architecture](architecture/Overview.md)
 - [Trace format and export](../traces/README.md)
 - [Specs](specs/README.md)

@@ -22,7 +22,8 @@ Each line has `interaction_id`, `seq`, `at` (ISO timestamp), `elapsed_s`, and `k
 A `turn` record is written once when each traced chat/Help request finishes, including failures:
 
 - Entry/action, verbatim message or selected input, interface, turn number and latency.
-- Context, query rewrite, each search (query, scores, relevance and retained FAQ IDs).
+- Context, query rewrite, each search (query, scores, relevance and retained FAQ IDs). Chat reads
+  `FAQ_RetrievalOk`; the split application panel reads `Help_RetrievalOk`. Older graphs retain the chat-event fallback.
 - Model calls and DCR executions, outcome/row, FAQ IDs, reply status, reaction links and handover reason.
 - Registry version and graph revision, plus exception type when a request raises.
 

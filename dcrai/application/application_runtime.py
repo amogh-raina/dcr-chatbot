@@ -1,6 +1,7 @@
 """Demo application fields driven only by the live DCR event API.
 No LLM, local XML, real authentication, file contents, or external submission.
 """
+from contextlib import contextmanager
 from datetime import date
 import math
 import logging
@@ -928,7 +929,20 @@ def determination(state,data):
 
 def install(app,session_store,credentials):
     from flask import request,jsonify
+    # The store lock only protects lookup/publication, never a DCR or model request.
     lock=threading.Lock()
+
+    @contextmanager
+    def locked_state(sid):
+        with lock:
+            state = session_store.get(sid)
+            session_lock = state.setdefault('application_lock', threading.RLock()) if state is not None else None
+        if session_lock is None:
+            yield None
+            return
+        with session_lock:
+            yield state
+
     @app.post('/application/init')
     def application_init():
         sid=request.headers.get('X-Session-ID');data=request.get_json(silent=True) or {}
@@ -953,8 +967,7 @@ def install(app,session_store,credentials):
     def application_ask():
         sid=request.headers.get('X-Session-ID');data=request.get_json(silent=True)
         if not isinstance(data,dict):return jsonify(error='Invalid request.'),400
-        with lock:
-            state=session_store.get(sid)
+        with locked_state(sid) as state:
             if not state or 'application_answers' not in state:return jsonify(error='Start the demo application first.'),400
             try:return jsonify(ask(state,data))
             except ApplicationError as e:return jsonify(error=str(e)),400
@@ -963,8 +976,7 @@ def install(app,session_store,credentials):
     def application_confirm():
         sid=request.headers.get('X-Session-ID');data=request.get_json(silent=True)
         if not isinstance(data,dict):return jsonify(error='Invalid request.'),400
-        with lock:
-            state=session_store.get(sid)
+        with locked_state(sid) as state:
             if not state or 'application_answers' not in state:return jsonify(error='Start the demo application first.'),400
             try:return jsonify(confirm(state,data))
             except ApplicationError as e:return jsonify(error=str(e)),400
@@ -973,8 +985,7 @@ def install(app,session_store,credentials):
     def application_determination():
         sid=request.headers.get('X-Session-ID');data=request.get_json(silent=True)
         if not isinstance(data,dict):return jsonify(error='Invalid request.'),400
-        with lock:
-            state=session_store.get(sid)
+        with locked_state(sid) as state:
             if not state or 'application_answers' not in state:return jsonify(error='Start the demo application first.'),400
             try:return jsonify(determination(state,data))
             except ApplicationError as e:return jsonify(error=str(e)),400
@@ -982,8 +993,7 @@ def install(app,session_store,credentials):
     @app.post('/application/handover')
     def application_handover():
         sid=request.headers.get('X-Session-ID')
-        with lock:
-            state=session_store.get(sid)
+        with locked_state(sid) as state:
             if not state or 'application_answers' not in state:return jsonify(error='Start the demo application first.'),400
             try:
                 handover=escalate(state,1,'Talk to a person button')
@@ -995,8 +1005,7 @@ def install(app,session_store,credentials):
     def application_interpret():
         sid=request.headers.get('X-Session-ID');data=request.get_json(silent=True)
         if not isinstance(data,dict):return jsonify(error='Invalid request.'),400
-        with lock:
-            state=session_store.get(sid)
+        with locked_state(sid) as state:
             if not state or 'application_answers' not in state:return jsonify(error='Start the demo application first.'),400
             try:return jsonify(interpret(state,data))
             except ApplicationError as e:return jsonify(error=str(e)),400
@@ -1005,8 +1014,7 @@ def install(app,session_store,credentials):
     def application_edit():
         sid=request.headers.get('X-Session-ID');data=request.get_json(silent=True)
         if not isinstance(data,dict):return jsonify(error='Invalid request.'),400
-        with lock:
-            state=session_store.get(sid)
+        with locked_state(sid) as state:
             if not state or 'application_answers' not in state:return jsonify(error='Start the demo application first.'),400
             try:return jsonify(edit(state,data))
             except ApplicationError as e:return jsonify(error=str(e)),400
@@ -1015,8 +1023,7 @@ def install(app,session_store,credentials):
     def application_answer():
         sid=request.headers.get('X-Session-ID');data=request.get_json(silent=True)
         if not isinstance(data,dict):return jsonify(error='Invalid request.'),400
-        with lock:
-            state=session_store.get(sid)
+        with locked_state(sid) as state:
             if not state or 'application_answers' not in state:return jsonify(error='Start the demo application first.'),400
             try:return jsonify(answer(state,data,source=data.get('source') or 'typed'))
             except ApplicationError as e:return jsonify(error=str(e)),400

@@ -3,7 +3,8 @@
 ## Runtime flow
 
 The React client (`demo-ui/src/`) talks to Flask (`app.py`) with an `X-Session-ID`. Flask stores chat and
-application state in memory. `/` redirects to `/demo`; `/demo`, `/mitid`, `/application` serve the same built
+application state in memory. Application operations are serialized per session, so another session
+can continue while one session waits for a model or DCR request. `/` redirects to `/demo`; `/demo`, `/mitid`, `/application` serve the same built
 React application. The old `templates/index.html` / `static/script.js` client is retained for reference.
 
 `/init` creates a DCR simulation. Graphs with `FAQ_UserQuestion` use `dcrai/chat/retrieval_runtime.py`;

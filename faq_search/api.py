@@ -20,7 +20,7 @@ Response (every key is always present; unused ones are "" / 0):
     answer          the answer text itself       (single_match only)
     citation        source citation              (single_match only)
     option_count    number of options            (clarify_match only, 0-3)
-    option1_id / option1_question / option1_answer / option1_score   (clarify_match)
+    option1_id / option1_question / option1_answer / option1_citation / option1_score   (clarify_match)
     option2_*, option3_*
     cached          true when served from the in-process LRU
     latency_ms      server-side time for this request
@@ -102,6 +102,7 @@ def build_payload(decision: str, results, settings) -> dict:
         payload[f"option{i}_id"] = ""
         payload[f"option{i}_question"] = ""
         payload[f"option{i}_answer"] = ""
+        payload[f"option{i}_citation"] = ""
         payload[f"option{i}_score"] = 0.0
 
     if decision == "single_match":
@@ -117,6 +118,7 @@ def build_payload(decision: str, results, settings) -> dict:
             payload[f"option{i}_id"] = res.id
             payload[f"option{i}_question"] = res.canonical_question
             payload[f"option{i}_answer"] = res.answer_text
+            payload[f"option{i}_citation"] = res.citation
             payload[f"option{i}_score"] = round(float(res.score), 4)
     return payload
 
